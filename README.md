@@ -1,6 +1,12 @@
 node-linebot
 =======
 
+## Install
+
+```sh
+npm install --save @3846masa/linebot
+```
+
 ## Usage
 
 ```javascript
