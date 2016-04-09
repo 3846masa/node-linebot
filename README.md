@@ -1,4 +1,4 @@
-linebot
+node-linebot
 =======
 
 ## Usage
@@ -28,3 +28,7 @@ bot.on('message', (res) => {
 
 bot.listen(3000);
 ```
+
+## LICENSE
+
+MIT (c) 3846masa
