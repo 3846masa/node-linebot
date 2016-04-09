@@ -1,0 +1,20 @@
+export default {
+  SEND_MESSAGE: '138311608800106203',
+  EVENT_TYPE: {
+    MESSAGE: '138311609000106303',
+    OPERATION: '138311609100106403'
+  },
+  OP_TYPE: {
+    ADD_FRIEND: 4,
+    BLOCKED_ACCOUNT: 8
+  },
+  CONTENT_TYPE: {
+    TEXT: 1,
+    IMAGE: 2,
+    VIDEO: 3,
+    AUDIO: 4,
+    LOCATION: 7,
+    STICKER: 8,
+    CONTACT: 10
+  }
+};
