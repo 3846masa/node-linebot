@@ -1,3 +1,3 @@
 'use strict';
 
-module.exports = require('dist/linebot.js');
+module.exports = require('./dist/linebot.js');
