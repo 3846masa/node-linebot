@@ -56,12 +56,12 @@ const bot = new LineBot({
 bot.on(&apos;message&apos;, (res) =&gt; {
   const content = res.content;
   if ( content.contentType === LineBot.CONST.CONTENT_TYPE.TEXT ) {
-    bot.postMessage({
+    bot.postText({
       user: content.from,
       message: content.text
     });
   } else {
-    bot.postMessage({
+    bot.postText({
       user: content.from,
       message: &apos;Not text.&apos;
     });
