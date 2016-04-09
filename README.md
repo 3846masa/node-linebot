@@ -4,7 +4,7 @@ node-linebot
 ## Usage
 
 ```javascript
-const LineBot = require('linebot');
+const LineBot = require('@3846masa/linebot');
 const bot = new LineBot({
   channelID: 'xxxxxxx',
   channelSecret: 'xxxxxx',
