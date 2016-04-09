@@ -1,8 +1,11 @@
 {
   "name": "linebot",
-  "description": "LINE BOT API",
+  "description": "LINE BOT API wrapper for Node.js",
   "version": "0.1.0",
   "author": "3846masa <3846masahiro+git@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/3846masa/node-linebot/issues"
+  },
   "dependencies": {
     "axios": "^0.9.1",
     "body-parser": "^1.15.0",
@@ -27,11 +30,16 @@
     "package.json",
     "dist"
   ],
+  "homepage": "https://github.com/3846masa/node-linebot#readme",
   "keywords": [
     "linebot"
   ],
   "license": "MIT",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/3846masa/node-linebot.git"
+  },
   "scripts": {
     "build": "npm-run-all --parallel build:*",
     "build:doc": "esdoc -c ./.esdoc.json",
