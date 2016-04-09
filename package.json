@@ -47,7 +47,7 @@
     "fixpack": "fixpack",
     "test": "echo \"Error: no test specified\" && exit 1",
     "watch": "npm-run-all --parallel watch:*",
-    "watch:doc": "watch \"npm run build:watch\" ./src",
+    "watch:doc": "watch \"npm run build:doc\" ./src",
     "watch:js": "babel src/ --out-dir dist/ --watch"
   }
 }
