@@ -48,7 +48,7 @@
     "longname": "src/linebot.js~LineBot",
     "access": null,
     "export": true,
-    "importPath": "linebot/dist/linebot.js",
+    "importPath": "@3846masa/linebot/dist/linebot.js",
     "importStyle": "LineBot",
     "description": "LINE Bot API wrapper.",
     "examples": [

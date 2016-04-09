@@ -1,8 +1,8 @@
 window.esdocSearchIndex = [
   [
-    "linebot/dist/linebot.js~linebot",
+    "@3846masa/linebot/dist/linebot.js~linebot",
     "class/src/linebot.js~LineBot.html",
-    "<span>LineBot</span> <span class=\"search-result-import-path\">linebot/dist/linebot.js</span>",
+    "<span>LineBot</span> <span class=\"search-result-import-path\">@3846masa/linebot/dist/linebot.js</span>",
     "class"
   ],
   [

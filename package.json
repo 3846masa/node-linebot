@@ -1,5 +1,5 @@
 {
-  "name": "linebot",
+  "name": "@3846masa/linebot",
   "description": "LINE BOT API wrapper for Node.js",
   "version": "0.1.0",
   "author": "3846masa <3846masahiro+git@gmail.com>",
