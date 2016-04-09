@@ -10,9 +10,6 @@ import bodyParser from 'body-parser';
 
 /**
  * LINE Bot API wrapper.
- * When receive anything, each result is emitted.
- * ``message`` event is https://developers.line.me/bot-api/api-reference#receiving_messages .
- * ``operation`` event is https://developers.line.me/bot-api/api-reference#receiving_operations .
  *
  * @example <caption>EventEmitter</caption>
  * const LineBot = require('linebot');
@@ -319,6 +316,17 @@ class LineBot extends EventEmitter {
    */
   listen (...params) {
     this._express.listen(...params);
+  }
+
+  /**
+   * Adds the listener function to the end of the listeners array for the event named eventName.
+   * @see https://nodejs.org/api/events.html#events_emitter_on_eventname_listener
+   * @param  { ...any } params   https://nodejs.org/api/events.html#events_emitter_on_eventname_listener
+   * @listens { message }        Listen message. https://developers.line.me/bot-api/api-reference#sending_message
+   * @listens { operation }      Listen operation. https://developers.line.me/bot-api/api-reference#receiving_operations
+   */
+  on (...params) {
+    super.on(...params);
   }
 
   /**
