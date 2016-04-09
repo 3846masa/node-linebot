@@ -1,0 +1,1805 @@
+[
+  {
+    "__docId__": 0,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/line-const.js",
+    "memberof": null,
+    "longname": "src/line-const.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "export default {\n  SEND_MESSAGE: '138311608800106203',\n  EVENT_TYPE: {\n    MESSAGE: '138311609000106303',\n    OPERATION: '138311609100106403'\n  },\n  OP_TYPE: {\n    ADD_FRIEND: 4,\n    BLOCKED_ACCOUNT: 8\n  },\n  CONTENT_TYPE: {\n    TEXT: 1,\n    IMAGE: 2,\n    VIDEO: 3,\n    AUDIO: 4,\n    LOCATION: 7,\n    STICKER: 8,\n    CONTACT: 10\n  }\n};\n"
+  },
+  {
+    "__docId__": 1,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "src/linebot.js",
+    "memberof": null,
+    "longname": "src/linebot.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "import LINE_CONST from './line-const.js';\nimport { createHmac } from 'crypto';\n/**\n * @external { EventEmitter } https://nodejs.org/api/events.html\n */\nimport { EventEmitter } from 'events';\nimport axios from 'axios';\nimport Express from 'express';\nimport bodyParser from 'body-parser';\n\n/**\n * LINE Bot API wrapper.\n *\n * @example <caption>EventEmitter</caption>\n * const LineBot = require('linebot');\n * const bot = new LineBot(configs);\n *\n * bot.on('message', (result) => {\n *   console.log('You got a message!', result);\n * });\n *\n * bot.listen(3000);\n *\n * @extends { EventEmitter }\n * @see https://developers.line.me/bot-api/api-reference\n */\nclass LineBot extends EventEmitter {\n  /**\n   * Constructor\n   * @param  { Object } params\n   * @param  { string } params.channelID     Channel ID\n   * @param  { string } params.channelSecret Channel secret\n   * @param  { string } params.MID           MID\n   */\n  constructor ({ channelID, channelSecret, MID }) {\n    super();\n    this._init({ channelID, channelSecret, MID });\n  }\n\n  /** @private */\n  _init ({ channelID, channelSecret, MID }) {\n    /**\n     * Configuration.\n     * @type     { Object }\n     * @property { string } botConfig.channelID      Channel ID\n     * @property { string } botConfig.channelSecret  Channel secret\n     * @property { string } botConfig.MID            MID\n     */\n    this.botConfig = {\n      channelID: channelID,\n      channelSecret: channelSecret,\n      MID: MID\n    };\n    Object.freeze(this.botConfig);\n\n    /** @private */\n    this._fetcher = axios.create({\n      baseURL: 'https://trialbot-api.line.me/',\n      headers: {\n        'X-Line-ChannelID': this.botConfig.channelID, // Channel ID\n        'X-Line-ChannelSecret': this.botConfig.channelSecret, // Channel secret\n        'X-Line-Trusted-User-With-ACL': this.botConfig.MID // MID\n      }\n    });\n\n    /** @private */\n    this._express = Express();\n\n    this._express.use(bodyParser.raw({ type: '*/*' }));\n\n    this._express.use((req, res, next) => {\n      const isValid = this._checkSignature({\n        signature: req.header('X-LINE-ChannelSignature'),\n        body: req.body\n      });\n      if (!isValid) return next(new Error('Invalid request.'));\n      else return next();\n    });\n\n    this._express.use((req, res, next) => {\n      Promise.resolve(req.body.toString('utf8'))\n        .then(JSON.parse)\n        .then((json) => { req.json = json; })\n        .then(next).catch(next);\n    });\n\n    this._express.all('*', (req, res, next) => {\n      if (!req.json || !req.json.result) {\n        return next(new Error('Invalid JSON'));\n      }\n      res.status(200);\n      this.emit('receive', req.json.result);\n      for (let result of req.json.result) {\n        if (result.eventType === LINE_CONST.EVENT_TYPE.MESSAGE) {\n          this.emit('message', result);\n        }\n        if (result.eventType === LINE_CONST.EVENT_TYPE.OPERATION) {\n          this.emit('operation', result);\n        }\n      }\n      next();\n    });\n\n    this._express.use(function(err, req, res, next) {\n      res.status(400);\n      next();\n    });\n  }\n\n  /** @private */\n  _checkSignature ({ signature, body }) {\n    const hmac = createHmac('sha256', this.botConfig.channelSecret);\n    hmac.update(body);\n    const calcResult = hmac.digest('base64');\n    return ( calcResult === signature );\n  }\n\n  /**\n   * Post text.\n   * @see https://developers.line.me/bot-api/api-reference#sending_message_text\n   * @param  { Object }         params\n   * @param  { string }         [params.user]   MID of user you send to.\n   * @param  { Array<string> }  [params.users]  MIDs of users if you send to more than one people.\n   * @param  { string }         params.message  Message you send.\n   * @return { Promise }\n   */\n  postText ({ user, users, message }) {\n    return this._postMessage({\n      userList: (users) ? users : [ user ],\n      text: message,\n      contentType: LINE_CONST.CONTENT_TYPE.TEXT\n    });\n  }\n\n  /**\n   * Post image.\n   * @see https://developers.line.me/bot-api/api-reference#sending_message_image\n   * @param  { Object }         params\n   * @param  { string }         [params.user]        MID of user you send to.\n   * @param  { Array<string> }  [params.users]       MIDs of users if you send to more than one people.\n   * @param  { string }         params.originalUrl   Image URL (JPEG).\n   * @param  { string }         params.thumbnailUrl  Thumbnail URL (JPEG).\n   * @return { Promise }\n   */\n  postImage ({ user, users, originalUrl, thumbnailUrl }) {\n    return this._postMessage({\n      userList: (users) ? users : [ user ],\n      originalContentUrl: originalUrl,\n      previewImageUrl: thumbnailUrl,\n      contentType: LINE_CONST.CONTENT_TYPE.IMAGE\n    });\n  }\n\n  /**\n   * Post video.\n   * @see https://developers.line.me/bot-api/api-reference#sending_message_video\n   * @param  { Object }         params\n   * @param  { string }         [params.user]        MID of user you send to.\n   * @param  { Array<string> }  [params.users]       MIDs of users if you send to more than one people.\n   * @param  { string }         params.originalUrl   Video URL (MP4).\n   * @param  { string }         params.thumbnailUrl  Thumbnail URL (JPEG).\n   * @return { Promise }\n   */\n  postVideo ({ user, users, originalUrl, thumbnailUrl }) {\n    return this._postMessage({\n      userList: (users) ? users : [ user ],\n      originalContentUrl: originalUrl,\n      previewImageUrl: thumbnailUrl,\n      contentType: LINE_CONST.CONTENT_TYPE.VIDEO\n    });\n  }\n\n  /**\n   * Post audio.\n   * @see https://developers.line.me/bot-api/api-reference#sending_message_audio\n   * @param  { Object }         params\n   * @param  { string }         [params.user]         MID of user you send to.\n   * @param  { Array<string> }  [params.users]        MIDs of users if you send to more than one people.\n   * @param  { string }         params.originalUrl    Audio URL (M4A).\n   * @param  { string }         params.audioMillisec  Audio length (milliseconds).\n   * @return { Promise }\n   */\n  postAudio ({ user, users, originalUrl, audioMillisec }) {\n    return this._postMessage({\n      userList: (users) ? users : [ user ],\n      originalContentUrl: originalUrl,\n      contentMetadata: {\n        AUDLEN: audioMillisec\n      },\n      contentType: LINE_CONST.CONTENT_TYPE.AUDIO\n    });\n  }\n\n  /**\n   * Post location.\n   * @see https://developers.line.me/bot-api/api-reference#sending_message_location\n   * @param  { Object }         params\n   * @param  { string }         [params.user]        MID of user you send to.\n   * @param  { Array<string> }  [params.users]       MIDs of users if you send to more than one people.\n   * @param  { string }         params.locationName  Name of location.\n   * @param  { string }         params.latitude      Latitude of location.\n   * @param  { string }         params.longitude     Longitude of location.\n   * @return { Promise }\n   */\n  postLocation ({ user, users, locationName, latitude, longitude }) {\n    return this._postMessage({\n      userList: (users) ? users : [ user ],\n      text: locationName,\n      location: {\n        title: locationName,\n        latitude: latitude,\n        longitude: longitude\n      },\n      contentType: LINE_CONST.CONTENT_TYPE.LOCATION\n    });\n  }\n\n  /**\n   * Post Sticker.\n   * @see https://developers.line.me/bot-api/api-reference#sending_message_location\n   * @param  { Object }         params\n   * @param  { string }         [params.user]    MID of user you send to.\n   * @param  { Array<string> }  [params.users]   MIDs of users if you send to more than one people.\n   * @param  { string }         params.stkid     ID of the sticker.\n   * @param  { string }         params.stkpkgid  Package ID of the sticker.\n   * @param  { string }         [params.stkver]  Version number of the sticker.\n   * @return { Promise }\n   */\n  postSticker ({ user, users, stkid, stkpkgid, stkver }) {\n    return this._postMessage({\n      userList: (users) ? users : [ user ],\n      contentMetadata: {\n        STKID: stkid.toString(),\n        STKPKGID: stkpkgid.toString(),\n        STKVER: (stkver) ? stkver.toString() : undefined\n      },\n      contentType: LINE_CONST.CONTENT_TYPE.STICKER\n    });\n  }\n\n  /**\n   * Post content you make.\n   * @param  { Array<string> | string }  users    MIDs of users if you send to more than one people.\n   * @param  { Object }                  content  https://developers.line.me/bot-api/api-reference#sending_message\n   * @return { Promise }\n   */\n  postContent (users, content) {\n    const args = Object.assign(content, {\n      userList: (Array.isArray(users)) ? users : [ users ]\n    });\n    return this._postMessage(args);\n  }\n\n  /** @private */\n  _postMessage ({\n    userList, text, contentMetadata,\n    contentType = LINE_CONST.CONTENT_TYPE.TEXT,\n    originalContentUrl, previewImageUrl, location\n  }) {\n    return this._fetcher.post('/v1/events', {\n      to: userList,\n      toChannel: 1383378250,\n      eventType: LINE_CONST.SEND_MESSAGE,\n      content: {\n        contentType: contentType,\n        toType: 1,\n        text: text,\n        originalContentUrl: originalContentUrl,\n        previewImageUrl: previewImageUrl,\n        location: location,\n        contentMetadata: contentMetadata\n      }\n    })\n    .catch((err) => {\n      console.error(err.stack);\n      return Promise.reject(err);\n    });\n  }\n\n  /**\n   * Fetch user profile from MID.\n   * @param  { string }           MID  MID of user.\n   * @return { Promise<Object> }       Return user profile.\n   */\n  fetchProfileFromMID ( MID ) {\n    return this.fetchProfileFromMIDList([ MID ])\n    .then((contacts) => contacts[0])\n    .catch((err) => {\n      console.error(err.stack);\n      return Promise.reject(err);\n    });\n  }\n\n  /**\n   * Fetch user profile from MID.\n   * @param  { Array<string> }    MIDList  MIDs of users.\n   * @return { Promise<Object> }           Return user profile.\n   */\n  fetchProfileFromMIDList ( MIDList ) {\n    return this._fetcher.get('/v1/profiles', {\n      params: {\n        mids: MIDList.join(',')\n      }\n    })\n    .then((res) => res.data.contacts)\n    .catch((err) => {\n      console.error(err.stack);\n      return Promise.reject(err);\n    });\n  }\n\n  /**\n   * Binds and listens for connections on the specified host and port.\n   * @see http://expressjs.com/en/4x/api.html#app.listen\n   * @param { ...any }  params  http://expressjs.com/en/4x/api.html#app.listen\n   */\n  listen (...params) {\n    this._express.listen(...params);\n  }\n\n  /**\n   * Adds the listener function to the end of the listeners array for the event named eventName.\n   * @see https://nodejs.org/api/events.html#events_emitter_on_eventname_listener\n   * @param  { ...any } params   https://nodejs.org/api/events.html#events_emitter_on_eventname_listener\n   * @listens { message }        Listen message. https://developers.line.me/bot-api/api-reference#sending_message\n   * @listens { operation }      Listen operation. https://developers.line.me/bot-api/api-reference#receiving_operations\n   */\n  on (...params) {\n    super.on(...params);\n  }\n\n  /**\n   * Constant.\n   * @type     { Object }\n   * @property { string }  CONST.SEND_MESSAGE             '138311608800106203'\n   * @property { string }  CONST.EVENT_TYPE.MESSAGE       '138311609000106303'\n   * @property { string }  CONST.EVENT_TYPE.OPERATION     '138311609100106403'\n   * @property { number }  CONST.OP_TYPE.ADD_FRIEND       4\n   * @property { number }  CONST.OP_TYPE.BLOCKED_ACCOUNT  8\n   * @property { number }  CONST.CONTENT_TYPE.TEXT        1\n   * @property { number }  CONST.CONTENT_TYPE.IMAGE       2\n   * @property { number }  CONST.CONTENT_TYPE.VIDEO       3\n   * @property { number }  CONST.CONTENT_TYPE.AUDIO       4\n   * @property { number }  CONST.CONTENT_TYPE.LOCATION    7\n   * @property { number }  CONST.CONTENT_TYPE.STICKER     8\n   * @property { number }  CONST.CONTENT_TYPE.CONTACT     10\n   */\n  static get CONST () {\n    return LINE_CONST;\n  }\n}\n\nexport default LineBot;\n"
+  },
+  {
+    "__docId__": 2,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": " EventEmitter ",
+    "externalLink": "https://nodejs.org/api/events.html",
+    "memberof": "src/linebot.js",
+    "longname": "src/linebot.js~ EventEmitter ",
+    "access": null,
+    "description": "",
+    "lineNumber": 6
+  },
+  {
+    "__docId__": 3,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "LineBot",
+    "memberof": "src/linebot.js",
+    "longname": "src/linebot.js~LineBot",
+    "access": null,
+    "export": true,
+    "importPath": "linebot/dist/linebot.js",
+    "importStyle": "LineBot",
+    "description": "LINE Bot API wrapper.",
+    "examples": [
+      "<caption>EventEmitter</caption>\nconst LineBot = require('linebot');\nconst bot = new LineBot(configs);\n\nbot.on('message', (result) => {\n  console.log('You got a message!', result);\n});\n\nbot.listen(3000);"
+    ],
+    "see": [
+      "https://developers.line.me/bot-api/api-reference"
+    ],
+    "lineNumber": 27,
+    "interface": false,
+    "extends": [
+      " EventEmitter "
+    ]
+  },
+  {
+    "__docId__": 4,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "src/linebot.js~LineBot",
+    "longname": "src/linebot.js~LineBot#constructor",
+    "access": null,
+    "description": "Constructor",
+    "lineNumber": 35,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          " Object "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.channelID",
+        "description": "Channel ID"
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.channelSecret",
+        "description": "Channel secret"
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.MID",
+        "description": "MID"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 5,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "_init",
+    "memberof": "src/linebot.js~LineBot",
+    "longname": "src/linebot.js~LineBot#_init",
+    "access": "private",
+    "description": null,
+    "lineNumber": 41,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"channelID\": *, \"channelSecret\": *, \"MID\": *}"
+        ],
+        "defaultRaw": {
+          "channelID": null,
+          "channelSecret": null,
+          "MID": null
+        },
+        "defaultValue": "{\"channelID\":null,\"channelSecret\":null,\"MID\":null}"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 6,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "botConfig",
+    "memberof": "src/linebot.js~LineBot",
+    "longname": "src/linebot.js~LineBot#botConfig",
+    "access": null,
+    "description": "Configuration.",
+    "lineNumber": 49,
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "botConfig.channelID",
+        "description": "Channel ID"
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "botConfig.channelSecret",
+        "description": "Channel secret"
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "botConfig.MID",
+        "description": "MID"
+      }
+    ],
+    "type": {
+      "nullable": null,
+      "types": [
+        " Object "
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 7,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_fetcher",
+    "memberof": "src/linebot.js~LineBot",
+    "longname": "src/linebot.js~LineBot#_fetcher",
+    "access": "private",
+    "description": null,
+    "lineNumber": 57,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 8,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_express",
+    "memberof": "src/linebot.js~LineBot",
+    "longname": "src/linebot.js~LineBot#_express",
+    "access": "private",
+    "description": null,
+    "lineNumber": 67,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 9,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "_checkSignature",
+    "memberof": "src/linebot.js~LineBot",
+    "longname": "src/linebot.js~LineBot#_checkSignature",
+    "access": "private",
+    "description": null,
+    "lineNumber": 111,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"signature\": *, \"body\": *}"
+        ],
+        "defaultRaw": {
+          "signature": null,
+          "body": null
+        },
+        "defaultValue": "{\"signature\":null,\"body\":null}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 10,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "postText",
+    "memberof": "src/linebot.js~LineBot",
+    "longname": "src/linebot.js~LineBot#postText",
+    "access": null,
+    "description": "Post text.",
+    "see": [
+      "https://developers.line.me/bot-api/api-reference#sending_message_text"
+    ],
+    "lineNumber": 127,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          " Object "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "params.user",
+        "description": "MID of user you send to."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " Array<string> "
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "params.users",
+        "description": "MIDs of users if you send to more than one people."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.message",
+        "description": "Message you send."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        " Promise "
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 11,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "postImage",
+    "memberof": "src/linebot.js~LineBot",
+    "longname": "src/linebot.js~LineBot#postImage",
+    "access": null,
+    "description": "Post image.",
+    "see": [
+      "https://developers.line.me/bot-api/api-reference#sending_message_image"
+    ],
+    "lineNumber": 145,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          " Object "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "params.user",
+        "description": "MID of user you send to."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " Array<string> "
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "params.users",
+        "description": "MIDs of users if you send to more than one people."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.originalUrl",
+        "description": "Image URL (JPEG)."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.thumbnailUrl",
+        "description": "Thumbnail URL (JPEG)."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        " Promise "
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 12,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "postVideo",
+    "memberof": "src/linebot.js~LineBot",
+    "longname": "src/linebot.js~LineBot#postVideo",
+    "access": null,
+    "description": "Post video.",
+    "see": [
+      "https://developers.line.me/bot-api/api-reference#sending_message_video"
+    ],
+    "lineNumber": 164,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          " Object "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "params.user",
+        "description": "MID of user you send to."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " Array<string> "
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "params.users",
+        "description": "MIDs of users if you send to more than one people."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.originalUrl",
+        "description": "Video URL (MP4)."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.thumbnailUrl",
+        "description": "Thumbnail URL (JPEG)."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        " Promise "
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 13,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "postAudio",
+    "memberof": "src/linebot.js~LineBot",
+    "longname": "src/linebot.js~LineBot#postAudio",
+    "access": null,
+    "description": "Post audio.",
+    "see": [
+      "https://developers.line.me/bot-api/api-reference#sending_message_audio"
+    ],
+    "lineNumber": 183,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          " Object "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "params.user",
+        "description": "MID of user you send to."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " Array<string> "
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "params.users",
+        "description": "MIDs of users if you send to more than one people."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.originalUrl",
+        "description": "Audio URL (M4A)."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.audioMillisec",
+        "description": "Audio length (milliseconds)."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        " Promise "
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 14,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "postLocation",
+    "memberof": "src/linebot.js~LineBot",
+    "longname": "src/linebot.js~LineBot#postLocation",
+    "access": null,
+    "description": "Post location.",
+    "see": [
+      "https://developers.line.me/bot-api/api-reference#sending_message_location"
+    ],
+    "lineNumber": 205,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          " Object "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "params.user",
+        "description": "MID of user you send to."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " Array<string> "
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "params.users",
+        "description": "MIDs of users if you send to more than one people."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.locationName",
+        "description": "Name of location."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.latitude",
+        "description": "Latitude of location."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.longitude",
+        "description": "Longitude of location."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        " Promise "
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 15,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "postSticker",
+    "memberof": "src/linebot.js~LineBot",
+    "longname": "src/linebot.js~LineBot#postSticker",
+    "access": null,
+    "description": "Post Sticker.",
+    "see": [
+      "https://developers.line.me/bot-api/api-reference#sending_message_location"
+    ],
+    "lineNumber": 229,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          " Object "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "params.user",
+        "description": "MID of user you send to."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " Array<string> "
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "params.users",
+        "description": "MIDs of users if you send to more than one people."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.stkid",
+        "description": "ID of the sticker."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.stkpkgid",
+        "description": "Package ID of the sticker."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "params.stkver",
+        "description": "Version number of the sticker."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        " Promise "
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 16,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "postContent",
+    "memberof": "src/linebot.js~LineBot",
+    "longname": "src/linebot.js~LineBot#postContent",
+    "access": null,
+    "description": "Post content you make.",
+    "lineNumber": 247,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          " Array<string> ",
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "users",
+        "description": "MIDs of users if you send to more than one people."
+      },
+      {
+        "nullable": null,
+        "types": [
+          " Object "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "content",
+        "description": "https://developers.line.me/bot-api/api-reference#sending_message"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        " Promise "
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 17,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "_postMessage",
+    "memberof": "src/linebot.js~LineBot",
+    "longname": "src/linebot.js~LineBot#_postMessage",
+    "access": "private",
+    "description": null,
+    "lineNumber": 255,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"userList\": *, \"text\": *, \"contentMetadata\": *, \"contentType\": *, \"originalContentUrl\": *, \"previewImageUrl\": *, \"location\": *}"
+        ],
+        "defaultRaw": {
+          "userList": null,
+          "text": null,
+          "contentMetadata": null,
+          "contentType": null,
+          "originalContentUrl": null,
+          "previewImageUrl": null,
+          "location": null
+        },
+        "defaultValue": "{\"userList\":null,\"text\":null,\"contentMetadata\":null,\"contentType\":null,\"originalContentUrl\":null,\"previewImageUrl\":null,\"location\":null}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 18,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "fetchProfileFromMID",
+    "memberof": "src/linebot.js~LineBot",
+    "longname": "src/linebot.js~LineBot#fetchProfileFromMID",
+    "access": null,
+    "description": "Fetch user profile from MID.",
+    "lineNumber": 285,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "MID",
+        "description": "MID of user."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        " Promise<Object> "
+      ],
+      "spread": false,
+      "description": "Return user profile."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 19,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "fetchProfileFromMIDList",
+    "memberof": "src/linebot.js~LineBot",
+    "longname": "src/linebot.js~LineBot#fetchProfileFromMIDList",
+    "access": null,
+    "description": "Fetch user profile from MID.",
+    "lineNumber": 299,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          " Array<string> "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "MIDList",
+        "description": "MIDs of users."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        " Promise<Object> "
+      ],
+      "spread": false,
+      "description": "Return user profile."
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 20,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "listen",
+    "memberof": "src/linebot.js~LineBot",
+    "longname": "src/linebot.js~LineBot#listen",
+    "access": null,
+    "description": "Binds and listens for connections on the specified host and port.",
+    "see": [
+      "http://expressjs.com/en/4x/api.html#app.listen"
+    ],
+    "lineNumber": 317,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          " ...any "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": "http://expressjs.com/en/4x/api.html#app.listen"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 21,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "on",
+    "memberof": "src/linebot.js~LineBot",
+    "longname": "src/linebot.js~LineBot#on",
+    "access": null,
+    "description": "Adds the listener function to the end of the listeners array for the event named eventName.",
+    "see": [
+      "https://nodejs.org/api/events.html#events_emitter_on_eventname_listener"
+    ],
+    "lineNumber": 328,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          " ...any "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": "https://nodejs.org/api/events.html#events_emitter_on_eventname_listener"
+      }
+    ],
+    "listens": [
+      {
+        "types": [
+          " message "
+        ],
+        "description": "Listen message. https://developers.line.me/bot-api/api-reference#sending_message"
+      },
+      {
+        "types": [
+          " operation "
+        ],
+        "description": "Listen operation. https://developers.line.me/bot-api/api-reference#receiving_operations"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 22,
+    "kind": "get",
+    "static": true,
+    "variation": null,
+    "name": "CONST",
+    "memberof": "src/linebot.js~LineBot",
+    "longname": "src/linebot.js~LineBot.CONST",
+    "access": null,
+    "description": "Constant.",
+    "lineNumber": 348,
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "CONST.SEND_MESSAGE",
+        "description": "'138311608800106203'"
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "CONST.EVENT_TYPE.MESSAGE",
+        "description": "'138311609000106303'"
+      },
+      {
+        "nullable": null,
+        "types": [
+          " string "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "CONST.EVENT_TYPE.OPERATION",
+        "description": "'138311609100106403'"
+      },
+      {
+        "nullable": null,
+        "types": [
+          " number "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "CONST.OP_TYPE.ADD_FRIEND",
+        "description": "4"
+      },
+      {
+        "nullable": null,
+        "types": [
+          " number "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "CONST.OP_TYPE.BLOCKED_ACCOUNT",
+        "description": "8"
+      },
+      {
+        "nullable": null,
+        "types": [
+          " number "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "CONST.CONTENT_TYPE.TEXT",
+        "description": "1"
+      },
+      {
+        "nullable": null,
+        "types": [
+          " number "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "CONST.CONTENT_TYPE.IMAGE",
+        "description": "2"
+      },
+      {
+        "nullable": null,
+        "types": [
+          " number "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "CONST.CONTENT_TYPE.VIDEO",
+        "description": "3"
+      },
+      {
+        "nullable": null,
+        "types": [
+          " number "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "CONST.CONTENT_TYPE.AUDIO",
+        "description": "4"
+      },
+      {
+        "nullable": null,
+        "types": [
+          " number "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "CONST.CONTENT_TYPE.LOCATION",
+        "description": "7"
+      },
+      {
+        "nullable": null,
+        "types": [
+          " number "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "CONST.CONTENT_TYPE.STICKER",
+        "description": "8"
+      },
+      {
+        "nullable": null,
+        "types": [
+          " number "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "CONST.CONTENT_TYPE.CONTACT",
+        "description": "10"
+      }
+    ],
+    "type": {
+      "nullable": null,
+      "types": [
+        " Object "
+      ],
+      "spread": false,
+      "description": null
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 24,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Infinity",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 25,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~NaN",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 26,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~undefined",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 27,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~null",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 28,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 29,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 30,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 31,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 32,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 33,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 34,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Symbol",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 35,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Error",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 36,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~EvalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 37,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~InternalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 38,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RangeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 39,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ReferenceError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 40,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~SyntaxError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 41,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~TypeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 42,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~URIError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 43,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 44,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 45,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Date",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 46,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~String",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 47,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~string",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 48,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RegExp",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 49,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 50,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 51,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 52,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8ClampedArray",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 53,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 54,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 55,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 56,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 57,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 58,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float64Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 59,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Map",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 60,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Set",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 61,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakMap",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 62,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakSet",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 63,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ArrayBuffer",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 64,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~DataView",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 65,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~JSON",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 66,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Promise",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 67,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Generator",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 68,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~GeneratorFunction",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 69,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Reflect",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 70,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Proxy",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 72,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "CanvasRenderingContext2D",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~CanvasRenderingContext2D",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 73,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "DocumentFragment",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~DocumentFragment",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 74,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Element",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Element",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 75,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Event",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Event",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 76,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Node",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Node",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 77,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "NodeList",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~NodeList",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 78,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "XMLHttpRequest",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~XMLHttpRequest",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 79,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "AudioContext",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/AudioContext",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~AudioContext",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  }
+]

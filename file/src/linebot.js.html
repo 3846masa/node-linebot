@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/linebot.js | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/3846masa/node-linebot" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/linebot.js~LineBot.html">LineBot</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="https://nodejs.org/api/events.html"> EventEmitter </a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/linebot.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import LINE_CONST from &apos;./line-const.js&apos;;
+import { createHmac } from &apos;crypto&apos;;
+/**
+ * @external { EventEmitter } https://nodejs.org/api/events.html
+ */
+import { EventEmitter } from &apos;events&apos;;
+import axios from &apos;axios&apos;;
+import Express from &apos;express&apos;;
+import bodyParser from &apos;body-parser&apos;;
+
+/**
+ * LINE Bot API wrapper.
+ *
+ * @example &lt;caption&gt;EventEmitter&lt;/caption&gt;
+ * const LineBot = require(&apos;linebot&apos;);
+ * const bot = new LineBot(configs);
+ *
+ * bot.on(&apos;message&apos;, (result) =&gt; {
+ *   console.log(&apos;You got a message!&apos;, result);
+ * });
+ *
+ * bot.listen(3000);
+ *
+ * @extends { EventEmitter }
+ * @see https://developers.line.me/bot-api/api-reference
+ */
+class LineBot extends EventEmitter {
+  /**
+   * Constructor
+   * @param  { Object } params
+   * @param  { string } params.channelID     Channel ID
+   * @param  { string } params.channelSecret Channel secret
+   * @param  { string } params.MID           MID
+   */
+  constructor ({ channelID, channelSecret, MID }) {
+    super();
+    this._init({ channelID, channelSecret, MID });
+  }
+
+  /** @private */
+  _init ({ channelID, channelSecret, MID }) {
+    /**
+     * Configuration.
+     * @type     { Object }
+     * @property { string } botConfig.channelID      Channel ID
+     * @property { string } botConfig.channelSecret  Channel secret
+     * @property { string } botConfig.MID            MID
+     */
+    this.botConfig = {
+      channelID: channelID,
+      channelSecret: channelSecret,
+      MID: MID
+    };
+    Object.freeze(this.botConfig);
+
+    /** @private */
+    this._fetcher = axios.create({
+      baseURL: &apos;https://trialbot-api.line.me/&apos;,
+      headers: {
+        &apos;X-Line-ChannelID&apos;: this.botConfig.channelID, // Channel ID
+        &apos;X-Line-ChannelSecret&apos;: this.botConfig.channelSecret, // Channel secret
+        &apos;X-Line-Trusted-User-With-ACL&apos;: this.botConfig.MID // MID
+      }
+    });
+
+    /** @private */
+    this._express = Express();
+
+    this._express.use(bodyParser.raw({ type: &apos;*/*&apos; }));
+
+    this._express.use((req, res, next) =&gt; {
+      const isValid = this._checkSignature({
+        signature: req.header(&apos;X-LINE-ChannelSignature&apos;),
+        body: req.body
+      });
+      if (!isValid) return next(new Error(&apos;Invalid request.&apos;));
+      else return next();
+    });
+
+    this._express.use((req, res, next) =&gt; {
+      Promise.resolve(req.body.toString(&apos;utf8&apos;))
+        .then(JSON.parse)
+        .then((json) =&gt; { req.json = json; })
+        .then(next).catch(next);
+    });
+
+    this._express.all(&apos;*&apos;, (req, res, next) =&gt; {
+      if (!req.json || !req.json.result) {
+        return next(new Error(&apos;Invalid JSON&apos;));
+      }
+      res.status(200);
+      this.emit(&apos;receive&apos;, req.json.result);
+      for (let result of req.json.result) {
+        if (result.eventType === LINE_CONST.EVENT_TYPE.MESSAGE) {
+          this.emit(&apos;message&apos;, result);
+        }
+        if (result.eventType === LINE_CONST.EVENT_TYPE.OPERATION) {
+          this.emit(&apos;operation&apos;, result);
+        }
+      }
+      next();
+    });
+
+    this._express.use(function(err, req, res, next) {
+      res.status(400);
+      next();
+    });
+  }
+
+  /** @private */
+  _checkSignature ({ signature, body }) {
+    const hmac = createHmac(&apos;sha256&apos;, this.botConfig.channelSecret);
+    hmac.update(body);
+    const calcResult = hmac.digest(&apos;base64&apos;);
+    return ( calcResult === signature );
+  }
+
+  /**
+   * Post text.
+   * @see https://developers.line.me/bot-api/api-reference#sending_message_text
+   * @param  { Object }         params
+   * @param  { string }         [params.user]   MID of user you send to.
+   * @param  { Array&lt;string&gt; }  [params.users]  MIDs of users if you send to more than one people.
+   * @param  { string }         params.message  Message you send.
+   * @return { Promise }
+   */
+  postText ({ user, users, message }) {
+    return this._postMessage({
+      userList: (users) ? users : [ user ],
+      text: message,
+      contentType: LINE_CONST.CONTENT_TYPE.TEXT
+    });
+  }
+
+  /**
+   * Post image.
+   * @see https://developers.line.me/bot-api/api-reference#sending_message_image
+   * @param  { Object }         params
+   * @param  { string }         [params.user]        MID of user you send to.
+   * @param  { Array&lt;string&gt; }  [params.users]       MIDs of users if you send to more than one people.
+   * @param  { string }         params.originalUrl   Image URL (JPEG).
+   * @param  { string }         params.thumbnailUrl  Thumbnail URL (JPEG).
+   * @return { Promise }
+   */
+  postImage ({ user, users, originalUrl, thumbnailUrl }) {
+    return this._postMessage({
+      userList: (users) ? users : [ user ],
+      originalContentUrl: originalUrl,
+      previewImageUrl: thumbnailUrl,
+      contentType: LINE_CONST.CONTENT_TYPE.IMAGE
+    });
+  }
+
+  /**
+   * Post video.
+   * @see https://developers.line.me/bot-api/api-reference#sending_message_video
+   * @param  { Object }         params
+   * @param  { string }         [params.user]        MID of user you send to.
+   * @param  { Array&lt;string&gt; }  [params.users]       MIDs of users if you send to more than one people.
+   * @param  { string }         params.originalUrl   Video URL (MP4).
+   * @param  { string }         params.thumbnailUrl  Thumbnail URL (JPEG).
+   * @return { Promise }
+   */
+  postVideo ({ user, users, originalUrl, thumbnailUrl }) {
+    return this._postMessage({
+      userList: (users) ? users : [ user ],
+      originalContentUrl: originalUrl,
+      previewImageUrl: thumbnailUrl,
+      contentType: LINE_CONST.CONTENT_TYPE.VIDEO
+    });
+  }
+
+  /**
+   * Post audio.
+   * @see https://developers.line.me/bot-api/api-reference#sending_message_audio
+   * @param  { Object }         params
+   * @param  { string }         [params.user]         MID of user you send to.
+   * @param  { Array&lt;string&gt; }  [params.users]        MIDs of users if you send to more than one people.
+   * @param  { string }         params.originalUrl    Audio URL (M4A).
+   * @param  { string }         params.audioMillisec  Audio length (milliseconds).
+   * @return { Promise }
+   */
+  postAudio ({ user, users, originalUrl, audioMillisec }) {
+    return this._postMessage({
+      userList: (users) ? users : [ user ],
+      originalContentUrl: originalUrl,
+      contentMetadata: {
+        AUDLEN: audioMillisec
+      },
+      contentType: LINE_CONST.CONTENT_TYPE.AUDIO
+    });
+  }
+
+  /**
+   * Post location.
+   * @see https://developers.line.me/bot-api/api-reference#sending_message_location
+   * @param  { Object }         params
+   * @param  { string }         [params.user]        MID of user you send to.
+   * @param  { Array&lt;string&gt; }  [params.users]       MIDs of users if you send to more than one people.
+   * @param  { string }         params.locationName  Name of location.
+   * @param  { string }         params.latitude      Latitude of location.
+   * @param  { string }         params.longitude     Longitude of location.
+   * @return { Promise }
+   */
+  postLocation ({ user, users, locationName, latitude, longitude }) {
+    return this._postMessage({
+      userList: (users) ? users : [ user ],
+      text: locationName,
+      location: {
+        title: locationName,
+        latitude: latitude,
+        longitude: longitude
+      },
+      contentType: LINE_CONST.CONTENT_TYPE.LOCATION
+    });
+  }
+
+  /**
+   * Post Sticker.
+   * @see https://developers.line.me/bot-api/api-reference#sending_message_location
+   * @param  { Object }         params
+   * @param  { string }         [params.user]    MID of user you send to.
+   * @param  { Array&lt;string&gt; }  [params.users]   MIDs of users if you send to more than one people.
+   * @param  { string }         params.stkid     ID of the sticker.
+   * @param  { string }         params.stkpkgid  Package ID of the sticker.
+   * @param  { string }         [params.stkver]  Version number of the sticker.
+   * @return { Promise }
+   */
+  postSticker ({ user, users, stkid, stkpkgid, stkver }) {
+    return this._postMessage({
+      userList: (users) ? users : [ user ],
+      contentMetadata: {
+        STKID: stkid.toString(),
+        STKPKGID: stkpkgid.toString(),
+        STKVER: (stkver) ? stkver.toString() : undefined
+      },
+      contentType: LINE_CONST.CONTENT_TYPE.STICKER
+    });
+  }
+
+  /**
+   * Post content you make.
+   * @param  { Array&lt;string&gt; | string }  users    MIDs of users if you send to more than one people.
+   * @param  { Object }                  content  https://developers.line.me/bot-api/api-reference#sending_message
+   * @return { Promise }
+   */
+  postContent (users, content) {
+    const args = Object.assign(content, {
+      userList: (Array.isArray(users)) ? users : [ users ]
+    });
+    return this._postMessage(args);
+  }
+
+  /** @private */
+  _postMessage ({
+    userList, text, contentMetadata,
+    contentType = LINE_CONST.CONTENT_TYPE.TEXT,
+    originalContentUrl, previewImageUrl, location
+  }) {
+    return this._fetcher.post(&apos;/v1/events&apos;, {
+      to: userList,
+      toChannel: 1383378250,
+      eventType: LINE_CONST.SEND_MESSAGE,
+      content: {
+        contentType: contentType,
+        toType: 1,
+        text: text,
+        originalContentUrl: originalContentUrl,
+        previewImageUrl: previewImageUrl,
+        location: location,
+        contentMetadata: contentMetadata
+      }
+    })
+    .catch((err) =&gt; {
+      console.error(err.stack);
+      return Promise.reject(err);
+    });
+  }
+
+  /**
+   * Fetch user profile from MID.
+   * @param  { string }           MID  MID of user.
+   * @return { Promise&lt;Object&gt; }       Return user profile.
+   */
+  fetchProfileFromMID ( MID ) {
+    return this.fetchProfileFromMIDList([ MID ])
+    .then((contacts) =&gt; contacts[0])
+    .catch((err) =&gt; {
+      console.error(err.stack);
+      return Promise.reject(err);
+    });
+  }
+
+  /**
+   * Fetch user profile from MID.
+   * @param  { Array&lt;string&gt; }    MIDList  MIDs of users.
+   * @return { Promise&lt;Object&gt; }           Return user profile.
+   */
+  fetchProfileFromMIDList ( MIDList ) {
+    return this._fetcher.get(&apos;/v1/profiles&apos;, {
+      params: {
+        mids: MIDList.join(&apos;,&apos;)
+      }
+    })
+    .then((res) =&gt; res.data.contacts)
+    .catch((err) =&gt; {
+      console.error(err.stack);
+      return Promise.reject(err);
+    });
+  }
+
+  /**
+   * Binds and listens for connections on the specified host and port.
+   * @see http://expressjs.com/en/4x/api.html#app.listen
+   * @param { ...any }  params  http://expressjs.com/en/4x/api.html#app.listen
+   */
+  listen (...params) {
+    this._express.listen(...params);
+  }
+
+  /**
+   * Adds the listener function to the end of the listeners array for the event named eventName.
+   * @see https://nodejs.org/api/events.html#events_emitter_on_eventname_listener
+   * @param  { ...any } params   https://nodejs.org/api/events.html#events_emitter_on_eventname_listener
+   * @listens { message }        Listen message. https://developers.line.me/bot-api/api-reference#sending_message
+   * @listens { operation }      Listen operation. https://developers.line.me/bot-api/api-reference#receiving_operations
+   */
+  on (...params) {
+    super.on(...params);
+  }
+
+  /**
+   * Constant.
+   * @type     { Object }
+   * @property { string }  CONST.SEND_MESSAGE             &apos;138311608800106203&apos;
+   * @property { string }  CONST.EVENT_TYPE.MESSAGE       &apos;138311609000106303&apos;
+   * @property { string }  CONST.EVENT_TYPE.OPERATION     &apos;138311609100106403&apos;
+   * @property { number }  CONST.OP_TYPE.ADD_FRIEND       4
+   * @property { number }  CONST.OP_TYPE.BLOCKED_ACCOUNT  8
+   * @property { number }  CONST.CONTENT_TYPE.TEXT        1
+   * @property { number }  CONST.CONTENT_TYPE.IMAGE       2
+   * @property { number }  CONST.CONTENT_TYPE.VIDEO       3
+   * @property { number }  CONST.CONTENT_TYPE.AUDIO       4
+   * @property { number }  CONST.CONTENT_TYPE.LOCATION    7
+   * @property { number }  CONST.CONTENT_TYPE.STICKER     8
+   * @property { number }  CONST.CONTENT_TYPE.CONTACT     10
+   */
+  static get CONST () {
+    return LINE_CONST;
+  }
+}
+
+export default LineBot;
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.6)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

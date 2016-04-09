@@ -1,0 +1,12 @@
+{
+  "coverage": "100%",
+  "expectCount": 15,
+  "actualCount": 15,
+  "files": {
+    "src/linebot.js": {
+      "expectCount": 15,
+      "actualCount": 15,
+      "undocumentLines": []
+    }
+  }
+}

@@ -1,0 +1,1725 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">LineBot | API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/3846masa/node-linebot" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/linebot.js~LineBot.html">LineBot</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="https://nodejs.org/api/events.html"> EventEmitter </a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><div class="header-notice">
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import LineBot from &apos;<span><a href="file/src/linebot.js.html#lineNumber27">linebot/dist/linebot.js</a></span>&apos;</code></pre></div>
+  <span data-ice="access">public</span>
+  <span data-ice="kind">class</span>
+  
+  
+  
+  <span data-ice="source">| <span><a href="file/src/linebot.js.html#lineNumber27">source</a></span></span>
+</div>
+
+<div class="self-detail detail">
+  <h1 data-ice="name">LineBot</h1>
+
+  
+
+  
+  
+  <div class="flat-list" data-ice="extendsChain"><h4>Extends:</h4><div><span><a href="https://nodejs.org/api/events.html"> EventEmitter </a></span> &#x2192; LineBot</div></div>
+  
+  
+  
+  
+  
+  
+
+  
+  
+  <div class="description" data-ice="description"><p>LINE Bot API wrapper.</p>
+</div>
+
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="https://developers.line.me/bot-api/api-reference">https://developers.line.me/bot-api/api-reference</a></span></li></ul></div>
+
+  <div data-ice="exampleDocs">
+    <h4>Example:</h4>
+    
+  <div class="example-doc" data-ice="exampleDoc">
+      <div class="example-caption" data-ice="exampleCaption">EventEmitter</div>
+      <pre class="prettyprint source-code"><code data-ice="exampleCode">const LineBot = require(&apos;linebot&apos;);
+const bot = new LineBot(configs);
+
+bot.on(&apos;message&apos;, (result) =&gt; {
+  console.log(&apos;You got a message!&apos;, result);
+});
+
+bot.listen(3000);</code></pre>
+    </div>
+</div>
+
+  
+
+  
+</div>
+
+<div data-ice="staticMemberSummary"><h2>Static Member Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Static Public Members</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      <span data-ice="static">static</span>
+      <span class="kind" data-ice="kind">get</span>
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/linebot.js~LineBot.html#static-get-CONST">CONST</a></span></span><span data-ice="signature">: <span> Object </span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Constant.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+<div data-ice="constructorSummary"><h2>Constructor Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Constructor</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/linebot.js~LineBot.html#instance-constructor-constructor">constructor</a></span></span><span data-ice="signature">(params: <span> Object </span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Constructor</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<div data-ice="memberSummary"><h2>Member Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Members</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/linebot.js~LineBot.html#instance-member-botConfig">botConfig</a></span></span><span data-ice="signature">: <span> Object </span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Configuration.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<div data-ice="methodSummary"><h2>Method Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Methods</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/linebot.js~LineBot.html#instance-method-fetchProfileFromMID">fetchProfileFromMID</a></span></span><span data-ice="signature">(MID: <span> string </span>): <span> Promise&lt;Object&gt; </span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Fetch user profile from MID.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/linebot.js~LineBot.html#instance-method-fetchProfileFromMIDList">fetchProfileFromMIDList</a></span></span><span data-ice="signature">(MIDList: <span> Array&lt;string&gt; </span>): <span> Promise&lt;Object&gt; </span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Fetch user profile from MID.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/linebot.js~LineBot.html#instance-method-listen">listen</a></span></span><span data-ice="signature">(params: <span> ...any </span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Binds and listens for connections on the specified host and port.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/linebot.js~LineBot.html#instance-method-on">on</a></span></span><span data-ice="signature">(params: <span> ...any </span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Adds the listener function to the end of the listeners array for the event named eventName.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/linebot.js~LineBot.html#instance-method-postAudio">postAudio</a></span></span><span data-ice="signature">(params: <span> Object </span>): <span> Promise </span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Post audio.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/linebot.js~LineBot.html#instance-method-postContent">postContent</a></span></span><span data-ice="signature">(users: <span> Array&lt;string&gt; </span> | <span> string </span>, content: <span> Object </span>): <span> Promise </span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Post content you make.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/linebot.js~LineBot.html#instance-method-postImage">postImage</a></span></span><span data-ice="signature">(params: <span> Object </span>): <span> Promise </span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Post image.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/linebot.js~LineBot.html#instance-method-postLocation">postLocation</a></span></span><span data-ice="signature">(params: <span> Object </span>): <span> Promise </span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Post location.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/linebot.js~LineBot.html#instance-method-postSticker">postSticker</a></span></span><span data-ice="signature">(params: <span> Object </span>): <span> Promise </span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Post Sticker.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/linebot.js~LineBot.html#instance-method-postText">postText</a></span></span><span data-ice="signature">(params: <span> Object </span>): <span> Promise </span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Post text.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/src/linebot.js~LineBot.html#instance-method-postVideo">postVideo</a></span></span><span data-ice="signature">(params: <span> Object </span>): <span> Promise </span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Post video.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+
+
+<div data-ice="staticMemberDetails"><h2 data-ice="title">Static Public Members</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="static-get-CONST">
+    <span class="access" data-ice="access">public</span>
+    <span data-ice="static">static</span>
+    <span class="kind" data-ice="kind">get</span>
+    
+    
+    <span data-ice="name">CONST</span><span data-ice="signature">: <span> Object </span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/linebot.js.html#lineNumber348">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Constant.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Properties:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">CONST.SEND_MESSAGE</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&apos;138311608800106203&apos;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="2">
+      <td data-ice="name" data-depth="2">CONST.EVENT_TYPE.MESSAGE</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&apos;138311609000106303&apos;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="2">
+      <td data-ice="name" data-depth="2">CONST.EVENT_TYPE.OPERATION</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>&apos;138311609100106403&apos;</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="2">
+      <td data-ice="name" data-depth="2">CONST.OP_TYPE.ADD_FRIEND</td>
+      <td data-ice="type"><span> number </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>4</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="2">
+      <td data-ice="name" data-depth="2">CONST.OP_TYPE.BLOCKED_ACCOUNT</td>
+      <td data-ice="type"><span> number </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>8</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="2">
+      <td data-ice="name" data-depth="2">CONST.CONTENT_TYPE.TEXT</td>
+      <td data-ice="type"><span> number </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>1</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="2">
+      <td data-ice="name" data-depth="2">CONST.CONTENT_TYPE.IMAGE</td>
+      <td data-ice="type"><span> number </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>2</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="2">
+      <td data-ice="name" data-depth="2">CONST.CONTENT_TYPE.VIDEO</td>
+      <td data-ice="type"><span> number </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>3</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="2">
+      <td data-ice="name" data-depth="2">CONST.CONTENT_TYPE.AUDIO</td>
+      <td data-ice="type"><span> number </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>4</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="2">
+      <td data-ice="name" data-depth="2">CONST.CONTENT_TYPE.LOCATION</td>
+      <td data-ice="type"><span> number </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>7</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="2">
+      <td data-ice="name" data-depth="2">CONST.CONTENT_TYPE.STICKER</td>
+      <td data-ice="type"><span> number </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>8</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="2">
+      <td data-ice="name" data-depth="2">CONST.CONTENT_TYPE.CONTACT</td>
+      <td data-ice="type"><span> number </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>10</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+
+<div data-ice="constructorDetails"><h2 data-ice="title">Public Constructors</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-constructor-constructor">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">constructor</span><span data-ice="signature">(params: <span> Object </span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/linebot.js.html#lineNumber35">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Constructor</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">params</td>
+      <td data-ice="type"><span> Object </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.channelID</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Channel ID</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.channelSecret</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Channel secret</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.MID</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>MID</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+<div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-botConfig">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">botConfig</span><span data-ice="signature">: <span> Object </span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/linebot.js.html#lineNumber49">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Configuration.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Properties:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">botConfig.channelID</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Channel ID</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">botConfig.channelSecret</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Channel secret</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">botConfig.MID</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>MID</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+<div data-ice="methodDetails"><h2 data-ice="title">Public Methods</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-fetchProfileFromMID">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">fetchProfileFromMID</span><span data-ice="signature">(MID: <span> string </span>): <span> Promise&lt;Object&gt; </span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/linebot.js.html#lineNumber285">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Fetch user profile from MID.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">MID</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>MID of user.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span> Promise&lt;Object&gt; </span></td>
+        <td class="return-desc" data-ice="returnDescription"><p>Return user profile.</p>
+</td>
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-fetchProfileFromMIDList">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">fetchProfileFromMIDList</span><span data-ice="signature">(MIDList: <span> Array&lt;string&gt; </span>): <span> Promise&lt;Object&gt; </span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/linebot.js.html#lineNumber299">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Fetch user profile from MID.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">MIDList</td>
+      <td data-ice="type"><span> Array&lt;string&gt; </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>MIDs of users.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span> Promise&lt;Object&gt; </span></td>
+        <td class="return-desc" data-ice="returnDescription"><p>Return user profile.</p>
+</td>
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-listen">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">listen</span><span data-ice="signature">(params: <span> ...any </span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/linebot.js.html#lineNumber317">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Binds and listens for connections on the specified host and port.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">params</td>
+      <td data-ice="type"><span> ...any </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p><a href="http://expressjs.com/en/4x/api.html#app.listen">http://expressjs.com/en/4x/api.html#app.listen</a></p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="http://expressjs.com/en/4x/api.html#app.listen">http://expressjs.com/en/4x/api.html#app.listen</a></span></li></ul></div>
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-on">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">on</span><span data-ice="signature">(params: <span> ...any </span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/linebot.js.html#lineNumber328">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Adds the listener function to the end of the listeners array for the event named eventName.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">params</td>
+      <td data-ice="type"><span> ...any </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p><a href="https://nodejs.org/api/events.html#events_emitter_on_eventname_listener">https://nodejs.org/api/events.html#events_emitter_on_eventname_listener</a></p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  <div data-ice="listenWrap">
+    <h4>Listen:</h4>
+    <table>
+      <tbody>
+      
+      <tr class="listen" data-ice="listen">
+        <td><p data-ice="listenName"><span> message </span></p></td>
+        <td data-ice="listenDesc"><p>Listen message. <a href="https://developers.line.me/bot-api/api-reference#sending_message">https://developers.line.me/bot-api/api-reference#sending_message</a></p>
+</td>
+      </tr>
+<tr class="listen" data-ice="listen">
+        <td><p data-ice="listenName"><span> operation </span></p></td>
+        <td data-ice="listenDesc"><p>Listen operation. <a href="https://developers.line.me/bot-api/api-reference#receiving_operations">https://developers.line.me/bot-api/api-reference#receiving_operations</a></p>
+</td>
+      </tr>
+</tbody>
+    </table>
+  </div>
+
+  
+
+  
+
+  
+
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="https://nodejs.org/api/events.html#events_emitter_on_eventname_listener">https://nodejs.org/api/events.html#events_emitter_on_eventname_listener</a></span></li></ul></div>
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-postAudio">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">postAudio</span><span data-ice="signature">(params: <span> Object </span>): <span> Promise </span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/linebot.js.html#lineNumber183">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Post audio.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">params</td>
+      <td data-ice="type"><span> Object </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.user</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>MID of user you send to.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.users</td>
+      <td data-ice="type"><span> Array&lt;string&gt; </span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>MIDs of users if you send to more than one people.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.originalUrl</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Audio URL (M4A).</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.audioMillisec</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Audio length (milliseconds).</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span> Promise </span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="https://developers.line.me/bot-api/api-reference#sending_message_audio">https://developers.line.me/bot-api/api-reference#sending_message_audio</a></span></li></ul></div>
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-postContent">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">postContent</span><span data-ice="signature">(users: <span> Array&lt;string&gt; </span> | <span> string </span>, content: <span> Object </span>): <span> Promise </span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/linebot.js.html#lineNumber247">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Post content you make.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">users</td>
+      <td data-ice="type"><span> Array&lt;string&gt; </span> | <span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>MIDs of users if you send to more than one people.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">content</td>
+      <td data-ice="type"><span> Object </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p><a href="https://developers.line.me/bot-api/api-reference#sending_message">https://developers.line.me/bot-api/api-reference#sending_message</a></p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span> Promise </span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-postImage">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">postImage</span><span data-ice="signature">(params: <span> Object </span>): <span> Promise </span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/linebot.js.html#lineNumber145">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Post image.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">params</td>
+      <td data-ice="type"><span> Object </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.user</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>MID of user you send to.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.users</td>
+      <td data-ice="type"><span> Array&lt;string&gt; </span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>MIDs of users if you send to more than one people.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.originalUrl</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Image URL (JPEG).</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.thumbnailUrl</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Thumbnail URL (JPEG).</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span> Promise </span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="https://developers.line.me/bot-api/api-reference#sending_message_image">https://developers.line.me/bot-api/api-reference#sending_message_image</a></span></li></ul></div>
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-postLocation">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">postLocation</span><span data-ice="signature">(params: <span> Object </span>): <span> Promise </span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/linebot.js.html#lineNumber205">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Post location.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">params</td>
+      <td data-ice="type"><span> Object </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.user</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>MID of user you send to.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.users</td>
+      <td data-ice="type"><span> Array&lt;string&gt; </span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>MIDs of users if you send to more than one people.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.locationName</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Name of location.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.latitude</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Latitude of location.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.longitude</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Longitude of location.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span> Promise </span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="https://developers.line.me/bot-api/api-reference#sending_message_location">https://developers.line.me/bot-api/api-reference#sending_message_location</a></span></li></ul></div>
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-postSticker">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">postSticker</span><span data-ice="signature">(params: <span> Object </span>): <span> Promise </span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/linebot.js.html#lineNumber229">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Post Sticker.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">params</td>
+      <td data-ice="type"><span> Object </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.user</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>MID of user you send to.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.users</td>
+      <td data-ice="type"><span> Array&lt;string&gt; </span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>MIDs of users if you send to more than one people.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.stkid</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>ID of the sticker.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.stkpkgid</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Package ID of the sticker.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.stkver</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>Version number of the sticker.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span> Promise </span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="https://developers.line.me/bot-api/api-reference#sending_message_location">https://developers.line.me/bot-api/api-reference#sending_message_location</a></span></li></ul></div>
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-postText">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">postText</span><span data-ice="signature">(params: <span> Object </span>): <span> Promise </span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/linebot.js.html#lineNumber127">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Post text.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">params</td>
+      <td data-ice="type"><span> Object </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.user</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>MID of user you send to.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.users</td>
+      <td data-ice="type"><span> Array&lt;string&gt; </span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>MIDs of users if you send to more than one people.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.message</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Message you send.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span> Promise </span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="https://developers.line.me/bot-api/api-reference#sending_message_text">https://developers.line.me/bot-api/api-reference#sending_message_text</a></span></li></ul></div>
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-method-postVideo">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">postVideo</span><span data-ice="signature">(params: <span> Object </span>): <span> Promise </span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/src/linebot.js.html#lineNumber164">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Post video.</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">params</td>
+      <td data-ice="type"><span> Object </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.user</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>MID of user you send to.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.users</td>
+      <td data-ice="type"><span> Array&lt;string&gt; </span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>MIDs of users if you send to more than one people.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.originalUrl</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Video URL (MP4).</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.thumbnailUrl</td>
+      <td data-ice="type"><span> string </span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Thumbnail URL (JPEG).</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  <div class="return-params" data-ice="returnParams">
+    <h4>Return:</h4>
+    <table>
+      <tr>
+        <td class="return-type" data-ice="returnType"><span> Promise </span></td>
+        
+      </tr>
+    </table>
+    <div data-ice="returnProperties">
+</div>
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="https://developers.line.me/bot-api/api-reference#sending_message_video">https://developers.line.me/bot-api/api-reference#sending_message_video</a></span></li></ul></div>
+  
+</div>
+</div>
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.6)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
