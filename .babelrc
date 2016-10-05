@@ -1,9 +1,4 @@
 {
-  "presets": [ "es2015-node4" ],
-  "plugins": [
-    "syntax-async-functions",
-    "transform-async-to-generator",
-    "add-module-exports"
-  ]
+  "presets": [ "es2015-node4", "es2016", "es2017" ],
+  "plugins": [ "add-module-exports" ]
 }
-
