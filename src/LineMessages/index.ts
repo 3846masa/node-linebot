@@ -47,7 +47,7 @@ export class LineMessage {
    * @param {string} [params.id]  Message ID.
    * @param {string} params.type  Identifier for the type of message.
    */
-  constructor({ id = null, type }: { id?: string, type: LineMessageType }) {
+  constructor({ id = undefined, type }: { id?: string, type: LineMessageType }) {
     /**
     * Message ID.
     * @type {string}
@@ -104,7 +104,7 @@ export class TextMessage extends LineMessage {
    * @param {string} params.text              Message text.
    */
   constructor(
-    { id = null, type = LineMessageType.TEXT, text }: {
+    { id = undefined, type = LineMessageType.TEXT, text }: {
       id?: string,
       type?: LineMessageType,
       text: string,
@@ -138,10 +138,10 @@ export class ImageMessage extends LineMessage {
    */
   constructor(
     {
-      id = null,
+      id = undefined,
       type = LineMessageType.IMAGE,
-      originalContentUrl = null,
-      previewImageUrl = null,
+      originalContentUrl = undefined,
+      previewImageUrl = undefined,
     }: {
       id?: string,
       type?: LineMessageType,
@@ -182,10 +182,10 @@ export class VideoMessage extends LineMessage {
    */
   constructor(
     {
-      id = null,
+      id = undefined,
       type = LineMessageType.VIDEO,
-      originalContentUrl = null,
-      previewImageUrl = null,
+      originalContentUrl = undefined,
+      previewImageUrl = undefined,
     }: {
       id?: string,
       type?: LineMessageType,
@@ -225,7 +225,7 @@ export class AudioMessage extends LineMessage {
    * @param {number} [params.duration]            Length of audio file (milliseconds)
    */
   constructor(
-    { id = null, type = LineMessageType.AUDIO, originalContentUrl = null, duration = null }: {
+    { id = undefined, type = LineMessageType.AUDIO, originalContentUrl = undefined, duration = undefined }: {
       id?: string,
       type?: LineMessageType,
       originalContentUrl?: string,
@@ -268,7 +268,7 @@ export class LocationMessage extends LineMessage {
    * @param {number} params.longitude          Longitude.
    */
   constructor(
-    { id = null, type = LineMessageType.LOCATION, title, address, latitude, longitude }: {
+    { id = undefined, type = LineMessageType.LOCATION, title, address, latitude, longitude }: {
       id?: string,
       type?: LineMessageType,
       title: string,
@@ -319,7 +319,7 @@ export class StickerMessage extends LineMessage {
    * @param {string} params.stickerId         Sticker ID.
    */
   constructor(
-    { id = null, type = LineMessageType.STICKER, packageId, stickerId }: {
+    { id = undefined, type = LineMessageType.STICKER, packageId, stickerId }: {
       id?: string,
       type?: LineMessageType,
       packageId: string,

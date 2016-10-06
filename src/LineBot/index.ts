@@ -88,7 +88,7 @@ export class LineBot extends EventEmitter2 {
   private _initAxios() {
     /** @private */
     this._axios = axios.create({
-      baseURL: 'https://api.line.me/v2/bot/',
+      baseURL: 'https://api.line.me/v2/bot',
       headers: {
         Authorization: `Bearer ${this.config.channelToken}`,
       },

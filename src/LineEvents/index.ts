@@ -101,7 +101,7 @@ export class ReplyableEvent extends LineEvent {
 
   /** @private */
   constructor(
-    { type, timestamp, source, replyToken, _linebot = null }: {
+    { type, timestamp, source, replyToken, _linebot = undefined }: {
       type: string,
       timestamp: number | Date,
       source: any,
@@ -159,7 +159,7 @@ export class MessageEvent extends ReplyableEvent {
 
   /** @private */
   constructor(
-    { type, timestamp, source, replyToken, message, _linebot = null }: {
+    { type, timestamp, source, replyToken, message, _linebot = undefined }: {
       type: string,
       timestamp: number | Date,
       source: LineSource,
@@ -211,7 +211,7 @@ export class PostbackEvent extends ReplyableEvent {
 
   /** @private */
   constructor(
-    { type, timestamp, source, replyToken, postback, _linebot = null }: {
+    { type, timestamp, source, replyToken, postback, _linebot = undefined }: {
       type: string,
       timestamp: number | Date,
       source: LineSource,
@@ -243,7 +243,7 @@ export class BeaconEvent extends ReplyableEvent {
 
   /** @private */
   constructor(
-    { type, timestamp, source, replyToken, beacon, _linebot = null }: {
+    { type, timestamp, source, replyToken, beacon, _linebot = undefined }: {
       type: string,
       timestamp: number | Date,
       source: LineSource,
