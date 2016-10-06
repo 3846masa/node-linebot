@@ -16,7 +16,7 @@ npm install --save @3846masa/linebot
 ## Usage
 
 ```javascript
-const LineBot = require('@3846masa/linebot');
+import { LineBot } from '@3846masa/linebot';
 const bot = new LineBot({
   channelID: 'xxxxxxx',
   channelSecret: 'xxxxxx',

@@ -1,13 +1,14 @@
 {
-  "source": "./src",
+  "source": "./es2015",
   "destination": "./doc",
   "title": "@3846masa/linebot | ESDoc",
+  "styles": ["./.esdoc/styles.css"],
   "plugins": [{
     "name": "esdoc-importpath-plugin",
     "option": {
       "replaces": [{
-        "from": "^src/",
-        "to": "dist/"
+        "from": "^es2015/",
+        "to": "lib/"
       }]
     }
   }]
