@@ -222,7 +222,7 @@ export class TemplatePostbackAction extends TemplateMessageAction {
   /**
    * @param  {string}  type   Identifier for the type of action.
    * @param  {string}  label  Label for the action. (Max: 20 chars)
-   * @param  {string?} text   Text sent when the action is performed. (Max: 300 chars)
+   * @param  {string}  [text]   Text sent when the action is performed. (Max: 300 chars)
    * @param  {string}  data   String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)
    */
   constructor({ type, label, text = null, data }: {

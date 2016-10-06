@@ -1152,9 +1152,9 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "es2015/externals.js~eventemitter",
+    "es2015/externals.js~eventemitter2",
     "external/index.html",
-    "es2015/externals.js~EventEmitter",
+    "es2015/externals.js~EventEmitter2",
     "external"
   ],
   [

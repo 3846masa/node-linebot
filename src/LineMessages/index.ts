@@ -44,7 +44,7 @@ export class LineMessage {
   /**
    * Constructor
    * @param {Object} params
-   * @param {string?} params.id    Message ID.
+   * @param {string}  [params.id]    Message ID.
    * @param {string} params.type  Identifier for the type of message.
    */
   constructor({ id = null, type }: { id?: string, type: LineMessageType }) {
@@ -99,7 +99,7 @@ export class TextMessage extends LineMessage {
   /**
    * Constructor
    * @param {Object} params
-   * @param {string?} params.id    Message ID.
+   * @param {string}  [params.id]    Message ID.
    * @param {string} params.type  Identifier for the type of message.
    * @param {string} params.text  Message text.
    */
@@ -131,10 +131,10 @@ export class ImageMessage extends LineMessage {
   /**
    * Constructor
    * @param {Object} params
-   * @param {string?} params.id                  Message ID.
+   * @param {string}  [params.id]                  Message ID.
    * @param {string} params.type                Identifier for the type of message.
-   * @param {string} params.originalContentUrl  Image URL. (JPEG / HTTPS)
-   * @param {string} params.previewImageUrl     Preview image URL. (JPEG / HTTPS)
+   * @param {string} [params.originalContentUrl]  Image URL. (JPEG / HTTPS)
+   * @param {string} [params.previewImageUrl]     Preview image URL. (JPEG / HTTPS)
    */
   constructor(
     { id = null, type, originalContentUrl = null, previewImageUrl = null }: {
@@ -170,10 +170,10 @@ export class VideoMessage extends LineMessage {
   /**
    * Constructor
    * @param {Object} params
-   * @param {string?} params.id                  Message ID.
+   * @param {string}  [params.id]                  Message ID.
    * @param {string} params.type                Identifier for the type of message.
-   * @param {string} params.originalContentUrl  URL of video file. (MP4 / HTTPS)
-   * @param {string} params.previewImageUrl     Preview image URL. (JPEG / HTTPS)
+   * @param {string} [params.originalContentUrl]  URL of video file. (MP4 / HTTPS)
+   * @param {string} [params.previewImageUrl]     Preview image URL. (JPEG / HTTPS)
    */
   constructor(
     { id = null, type, originalContentUrl = null, previewImageUrl = null }: {
@@ -209,10 +209,10 @@ export class AudioMessage extends LineMessage {
   /**
    * Constructor
    * @param {Object} params
-   * @param {string?} params.id                  Message ID.
+   * @param {string}  [params.id]                  Message ID.
    * @param {string} params.type                Identifier for the type of message.
-   * @param {string} params.originalContentUrl  URL of audio file. (M4A / HTTPS)
-   * @param {number} params.duration            Length of audio file (milliseconds)
+   * @param {string} [params.originalContentUrl]  URL of audio file. (M4A / HTTPS)
+   * @param {number} [params.duration]            Length of audio file (milliseconds)
    */
   constructor(
     { id = null, type, originalContentUrl = null, duration = null }: {
@@ -250,7 +250,7 @@ export class LocationMessage extends LineMessage {
   /**
    * Constructor
    * @param {Object} params
-   * @param {string?} params.id         Message ID.
+   * @param {string}  [params.id]         Message ID.
    * @param {string} params.type       Identifier for the type of message.
    * @param {string} params.title      Title.
    * @param {string} params.address    Address.
@@ -303,7 +303,7 @@ export class StickerMessage extends LineMessage {
   /**
    * Constructor
    * @param {Object} params
-   * @param {string?} params.id         Message ID.
+   * @param {string}  [params.id]         Message ID.
    * @param {string} params.type       Identifier for the type of message.
    * @param {string} params.packageId  Package ID.
    * @param {string} params.stickerId  Sticker ID.

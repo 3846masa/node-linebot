@@ -1,0 +1,8 @@
+{
+  "resolution": "main",
+  "tree": {
+    "src": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/3c322e8e4dfae92f16a191d9e9a0b528860c96e9/eventemitter2/eventemitter2.d.ts",
+    "raw": "registry:dt/eventemitter2#0.14.4+20160818004139",
+    "typings": "https://raw.githubusercontent.com/DefinitelyTyped/DefinitelyTyped/3c322e8e4dfae92f16a191d9e9a0b528860c96e9/eventemitter2/eventemitter2.d.ts"
+  }
+}

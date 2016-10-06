@@ -7192,8 +7192,8 @@
                 "type": "Identifier",
                 "name": "constructor",
                 "range": [
-                  5501,
-                  5512
+                  5503,
+                  5514
                 ],
                 "loc": {
                   "start": {
@@ -7219,8 +7219,8 @@
                           "type": "Identifier",
                           "name": "type",
                           "range": [
-                            5515,
-                            5519
+                            5517,
+                            5521
                           ],
                           "loc": {
                             "start": {
@@ -7237,8 +7237,8 @@
                           "type": "Identifier",
                           "name": "type",
                           "range": [
-                            5515,
-                            5519
+                            5517,
+                            5521
                           ],
                           "loc": {
                             "start": {
@@ -7256,8 +7256,8 @@
                         "shorthand": true,
                         "computed": false,
                         "range": [
-                          5515,
-                          5519
+                          5517,
+                          5521
                         ],
                         "loc": {
                           "start": {
@@ -7276,8 +7276,8 @@
                           "type": "Identifier",
                           "name": "label",
                           "range": [
-                            5521,
-                            5526
+                            5523,
+                            5528
                           ],
                           "loc": {
                             "start": {
@@ -7294,8 +7294,8 @@
                           "type": "Identifier",
                           "name": "label",
                           "range": [
-                            5521,
-                            5526
+                            5523,
+                            5528
                           ],
                           "loc": {
                             "start": {
@@ -7313,8 +7313,8 @@
                         "shorthand": true,
                         "computed": false,
                         "range": [
-                          5521,
-                          5526
+                          5523,
+                          5528
                         ],
                         "loc": {
                           "start": {
@@ -7333,8 +7333,8 @@
                           "type": "Identifier",
                           "name": "text",
                           "range": [
-                            5528,
-                            5532
+                            5530,
+                            5534
                           ],
                           "loc": {
                             "start": {
@@ -7354,8 +7354,8 @@
                             "type": "Identifier",
                             "name": "text",
                             "range": [
-                              5528,
-                              5532
+                              5530,
+                              5534
                             ],
                             "loc": {
                               "start": {
@@ -7373,8 +7373,8 @@
                             "value": null,
                             "raw": "null",
                             "range": [
-                              5535,
-                              5539
+                              5537,
+                              5541
                             ],
                             "loc": {
                               "start": {
@@ -7388,8 +7388,8 @@
                             }
                           },
                           "range": [
-                            5528,
-                            5539
+                            5530,
+                            5541
                           ],
                           "loc": {
                             "start": {
@@ -7407,8 +7407,8 @@
                         "shorthand": true,
                         "computed": false,
                         "range": [
-                          5528,
-                          5539
+                          5530,
+                          5541
                         ],
                         "loc": {
                           "start": {
@@ -7427,8 +7427,8 @@
                           "type": "Identifier",
                           "name": "data",
                           "range": [
-                            5541,
-                            5545
+                            5543,
+                            5547
                           ],
                           "loc": {
                             "start": {
@@ -7445,8 +7445,8 @@
                           "type": "Identifier",
                           "name": "data",
                           "range": [
-                            5541,
-                            5545
+                            5543,
+                            5547
                           ],
                           "loc": {
                             "start": {
@@ -7464,8 +7464,8 @@
                         "shorthand": true,
                         "computed": false,
                         "range": [
-                          5541,
-                          5545
+                          5543,
+                          5547
                         ],
                         "loc": {
                           "start": {
@@ -7480,8 +7480,8 @@
                       }
                     ],
                     "range": [
-                      5513,
-                      5547
+                      5515,
+                      5549
                     ],
                     "loc": {
                       "start": {
@@ -7505,8 +7505,8 @@
                         "callee": {
                           "type": "Super",
                           "range": [
-                            5559,
-                            5564
+                            5561,
+                            5566
                           ],
                           "loc": {
                             "start": {
@@ -7529,8 +7529,8 @@
                                   "type": "Identifier",
                                   "name": "type",
                                   "range": [
-                                    5567,
-                                    5571
+                                    5569,
+                                    5573
                                   ],
                                   "loc": {
                                     "start": {
@@ -7547,8 +7547,8 @@
                                   "type": "Identifier",
                                   "name": "type",
                                   "range": [
-                                    5567,
-                                    5571
+                                    5569,
+                                    5573
                                   ],
                                   "loc": {
                                     "start": {
@@ -7566,8 +7566,8 @@
                                 "shorthand": true,
                                 "computed": false,
                                 "range": [
-                                  5567,
-                                  5571
+                                  5569,
+                                  5573
                                 ],
                                 "loc": {
                                   "start": {
@@ -7586,8 +7586,8 @@
                                   "type": "Identifier",
                                   "name": "label",
                                   "range": [
-                                    5573,
-                                    5578
+                                    5575,
+                                    5580
                                   ],
                                   "loc": {
                                     "start": {
@@ -7604,8 +7604,8 @@
                                   "type": "Identifier",
                                   "name": "label",
                                   "range": [
-                                    5573,
-                                    5578
+                                    5575,
+                                    5580
                                   ],
                                   "loc": {
                                     "start": {
@@ -7623,8 +7623,8 @@
                                 "shorthand": true,
                                 "computed": false,
                                 "range": [
-                                  5573,
-                                  5578
+                                  5575,
+                                  5580
                                 ],
                                 "loc": {
                                   "start": {
@@ -7643,8 +7643,8 @@
                                   "type": "Identifier",
                                   "name": "text",
                                   "range": [
-                                    5580,
-                                    5584
+                                    5582,
+                                    5586
                                   ],
                                   "loc": {
                                     "start": {
@@ -7661,8 +7661,8 @@
                                   "type": "Identifier",
                                   "name": "text",
                                   "range": [
-                                    5580,
-                                    5584
+                                    5582,
+                                    5586
                                   ],
                                   "loc": {
                                     "start": {
@@ -7680,8 +7680,8 @@
                                 "shorthand": true,
                                 "computed": false,
                                 "range": [
-                                  5580,
-                                  5584
+                                  5582,
+                                  5586
                                 ],
                                 "loc": {
                                   "start": {
@@ -7696,8 +7696,8 @@
                               }
                             ],
                             "range": [
-                              5565,
-                              5586
+                              5567,
+                              5588
                             ],
                             "loc": {
                               "start": {
@@ -7712,8 +7712,8 @@
                           }
                         ],
                         "range": [
-                          5559,
-                          5587
+                          5561,
+                          5589
                         ],
                         "loc": {
                           "start": {
@@ -7727,8 +7727,8 @@
                         }
                       },
                       "range": [
-                        5559,
-                        5588
+                        5561,
+                        5590
                       ],
                       "loc": {
                         "start": {
@@ -7745,8 +7745,8 @@
                           "type": "Block",
                           "value": "*\n         * String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)\n         * @type {string}\n         ",
                           "range": [
-                            5597,
-                            5747
+                            5599,
+                            5749
                           ],
                           "loc": {
                             "start": {
@@ -7772,8 +7772,8 @@
                           "object": {
                             "type": "ThisExpression",
                             "range": [
-                              5756,
-                              5760
+                              5758,
+                              5762
                             ],
                             "loc": {
                               "start": {
@@ -7790,8 +7790,8 @@
                             "type": "Identifier",
                             "name": "data",
                             "range": [
-                              5761,
-                              5765
+                              5763,
+                              5767
                             ],
                             "loc": {
                               "start": {
@@ -7805,8 +7805,8 @@
                             }
                           },
                           "range": [
-                            5756,
-                            5765
+                            5758,
+                            5767
                           ],
                           "loc": {
                             "start": {
@@ -7823,8 +7823,8 @@
                           "type": "Identifier",
                           "name": "data",
                           "range": [
-                            5768,
-                            5772
+                            5770,
+                            5774
                           ],
                           "loc": {
                             "start": {
@@ -7838,8 +7838,8 @@
                           }
                         },
                         "range": [
-                          5756,
-                          5772
+                          5758,
+                          5774
                         ],
                         "loc": {
                           "start": {
@@ -7853,8 +7853,8 @@
                         }
                       },
                       "range": [
-                        5756,
-                        5773
+                        5758,
+                        5775
                       ],
                       "loc": {
                         "start": {
@@ -7871,8 +7871,8 @@
                           "type": "Block",
                           "value": "*\n         * String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)\n         * @type {string}\n         ",
                           "range": [
-                            5597,
-                            5747
+                            5599,
+                            5749
                           ],
                           "loc": {
                             "start": {
@@ -7889,8 +7889,8 @@
                     }
                   ],
                   "range": [
-                    5549,
-                    5779
+                    5551,
+                    5781
                   ],
                   "loc": {
                     "start": {
@@ -7906,8 +7906,8 @@
                 "generator": false,
                 "expression": false,
                 "range": [
-                  5512,
-                  5779
+                  5514,
+                  5781
                 ],
                 "loc": {
                   "start": {
@@ -7923,8 +7923,8 @@
               "kind": "constructor",
               "computed": false,
               "range": [
-                5501,
-                5779
+                5503,
+                5781
               ],
               "loc": {
                 "start": {
@@ -7957,10 +7957,10 @@
                 },
                 {
                   "type": "Block",
-                  "value": "*\n     * @param  {string}  type   Identifier for the type of action.\n     * @param  {string}  label  Label for the action. (Max: 20 chars)\n     * @param  {string?} text   Text sent when the action is performed. (Max: 300 chars)\n     * @param  {string}  data   String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)\n     ",
+                  "value": "*\n     * @param  {string}  type   Identifier for the type of action.\n     * @param  {string}  label  Label for the action. (Max: 20 chars)\n     * @param  {string}  [text]   Text sent when the action is performed. (Max: 300 chars)\n     * @param  {string}  data   String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)\n     ",
                   "range": [
                     5129,
-                    5496
+                    5498
                   ],
                   "loc": {
                     "start": {
@@ -7979,7 +7979,7 @@
           ],
           "range": [
             5090,
-            5781
+            5783
           ],
           "loc": {
             "start": {
@@ -7994,7 +7994,7 @@
         },
         "range": [
           5031,
-          5781
+          5783
         ],
         "loc": {
           "start": {
@@ -8032,7 +8032,7 @@
       "source": null,
       "range": [
         5024,
-        5781
+        5783
       ],
       "loc": {
         "start": {
@@ -8069,7 +8069,7 @@
   "sourceType": "module",
   "range": [
     0,
-    5781
+    5783
   ],
   "loc": {
     "start": {
@@ -8660,10 +8660,10 @@
     },
     {
       "type": "Block",
-      "value": "*\n     * @param  {string}  type   Identifier for the type of action.\n     * @param  {string}  label  Label for the action. (Max: 20 chars)\n     * @param  {string?} text   Text sent when the action is performed. (Max: 300 chars)\n     * @param  {string}  data   String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)\n     ",
+      "value": "*\n     * @param  {string}  type   Identifier for the type of action.\n     * @param  {string}  label  Label for the action. (Max: 20 chars)\n     * @param  {string}  [text]   Text sent when the action is performed. (Max: 300 chars)\n     * @param  {string}  data   String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)\n     ",
       "range": [
         5129,
-        5496
+        5498
       ],
       "loc": {
         "start": {
@@ -8680,8 +8680,8 @@
       "type": "Block",
       "value": "*\n         * String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)\n         * @type {string}\n         ",
       "range": [
-        5597,
-        5747
+        5599,
+        5749
       ],
       "loc": {
         "start": {

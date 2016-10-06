@@ -62,8 +62,8 @@ export class TemplateButtons extends TemplateComponent {
 
   /**
    * @param  {string}                   type              Identifier for the type of template.
-   * @param  {string?}                  thumbnailImageUrl Image URL (JPEG or PNG / HTTPS / 1:1.51)
-   * @param  {string?}                  title             Title (Max: 40 chars)
+   * @param  {string}  [thumbnailImageUrl] Image URL (JPEG or PNG / HTTPS / 1:1.51)
+   * @param  {string}  [title]             Title (Max: 40 chars)
    * @param  {string}                   text              Message text (Max: 160 chars (no image, no title) / 60 chars)
    * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 4)
    */
@@ -169,8 +169,8 @@ export class TemplateColumn {
   /* eslint-enable no-undef */
 
   /**
-   * @param  {string?}                  thumbnailImageUrl Image URL (JPEG or PNG / HTTPS / 1:1.51)
-   * @param  {string?}                  title             Title (Max: 40 chars)
+   * @param  {string}  [thumbnailImageUrl] Image URL (JPEG or PNG / HTTPS / 1:1.51)
+   * @param  {string}  [title]             Title (Max: 40 chars)
    * @param  {string}                   text              Message text (Max: 160 chars (no image, no title) / 60 chars)
    * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 3)
    */

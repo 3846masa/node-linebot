@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import { createHmac } from 'crypto';
-import { EventEmitter } from 'events';
+import { EventEmitter2 } from 'eventemitter2';
 import { Readable as ReadableStream } from 'stream';
 import axios, { AxiosInstance } from 'axios';
 import express from 'express';
@@ -54,7 +54,7 @@ export interface LineProfile {
  * @extends {EventEmitter}
  * @see https://devdocs.line.me/ja/
  */
-export class LineBot extends EventEmitter {
+export class LineBot extends EventEmitter2 {
   /* eslint-disable no-undef */
   public config: LineBotConfig;
   public express: express.Express;
@@ -66,7 +66,11 @@ export class LineBot extends EventEmitter {
    * @param  {LineBotConfig} config
    */
   constructor({ channelSecret, channelToken }: LineBotConfig) {
-    super();
+    super({
+      wildcard: true,
+      delimiter: ':',
+      maxListeners: 20,
+    });
     /**
      * Configuration.
      * @type {LineBotConfig}
@@ -100,7 +104,7 @@ export class LineBot extends EventEmitter {
      */
     this.express = express();
 
-    this.express.use(bodyParser.raw({ type: '*/*' }));
+    this.express.use(bodyParser.raw({ type: () => true }));
 
     this.express.use((req, res, next) => {
       const isValid = this._checkSignature({
@@ -125,18 +129,17 @@ export class LineBot extends EventEmitter {
       if (!req.body || !req.body.events) {
         return next(new Error('Invalid JSON.'));
       }
-      res.status(200);
 
       for (const event of req.body.events) {
         const eventObj = LineEvent.createFromObject(event);
-        this.emit('webhook', eventObj);
         this.emit(`webhook:${event.type}`, eventObj);
       }
+      res.status(200).send();
       return next();
     });
 
     this.express.use((err: Error, req: Request, res: Response, next: NextFunction) => {
-      res.status(400);
+      res.status(400).send({ error: err.message });
       next();
     });
   }
@@ -186,7 +189,7 @@ export class LineBot extends EventEmitter {
   /**
    * Retrieve image, video, and audio data sent by users.
    * @see https://devdocs.line.me/en/#get-content
-   * @param  {messageId} messageId Message ID.
+   * @param  {string} messageId Message ID.
    * @return {Promise<stream.Readable,Error>}
    */
   public getContent(messageId: string) {
@@ -284,14 +287,14 @@ export class LineBot extends EventEmitter {
   }
 
   /**
-   * Adds the listener function to the end of the listeners array for the event named eventName.
-   * @see https://nodejs.org/api/events.html#events_emitter_on_eventname_listener
-   * @param   {string}   event    https://nodejs.org/api/events.html#events_emitter_on_eventname_listener
-   * @param   {Function} listener https://nodejs.org/api/events.html#events_emitter_on_eventname_listener
+   * Adds a listener to the end of the listeners array for the specified event.
+   * @see https://github.com/asyncly/EventEmitter2#emitteronevent-listener
+   * @param   {string | string[]} event    Event name
+   * @param   {Function}          listener Listener function
    * @return  {LineBot}
-   * @listens {message}  Listen message event. https://developers.line.me/bot-api/api-reference#sending_message
+   * @listens {webhook:{eventType}}  Listen message event. https://developers.line.me/bot-api/api-reference#sending_message
    */
-  on(event: string, listener: Function) {
+  on(event: string | string[], listener: Function) {
     super.on(event, listener);
     return this;
   }

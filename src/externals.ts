@@ -1,5 +1,5 @@
 /**
- * @external {EventEmitter}        https://nodejs.org/api/events.html
+ * @external {EventEmitter2}       https://github.com/asyncly/EventEmitter2#api
  */
 /**
  * @external {Express.Application} http://expressjs.com/en/4x/api.html
