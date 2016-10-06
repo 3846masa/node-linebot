@@ -1,6 +1,6 @@
 {
   "source": "./es2015",
-  "destination": "./doc",
+  "destination": "./docs",
   "title": "@3846masa/linebot | ESDoc",
   "styles": ["./.esdoc/styles.css"],
   "plugins": [{
