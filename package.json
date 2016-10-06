@@ -53,8 +53,8 @@
   "scripts": {
     "build": "npm-run-all clean build:init build:tsc build:babel build:dts build:esdoc",
     "build:babel": "babel es2015/ --out-dir lib/",
-    "build:esdoc": "esdoc -c ./.esdoc.json",
     "build:dts": "cpx \"es2015/**/*.d.ts\" lib",
+    "build:esdoc": "esdoc -c ./.esdoc.json",
     "build:init": "mkdirp lib es2015 docs",
     "build:tsc": "tsc --outDir ./es2015 --rootDir ./src -p ./",
     "build:typedoc": "typedoc --out docs/ src/",
