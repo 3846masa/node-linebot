@@ -131,7 +131,7 @@ export class LineBot extends EventEmitter2 {
       }
 
       for (const event of req.body.events) {
-        const eventObj = LineEvent.createFromObject(event);
+        const eventObj = LineEvent.createFromObject(event, this);
         this.emit(`webhook:${event.type}`, eventObj);
       }
       res.status(200).send();
@@ -139,6 +139,7 @@ export class LineBot extends EventEmitter2 {
     });
 
     this.express.use((err: Error, req: Request, res: Response, next: NextFunction) => {
+      console.error(err);
       res.status(400).send({ error: err.message });
       next();
     });
