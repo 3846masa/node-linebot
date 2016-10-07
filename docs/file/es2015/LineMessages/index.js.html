@@ -16,7 +16,7 @@
 
 <header>
   <a href="./">Home</a>
-  
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
   
@@ -347,9 +347,9 @@ export class ImagemapMessage extends LineMessage {
     /**
      * Constructor
      * @param {Object} params
-     * @param {string} params.baseUrl                     Base URL (HTTPS)
-     * @param {string} params.altText                     Alternative text
-     * @param {Size} params.baseSize                      Base image size.
+     * @param {string} params.baseUrl                        Base URL (HTTPS)
+     * @param {string} params.altText                        Alternative text
+     * @param {Size} params.baseSize                         Base image size.
      * @param {ImagemapAction[] | Object[]}  params.actions  Action when tapped
      */
     constructor({ baseUrl, altText, baseSize, actions, }) {
@@ -389,7 +389,7 @@ export class TemplateMessage extends LineMessage {
     /**
      * Constructor
      * @param {Object} params
-     * @param {string} params.altText                    Alternative text
+     * @param {string} params.altText                       Alternative text
      * @param {TemplateComponent | Object} params.template  Object with the contents of the template.
      */
     constructor({ altText, template, }) {

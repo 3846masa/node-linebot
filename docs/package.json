@@ -33,6 +33,10 @@
     "typedoc": "0.4.5",
     "typescript": "1.8.10"
   },
+  "directories": {
+    "doc": "docs",
+    "example": "examples"
+  },
   "files": [
     "README.md",
     "index.js",

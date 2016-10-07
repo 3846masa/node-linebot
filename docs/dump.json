@@ -10,7 +10,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "export var LineActionType;\n(function (LineActionType) {\n    LineActionType.URI = 'uri';\n    LineActionType.MESSAGE = 'message';\n    LineActionType.POSTBACK = 'postback';\n})(LineActionType || (LineActionType = {}));\n/* eslint-enable no-unused-vars, space-infix-ops */\n/**\n * Imagemap Action\n * @see https://devdocs.line.me/en/#imagemap-action-object\n */\nexport class ImagemapAction {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ type, area }) {\n        /**\n         * Identifier for the type of action.\n         * @type {string}\n         */\n        this.type = type;\n        /**\n         * Defined tappable area.\n         * @type {Rectangle}\n         */\n        this.area = area;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        switch (params.type) {\n            case LineActionType.URI: {\n                return new ImagemapURIAction(params);\n            }\n            case LineActionType.MESSAGE: {\n                return new ImagemapMessageAction(params);\n            }\n            default: {\n                return new ImagemapAction({ type: params.type, area: params.area });\n            }\n        }\n    }\n}\n/**\n * URI action\n * @see https://devdocs.line.me/en/#imagemap-action-object\n */\nexport class ImagemapURIAction extends ImagemapAction {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {string}    type     Identifier for the type of action.\n     * @param  {Rectangle} area     Defined tappable area.\n     * @param  {string}    linkUri  Webpage URL\n     */\n    constructor({ area, linkUri, }) {\n        super({ type: LineActionType.URI, area });\n        /**\n         * Webpage URL.\n         * @type {string}\n         */\n        this.linkUri = linkUri;\n    }\n}\n/**\n * Message action\n * @see https://devdocs.line.me/en/#imagemap-action-object\n */\nexport class ImagemapMessageAction extends ImagemapAction {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {Rectangle} area  Defined tappable area.\n     * @param  {string}    text  Message to send.\n     */\n    constructor({ area, text, }) {\n        super({ type: LineActionType.MESSAGE, area });\n        /**\n         * Message to send.\n         * @type {string}\n         */\n        this.text = text;\n    }\n}\n/**\n * Template Action\n * @see https://devdocs.line.me/en/#template-action\n */\nexport class TemplateAction {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ type, label }) {\n        /**\n         * Identifier for the type of action.\n         * @type {string}\n         */\n        this.type = type;\n        /**\n         * Label for the action. (Max: 20 chars)\n         * @type {string}\n         */\n        this.label = label;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        switch (params.type) {\n            case LineActionType.URI: {\n                return new TemplateURIAction(params);\n            }\n            case LineActionType.MESSAGE: {\n                return new TemplateMessageAction(params);\n            }\n            case LineActionType.POSTBACK: {\n                return new TemplatePostbackAction(params);\n            }\n            default: {\n                return new TemplateAction({ type: params.type, label: params.label });\n            }\n        }\n    }\n}\n/**\n * URI action\n * @see https://devdocs.line.me/en/#template-action\n */\nexport class TemplateURIAction extends TemplateAction {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {string} label  Label for the action. (Max: 20 chars)\n     * @param  {string} uri    URI opened when the action is performed\n     */\n    constructor({ label, uri }) {\n        super({ type: LineActionType.URI, label });\n        /**\n         * URI opened when the action is performed\n         * @type {string}\n         */\n        this.uri = uri;\n    }\n}\n/**\n * Message action\n * @see https://devdocs.line.me/en/#template-action\n */\nexport class TemplateMessageAction extends TemplateAction {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {string} label  Label for the action. (Max: 20 chars)\n     * @param  {string} text   Text sent when the action is performed. (Max: 300 chars)\n     */\n    constructor({ label, text }) {\n        super({ type: LineActionType.MESSAGE, label });\n        /**\n         * Text sent when the action is performed. (Max: 300 chars)\n         * @type {string}\n         */\n        this.text = text;\n    }\n}\n/**\n * Postback action\n * @see https://devdocs.line.me/en/#template-action\n */\nexport class TemplatePostbackAction extends TemplateAction {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {string}  label   Label for the action. (Max: 20 chars)\n     * @param  {string}  [text]  Text sent when the action is performed. (Max: 300 chars)\n     * @param  {string}  data    String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)\n     */\n    constructor({ label, text = undefined, data }) {\n        super({ type: LineActionType.POSTBACK, label });\n        /**\n         * Text sent when the action is performed. (Max: 300 chars)\n         * @type {string}\n         */\n        this.text = text;\n        /**\n         * String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)\n         * @type {string}\n         */\n        this.data = data;\n    }\n}\n"
+    "content": "export var LineActionType;\n(function (LineActionType) {\n    LineActionType.URI = 'uri';\n    LineActionType.MESSAGE = 'message';\n    LineActionType.POSTBACK = 'postback';\n})(LineActionType || (LineActionType = {}));\n/* eslint-enable no-unused-vars, space-infix-ops */\n/**\n * Imagemap Action\n * @see https://devdocs.line.me/en/#imagemap-action-object\n */\nexport class ImagemapAction {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ type, area }) {\n        /**\n         * Identifier for the type of action.\n         * @type {string}\n         */\n        this.type = type;\n        /**\n         * Defined tappable area.\n         * @type {Rectangle}\n         */\n        this.area = area;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        switch (params.type) {\n            case LineActionType.URI: {\n                return new ImagemapURIAction(params);\n            }\n            case LineActionType.MESSAGE: {\n                return new ImagemapMessageAction(params);\n            }\n            default: {\n                return new ImagemapAction({ type: params.type, area: params.area });\n            }\n        }\n    }\n}\n/**\n * URI action\n * @see https://devdocs.line.me/en/#imagemap-action-object\n */\nexport class ImagemapURIAction extends ImagemapAction {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {Object} params\n     * @param  {string} params.type     Identifier for the type of action.\n     * @param  {Rectangle} params.area  Defined tappable area.\n     * @param  {string} params.linkUri  Webpage URL\n     */\n    constructor({ area, linkUri, }) {\n        super({ type: LineActionType.URI, area });\n        /**\n         * Webpage URL.\n         * @type {string}\n         */\n        this.linkUri = linkUri;\n    }\n}\n/**\n * Message action\n * @see https://devdocs.line.me/en/#imagemap-action-object\n */\nexport class ImagemapMessageAction extends ImagemapAction {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {Object} params\n     * @param  {Rectangle} params.area  Defined tappable area.\n     * @param  {string} params.text     Message to send.\n     */\n    constructor({ area, text, }) {\n        super({ type: LineActionType.MESSAGE, area });\n        /**\n         * Message to send.\n         * @type {string}\n         */\n        this.text = text;\n    }\n}\n/**\n * Template Action\n * @see https://devdocs.line.me/en/#template-action\n */\nexport class TemplateAction {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ type, label }) {\n        /**\n         * Identifier for the type of action.\n         * @type {string}\n         */\n        this.type = type;\n        /**\n         * Label for the action. (Max: 20 chars)\n         * @type {string}\n         */\n        this.label = label;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        switch (params.type) {\n            case LineActionType.URI: {\n                return new TemplateURIAction(params);\n            }\n            case LineActionType.MESSAGE: {\n                return new TemplateMessageAction(params);\n            }\n            case LineActionType.POSTBACK: {\n                return new TemplatePostbackAction(params);\n            }\n            default: {\n                return new TemplateAction({ type: params.type, label: params.label });\n            }\n        }\n    }\n}\n/**\n * URI action\n * @see https://devdocs.line.me/en/#template-action\n */\nexport class TemplateURIAction extends TemplateAction {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {Object} params\n     * @param  {string} params.label  Label for the action. (Max: 20 chars)\n     * @param  {string} params.uri    URI opened when the action is performed\n     */\n    constructor({ label, uri }) {\n        super({ type: LineActionType.URI, label });\n        /**\n         * URI opened when the action is performed\n         * @type {string}\n         */\n        this.uri = uri;\n    }\n}\n/**\n * Message action\n * @see https://devdocs.line.me/en/#template-action\n */\nexport class TemplateMessageAction extends TemplateAction {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {Object} params\n     * @param  {string} params.label  Label for the action. (Max: 20 chars)\n     * @param  {string} params.text   Text sent when the action is performed. (Max: 300 chars)\n     */\n    constructor({ label, text }) {\n        super({ type: LineActionType.MESSAGE, label });\n        /**\n         * Text sent when the action is performed. (Max: 300 chars)\n         * @type {string}\n         */\n        this.text = text;\n    }\n}\n/**\n * Postback action\n * @see https://devdocs.line.me/en/#template-action\n */\nexport class TemplatePostbackAction extends TemplateAction {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {Object} params\n     * @param  {string} params.label   Label for the action. (Max: 20 chars)\n     * @param  {string} [params.text]  Text sent when the action is performed. (Max: 300 chars)\n     * @param  {string} params.data    String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)\n     */\n    constructor({ label, text = undefined, data }) {\n        super({ type: LineActionType.POSTBACK, label });\n        /**\n         * Text sent when the action is performed. (Max: 300 chars)\n         * @type {string}\n         */\n        this.text = text;\n        /**\n         * String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)\n         * @type {string}\n         */\n        this.data = data;\n    }\n}\n"
   },
   {
     "__docId__": 1,
@@ -157,8 +157,18 @@
     "longname": "es2015/LineActions/index.js~ImagemapURIAction#constructor",
     "access": null,
     "description": "",
-    "lineNumber": 53,
+    "lineNumber": 54,
     "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
       {
         "nullable": null,
         "types": [
@@ -166,7 +176,7 @@
         ],
         "spread": false,
         "optional": false,
-        "name": "type",
+        "name": "params.type",
         "description": "Identifier for the type of action."
       },
       {
@@ -176,7 +186,7 @@
         ],
         "spread": false,
         "optional": false,
-        "name": "area",
+        "name": "params.area",
         "description": "Defined tappable area."
       },
       {
@@ -186,7 +196,7 @@
         ],
         "spread": false,
         "optional": false,
-        "name": "linkUri",
+        "name": "params.linkUri",
         "description": "Webpage URL"
       }
     ],
@@ -202,7 +212,7 @@
     "longname": "es2015/LineActions/index.js~ImagemapURIAction#linkUri",
     "access": null,
     "description": "Webpage URL.",
-    "lineNumber": 59,
+    "lineNumber": 60,
     "type": {
       "nullable": null,
       "types": [
@@ -228,7 +238,7 @@
     "see": [
       "https://devdocs.line.me/en/#imagemap-action-object"
     ],
-    "lineNumber": 66,
+    "lineNumber": 67,
     "interface": false,
     "extends": [
       "ImagemapAction"
@@ -244,8 +254,18 @@
     "longname": "es2015/LineActions/index.js~ImagemapMessageAction#constructor",
     "access": null,
     "description": "",
-    "lineNumber": 72,
+    "lineNumber": 74,
     "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
       {
         "nullable": null,
         "types": [
@@ -253,7 +273,7 @@
         ],
         "spread": false,
         "optional": false,
-        "name": "area",
+        "name": "params.area",
         "description": "Defined tappable area."
       },
       {
@@ -263,7 +283,7 @@
         ],
         "spread": false,
         "optional": false,
-        "name": "text",
+        "name": "params.text",
         "description": "Message to send."
       }
     ],
@@ -279,7 +299,7 @@
     "longname": "es2015/LineActions/index.js~ImagemapMessageAction#text",
     "access": null,
     "description": "Message to send.",
-    "lineNumber": 78,
+    "lineNumber": 80,
     "type": {
       "nullable": null,
       "types": [
@@ -305,7 +325,7 @@
     "see": [
       "https://devdocs.line.me/en/#template-action"
     ],
-    "lineNumber": 85,
+    "lineNumber": 87,
     "interface": false
   },
   {
@@ -318,7 +338,7 @@
     "longname": "es2015/LineActions/index.js~TemplateAction#constructor",
     "access": null,
     "description": null,
-    "lineNumber": 88,
+    "lineNumber": 90,
     "ignore": true,
     "params": [
       {
@@ -345,7 +365,7 @@
     "longname": "es2015/LineActions/index.js~TemplateAction#type",
     "access": null,
     "description": "Identifier for the type of action.",
-    "lineNumber": 93,
+    "lineNumber": 95,
     "type": {
       "nullable": null,
       "types": [
@@ -365,7 +385,7 @@
     "longname": "es2015/LineActions/index.js~TemplateAction#label",
     "access": null,
     "description": "Label for the action. (Max: 20 chars)",
-    "lineNumber": 98,
+    "lineNumber": 100,
     "type": {
       "nullable": null,
       "types": [
@@ -385,7 +405,7 @@
     "longname": "es2015/LineActions/index.js~TemplateAction.createFromObject",
     "access": null,
     "description": null,
-    "lineNumber": 101,
+    "lineNumber": 103,
     "ignore": true,
     "params": [
       {
@@ -418,7 +438,7 @@
     "see": [
       "https://devdocs.line.me/en/#template-action"
     ],
-    "lineNumber": 122,
+    "lineNumber": 124,
     "interface": false,
     "extends": [
       "TemplateAction"
@@ -434,8 +454,18 @@
     "longname": "es2015/LineActions/index.js~TemplateURIAction#constructor",
     "access": null,
     "description": "",
-    "lineNumber": 128,
+    "lineNumber": 131,
     "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
       {
         "nullable": null,
         "types": [
@@ -443,7 +473,7 @@
         ],
         "spread": false,
         "optional": false,
-        "name": "label",
+        "name": "params.label",
         "description": "Label for the action. (Max: 20 chars)"
       },
       {
@@ -453,7 +483,7 @@
         ],
         "spread": false,
         "optional": false,
-        "name": "uri",
+        "name": "params.uri",
         "description": "URI opened when the action is performed"
       }
     ],
@@ -469,7 +499,7 @@
     "longname": "es2015/LineActions/index.js~TemplateURIAction#uri",
     "access": null,
     "description": "URI opened when the action is performed",
-    "lineNumber": 134,
+    "lineNumber": 137,
     "type": {
       "nullable": null,
       "types": [
@@ -495,7 +525,7 @@
     "see": [
       "https://devdocs.line.me/en/#template-action"
     ],
-    "lineNumber": 141,
+    "lineNumber": 144,
     "interface": false,
     "extends": [
       "TemplateAction"
@@ -511,8 +541,18 @@
     "longname": "es2015/LineActions/index.js~TemplateMessageAction#constructor",
     "access": null,
     "description": "",
-    "lineNumber": 147,
+    "lineNumber": 151,
     "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
       {
         "nullable": null,
         "types": [
@@ -520,7 +560,7 @@
         ],
         "spread": false,
         "optional": false,
-        "name": "label",
+        "name": "params.label",
         "description": "Label for the action. (Max: 20 chars)"
       },
       {
@@ -530,7 +570,7 @@
         ],
         "spread": false,
         "optional": false,
-        "name": "text",
+        "name": "params.text",
         "description": "Text sent when the action is performed. (Max: 300 chars)"
       }
     ],
@@ -546,7 +586,7 @@
     "longname": "es2015/LineActions/index.js~TemplateMessageAction#text",
     "access": null,
     "description": "Text sent when the action is performed. (Max: 300 chars)",
-    "lineNumber": 153,
+    "lineNumber": 157,
     "type": {
       "nullable": null,
       "types": [
@@ -572,7 +612,7 @@
     "see": [
       "https://devdocs.line.me/en/#template-action"
     ],
-    "lineNumber": 160,
+    "lineNumber": 164,
     "interface": false,
     "extends": [
       "TemplateAction"
@@ -588,8 +628,18 @@
     "longname": "es2015/LineActions/index.js~TemplatePostbackAction#constructor",
     "access": null,
     "description": "",
-    "lineNumber": 167,
+    "lineNumber": 172,
     "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
       {
         "nullable": null,
         "types": [
@@ -597,7 +647,7 @@
         ],
         "spread": false,
         "optional": false,
-        "name": "label",
+        "name": "params.label",
         "description": "Label for the action. (Max: 20 chars)"
       },
       {
@@ -607,7 +657,7 @@
         ],
         "spread": false,
         "optional": true,
-        "name": "text",
+        "name": "params.text",
         "description": "Text sent when the action is performed. (Max: 300 chars)"
       },
       {
@@ -617,7 +667,7 @@
         ],
         "spread": false,
         "optional": false,
-        "name": "data",
+        "name": "params.data",
         "description": "String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)"
       }
     ],
@@ -633,7 +683,7 @@
     "longname": "es2015/LineActions/index.js~TemplatePostbackAction#text",
     "access": null,
     "description": "Text sent when the action is performed. (Max: 300 chars)",
-    "lineNumber": 173,
+    "lineNumber": 178,
     "type": {
       "nullable": null,
       "types": [
@@ -653,7 +703,7 @@
     "longname": "es2015/LineActions/index.js~TemplatePostbackAction#data",
     "access": null,
     "description": "String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)",
-    "lineNumber": 178,
+    "lineNumber": 183,
     "type": {
       "nullable": null,
       "types": [
@@ -1891,7 +1941,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import { ImagemapAction } from '../LineActions';\nimport { TemplateComponent } from '../LineTemplates';\nexport var LineMessageType;\n(function (LineMessageType) {\n    LineMessageType.TEXT = 'text';\n    LineMessageType.IMAGE = 'image';\n    LineMessageType.VIDEO = 'video';\n    LineMessageType.AUDIO = 'audio';\n    LineMessageType.LOCATION = 'location';\n    LineMessageType.STICKER = 'sticker';\n    LineMessageType.IMAGEMAP = 'imagemap';\n    LineMessageType.TEMPLATE = 'template';\n})(LineMessageType || (LineMessageType = {}));\n/* eslint-enable no-unused-vars, space-infix-ops */\n/**\n * Line Message\n * @see https://devdocs.line.me/en/#send-message-object\n */\nexport class LineMessage {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ id = undefined, type, }) {\n        /**\n        * Message ID.\n        * @type {string}\n        */\n        this.id = id;\n        /**\n         * Identifier for the type of source.\n         * @type {string}\n         */\n        this.type = type;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        switch (params.type) {\n            case LineMessageType.TEXT: {\n                return TextMessage.createFromObject(params);\n            }\n            case LineMessageType.IMAGE: {\n                return ImageMessage.createFromObject(params);\n            }\n            case LineMessageType.VIDEO: {\n                return VideoMessage.createFromObject(params);\n            }\n            case LineMessageType.AUDIO: {\n                return AudioMessage.createFromObject(params);\n            }\n            case LineMessageType.LOCATION: {\n                return LocationMessage.createFromObject(params);\n            }\n            case LineMessageType.STICKER: {\n                return StickerMessage.createFromObject(params);\n            }\n            case LineMessageType.IMAGEMAP: {\n                return ImagemapMessage.createFromObject(params);\n            }\n            case LineMessageType.TEMPLATE: {\n                return TemplateMessage.createFromObject(params);\n            }\n            default: {\n                return new LineMessage({ id: params.id, type: params.type });\n            }\n        }\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#text-message\n */\nexport class TextMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.text  Message text.\n     */\n    constructor({ text }) {\n        super({ type: LineMessageType.TEXT });\n        /**\n        * Message text.\n        * @type {string}\n        */\n        this.text = text;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new TextMessage(params);\n        instance.id = params.id;\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#image-message\n */\nexport class ImageMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.originalContentUrl  Image URL. (JPEG / HTTPS)\n     * @param {string} params.previewImageUrl     Preview image URL. (JPEG / HTTPS)\n     */\n    constructor({ originalContentUrl, previewImageUrl, }) {\n        super({ type: LineMessageType.IMAGE });\n        /**\n         * Image URL. (JPEG / HTTPS)\n         * @type {string}\n         */\n        this.originalContentUrl = originalContentUrl;\n        /**\n         * Preview image URL. (JPEG / HTTPS)\n         * @type {string}\n         */\n        this.previewImageUrl = previewImageUrl;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new ImageMessage(params);\n        instance.id = params.id;\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#video-message\n */\nexport class VideoMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.originalContentUrl  URL of video file. (MP4 / HTTPS)\n     * @param {string} params.previewImageUrl     Preview image URL. (JPEG / HTTPS)\n     */\n    constructor({ originalContentUrl, previewImageUrl, }) {\n        super({ type: LineMessageType.VIDEO });\n        /**\n         * URL of video file. (MP4 / HTTPS)\n         * @type {string}\n         */\n        this.originalContentUrl = originalContentUrl;\n        /**\n         * Preview image URL. (JPEG / HTTPS)\n         * @type {string}\n         */\n        this.previewImageUrl = previewImageUrl;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new VideoMessage(params);\n        instance.id = params.id;\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#audio-message\n */\nexport class AudioMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.originalContentUrl  URL of audio file. (M4A / HTTPS)\n     * @param {number} params.duration            Length of audio file (milliseconds)\n     */\n    constructor({ originalContentUrl, duration, }) {\n        super({ type: LineMessageType.AUDIO });\n        /**\n         * URL of audio file. (M4A / HTTPS)\n         * @type {string}\n         */\n        this.originalContentUrl = originalContentUrl;\n        /**\n         * Length of audio file (milliseconds)\n         * @type {number}\n         */\n        this.duration = duration;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new AudioMessage(params);\n        instance.id = params.id;\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#location-message\n */\nexport class LocationMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.title              Title.\n     * @param {string} params.address            Address.\n     * @param {number} params.latitude           Latitude.\n     * @param {number} params.longitude          Longitude.\n     */\n    constructor({ title, address, latitude, longitude, }) {\n        super({ type: LineMessageType.LOCATION });\n        /**\n        * Title.\n        * @type {string}\n        */\n        this.title = title;\n        /**\n         * Address.\n         * @type {string}\n         */\n        this.address = address;\n        /**\n         * Latitude.\n         * @type {number}\n         */\n        this.latitude = latitude;\n        /**\n         * Longitude.\n         * @type {number}\n         */\n        this.longitude = longitude;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new LocationMessage(params);\n        instance.id = params.id;\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#sticker-message\n */\nexport class StickerMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.packageId         Package ID.\n     * @param {string} params.stickerId         Sticker ID.\n     */\n    constructor({ packageId, stickerId, }) {\n        super({ type: LineMessageType.STICKER });\n        /**\n        * Package ID.\n        * @type {string}\n        */\n        this.packageId = packageId;\n        /**\n         * Sticker ID.\n         * @type {string}\n         */\n        this.stickerId = stickerId;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new StickerMessage(params);\n        instance.id = params.id;\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#imagemap-message\n */\nexport class ImagemapMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.baseUrl                     Base URL (HTTPS)\n     * @param {string} params.altText                     Alternative text\n     * @param {Size} params.baseSize                      Base image size.\n     * @param {ImagemapAction[] | Object[]}  params.actions  Action when tapped\n     */\n    constructor({ baseUrl, altText, baseSize, actions, }) {\n        super({ type: LineMessageType.IMAGEMAP });\n        /**\n         * Base URL (HTTPS)\n         * @type {string}\n         */\n        this.baseUrl = baseUrl;\n        /**\n         * Alternative text\n         * @type {string}\n         */\n        this.altText = altText;\n        /**\n         * Base image size.\n         * @type {Size}\n         */\n        this.baseSize = baseSize;\n        /**\n         * Action when tapped\n         * @type {ImagemapAction[]}\n         */\n        this.actions = actions.map(action => ImagemapAction.createFromObject(action));\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new ImagemapMessage(params);\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#template-messages\n */\nexport class TemplateMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.altText                    Alternative text\n     * @param {TemplateComponent | Object} params.template  Object with the contents of the template.\n     */\n    constructor({ altText, template, }) {\n        super({ type: LineMessageType.TEMPLATE });\n        /**\n         * Alternative text\n         * @type {string}\n         */\n        this.altText = altText;\n        /**\n         * Object with the contents of the template.\n         * @type {TemplateComponent}\n         */\n        this.template = TemplateComponent.createFromObject(template);\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new TemplateMessage(params);\n        return instance;\n    }\n}\n"
+    "content": "import { ImagemapAction } from '../LineActions';\nimport { TemplateComponent } from '../LineTemplates';\nexport var LineMessageType;\n(function (LineMessageType) {\n    LineMessageType.TEXT = 'text';\n    LineMessageType.IMAGE = 'image';\n    LineMessageType.VIDEO = 'video';\n    LineMessageType.AUDIO = 'audio';\n    LineMessageType.LOCATION = 'location';\n    LineMessageType.STICKER = 'sticker';\n    LineMessageType.IMAGEMAP = 'imagemap';\n    LineMessageType.TEMPLATE = 'template';\n})(LineMessageType || (LineMessageType = {}));\n/* eslint-enable no-unused-vars, space-infix-ops */\n/**\n * Line Message\n * @see https://devdocs.line.me/en/#send-message-object\n */\nexport class LineMessage {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ id = undefined, type, }) {\n        /**\n        * Message ID.\n        * @type {string}\n        */\n        this.id = id;\n        /**\n         * Identifier for the type of source.\n         * @type {string}\n         */\n        this.type = type;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        switch (params.type) {\n            case LineMessageType.TEXT: {\n                return TextMessage.createFromObject(params);\n            }\n            case LineMessageType.IMAGE: {\n                return ImageMessage.createFromObject(params);\n            }\n            case LineMessageType.VIDEO: {\n                return VideoMessage.createFromObject(params);\n            }\n            case LineMessageType.AUDIO: {\n                return AudioMessage.createFromObject(params);\n            }\n            case LineMessageType.LOCATION: {\n                return LocationMessage.createFromObject(params);\n            }\n            case LineMessageType.STICKER: {\n                return StickerMessage.createFromObject(params);\n            }\n            case LineMessageType.IMAGEMAP: {\n                return ImagemapMessage.createFromObject(params);\n            }\n            case LineMessageType.TEMPLATE: {\n                return TemplateMessage.createFromObject(params);\n            }\n            default: {\n                return new LineMessage({ id: params.id, type: params.type });\n            }\n        }\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#text-message\n */\nexport class TextMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.text  Message text.\n     */\n    constructor({ text }) {\n        super({ type: LineMessageType.TEXT });\n        /**\n        * Message text.\n        * @type {string}\n        */\n        this.text = text;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new TextMessage(params);\n        instance.id = params.id;\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#image-message\n */\nexport class ImageMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.originalContentUrl  Image URL. (JPEG / HTTPS)\n     * @param {string} params.previewImageUrl     Preview image URL. (JPEG / HTTPS)\n     */\n    constructor({ originalContentUrl, previewImageUrl, }) {\n        super({ type: LineMessageType.IMAGE });\n        /**\n         * Image URL. (JPEG / HTTPS)\n         * @type {string}\n         */\n        this.originalContentUrl = originalContentUrl;\n        /**\n         * Preview image URL. (JPEG / HTTPS)\n         * @type {string}\n         */\n        this.previewImageUrl = previewImageUrl;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new ImageMessage(params);\n        instance.id = params.id;\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#video-message\n */\nexport class VideoMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.originalContentUrl  URL of video file. (MP4 / HTTPS)\n     * @param {string} params.previewImageUrl     Preview image URL. (JPEG / HTTPS)\n     */\n    constructor({ originalContentUrl, previewImageUrl, }) {\n        super({ type: LineMessageType.VIDEO });\n        /**\n         * URL of video file. (MP4 / HTTPS)\n         * @type {string}\n         */\n        this.originalContentUrl = originalContentUrl;\n        /**\n         * Preview image URL. (JPEG / HTTPS)\n         * @type {string}\n         */\n        this.previewImageUrl = previewImageUrl;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new VideoMessage(params);\n        instance.id = params.id;\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#audio-message\n */\nexport class AudioMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.originalContentUrl  URL of audio file. (M4A / HTTPS)\n     * @param {number} params.duration            Length of audio file (milliseconds)\n     */\n    constructor({ originalContentUrl, duration, }) {\n        super({ type: LineMessageType.AUDIO });\n        /**\n         * URL of audio file. (M4A / HTTPS)\n         * @type {string}\n         */\n        this.originalContentUrl = originalContentUrl;\n        /**\n         * Length of audio file (milliseconds)\n         * @type {number}\n         */\n        this.duration = duration;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new AudioMessage(params);\n        instance.id = params.id;\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#location-message\n */\nexport class LocationMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.title              Title.\n     * @param {string} params.address            Address.\n     * @param {number} params.latitude           Latitude.\n     * @param {number} params.longitude          Longitude.\n     */\n    constructor({ title, address, latitude, longitude, }) {\n        super({ type: LineMessageType.LOCATION });\n        /**\n        * Title.\n        * @type {string}\n        */\n        this.title = title;\n        /**\n         * Address.\n         * @type {string}\n         */\n        this.address = address;\n        /**\n         * Latitude.\n         * @type {number}\n         */\n        this.latitude = latitude;\n        /**\n         * Longitude.\n         * @type {number}\n         */\n        this.longitude = longitude;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new LocationMessage(params);\n        instance.id = params.id;\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#sticker-message\n */\nexport class StickerMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.packageId         Package ID.\n     * @param {string} params.stickerId         Sticker ID.\n     */\n    constructor({ packageId, stickerId, }) {\n        super({ type: LineMessageType.STICKER });\n        /**\n        * Package ID.\n        * @type {string}\n        */\n        this.packageId = packageId;\n        /**\n         * Sticker ID.\n         * @type {string}\n         */\n        this.stickerId = stickerId;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new StickerMessage(params);\n        instance.id = params.id;\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#imagemap-message\n */\nexport class ImagemapMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.baseUrl                        Base URL (HTTPS)\n     * @param {string} params.altText                        Alternative text\n     * @param {Size} params.baseSize                         Base image size.\n     * @param {ImagemapAction[] | Object[]}  params.actions  Action when tapped\n     */\n    constructor({ baseUrl, altText, baseSize, actions, }) {\n        super({ type: LineMessageType.IMAGEMAP });\n        /**\n         * Base URL (HTTPS)\n         * @type {string}\n         */\n        this.baseUrl = baseUrl;\n        /**\n         * Alternative text\n         * @type {string}\n         */\n        this.altText = altText;\n        /**\n         * Base image size.\n         * @type {Size}\n         */\n        this.baseSize = baseSize;\n        /**\n         * Action when tapped\n         * @type {ImagemapAction[]}\n         */\n        this.actions = actions.map(action => ImagemapAction.createFromObject(action));\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new ImagemapMessage(params);\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#template-messages\n */\nexport class TemplateMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.altText                       Alternative text\n     * @param {TemplateComponent | Object} params.template  Object with the contents of the template.\n     */\n    constructor({ altText, template, }) {\n        super({ type: LineMessageType.TEMPLATE });\n        /**\n         * Alternative text\n         * @type {string}\n         */\n        this.altText = altText;\n        /**\n         * Object with the contents of the template.\n         * @type {TemplateComponent}\n         */\n        this.template = TemplateComponent.createFromObject(template);\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new TemplateMessage(params);\n        return instance;\n    }\n}\n"
   },
   {
     "__docId__": 72,
@@ -3493,7 +3543,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import { TemplateAction } from '../LineActions';\nexport var LineTemplateType;\n(function (LineTemplateType) {\n    LineTemplateType.BUTTONS = 'buttons';\n    LineTemplateType.CONFIRM = 'confirm';\n    LineTemplateType.CAROUSEL = 'carousel';\n})(LineTemplateType || (LineTemplateType = {}));\n/* eslint-enable no-unused-vars, space-infix-ops */\n/**\n * @see https://devdocs.line.me/en/#template-messages\n */\nexport class TemplateComponent {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ type }) {\n        /**\n         * Identifier for the type of template.\n         * @type {string}\n         */\n        this.type = type;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        switch (params.type) {\n            case LineTemplateType.BUTTONS: {\n                return new TemplateButtons(params);\n            }\n            case LineTemplateType.CONFIRM: {\n                return new TemplateConfirm(params);\n            }\n            case LineTemplateType.CAROUSEL: {\n                return new TemplateCarousel(params);\n            }\n            default: {\n                return new TemplateComponent({ type: params.type });\n            }\n        }\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#buttons\n */\nexport class TemplateButtons extends TemplateComponent {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {string}  [thumbnailImageUrl]       Image URL (JPEG or PNG / HTTPS / 1:1.51)\n     * @param  {string}  [title]                   Title (Max: 40 chars)\n     * @param  {string}  text                      Message text (Max: 160 chars (no image, no title) / 60 chars)\n     * @param  {TemplateAction[] | any[]} actions  Action when tapped (Max: 4)\n     */\n    constructor({ thumbnailImageUrl, title, text, actions }) {\n        super({ type: LineTemplateType.BUTTONS });\n        /**\n         * Image URL (JPEG or PNG / HTTPS / 1:1.51)\n         * @type {string}\n         */\n        this.thumbnailImageUrl = thumbnailImageUrl;\n        /**\n         * Title (Max: 40 chars)\n         * @type {string}\n         */\n        this.title = title;\n        /**\n         * Message text (Max: 160 chars (no image, no title) / 60 chars)\n         * @type {string}\n         */\n        this.text = text;\n        /**\n         * Action when tapped (Max: 4)\n         * @type {TemplateAction[]}\n         */\n        this.actions = actions.map(action => TemplateAction.createFromObject(action));\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#confirm\n */\nexport class TemplateConfirm extends TemplateComponent {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {string}                   text     Message text (Max: 240 chars)\n     * @param  {TemplateAction[] | any[]} actions  Action when tapped (Max: 2)\n     */\n    constructor({ text, actions }) {\n        super({ type: LineTemplateType.CONFIRM });\n        /**\n         * Message text (Max: 240 chars)\n         * @type {string}\n         */\n        this.text = text;\n        /**\n         * Action when tapped (Max: 2)\n         * @type {TemplateAction[]}\n         */\n        this.actions = actions.map(action => TemplateAction.createFromObject(action));\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#carousel\n */\nexport class TemplateCarousel extends TemplateComponent {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {TemplateColumn[] | any[]} columns  Array of columns (Max: 5)\n     */\n    constructor({ columns }) {\n        super({ type: LineTemplateType.CAROUSEL });\n        /**\n         * Array of columns (Max: 5)\n         * @type {TemplateColumn[]}\n         */\n        this.columns = columns.map(column => TemplateColumn.createFromObject(column));\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#column-object\n */\nexport class TemplateColumn {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {string}  [thumbnailImageUrl]       Image URL (JPEG or PNG / HTTPS / 1:1.51)\n     * @param  {string}  [title]                   Title (Max: 40 chars)\n     * @param  {string}  text                      Message text (Max: 160 chars (no image, no title) / 60 chars)\n     * @param  {TemplateAction[] | any[]} actions  Action when tapped (Max: 3)\n     */\n    constructor({ thumbnailImageUrl, title, text, actions }) {\n        /**\n         * Image URL (JPEG or PNG / HTTPS / 1:1.51)\n         * @type {string}\n         */\n        this.thumbnailImageUrl = thumbnailImageUrl;\n        /**\n         * Title (Max: 40 chars)\n         * @type {string}\n         */\n        this.title = title;\n        /**\n         * Message text (Max: 160 chars (no image, no title) / 60 chars)\n         * @type {string}\n         */\n        this.text = text;\n        /**\n         * Action when tapped (Max: 3)\n         * @type {TemplateAction[]}\n         */\n        this.actions = actions.map(action => TemplateAction.createFromObject(action));\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        return new TemplateColumn(params);\n    }\n}\n"
+    "content": "import { TemplateAction } from '../LineActions';\nexport var LineTemplateType;\n(function (LineTemplateType) {\n    LineTemplateType.BUTTONS = 'buttons';\n    LineTemplateType.CONFIRM = 'confirm';\n    LineTemplateType.CAROUSEL = 'carousel';\n})(LineTemplateType || (LineTemplateType = {}));\n/* eslint-enable no-unused-vars, space-infix-ops */\n/**\n * @see https://devdocs.line.me/en/#template-messages\n */\nexport class TemplateComponent {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ type }) {\n        /**\n         * Identifier for the type of template.\n         * @type {string}\n         */\n        this.type = type;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        switch (params.type) {\n            case LineTemplateType.BUTTONS: {\n                return new TemplateButtons(params);\n            }\n            case LineTemplateType.CONFIRM: {\n                return new TemplateConfirm(params);\n            }\n            case LineTemplateType.CAROUSEL: {\n                return new TemplateCarousel(params);\n            }\n            default: {\n                return new TemplateComponent({ type: params.type });\n            }\n        }\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#buttons\n */\nexport class TemplateButtons extends TemplateComponent {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {Object}  params\n     * @param  {string}  [params.thumbnailImageUrl]       Image URL (JPEG or PNG / HTTPS / 1:1.51)\n     * @param  {string}  [params.title]                   Title (Max: 40 chars)\n     * @param  {string}  params.text                      Message text (Max: 160 chars (no image, no title) / 60 chars)\n     * @param  {TemplateAction[] | any[]} params.actions  Action when tapped (Max: 4)\n     */\n    constructor({ thumbnailImageUrl, title, text, actions }) {\n        super({ type: LineTemplateType.BUTTONS });\n        /**\n         * Image URL (JPEG or PNG / HTTPS / 1:1.51)\n         * @type {string}\n         */\n        this.thumbnailImageUrl = thumbnailImageUrl;\n        /**\n         * Title (Max: 40 chars)\n         * @type {string}\n         */\n        this.title = title;\n        /**\n         * Message text (Max: 160 chars (no image, no title) / 60 chars)\n         * @type {string}\n         */\n        this.text = text;\n        /**\n         * Action when tapped (Max: 4)\n         * @type {TemplateAction[]}\n         */\n        this.actions = actions.map(action => TemplateAction.createFromObject(action));\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#confirm\n */\nexport class TemplateConfirm extends TemplateComponent {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {Object}  params\n     * @param  {string}  params.text                      Message text (Max: 240 chars)\n     * @param  {TemplateAction[] | any[]} params.actions  Action when tapped (Max: 2)\n     */\n    constructor({ text, actions }) {\n        super({ type: LineTemplateType.CONFIRM });\n        /**\n         * Message text (Max: 240 chars)\n         * @type {string}\n         */\n        this.text = text;\n        /**\n         * Action when tapped (Max: 2)\n         * @type {TemplateAction[]}\n         */\n        this.actions = actions.map(action => TemplateAction.createFromObject(action));\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#carousel\n */\nexport class TemplateCarousel extends TemplateComponent {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {Object}  params\n     * @param  {TemplateColumn[] | any[]} params.columns  Array of columns (Max: 5)\n     */\n    constructor({ columns }) {\n        super({ type: LineTemplateType.CAROUSEL });\n        /**\n         * Array of columns (Max: 5)\n         * @type {TemplateColumn[]}\n         */\n        this.columns = columns.map(column => TemplateColumn.createFromObject(column));\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#column-object\n */\nexport class TemplateColumn {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {Object}  params\n     * @param  {string}  [params.thumbnailImageUrl]       Image URL (JPEG or PNG / HTTPS / 1:1.51)\n     * @param  {string}  [params.title]                   Title (Max: 40 chars)\n     * @param  {string}  params.text                      Message text (Max: 160 chars (no image, no title) / 60 chars)\n     * @param  {TemplateAction[] | any[]} params.actions  Action when tapped (Max: 3)\n     */\n    constructor({ thumbnailImageUrl, title, text, actions }) {\n        /**\n         * Image URL (JPEG or PNG / HTTPS / 1:1.51)\n         * @type {string}\n         */\n        this.thumbnailImageUrl = thumbnailImageUrl;\n        /**\n         * Title (Max: 40 chars)\n         * @type {string}\n         */\n        this.title = title;\n        /**\n         * Message text (Max: 160 chars (no image, no title) / 60 chars)\n         * @type {string}\n         */\n        this.text = text;\n        /**\n         * Action when tapped (Max: 3)\n         * @type {TemplateAction[]}\n         */\n        this.actions = actions.map(action => TemplateAction.createFromObject(action));\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        return new TemplateColumn(params);\n    }\n}\n"
   },
   {
     "__docId__": 135,
@@ -3619,8 +3669,18 @@
     "longname": "es2015/LineTemplates/index.js~TemplateButtons#constructor",
     "access": null,
     "description": "",
-    "lineNumber": 51,
+    "lineNumber": 52,
     "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
       {
         "nullable": null,
         "types": [
@@ -3628,7 +3688,7 @@
         ],
         "spread": false,
         "optional": true,
-        "name": "thumbnailImageUrl",
+        "name": "params.thumbnailImageUrl",
         "description": "Image URL (JPEG or PNG / HTTPS / 1:1.51)"
       },
       {
@@ -3638,7 +3698,7 @@
         ],
         "spread": false,
         "optional": true,
-        "name": "title",
+        "name": "params.title",
         "description": "Title (Max: 40 chars)"
       },
       {
@@ -3648,7 +3708,7 @@
         ],
         "spread": false,
         "optional": false,
-        "name": "text",
+        "name": "params.text",
         "description": "Message text (Max: 160 chars (no image, no title) / 60 chars)"
       },
       {
@@ -3659,7 +3719,7 @@
         ],
         "spread": false,
         "optional": false,
-        "name": "actions",
+        "name": "params.actions",
         "description": "Action when tapped (Max: 4)"
       }
     ],
@@ -3675,7 +3735,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateButtons#thumbnailImageUrl",
     "access": null,
     "description": "Image URL (JPEG or PNG / HTTPS / 1:1.51)",
-    "lineNumber": 57,
+    "lineNumber": 58,
     "type": {
       "nullable": null,
       "types": [
@@ -3695,7 +3755,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateButtons#title",
     "access": null,
     "description": "Title (Max: 40 chars)",
-    "lineNumber": 62,
+    "lineNumber": 63,
     "type": {
       "nullable": null,
       "types": [
@@ -3715,7 +3775,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateButtons#text",
     "access": null,
     "description": "Message text (Max: 160 chars (no image, no title) / 60 chars)",
-    "lineNumber": 67,
+    "lineNumber": 68,
     "type": {
       "nullable": null,
       "types": [
@@ -3735,7 +3795,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateButtons#actions",
     "access": null,
     "description": "Action when tapped (Max: 4)",
-    "lineNumber": 72,
+    "lineNumber": 73,
     "type": {
       "nullable": null,
       "types": [
@@ -3761,7 +3821,7 @@
     "see": [
       "https://devdocs.line.me/en/#confirm"
     ],
-    "lineNumber": 78,
+    "lineNumber": 79,
     "interface": false,
     "extends": [
       "TemplateComponent"
@@ -3777,8 +3837,18 @@
     "longname": "es2015/LineTemplates/index.js~TemplateConfirm#constructor",
     "access": null,
     "description": "",
-    "lineNumber": 84,
+    "lineNumber": 86,
     "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
       {
         "nullable": null,
         "types": [
@@ -3786,7 +3856,7 @@
         ],
         "spread": false,
         "optional": false,
-        "name": "text",
+        "name": "params.text",
         "description": "Message text (Max: 240 chars)"
       },
       {
@@ -3797,7 +3867,7 @@
         ],
         "spread": false,
         "optional": false,
-        "name": "actions",
+        "name": "params.actions",
         "description": "Action when tapped (Max: 2)"
       }
     ],
@@ -3813,7 +3883,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateConfirm#text",
     "access": null,
     "description": "Message text (Max: 240 chars)",
-    "lineNumber": 90,
+    "lineNumber": 92,
     "type": {
       "nullable": null,
       "types": [
@@ -3833,7 +3903,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateConfirm#actions",
     "access": null,
     "description": "Action when tapped (Max: 2)",
-    "lineNumber": 95,
+    "lineNumber": 97,
     "type": {
       "nullable": null,
       "types": [
@@ -3859,7 +3929,7 @@
     "see": [
       "https://devdocs.line.me/en/#carousel"
     ],
-    "lineNumber": 101,
+    "lineNumber": 103,
     "interface": false,
     "extends": [
       "TemplateComponent"
@@ -3875,8 +3945,18 @@
     "longname": "es2015/LineTemplates/index.js~TemplateCarousel#constructor",
     "access": null,
     "description": "",
-    "lineNumber": 106,
+    "lineNumber": 109,
     "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
       {
         "nullable": null,
         "types": [
@@ -3885,7 +3965,7 @@
         ],
         "spread": false,
         "optional": false,
-        "name": "columns",
+        "name": "params.columns",
         "description": "Array of columns (Max: 5)"
       }
     ],
@@ -3901,7 +3981,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateCarousel#columns",
     "access": null,
     "description": "Array of columns (Max: 5)",
-    "lineNumber": 112,
+    "lineNumber": 115,
     "type": {
       "nullable": null,
       "types": [
@@ -3927,7 +4007,7 @@
     "see": [
       "https://devdocs.line.me/en/#column-object"
     ],
-    "lineNumber": 118,
+    "lineNumber": 121,
     "interface": false
   },
   {
@@ -3940,8 +4020,18 @@
     "longname": "es2015/LineTemplates/index.js~TemplateColumn#constructor",
     "access": null,
     "description": "",
-    "lineNumber": 126,
+    "lineNumber": 130,
     "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
       {
         "nullable": null,
         "types": [
@@ -3949,7 +4039,7 @@
         ],
         "spread": false,
         "optional": true,
-        "name": "thumbnailImageUrl",
+        "name": "params.thumbnailImageUrl",
         "description": "Image URL (JPEG or PNG / HTTPS / 1:1.51)"
       },
       {
@@ -3959,7 +4049,7 @@
         ],
         "spread": false,
         "optional": true,
-        "name": "title",
+        "name": "params.title",
         "description": "Title (Max: 40 chars)"
       },
       {
@@ -3969,7 +4059,7 @@
         ],
         "spread": false,
         "optional": false,
-        "name": "text",
+        "name": "params.text",
         "description": "Message text (Max: 160 chars (no image, no title) / 60 chars)"
       },
       {
@@ -3980,7 +4070,7 @@
         ],
         "spread": false,
         "optional": false,
-        "name": "actions",
+        "name": "params.actions",
         "description": "Action when tapped (Max: 3)"
       }
     ],
@@ -3996,7 +4086,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateColumn#thumbnailImageUrl",
     "access": null,
     "description": "Image URL (JPEG or PNG / HTTPS / 1:1.51)",
-    "lineNumber": 131,
+    "lineNumber": 135,
     "type": {
       "nullable": null,
       "types": [
@@ -4016,7 +4106,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateColumn#title",
     "access": null,
     "description": "Title (Max: 40 chars)",
-    "lineNumber": 136,
+    "lineNumber": 140,
     "type": {
       "nullable": null,
       "types": [
@@ -4036,7 +4126,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateColumn#text",
     "access": null,
     "description": "Message text (Max: 160 chars (no image, no title) / 60 chars)",
-    "lineNumber": 141,
+    "lineNumber": 145,
     "type": {
       "nullable": null,
       "types": [
@@ -4056,7 +4146,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateColumn#actions",
     "access": null,
     "description": "Action when tapped (Max: 3)",
-    "lineNumber": 146,
+    "lineNumber": 150,
     "type": {
       "nullable": null,
       "types": [
@@ -4076,7 +4166,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateColumn.createFromObject",
     "access": null,
     "description": null,
-    "lineNumber": 149,
+    "lineNumber": 153,
     "ignore": true,
     "params": [
       {

@@ -61,9 +61,10 @@ export class ImagemapURIAction extends ImagemapAction {
   /* eslint-enable no-undef */
 
   /**
-   * @param  {string}    type     Identifier for the type of action.
-   * @param  {Rectangle} area     Defined tappable area.
-   * @param  {string}    linkUri  Webpage URL
+   * @param  {Object} params
+   * @param  {string} params.type     Identifier for the type of action.
+   * @param  {Rectangle} params.area  Defined tappable area.
+   * @param  {string} params.linkUri  Webpage URL
    */
   constructor({
     area,
@@ -91,8 +92,9 @@ export class ImagemapMessageAction extends ImagemapAction {
   /* eslint-enable no-undef */
 
   /**
-   * @param  {Rectangle} area  Defined tappable area.
-   * @param  {string}    text  Message to send.
+   * @param  {Object} params
+   * @param  {Rectangle} params.area  Defined tappable area.
+   * @param  {string} params.text     Message to send.
    */
   constructor({
     area,
@@ -163,8 +165,9 @@ export class TemplateURIAction extends TemplateAction {
   /* eslint-enable no-undef */
 
   /**
-   * @param  {string} label  Label for the action. (Max: 20 chars)
-   * @param  {string} uri    URI opened when the action is performed
+   * @param  {Object} params
+   * @param  {string} params.label  Label for the action. (Max: 20 chars)
+   * @param  {string} params.uri    URI opened when the action is performed
    */
   constructor({ label, uri }: { label: string, uri: string }) {
     super({ type: LineActionType.URI, label });
@@ -186,8 +189,9 @@ export class TemplateMessageAction extends TemplateAction {
   /* eslint-enable no-undef */
 
   /**
-   * @param  {string} label  Label for the action. (Max: 20 chars)
-   * @param  {string} text   Text sent when the action is performed. (Max: 300 chars)
+   * @param  {Object} params
+   * @param  {string} params.label  Label for the action. (Max: 20 chars)
+   * @param  {string} params.text   Text sent when the action is performed. (Max: 300 chars)
    */
   constructor({ label, text }: { label: string, text: string }) {
     super({ type: LineActionType.MESSAGE, label });
@@ -210,9 +214,10 @@ export class TemplatePostbackAction extends TemplateAction {
   /* eslint-enable no-undef */
 
   /**
-   * @param  {string}  label   Label for the action. (Max: 20 chars)
-   * @param  {string}  [text]  Text sent when the action is performed. (Max: 300 chars)
-   * @param  {string}  data    String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)
+   * @param  {Object} params
+   * @param  {string} params.label   Label for the action. (Max: 20 chars)
+   * @param  {string} [params.text]  Text sent when the action is performed. (Max: 300 chars)
+   * @param  {string} params.data    String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)
    */
   constructor({ label, text = undefined, data }: {
     label: string,

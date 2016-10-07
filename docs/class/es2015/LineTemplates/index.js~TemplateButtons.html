@@ -16,7 +16,7 @@
 
 <header>
   <a href="./">Home</a>
-  
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
   
@@ -135,7 +135,7 @@
     <td>
       <div>
         <p>
-           <span data-ice="name"><span><a href="class/es2015/LineTemplates/index.js~TemplateButtons.html#instance-constructor-constructor">constructor</a></span></span><span data-ice="signature">(thumbnailImageUrl: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, title: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, text: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, actions: <span>TemplateAction[] </span> | <span><span> any</span><span>[]</span></span>)</span>
+           <span data-ice="name"><span><a href="class/es2015/LineTemplates/index.js~TemplateButtons.html#instance-constructor-constructor">constructor</a></span></span><span data-ice="signature">(params: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
         </p>
       </div>
       <div>
@@ -310,11 +310,11 @@
     
     
     
-    <span data-ice="name">constructor</span><span data-ice="signature">(thumbnailImageUrl: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, title: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, text: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span>, actions: <span>TemplateAction[] </span> | <span><span> any</span><span>[]</span></span>)</span>
+    <span data-ice="name">constructor</span><span data-ice="signature">(params: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/es2015/LineTemplates/index.js.html#lineNumber51">source</a></span></span>
+      <span data-ice="source"><span><a href="file/es2015/LineTemplates/index.js.html#lineNumber52">source</a></span></span>
     </span>
   </h3>
 
@@ -334,28 +334,34 @@
     <tbody>
     
     <tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">thumbnailImageUrl</td>
+      <td data-ice="name" data-depth="0">params</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.thumbnailImageUrl</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Image URL (JPEG or PNG / HTTPS / 1:1.51)</p>
 </td>
     </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">title</td>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.title</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"><ul><li>optional</li></ul></td>
       <td data-ice="description"><p>Title (Max: 40 chars)</p>
 </td>
     </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">text</td>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.text</td>
       <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>Message text (Max: 160 chars (no image, no title) / 60 chars)</p>
 </td>
     </tr>
-<tr data-ice="property" data-depth="0">
-      <td data-ice="name" data-depth="0">actions</td>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.actions</td>
       <td data-ice="type"><span>TemplateAction[] </span> | <span><span> any</span><span>[]</span></span></td>
       <td data-ice="appendix"></td>
       <td data-ice="description"><p>Action when tapped (Max: 4)</p>
@@ -395,7 +401,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/es2015/LineTemplates/index.js.html#lineNumber72">source</a></span></span>
+      <span data-ice="source"><span><a href="file/es2015/LineTemplates/index.js.html#lineNumber73">source</a></span></span>
     </span>
   </h3>
 
@@ -436,7 +442,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/es2015/LineTemplates/index.js.html#lineNumber67">source</a></span></span>
+      <span data-ice="source"><span><a href="file/es2015/LineTemplates/index.js.html#lineNumber68">source</a></span></span>
     </span>
   </h3>
 
@@ -477,7 +483,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/es2015/LineTemplates/index.js.html#lineNumber57">source</a></span></span>
+      <span data-ice="source"><span><a href="file/es2015/LineTemplates/index.js.html#lineNumber58">source</a></span></span>
     </span>
   </h3>
 
@@ -518,7 +524,7 @@
     <span class="right-info">
       
       
-      <span data-ice="source"><span><a href="file/es2015/LineTemplates/index.js.html#lineNumber62">source</a></span></span>
+      <span data-ice="source"><span><a href="file/es2015/LineTemplates/index.js.html#lineNumber63">source</a></span></span>
     </span>
   </h3>
 

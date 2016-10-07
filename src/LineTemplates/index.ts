@@ -59,10 +59,11 @@ export class TemplateButtons extends TemplateComponent {
   /* eslint-enable no-undef */
 
   /**
-   * @param  {string}  [thumbnailImageUrl]       Image URL (JPEG or PNG / HTTPS / 1:1.51)
-   * @param  {string}  [title]                   Title (Max: 40 chars)
-   * @param  {string}  text                      Message text (Max: 160 chars (no image, no title) / 60 chars)
-   * @param  {TemplateAction[] | any[]} actions  Action when tapped (Max: 4)
+   * @param  {Object}  params
+   * @param  {string}  [params.thumbnailImageUrl]       Image URL (JPEG or PNG / HTTPS / 1:1.51)
+   * @param  {string}  [params.title]                   Title (Max: 40 chars)
+   * @param  {string}  params.text                      Message text (Max: 160 chars (no image, no title) / 60 chars)
+   * @param  {TemplateAction[] | any[]} params.actions  Action when tapped (Max: 4)
    */
   constructor({ thumbnailImageUrl, title, text, actions }: {
     thumbnailImageUrl?: string,
@@ -104,8 +105,9 @@ export class TemplateConfirm extends TemplateComponent {
   /* eslint-enable no-undef */
 
   /**
-   * @param  {string}                   text     Message text (Max: 240 chars)
-   * @param  {TemplateAction[] | any[]} actions  Action when tapped (Max: 2)
+   * @param  {Object}  params
+   * @param  {string}  params.text                      Message text (Max: 240 chars)
+   * @param  {TemplateAction[] | any[]} params.actions  Action when tapped (Max: 2)
    */
   constructor({ text, actions }: {
     text: string,
@@ -134,7 +136,8 @@ export class TemplateCarousel extends TemplateComponent {
   /* eslint-enable no-undef */
 
   /**
-   * @param  {TemplateColumn[] | any[]} columns  Array of columns (Max: 5)
+   * @param  {Object}  params
+   * @param  {TemplateColumn[] | any[]} params.columns  Array of columns (Max: 5)
    */
   constructor({ columns }: {
     columns: TemplateColumn[] | any[],
@@ -160,10 +163,11 @@ export class TemplateColumn {
   /* eslint-enable no-undef */
 
   /**
-   * @param  {string}  [thumbnailImageUrl]       Image URL (JPEG or PNG / HTTPS / 1:1.51)
-   * @param  {string}  [title]                   Title (Max: 40 chars)
-   * @param  {string}  text                      Message text (Max: 160 chars (no image, no title) / 60 chars)
-   * @param  {TemplateAction[] | any[]} actions  Action when tapped (Max: 3)
+   * @param  {Object}  params
+   * @param  {string}  [params.thumbnailImageUrl]       Image URL (JPEG or PNG / HTTPS / 1:1.51)
+   * @param  {string}  [params.title]                   Title (Max: 40 chars)
+   * @param  {string}  params.text                      Message text (Max: 160 chars (no image, no title) / 60 chars)
+   * @param  {TemplateAction[] | any[]} params.actions  Action when tapped (Max: 3)
    */
   constructor({ thumbnailImageUrl, title, text, actions }: {
     thumbnailImageUrl?: string,

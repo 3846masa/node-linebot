@@ -370,9 +370,9 @@ export class ImagemapMessage extends LineMessage {
   /**
    * Constructor
    * @param {Object} params
-   * @param {string} params.baseUrl                     Base URL (HTTPS)
-   * @param {string} params.altText                     Alternative text
-   * @param {Size} params.baseSize                      Base image size.
+   * @param {string} params.baseUrl                        Base URL (HTTPS)
+   * @param {string} params.altText                        Alternative text
+   * @param {Size} params.baseSize                         Base image size.
    * @param {ImagemapAction[] | Object[]}  params.actions  Action when tapped
    */
   constructor(
@@ -431,7 +431,7 @@ export class TemplateMessage extends LineMessage {
   /**
    * Constructor
    * @param {Object} params
-   * @param {string} params.altText                    Alternative text
+   * @param {string} params.altText                       Alternative text
    * @param {TemplateComponent | Object} params.template  Object with the contents of the template.
    */
   constructor(

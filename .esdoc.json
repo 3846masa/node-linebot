@@ -3,6 +3,9 @@
   "destination": "./docs",
   "title": "@3846masa/linebot | ESDoc",
   "styles": ["./.esdoc/styles.css"],
+  "manual": {
+    "example": ["./examples/README.md"]
+  },
   "plugins": [{
     "name": "esdoc-importpath-plugin",
     "option": {
