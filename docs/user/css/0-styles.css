@@ -1,3 +1,4 @@
+/* Listeners */
 [data-ice=listenWrap] table {
   width: 100%;
   margin: 10px 0;
@@ -31,4 +32,13 @@
 
 [data-ice=listenWrap] tr:first-child td:last-child:before {
   content: "Description";
+}
+
+/* Code */
+code.source-code.prettyprint {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
+
+code[class^="lang-"] {
+  padding: 1em;
 }

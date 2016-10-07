@@ -1,1142 +1,1142 @@
 window.esdocSearchIndex = [
   [
-    "@3846masa/linebot/lib/linemessages~audiomessage",
-    "class/es2015/LineMessages/index.js~AudioMessage.html",
-    "<span>AudioMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/linemessages~audiomessage&quot;,
+    &quot;class/es2015/LineMessages/index.js~AudioMessage.html&quot;,
+    &quot;<span>AudioMessage</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineMessages</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/lineevents~beaconevent",
-    "class/es2015/LineEvents/index.js~BeaconEvent.html",
-    "<span>BeaconEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/lineevents~beaconevent&quot;,
+    &quot;class/es2015/LineEvents/index.js~BeaconEvent.html&quot;,
+    &quot;<span>BeaconEvent</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineEvents</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/lineevents~followevent",
-    "class/es2015/LineEvents/index.js~FollowEvent.html",
-    "<span>FollowEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/lineevents~followevent&quot;,
+    &quot;class/es2015/LineEvents/index.js~FollowEvent.html&quot;,
+    &quot;<span>FollowEvent</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineEvents</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/linesources~groupsource",
-    "class/es2015/LineSources/index.js~GroupSource.html",
-    "<span>GroupSource</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineSources</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/linesources~groupsource&quot;,
+    &quot;class/es2015/LineSources/index.js~GroupSource.html&quot;,
+    &quot;<span>GroupSource</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineSources</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/linemessages~imagemessage",
-    "class/es2015/LineMessages/index.js~ImageMessage.html",
-    "<span>ImageMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/linemessages~imagemessage&quot;,
+    &quot;class/es2015/LineMessages/index.js~ImageMessage.html&quot;,
+    &quot;<span>ImageMessage</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineMessages</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/lineactions~imagemapaction",
-    "class/es2015/LineActions/index.js~ImagemapAction.html",
-    "<span>ImagemapAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/lineactions~imagemapaction&quot;,
+    &quot;class/es2015/LineActions/index.js~ImagemapAction.html&quot;,
+    &quot;<span>ImagemapAction</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineActions</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/linemessages~imagemapmessage",
-    "class/es2015/LineMessages/index.js~ImagemapMessage.html",
-    "<span>ImagemapMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/linemessages~imagemapmessage&quot;,
+    &quot;class/es2015/LineMessages/index.js~ImagemapMessage.html&quot;,
+    &quot;<span>ImagemapMessage</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineMessages</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/lineactions~imagemapmessageaction",
-    "class/es2015/LineActions/index.js~ImagemapMessageAction.html",
-    "<span>ImagemapMessageAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/lineactions~imagemapmessageaction&quot;,
+    &quot;class/es2015/LineActions/index.js~ImagemapMessageAction.html&quot;,
+    &quot;<span>ImagemapMessageAction</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineActions</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/lineactions~imagemapuriaction",
-    "class/es2015/LineActions/index.js~ImagemapURIAction.html",
-    "<span>ImagemapURIAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/lineactions~imagemapuriaction&quot;,
+    &quot;class/es2015/LineActions/index.js~ImagemapURIAction.html&quot;,
+    &quot;<span>ImagemapURIAction</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineActions</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/lineevents~joinevent",
-    "class/es2015/LineEvents/index.js~JoinEvent.html",
-    "<span>JoinEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/lineevents~joinevent&quot;,
+    &quot;class/es2015/LineEvents/index.js~JoinEvent.html&quot;,
+    &quot;<span>JoinEvent</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineEvents</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/lineevents~leaveevent",
-    "class/es2015/LineEvents/index.js~LeaveEvent.html",
-    "<span>LeaveEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/lineevents~leaveevent&quot;,
+    &quot;class/es2015/LineEvents/index.js~LeaveEvent.html&quot;,
+    &quot;<span>LeaveEvent</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineEvents</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/linebot~linebot",
-    "class/es2015/LineBot/index.js~LineBot.html",
-    "<span>LineBot</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineBot</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/linebot~linebot&quot;,
+    &quot;class/es2015/LineBot/index.js~LineBot.html&quot;,
+    &quot;<span>LineBot</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineBot</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/lineevents~lineevent",
-    "class/es2015/LineEvents/index.js~LineEvent.html",
-    "<span>LineEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/lineevents~lineevent&quot;,
+    &quot;class/es2015/LineEvents/index.js~LineEvent.html&quot;,
+    &quot;<span>LineEvent</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineEvents</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/linemessages~linemessage",
-    "class/es2015/LineMessages/index.js~LineMessage.html",
-    "<span>LineMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/linemessages~linemessage&quot;,
+    &quot;class/es2015/LineMessages/index.js~LineMessage.html&quot;,
+    &quot;<span>LineMessage</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineMessages</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/linesources~linesource",
-    "class/es2015/LineSources/index.js~LineSource.html",
-    "<span>LineSource</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineSources</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/linesources~linesource&quot;,
+    &quot;class/es2015/LineSources/index.js~LineSource.html&quot;,
+    &quot;<span>LineSource</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineSources</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/linemessages~locationmessage",
-    "class/es2015/LineMessages/index.js~LocationMessage.html",
-    "<span>LocationMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/linemessages~locationmessage&quot;,
+    &quot;class/es2015/LineMessages/index.js~LocationMessage.html&quot;,
+    &quot;<span>LocationMessage</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineMessages</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/lineevents~messageevent",
-    "class/es2015/LineEvents/index.js~MessageEvent.html",
-    "<span>MessageEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/lineevents~messageevent&quot;,
+    &quot;class/es2015/LineEvents/index.js~MessageEvent.html&quot;,
+    &quot;<span>MessageEvent</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineEvents</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/lineevents~postbackevent",
-    "class/es2015/LineEvents/index.js~PostbackEvent.html",
-    "<span>PostbackEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/lineevents~postbackevent&quot;,
+    &quot;class/es2015/LineEvents/index.js~PostbackEvent.html&quot;,
+    &quot;<span>PostbackEvent</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineEvents</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/lineevents~replyableevent",
-    "class/es2015/LineEvents/index.js~ReplyableEvent.html",
-    "<span>ReplyableEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/lineevents~replyableevent&quot;,
+    &quot;class/es2015/LineEvents/index.js~ReplyableEvent.html&quot;,
+    &quot;<span>ReplyableEvent</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineEvents</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/linesources~roomsource",
-    "class/es2015/LineSources/index.js~RoomSource.html",
-    "<span>RoomSource</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineSources</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/linesources~roomsource&quot;,
+    &quot;class/es2015/LineSources/index.js~RoomSource.html&quot;,
+    &quot;<span>RoomSource</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineSources</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/linemessages~stickermessage",
-    "class/es2015/LineMessages/index.js~StickerMessage.html",
-    "<span>StickerMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/linemessages~stickermessage&quot;,
+    &quot;class/es2015/LineMessages/index.js~StickerMessage.html&quot;,
+    &quot;<span>StickerMessage</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineMessages</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/lineactions~templateaction",
-    "class/es2015/LineActions/index.js~TemplateAction.html",
-    "<span>TemplateAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/lineactions~templateaction&quot;,
+    &quot;class/es2015/LineActions/index.js~TemplateAction.html&quot;,
+    &quot;<span>TemplateAction</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineActions</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/linetemplates~templatebuttons",
-    "class/es2015/LineTemplates/index.js~TemplateButtons.html",
-    "<span>TemplateButtons</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineTemplates</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/linetemplates~templatebuttons&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateButtons.html&quot;,
+    &quot;<span>TemplateButtons</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineTemplates</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/linetemplates~templatecarousel",
-    "class/es2015/LineTemplates/index.js~TemplateCarousel.html",
-    "<span>TemplateCarousel</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineTemplates</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/linetemplates~templatecarousel&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateCarousel.html&quot;,
+    &quot;<span>TemplateCarousel</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineTemplates</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/linetemplates~templatecolumn",
-    "class/es2015/LineTemplates/index.js~TemplateColumn.html",
-    "<span>TemplateColumn</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineTemplates</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/linetemplates~templatecolumn&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateColumn.html&quot;,
+    &quot;<span>TemplateColumn</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineTemplates</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/linetemplates~templatecomponent",
-    "class/es2015/LineTemplates/index.js~TemplateComponent.html",
-    "<span>TemplateComponent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineTemplates</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/linetemplates~templatecomponent&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateComponent.html&quot;,
+    &quot;<span>TemplateComponent</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineTemplates</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/linetemplates~templateconfirm",
-    "class/es2015/LineTemplates/index.js~TemplateConfirm.html",
-    "<span>TemplateConfirm</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineTemplates</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/linetemplates~templateconfirm&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateConfirm.html&quot;,
+    &quot;<span>TemplateConfirm</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineTemplates</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/linemessages~templatemessage",
-    "class/es2015/LineMessages/index.js~TemplateMessage.html",
-    "<span>TemplateMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/linemessages~templatemessage&quot;,
+    &quot;class/es2015/LineMessages/index.js~TemplateMessage.html&quot;,
+    &quot;<span>TemplateMessage</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineMessages</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/lineactions~templatemessageaction",
-    "class/es2015/LineActions/index.js~TemplateMessageAction.html",
-    "<span>TemplateMessageAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/lineactions~templatemessageaction&quot;,
+    &quot;class/es2015/LineActions/index.js~TemplateMessageAction.html&quot;,
+    &quot;<span>TemplateMessageAction</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineActions</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/lineactions~templatepostbackaction",
-    "class/es2015/LineActions/index.js~TemplatePostbackAction.html",
-    "<span>TemplatePostbackAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/lineactions~templatepostbackaction&quot;,
+    &quot;class/es2015/LineActions/index.js~TemplatePostbackAction.html&quot;,
+    &quot;<span>TemplatePostbackAction</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineActions</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/lineactions~templateuriaction",
-    "class/es2015/LineActions/index.js~TemplateURIAction.html",
-    "<span>TemplateURIAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/lineactions~templateuriaction&quot;,
+    &quot;class/es2015/LineActions/index.js~TemplateURIAction.html&quot;,
+    &quot;<span>TemplateURIAction</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineActions</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/linemessages~textmessage",
-    "class/es2015/LineMessages/index.js~TextMessage.html",
-    "<span>TextMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/linemessages~textmessage&quot;,
+    &quot;class/es2015/LineMessages/index.js~TextMessage.html&quot;,
+    &quot;<span>TextMessage</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineMessages</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/lineevents~unfollowevent",
-    "class/es2015/LineEvents/index.js~UnfollowEvent.html",
-    "<span>UnfollowEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/lineevents~unfollowevent&quot;,
+    &quot;class/es2015/LineEvents/index.js~UnfollowEvent.html&quot;,
+    &quot;<span>UnfollowEvent</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineEvents</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/linesources~usersource",
-    "class/es2015/LineSources/index.js~UserSource.html",
-    "<span>UserSource</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineSources</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/linesources~usersource&quot;,
+    &quot;class/es2015/LineSources/index.js~UserSource.html&quot;,
+    &quot;<span>UserSource</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineSources</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "@3846masa/linebot/lib/linemessages~videomessage",
-    "class/es2015/LineMessages/index.js~VideoMessage.html",
-    "<span>VideoMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages</span>",
-    "class"
+    &quot;@3846masa/linebot/lib/linemessages~videomessage&quot;,
+    &quot;class/es2015/LineMessages/index.js~VideoMessage.html&quot;,
+    &quot;<span>VideoMessage</span> <span class="\&quot;search-result-import-path\&quot;">@3846masa/linebot/lib/LineMessages</span>&quot;,
+    &quot;class&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~array",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Array",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~array&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Array&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~arraybuffer",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~ArrayBuffer",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~arraybuffer&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~ArrayBuffer&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~boolean",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Boolean",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~boolean&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Boolean&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~dataview",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~DataView",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~dataview&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~DataView&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~date",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Date",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~date&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Date&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~error",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Error",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~error&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Error&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~evalerror",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~EvalError",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~evalerror&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~EvalError&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~float32array",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Float32Array",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~float32array&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Float32Array&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~float64array",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Float64Array",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~float64array&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Float64Array&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~function",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Function",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~function&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Function&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~generator",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Generator",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~generator&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Generator&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~generatorfunction",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~GeneratorFunction",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~generatorfunction&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~GeneratorFunction&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~infinity",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Infinity",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~infinity&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Infinity&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~int16array",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Int16Array",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~int16array&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Int16Array&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~int32array",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Int32Array",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~int32array&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Int32Array&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~int8array",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Int8Array",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~int8array&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Int8Array&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~internalerror",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~InternalError",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~internalerror&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~InternalError&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~json",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~JSON",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~json&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~JSON&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~map",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Map",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~map&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Map&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~nan",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~NaN",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~nan&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~NaN&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~number",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Number",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~number&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Number&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~object",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Object",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~object&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Object&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~promise",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Promise",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~promise&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Promise&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~proxy",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Proxy",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~proxy&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Proxy&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~rangeerror",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~RangeError",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~rangeerror&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~RangeError&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~referenceerror",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~ReferenceError",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~referenceerror&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~ReferenceError&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~reflect",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Reflect",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~reflect&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Reflect&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~regexp",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~RegExp",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~regexp&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~RegExp&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~set",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Set",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~set&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Set&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~string",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~String",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~string&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~String&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~symbol",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Symbol",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~symbol&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Symbol&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~syntaxerror",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~SyntaxError",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~syntaxerror&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~SyntaxError&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~typeerror",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~TypeError",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~typeerror&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~TypeError&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~urierror",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~URIError",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~urierror&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~URIError&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~uint16array",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Uint16Array",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~uint16array&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Uint16Array&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~uint32array",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Uint32Array",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~uint32array&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Uint32Array&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~uint8array",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Uint8Array",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~uint8array&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Uint8Array&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~uint8clampedarray",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~Uint8ClampedArray",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~uint8clampedarray&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~Uint8ClampedArray&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~weakmap",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~WeakMap",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~weakmap&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~WeakMap&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~weakset",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~WeakSet",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~weakset&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~WeakSet&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~boolean",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~boolean",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~boolean&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~boolean&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~function",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~function",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~function&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~function&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~null",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~null",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~null&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~null&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~number",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~number",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~number&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~number&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~object",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~object",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~object&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~object&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~string",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~string",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~string&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~string&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/ecmascriptexternal.js~undefined",
-    "external/index.html",
-    "BuiltinExternal/ECMAScriptExternal.js~undefined",
-    "external"
+    &quot;builtinexternal/ecmascriptexternal.js~undefined&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/ECMAScriptExternal.js~undefined&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/webapiexternal.js~audiocontext",
-    "external/index.html",
-    "BuiltinExternal/WebAPIExternal.js~AudioContext",
-    "external"
+    &quot;builtinexternal/webapiexternal.js~audiocontext&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/WebAPIExternal.js~AudioContext&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/webapiexternal.js~canvasrenderingcontext2d",
-    "external/index.html",
-    "BuiltinExternal/WebAPIExternal.js~CanvasRenderingContext2D",
-    "external"
+    &quot;builtinexternal/webapiexternal.js~canvasrenderingcontext2d&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/WebAPIExternal.js~CanvasRenderingContext2D&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/webapiexternal.js~documentfragment",
-    "external/index.html",
-    "BuiltinExternal/WebAPIExternal.js~DocumentFragment",
-    "external"
+    &quot;builtinexternal/webapiexternal.js~documentfragment&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/WebAPIExternal.js~DocumentFragment&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/webapiexternal.js~element",
-    "external/index.html",
-    "BuiltinExternal/WebAPIExternal.js~Element",
-    "external"
+    &quot;builtinexternal/webapiexternal.js~element&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/WebAPIExternal.js~Element&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/webapiexternal.js~event",
-    "external/index.html",
-    "BuiltinExternal/WebAPIExternal.js~Event",
-    "external"
+    &quot;builtinexternal/webapiexternal.js~event&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/WebAPIExternal.js~Event&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/webapiexternal.js~node",
-    "external/index.html",
-    "BuiltinExternal/WebAPIExternal.js~Node",
-    "external"
+    &quot;builtinexternal/webapiexternal.js~node&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/WebAPIExternal.js~Node&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/webapiexternal.js~nodelist",
-    "external/index.html",
-    "BuiltinExternal/WebAPIExternal.js~NodeList",
-    "external"
+    &quot;builtinexternal/webapiexternal.js~nodelist&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/WebAPIExternal.js~NodeList&quot;,
+    &quot;external&quot;
   ],
   [
-    "builtinexternal/webapiexternal.js~xmlhttprequest",
-    "external/index.html",
-    "BuiltinExternal/WebAPIExternal.js~XMLHttpRequest",
-    "external"
+    &quot;builtinexternal/webapiexternal.js~xmlhttprequest&quot;,
+    &quot;external/index.html&quot;,
+    &quot;BuiltinExternal/WebAPIExternal.js~XMLHttpRequest&quot;,
+    &quot;external&quot;
   ],
   [
-    "es2015/lineactions/index.js",
-    "file/es2015/LineActions/index.js.html",
-    "es2015/LineActions/index.js",
-    "file"
+    &quot;es2015/lineactions/index.js&quot;,
+    &quot;file/es2015/LineActions/index.js.html&quot;,
+    &quot;es2015/LineActions/index.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "es2015/lineactions/index.js~imagemapaction#area",
-    "class/es2015/LineActions/index.js~ImagemapAction.html#instance-member-area",
-    "es2015/LineActions/index.js~ImagemapAction#area",
-    "member"
+    &quot;es2015/lineactions/index.js~imagemapaction#area&quot;,
+    &quot;class/es2015/LineActions/index.js~ImagemapAction.html#instance-member-area&quot;,
+    &quot;es2015/LineActions/index.js~ImagemapAction#area&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/lineactions/index.js~imagemapaction#type",
-    "class/es2015/LineActions/index.js~ImagemapAction.html#instance-member-type",
-    "es2015/LineActions/index.js~ImagemapAction#type",
-    "member"
+    &quot;es2015/lineactions/index.js~imagemapaction#type&quot;,
+    &quot;class/es2015/LineActions/index.js~ImagemapAction.html#instance-member-type&quot;,
+    &quot;es2015/LineActions/index.js~ImagemapAction#type&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/lineactions/index.js~imagemapmessageaction#constructor",
-    "class/es2015/LineActions/index.js~ImagemapMessageAction.html#instance-constructor-constructor",
-    "es2015/LineActions/index.js~ImagemapMessageAction#constructor",
-    "method"
+    &quot;es2015/lineactions/index.js~imagemapmessageaction#constructor&quot;,
+    &quot;class/es2015/LineActions/index.js~ImagemapMessageAction.html#instance-constructor-constructor&quot;,
+    &quot;es2015/LineActions/index.js~ImagemapMessageAction#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/lineactions/index.js~imagemapmessageaction#text",
-    "class/es2015/LineActions/index.js~ImagemapMessageAction.html#instance-member-text",
-    "es2015/LineActions/index.js~ImagemapMessageAction#text",
-    "member"
+    &quot;es2015/lineactions/index.js~imagemapmessageaction#text&quot;,
+    &quot;class/es2015/LineActions/index.js~ImagemapMessageAction.html#instance-member-text&quot;,
+    &quot;es2015/LineActions/index.js~ImagemapMessageAction#text&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/lineactions/index.js~imagemapuriaction#constructor",
-    "class/es2015/LineActions/index.js~ImagemapURIAction.html#instance-constructor-constructor",
-    "es2015/LineActions/index.js~ImagemapURIAction#constructor",
-    "method"
+    &quot;es2015/lineactions/index.js~imagemapuriaction#constructor&quot;,
+    &quot;class/es2015/LineActions/index.js~ImagemapURIAction.html#instance-constructor-constructor&quot;,
+    &quot;es2015/LineActions/index.js~ImagemapURIAction#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/lineactions/index.js~imagemapuriaction#linkuri",
-    "class/es2015/LineActions/index.js~ImagemapURIAction.html#instance-member-linkUri",
-    "es2015/LineActions/index.js~ImagemapURIAction#linkUri",
-    "member"
+    &quot;es2015/lineactions/index.js~imagemapuriaction#linkuri&quot;,
+    &quot;class/es2015/LineActions/index.js~ImagemapURIAction.html#instance-member-linkUri&quot;,
+    &quot;es2015/LineActions/index.js~ImagemapURIAction#linkUri&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/lineactions/index.js~templateaction#label",
-    "class/es2015/LineActions/index.js~TemplateAction.html#instance-member-label",
-    "es2015/LineActions/index.js~TemplateAction#label",
-    "member"
+    &quot;es2015/lineactions/index.js~templateaction#label&quot;,
+    &quot;class/es2015/LineActions/index.js~TemplateAction.html#instance-member-label&quot;,
+    &quot;es2015/LineActions/index.js~TemplateAction#label&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/lineactions/index.js~templateaction#type",
-    "class/es2015/LineActions/index.js~TemplateAction.html#instance-member-type",
-    "es2015/LineActions/index.js~TemplateAction#type",
-    "member"
+    &quot;es2015/lineactions/index.js~templateaction#type&quot;,
+    &quot;class/es2015/LineActions/index.js~TemplateAction.html#instance-member-type&quot;,
+    &quot;es2015/LineActions/index.js~TemplateAction#type&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/lineactions/index.js~templatemessageaction#constructor",
-    "class/es2015/LineActions/index.js~TemplateMessageAction.html#instance-constructor-constructor",
-    "es2015/LineActions/index.js~TemplateMessageAction#constructor",
-    "method"
+    &quot;es2015/lineactions/index.js~templatemessageaction#constructor&quot;,
+    &quot;class/es2015/LineActions/index.js~TemplateMessageAction.html#instance-constructor-constructor&quot;,
+    &quot;es2015/LineActions/index.js~TemplateMessageAction#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/lineactions/index.js~templatemessageaction#text",
-    "class/es2015/LineActions/index.js~TemplateMessageAction.html#instance-member-text",
-    "es2015/LineActions/index.js~TemplateMessageAction#text",
-    "member"
+    &quot;es2015/lineactions/index.js~templatemessageaction#text&quot;,
+    &quot;class/es2015/LineActions/index.js~TemplateMessageAction.html#instance-member-text&quot;,
+    &quot;es2015/LineActions/index.js~TemplateMessageAction#text&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/lineactions/index.js~templatepostbackaction#constructor",
-    "class/es2015/LineActions/index.js~TemplatePostbackAction.html#instance-constructor-constructor",
-    "es2015/LineActions/index.js~TemplatePostbackAction#constructor",
-    "method"
+    &quot;es2015/lineactions/index.js~templatepostbackaction#constructor&quot;,
+    &quot;class/es2015/LineActions/index.js~TemplatePostbackAction.html#instance-constructor-constructor&quot;,
+    &quot;es2015/LineActions/index.js~TemplatePostbackAction#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/lineactions/index.js~templatepostbackaction#data",
-    "class/es2015/LineActions/index.js~TemplatePostbackAction.html#instance-member-data",
-    "es2015/LineActions/index.js~TemplatePostbackAction#data",
-    "member"
+    &quot;es2015/lineactions/index.js~templatepostbackaction#data&quot;,
+    &quot;class/es2015/LineActions/index.js~TemplatePostbackAction.html#instance-member-data&quot;,
+    &quot;es2015/LineActions/index.js~TemplatePostbackAction#data&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/lineactions/index.js~templatepostbackaction#text",
-    "class/es2015/LineActions/index.js~TemplatePostbackAction.html#instance-member-text",
-    "es2015/LineActions/index.js~TemplatePostbackAction#text",
-    "member"
+    &quot;es2015/lineactions/index.js~templatepostbackaction#text&quot;,
+    &quot;class/es2015/LineActions/index.js~TemplatePostbackAction.html#instance-member-text&quot;,
+    &quot;es2015/LineActions/index.js~TemplatePostbackAction#text&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/lineactions/index.js~templateuriaction#constructor",
-    "class/es2015/LineActions/index.js~TemplateURIAction.html#instance-constructor-constructor",
-    "es2015/LineActions/index.js~TemplateURIAction#constructor",
-    "method"
+    &quot;es2015/lineactions/index.js~templateuriaction#constructor&quot;,
+    &quot;class/es2015/LineActions/index.js~TemplateURIAction.html#instance-constructor-constructor&quot;,
+    &quot;es2015/LineActions/index.js~TemplateURIAction#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/lineactions/index.js~templateuriaction#uri",
-    "class/es2015/LineActions/index.js~TemplateURIAction.html#instance-member-uri",
-    "es2015/LineActions/index.js~TemplateURIAction#uri",
-    "member"
+    &quot;es2015/lineactions/index.js~templateuriaction#uri&quot;,
+    &quot;class/es2015/LineActions/index.js~TemplateURIAction.html#instance-member-uri&quot;,
+    &quot;es2015/LineActions/index.js~TemplateURIAction#uri&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linebot/index.js",
-    "file/es2015/LineBot/index.js.html",
-    "es2015/LineBot/index.js",
-    "file"
+    &quot;es2015/linebot/index.js&quot;,
+    &quot;file/es2015/LineBot/index.js.html&quot;,
+    &quot;es2015/LineBot/index.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "es2015/linebot/index.js~linebot#config",
-    "class/es2015/LineBot/index.js~LineBot.html#instance-member-config",
-    "es2015/LineBot/index.js~LineBot#config",
-    "member"
+    &quot;es2015/linebot/index.js~linebot#config&quot;,
+    &quot;class/es2015/LineBot/index.js~LineBot.html#instance-member-config&quot;,
+    &quot;es2015/LineBot/index.js~LineBot#config&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linebot/index.js~linebot#constructor",
-    "class/es2015/LineBot/index.js~LineBot.html#instance-constructor-constructor",
-    "es2015/LineBot/index.js~LineBot#constructor",
-    "method"
+    &quot;es2015/linebot/index.js~linebot#constructor&quot;,
+    &quot;class/es2015/LineBot/index.js~LineBot.html#instance-constructor-constructor&quot;,
+    &quot;es2015/LineBot/index.js~LineBot#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linebot/index.js~linebot#express",
-    "class/es2015/LineBot/index.js~LineBot.html#instance-member-express",
-    "es2015/LineBot/index.js~LineBot#express",
-    "member"
+    &quot;es2015/linebot/index.js~linebot#express&quot;,
+    &quot;class/es2015/LineBot/index.js~LineBot.html#instance-member-express&quot;,
+    &quot;es2015/LineBot/index.js~LineBot#express&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linebot/index.js~linebot#getcontent",
-    "class/es2015/LineBot/index.js~LineBot.html#instance-method-getContent",
-    "es2015/LineBot/index.js~LineBot#getContent",
-    "method"
+    &quot;es2015/linebot/index.js~linebot#getcontent&quot;,
+    &quot;class/es2015/LineBot/index.js~LineBot.html#instance-method-getContent&quot;,
+    &quot;es2015/LineBot/index.js~LineBot#getContent&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linebot/index.js~linebot#getcontentfrommessage",
-    "class/es2015/LineBot/index.js~LineBot.html#instance-method-getContentFromMessage",
-    "es2015/LineBot/index.js~LineBot#getContentFromMessage",
-    "method"
+    &quot;es2015/linebot/index.js~linebot#getcontentfrommessage&quot;,
+    &quot;class/es2015/LineBot/index.js~LineBot.html#instance-method-getContentFromMessage&quot;,
+    &quot;es2015/LineBot/index.js~LineBot#getContentFromMessage&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linebot/index.js~linebot#getprofile",
-    "class/es2015/LineBot/index.js~LineBot.html#instance-method-getProfile",
-    "es2015/LineBot/index.js~LineBot#getProfile",
-    "method"
+    &quot;es2015/linebot/index.js~linebot#getprofile&quot;,
+    &quot;class/es2015/LineBot/index.js~LineBot.html#instance-method-getProfile&quot;,
+    &quot;es2015/LineBot/index.js~LineBot#getProfile&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linebot/index.js~linebot#getprofilefromusersource",
-    "class/es2015/LineBot/index.js~LineBot.html#instance-method-getProfileFromUserSource",
-    "es2015/LineBot/index.js~LineBot#getProfileFromUserSource",
-    "method"
+    &quot;es2015/linebot/index.js~linebot#getprofilefromusersource&quot;,
+    &quot;class/es2015/LineBot/index.js~LineBot.html#instance-method-getProfileFromUserSource&quot;,
+    &quot;es2015/LineBot/index.js~LineBot#getProfileFromUserSource&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linebot/index.js~linebot#leave",
-    "class/es2015/LineBot/index.js~LineBot.html#instance-method-leave",
-    "es2015/LineBot/index.js~LineBot#leave",
-    "method"
+    &quot;es2015/linebot/index.js~linebot#leave&quot;,
+    &quot;class/es2015/LineBot/index.js~LineBot.html#instance-method-leave&quot;,
+    &quot;es2015/LineBot/index.js~LineBot#leave&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linebot/index.js~linebot#leavefromsource",
-    "class/es2015/LineBot/index.js~LineBot.html#instance-method-leaveFromSource",
-    "es2015/LineBot/index.js~LineBot#leaveFromSource",
-    "method"
+    &quot;es2015/linebot/index.js~linebot#leavefromsource&quot;,
+    &quot;class/es2015/LineBot/index.js~LineBot.html#instance-method-leaveFromSource&quot;,
+    &quot;es2015/LineBot/index.js~LineBot#leaveFromSource&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linebot/index.js~linebot#listen",
-    "class/es2015/LineBot/index.js~LineBot.html#instance-method-listen",
-    "es2015/LineBot/index.js~LineBot#listen",
-    "method"
+    &quot;es2015/linebot/index.js~linebot#listen&quot;,
+    &quot;class/es2015/LineBot/index.js~LineBot.html#instance-method-listen&quot;,
+    &quot;es2015/LineBot/index.js~LineBot#listen&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linebot/index.js~linebot#on",
-    "class/es2015/LineBot/index.js~LineBot.html#instance-method-on",
-    "es2015/LineBot/index.js~LineBot#on",
-    "method"
+    &quot;es2015/linebot/index.js~linebot#on&quot;,
+    &quot;class/es2015/LineBot/index.js~LineBot.html#instance-method-on&quot;,
+    &quot;es2015/LineBot/index.js~LineBot#on&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linebot/index.js~linebot#push",
-    "class/es2015/LineBot/index.js~LineBot.html#instance-method-push",
-    "es2015/LineBot/index.js~LineBot#push",
-    "method"
+    &quot;es2015/linebot/index.js~linebot#push&quot;,
+    &quot;class/es2015/LineBot/index.js~LineBot.html#instance-method-push&quot;,
+    &quot;es2015/LineBot/index.js~LineBot#push&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/lineevents/index.js",
-    "file/es2015/LineEvents/index.js.html",
-    "es2015/LineEvents/index.js",
-    "file"
+    &quot;es2015/lineevents/index.js&quot;,
+    &quot;file/es2015/LineEvents/index.js.html&quot;,
+    &quot;es2015/LineEvents/index.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "es2015/lineevents/index.js~beaconevent#beacon",
-    "class/es2015/LineEvents/index.js~BeaconEvent.html#instance-member-beacon",
-    "es2015/LineEvents/index.js~BeaconEvent#beacon",
-    "member"
+    &quot;es2015/lineevents/index.js~beaconevent#beacon&quot;,
+    &quot;class/es2015/LineEvents/index.js~BeaconEvent.html#instance-member-beacon&quot;,
+    &quot;es2015/LineEvents/index.js~BeaconEvent#beacon&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/lineevents/index.js~lineevent#source",
-    "class/es2015/LineEvents/index.js~LineEvent.html#instance-member-source",
-    "es2015/LineEvents/index.js~LineEvent#source",
-    "member"
+    &quot;es2015/lineevents/index.js~lineevent#source&quot;,
+    &quot;class/es2015/LineEvents/index.js~LineEvent.html#instance-member-source&quot;,
+    &quot;es2015/LineEvents/index.js~LineEvent#source&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/lineevents/index.js~lineevent#timestamp",
-    "class/es2015/LineEvents/index.js~LineEvent.html#instance-member-timestamp",
-    "es2015/LineEvents/index.js~LineEvent#timestamp",
-    "member"
+    &quot;es2015/lineevents/index.js~lineevent#timestamp&quot;,
+    &quot;class/es2015/LineEvents/index.js~LineEvent.html#instance-member-timestamp&quot;,
+    &quot;es2015/LineEvents/index.js~LineEvent#timestamp&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/lineevents/index.js~lineevent#type",
-    "class/es2015/LineEvents/index.js~LineEvent.html#instance-member-type",
-    "es2015/LineEvents/index.js~LineEvent#type",
-    "member"
+    &quot;es2015/lineevents/index.js~lineevent#type&quot;,
+    &quot;class/es2015/LineEvents/index.js~LineEvent.html#instance-member-type&quot;,
+    &quot;es2015/LineEvents/index.js~LineEvent#type&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/lineevents/index.js~messageevent#message",
-    "class/es2015/LineEvents/index.js~MessageEvent.html#instance-member-message",
-    "es2015/LineEvents/index.js~MessageEvent#message",
-    "member"
+    &quot;es2015/lineevents/index.js~messageevent#message&quot;,
+    &quot;class/es2015/LineEvents/index.js~MessageEvent.html#instance-member-message&quot;,
+    &quot;es2015/LineEvents/index.js~MessageEvent#message&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/lineevents/index.js~postbackevent#postback",
-    "class/es2015/LineEvents/index.js~PostbackEvent.html#instance-member-postback",
-    "es2015/LineEvents/index.js~PostbackEvent#postback",
-    "member"
+    &quot;es2015/lineevents/index.js~postbackevent#postback&quot;,
+    &quot;class/es2015/LineEvents/index.js~PostbackEvent.html#instance-member-postback&quot;,
+    &quot;es2015/LineEvents/index.js~PostbackEvent#postback&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/lineevents/index.js~replyableevent#reply",
-    "class/es2015/LineEvents/index.js~ReplyableEvent.html#instance-method-reply",
-    "es2015/LineEvents/index.js~ReplyableEvent#reply",
-    "method"
+    &quot;es2015/lineevents/index.js~replyableevent#reply&quot;,
+    &quot;class/es2015/LineEvents/index.js~ReplyableEvent.html#instance-method-reply&quot;,
+    &quot;es2015/LineEvents/index.js~ReplyableEvent#reply&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/lineevents/index.js~replyableevent#replytoken",
-    "class/es2015/LineEvents/index.js~ReplyableEvent.html#instance-member-replyToken",
-    "es2015/LineEvents/index.js~ReplyableEvent#replyToken",
-    "member"
+    &quot;es2015/lineevents/index.js~replyableevent#replytoken&quot;,
+    &quot;class/es2015/LineEvents/index.js~ReplyableEvent.html#instance-member-replyToken&quot;,
+    &quot;es2015/LineEvents/index.js~ReplyableEvent#replyToken&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js",
-    "file/es2015/LineMessages/index.js.html",
-    "es2015/LineMessages/index.js",
-    "file"
+    &quot;es2015/linemessages/index.js&quot;,
+    &quot;file/es2015/LineMessages/index.js.html&quot;,
+    &quot;es2015/LineMessages/index.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "es2015/linemessages/index.js~audiomessage#constructor",
-    "class/es2015/LineMessages/index.js~AudioMessage.html#instance-constructor-constructor",
-    "es2015/LineMessages/index.js~AudioMessage#constructor",
-    "method"
+    &quot;es2015/linemessages/index.js~audiomessage#constructor&quot;,
+    &quot;class/es2015/LineMessages/index.js~AudioMessage.html#instance-constructor-constructor&quot;,
+    &quot;es2015/LineMessages/index.js~AudioMessage#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linemessages/index.js~audiomessage#duration",
-    "class/es2015/LineMessages/index.js~AudioMessage.html#instance-member-duration",
-    "es2015/LineMessages/index.js~AudioMessage#duration",
-    "member"
+    &quot;es2015/linemessages/index.js~audiomessage#duration&quot;,
+    &quot;class/es2015/LineMessages/index.js~AudioMessage.html#instance-member-duration&quot;,
+    &quot;es2015/LineMessages/index.js~AudioMessage#duration&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~audiomessage#originalcontenturl",
-    "class/es2015/LineMessages/index.js~AudioMessage.html#instance-member-originalContentUrl",
-    "es2015/LineMessages/index.js~AudioMessage#originalContentUrl",
-    "member"
+    &quot;es2015/linemessages/index.js~audiomessage#originalcontenturl&quot;,
+    &quot;class/es2015/LineMessages/index.js~AudioMessage.html#instance-member-originalContentUrl&quot;,
+    &quot;es2015/LineMessages/index.js~AudioMessage#originalContentUrl&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~imagemessage#constructor",
-    "class/es2015/LineMessages/index.js~ImageMessage.html#instance-constructor-constructor",
-    "es2015/LineMessages/index.js~ImageMessage#constructor",
-    "method"
+    &quot;es2015/linemessages/index.js~imagemessage#constructor&quot;,
+    &quot;class/es2015/LineMessages/index.js~ImageMessage.html#instance-constructor-constructor&quot;,
+    &quot;es2015/LineMessages/index.js~ImageMessage#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linemessages/index.js~imagemessage#originalcontenturl",
-    "class/es2015/LineMessages/index.js~ImageMessage.html#instance-member-originalContentUrl",
-    "es2015/LineMessages/index.js~ImageMessage#originalContentUrl",
-    "member"
+    &quot;es2015/linemessages/index.js~imagemessage#originalcontenturl&quot;,
+    &quot;class/es2015/LineMessages/index.js~ImageMessage.html#instance-member-originalContentUrl&quot;,
+    &quot;es2015/LineMessages/index.js~ImageMessage#originalContentUrl&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~imagemessage#previewimageurl",
-    "class/es2015/LineMessages/index.js~ImageMessage.html#instance-member-previewImageUrl",
-    "es2015/LineMessages/index.js~ImageMessage#previewImageUrl",
-    "member"
+    &quot;es2015/linemessages/index.js~imagemessage#previewimageurl&quot;,
+    &quot;class/es2015/LineMessages/index.js~ImageMessage.html#instance-member-previewImageUrl&quot;,
+    &quot;es2015/LineMessages/index.js~ImageMessage#previewImageUrl&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~imagemapmessage#actions",
-    "class/es2015/LineMessages/index.js~ImagemapMessage.html#instance-member-actions",
-    "es2015/LineMessages/index.js~ImagemapMessage#actions",
-    "member"
+    &quot;es2015/linemessages/index.js~imagemapmessage#actions&quot;,
+    &quot;class/es2015/LineMessages/index.js~ImagemapMessage.html#instance-member-actions&quot;,
+    &quot;es2015/LineMessages/index.js~ImagemapMessage#actions&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~imagemapmessage#alttext",
-    "class/es2015/LineMessages/index.js~ImagemapMessage.html#instance-member-altText",
-    "es2015/LineMessages/index.js~ImagemapMessage#altText",
-    "member"
+    &quot;es2015/linemessages/index.js~imagemapmessage#alttext&quot;,
+    &quot;class/es2015/LineMessages/index.js~ImagemapMessage.html#instance-member-altText&quot;,
+    &quot;es2015/LineMessages/index.js~ImagemapMessage#altText&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~imagemapmessage#basesize",
-    "class/es2015/LineMessages/index.js~ImagemapMessage.html#instance-member-baseSize",
-    "es2015/LineMessages/index.js~ImagemapMessage#baseSize",
-    "member"
+    &quot;es2015/linemessages/index.js~imagemapmessage#basesize&quot;,
+    &quot;class/es2015/LineMessages/index.js~ImagemapMessage.html#instance-member-baseSize&quot;,
+    &quot;es2015/LineMessages/index.js~ImagemapMessage#baseSize&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~imagemapmessage#baseurl",
-    "class/es2015/LineMessages/index.js~ImagemapMessage.html#instance-member-baseUrl",
-    "es2015/LineMessages/index.js~ImagemapMessage#baseUrl",
-    "member"
+    &quot;es2015/linemessages/index.js~imagemapmessage#baseurl&quot;,
+    &quot;class/es2015/LineMessages/index.js~ImagemapMessage.html#instance-member-baseUrl&quot;,
+    &quot;es2015/LineMessages/index.js~ImagemapMessage#baseUrl&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~imagemapmessage#constructor",
-    "class/es2015/LineMessages/index.js~ImagemapMessage.html#instance-constructor-constructor",
-    "es2015/LineMessages/index.js~ImagemapMessage#constructor",
-    "method"
+    &quot;es2015/linemessages/index.js~imagemapmessage#constructor&quot;,
+    &quot;class/es2015/LineMessages/index.js~ImagemapMessage.html#instance-constructor-constructor&quot;,
+    &quot;es2015/LineMessages/index.js~ImagemapMessage#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linemessages/index.js~linemessage#id",
-    "class/es2015/LineMessages/index.js~LineMessage.html#instance-member-id",
-    "es2015/LineMessages/index.js~LineMessage#id",
-    "member"
+    &quot;es2015/linemessages/index.js~linemessage#id&quot;,
+    &quot;class/es2015/LineMessages/index.js~LineMessage.html#instance-member-id&quot;,
+    &quot;es2015/LineMessages/index.js~LineMessage#id&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~linemessage#type",
-    "class/es2015/LineMessages/index.js~LineMessage.html#instance-member-type",
-    "es2015/LineMessages/index.js~LineMessage#type",
-    "member"
+    &quot;es2015/linemessages/index.js~linemessage#type&quot;,
+    &quot;class/es2015/LineMessages/index.js~LineMessage.html#instance-member-type&quot;,
+    &quot;es2015/LineMessages/index.js~LineMessage#type&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~locationmessage#address",
-    "class/es2015/LineMessages/index.js~LocationMessage.html#instance-member-address",
-    "es2015/LineMessages/index.js~LocationMessage#address",
-    "member"
+    &quot;es2015/linemessages/index.js~locationmessage#address&quot;,
+    &quot;class/es2015/LineMessages/index.js~LocationMessage.html#instance-member-address&quot;,
+    &quot;es2015/LineMessages/index.js~LocationMessage#address&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~locationmessage#constructor",
-    "class/es2015/LineMessages/index.js~LocationMessage.html#instance-constructor-constructor",
-    "es2015/LineMessages/index.js~LocationMessage#constructor",
-    "method"
+    &quot;es2015/linemessages/index.js~locationmessage#constructor&quot;,
+    &quot;class/es2015/LineMessages/index.js~LocationMessage.html#instance-constructor-constructor&quot;,
+    &quot;es2015/LineMessages/index.js~LocationMessage#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linemessages/index.js~locationmessage#latitude",
-    "class/es2015/LineMessages/index.js~LocationMessage.html#instance-member-latitude",
-    "es2015/LineMessages/index.js~LocationMessage#latitude",
-    "member"
+    &quot;es2015/linemessages/index.js~locationmessage#latitude&quot;,
+    &quot;class/es2015/LineMessages/index.js~LocationMessage.html#instance-member-latitude&quot;,
+    &quot;es2015/LineMessages/index.js~LocationMessage#latitude&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~locationmessage#longitude",
-    "class/es2015/LineMessages/index.js~LocationMessage.html#instance-member-longitude",
-    "es2015/LineMessages/index.js~LocationMessage#longitude",
-    "member"
+    &quot;es2015/linemessages/index.js~locationmessage#longitude&quot;,
+    &quot;class/es2015/LineMessages/index.js~LocationMessage.html#instance-member-longitude&quot;,
+    &quot;es2015/LineMessages/index.js~LocationMessage#longitude&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~locationmessage#title",
-    "class/es2015/LineMessages/index.js~LocationMessage.html#instance-member-title",
-    "es2015/LineMessages/index.js~LocationMessage#title",
-    "member"
+    &quot;es2015/linemessages/index.js~locationmessage#title&quot;,
+    &quot;class/es2015/LineMessages/index.js~LocationMessage.html#instance-member-title&quot;,
+    &quot;es2015/LineMessages/index.js~LocationMessage#title&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~stickermessage#constructor",
-    "class/es2015/LineMessages/index.js~StickerMessage.html#instance-constructor-constructor",
-    "es2015/LineMessages/index.js~StickerMessage#constructor",
-    "method"
+    &quot;es2015/linemessages/index.js~stickermessage#constructor&quot;,
+    &quot;class/es2015/LineMessages/index.js~StickerMessage.html#instance-constructor-constructor&quot;,
+    &quot;es2015/LineMessages/index.js~StickerMessage#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linemessages/index.js~stickermessage#packageid",
-    "class/es2015/LineMessages/index.js~StickerMessage.html#instance-member-packageId",
-    "es2015/LineMessages/index.js~StickerMessage#packageId",
-    "member"
+    &quot;es2015/linemessages/index.js~stickermessage#packageid&quot;,
+    &quot;class/es2015/LineMessages/index.js~StickerMessage.html#instance-member-packageId&quot;,
+    &quot;es2015/LineMessages/index.js~StickerMessage#packageId&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~stickermessage#stickerid",
-    "class/es2015/LineMessages/index.js~StickerMessage.html#instance-member-stickerId",
-    "es2015/LineMessages/index.js~StickerMessage#stickerId",
-    "member"
+    &quot;es2015/linemessages/index.js~stickermessage#stickerid&quot;,
+    &quot;class/es2015/LineMessages/index.js~StickerMessage.html#instance-member-stickerId&quot;,
+    &quot;es2015/LineMessages/index.js~StickerMessage#stickerId&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~templatemessage#alttext",
-    "class/es2015/LineMessages/index.js~TemplateMessage.html#instance-member-altText",
-    "es2015/LineMessages/index.js~TemplateMessage#altText",
-    "member"
+    &quot;es2015/linemessages/index.js~templatemessage#alttext&quot;,
+    &quot;class/es2015/LineMessages/index.js~TemplateMessage.html#instance-member-altText&quot;,
+    &quot;es2015/LineMessages/index.js~TemplateMessage#altText&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~templatemessage#constructor",
-    "class/es2015/LineMessages/index.js~TemplateMessage.html#instance-constructor-constructor",
-    "es2015/LineMessages/index.js~TemplateMessage#constructor",
-    "method"
+    &quot;es2015/linemessages/index.js~templatemessage#constructor&quot;,
+    &quot;class/es2015/LineMessages/index.js~TemplateMessage.html#instance-constructor-constructor&quot;,
+    &quot;es2015/LineMessages/index.js~TemplateMessage#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linemessages/index.js~templatemessage#template",
-    "class/es2015/LineMessages/index.js~TemplateMessage.html#instance-member-template",
-    "es2015/LineMessages/index.js~TemplateMessage#template",
-    "member"
+    &quot;es2015/linemessages/index.js~templatemessage#template&quot;,
+    &quot;class/es2015/LineMessages/index.js~TemplateMessage.html#instance-member-template&quot;,
+    &quot;es2015/LineMessages/index.js~TemplateMessage#template&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~textmessage#constructor",
-    "class/es2015/LineMessages/index.js~TextMessage.html#instance-constructor-constructor",
-    "es2015/LineMessages/index.js~TextMessage#constructor",
-    "method"
+    &quot;es2015/linemessages/index.js~textmessage#constructor&quot;,
+    &quot;class/es2015/LineMessages/index.js~TextMessage.html#instance-constructor-constructor&quot;,
+    &quot;es2015/LineMessages/index.js~TextMessage#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linemessages/index.js~textmessage#text",
-    "class/es2015/LineMessages/index.js~TextMessage.html#instance-member-text",
-    "es2015/LineMessages/index.js~TextMessage#text",
-    "member"
+    &quot;es2015/linemessages/index.js~textmessage#text&quot;,
+    &quot;class/es2015/LineMessages/index.js~TextMessage.html#instance-member-text&quot;,
+    &quot;es2015/LineMessages/index.js~TextMessage#text&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~videomessage#constructor",
-    "class/es2015/LineMessages/index.js~VideoMessage.html#instance-constructor-constructor",
-    "es2015/LineMessages/index.js~VideoMessage#constructor",
-    "method"
+    &quot;es2015/linemessages/index.js~videomessage#constructor&quot;,
+    &quot;class/es2015/LineMessages/index.js~VideoMessage.html#instance-constructor-constructor&quot;,
+    &quot;es2015/LineMessages/index.js~VideoMessage#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linemessages/index.js~videomessage#originalcontenturl",
-    "class/es2015/LineMessages/index.js~VideoMessage.html#instance-member-originalContentUrl",
-    "es2015/LineMessages/index.js~VideoMessage#originalContentUrl",
-    "member"
+    &quot;es2015/linemessages/index.js~videomessage#originalcontenturl&quot;,
+    &quot;class/es2015/LineMessages/index.js~VideoMessage.html#instance-member-originalContentUrl&quot;,
+    &quot;es2015/LineMessages/index.js~VideoMessage#originalContentUrl&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linemessages/index.js~videomessage#previewimageurl",
-    "class/es2015/LineMessages/index.js~VideoMessage.html#instance-member-previewImageUrl",
-    "es2015/LineMessages/index.js~VideoMessage#previewImageUrl",
-    "member"
+    &quot;es2015/linemessages/index.js~videomessage#previewimageurl&quot;,
+    &quot;class/es2015/LineMessages/index.js~VideoMessage.html#instance-member-previewImageUrl&quot;,
+    &quot;es2015/LineMessages/index.js~VideoMessage#previewImageUrl&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linesources/index.js",
-    "file/es2015/LineSources/index.js.html",
-    "es2015/LineSources/index.js",
-    "file"
+    &quot;es2015/linesources/index.js&quot;,
+    &quot;file/es2015/LineSources/index.js.html&quot;,
+    &quot;es2015/LineSources/index.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "es2015/linesources/index.js~groupsource#groupid",
-    "class/es2015/LineSources/index.js~GroupSource.html#instance-member-groupId",
-    "es2015/LineSources/index.js~GroupSource#groupId",
-    "member"
+    &quot;es2015/linesources/index.js~groupsource#groupid&quot;,
+    &quot;class/es2015/LineSources/index.js~GroupSource.html#instance-member-groupId&quot;,
+    &quot;es2015/LineSources/index.js~GroupSource#groupId&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linesources/index.js~linesource#type",
-    "class/es2015/LineSources/index.js~LineSource.html#instance-member-type",
-    "es2015/LineSources/index.js~LineSource#type",
-    "member"
+    &quot;es2015/linesources/index.js~linesource#type&quot;,
+    &quot;class/es2015/LineSources/index.js~LineSource.html#instance-member-type&quot;,
+    &quot;es2015/LineSources/index.js~LineSource#type&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linesources/index.js~roomsource#roomid",
-    "class/es2015/LineSources/index.js~RoomSource.html#instance-member-roomId",
-    "es2015/LineSources/index.js~RoomSource#roomId",
-    "member"
+    &quot;es2015/linesources/index.js~roomsource#roomid&quot;,
+    &quot;class/es2015/LineSources/index.js~RoomSource.html#instance-member-roomId&quot;,
+    &quot;es2015/LineSources/index.js~RoomSource#roomId&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linesources/index.js~usersource#userid",
-    "class/es2015/LineSources/index.js~UserSource.html#instance-member-userId",
-    "es2015/LineSources/index.js~UserSource#userId",
-    "member"
+    &quot;es2015/linesources/index.js~usersource#userid&quot;,
+    &quot;class/es2015/LineSources/index.js~UserSource.html#instance-member-userId&quot;,
+    &quot;es2015/LineSources/index.js~UserSource#userId&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linetemplates/index.js",
-    "file/es2015/LineTemplates/index.js.html",
-    "es2015/LineTemplates/index.js",
-    "file"
+    &quot;es2015/linetemplates/index.js&quot;,
+    &quot;file/es2015/LineTemplates/index.js.html&quot;,
+    &quot;es2015/LineTemplates/index.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "es2015/linetemplates/index.js~templatebuttons#actions",
-    "class/es2015/LineTemplates/index.js~TemplateButtons.html#instance-member-actions",
-    "es2015/LineTemplates/index.js~TemplateButtons#actions",
-    "member"
+    &quot;es2015/linetemplates/index.js~templatebuttons#actions&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateButtons.html#instance-member-actions&quot;,
+    &quot;es2015/LineTemplates/index.js~TemplateButtons#actions&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linetemplates/index.js~templatebuttons#constructor",
-    "class/es2015/LineTemplates/index.js~TemplateButtons.html#instance-constructor-constructor",
-    "es2015/LineTemplates/index.js~TemplateButtons#constructor",
-    "method"
+    &quot;es2015/linetemplates/index.js~templatebuttons#constructor&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateButtons.html#instance-constructor-constructor&quot;,
+    &quot;es2015/LineTemplates/index.js~TemplateButtons#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linetemplates/index.js~templatebuttons#text",
-    "class/es2015/LineTemplates/index.js~TemplateButtons.html#instance-member-text",
-    "es2015/LineTemplates/index.js~TemplateButtons#text",
-    "member"
+    &quot;es2015/linetemplates/index.js~templatebuttons#text&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateButtons.html#instance-member-text&quot;,
+    &quot;es2015/LineTemplates/index.js~TemplateButtons#text&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linetemplates/index.js~templatebuttons#thumbnailimageurl",
-    "class/es2015/LineTemplates/index.js~TemplateButtons.html#instance-member-thumbnailImageUrl",
-    "es2015/LineTemplates/index.js~TemplateButtons#thumbnailImageUrl",
-    "member"
+    &quot;es2015/linetemplates/index.js~templatebuttons#thumbnailimageurl&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateButtons.html#instance-member-thumbnailImageUrl&quot;,
+    &quot;es2015/LineTemplates/index.js~TemplateButtons#thumbnailImageUrl&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linetemplates/index.js~templatebuttons#title",
-    "class/es2015/LineTemplates/index.js~TemplateButtons.html#instance-member-title",
-    "es2015/LineTemplates/index.js~TemplateButtons#title",
-    "member"
+    &quot;es2015/linetemplates/index.js~templatebuttons#title&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateButtons.html#instance-member-title&quot;,
+    &quot;es2015/LineTemplates/index.js~TemplateButtons#title&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linetemplates/index.js~templatecarousel#columns",
-    "class/es2015/LineTemplates/index.js~TemplateCarousel.html#instance-member-columns",
-    "es2015/LineTemplates/index.js~TemplateCarousel#columns",
-    "member"
+    &quot;es2015/linetemplates/index.js~templatecarousel#columns&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateCarousel.html#instance-member-columns&quot;,
+    &quot;es2015/LineTemplates/index.js~TemplateCarousel#columns&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linetemplates/index.js~templatecarousel#constructor",
-    "class/es2015/LineTemplates/index.js~TemplateCarousel.html#instance-constructor-constructor",
-    "es2015/LineTemplates/index.js~TemplateCarousel#constructor",
-    "method"
+    &quot;es2015/linetemplates/index.js~templatecarousel#constructor&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateCarousel.html#instance-constructor-constructor&quot;,
+    &quot;es2015/LineTemplates/index.js~TemplateCarousel#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linetemplates/index.js~templatecolumn#actions",
-    "class/es2015/LineTemplates/index.js~TemplateColumn.html#instance-member-actions",
-    "es2015/LineTemplates/index.js~TemplateColumn#actions",
-    "member"
+    &quot;es2015/linetemplates/index.js~templatecolumn#actions&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateColumn.html#instance-member-actions&quot;,
+    &quot;es2015/LineTemplates/index.js~TemplateColumn#actions&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linetemplates/index.js~templatecolumn#constructor",
-    "class/es2015/LineTemplates/index.js~TemplateColumn.html#instance-constructor-constructor",
-    "es2015/LineTemplates/index.js~TemplateColumn#constructor",
-    "method"
+    &quot;es2015/linetemplates/index.js~templatecolumn#constructor&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateColumn.html#instance-constructor-constructor&quot;,
+    &quot;es2015/LineTemplates/index.js~TemplateColumn#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linetemplates/index.js~templatecolumn#text",
-    "class/es2015/LineTemplates/index.js~TemplateColumn.html#instance-member-text",
-    "es2015/LineTemplates/index.js~TemplateColumn#text",
-    "member"
+    &quot;es2015/linetemplates/index.js~templatecolumn#text&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateColumn.html#instance-member-text&quot;,
+    &quot;es2015/LineTemplates/index.js~TemplateColumn#text&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linetemplates/index.js~templatecolumn#thumbnailimageurl",
-    "class/es2015/LineTemplates/index.js~TemplateColumn.html#instance-member-thumbnailImageUrl",
-    "es2015/LineTemplates/index.js~TemplateColumn#thumbnailImageUrl",
-    "member"
+    &quot;es2015/linetemplates/index.js~templatecolumn#thumbnailimageurl&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateColumn.html#instance-member-thumbnailImageUrl&quot;,
+    &quot;es2015/LineTemplates/index.js~TemplateColumn#thumbnailImageUrl&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linetemplates/index.js~templatecolumn#title",
-    "class/es2015/LineTemplates/index.js~TemplateColumn.html#instance-member-title",
-    "es2015/LineTemplates/index.js~TemplateColumn#title",
-    "member"
+    &quot;es2015/linetemplates/index.js~templatecolumn#title&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateColumn.html#instance-member-title&quot;,
+    &quot;es2015/LineTemplates/index.js~TemplateColumn#title&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linetemplates/index.js~templatecomponent#type",
-    "class/es2015/LineTemplates/index.js~TemplateComponent.html#instance-member-type",
-    "es2015/LineTemplates/index.js~TemplateComponent#type",
-    "member"
+    &quot;es2015/linetemplates/index.js~templatecomponent#type&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateComponent.html#instance-member-type&quot;,
+    &quot;es2015/LineTemplates/index.js~TemplateComponent#type&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linetemplates/index.js~templateconfirm#actions",
-    "class/es2015/LineTemplates/index.js~TemplateConfirm.html#instance-member-actions",
-    "es2015/LineTemplates/index.js~TemplateConfirm#actions",
-    "member"
+    &quot;es2015/linetemplates/index.js~templateconfirm#actions&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateConfirm.html#instance-member-actions&quot;,
+    &quot;es2015/LineTemplates/index.js~TemplateConfirm#actions&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/linetemplates/index.js~templateconfirm#constructor",
-    "class/es2015/LineTemplates/index.js~TemplateConfirm.html#instance-constructor-constructor",
-    "es2015/LineTemplates/index.js~TemplateConfirm#constructor",
-    "method"
+    &quot;es2015/linetemplates/index.js~templateconfirm#constructor&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateConfirm.html#instance-constructor-constructor&quot;,
+    &quot;es2015/LineTemplates/index.js~TemplateConfirm#constructor&quot;,
+    &quot;method&quot;
   ],
   [
-    "es2015/linetemplates/index.js~templateconfirm#text",
-    "class/es2015/LineTemplates/index.js~TemplateConfirm.html#instance-member-text",
-    "es2015/LineTemplates/index.js~TemplateConfirm#text",
-    "member"
+    &quot;es2015/linetemplates/index.js~templateconfirm#text&quot;,
+    &quot;class/es2015/LineTemplates/index.js~TemplateConfirm.html#instance-member-text&quot;,
+    &quot;es2015/LineTemplates/index.js~TemplateConfirm#text&quot;,
+    &quot;member&quot;
   ],
   [
-    "es2015/externals.js",
-    "file/es2015/externals.js.html",
-    "es2015/externals.js",
-    "file"
+    &quot;es2015/externals.js&quot;,
+    &quot;file/es2015/externals.js.html&quot;,
+    &quot;es2015/externals.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "es2015/externals.js~eventemitter2",
-    "external/index.html",
-    "es2015/externals.js~EventEmitter2",
-    "external"
+    &quot;es2015/externals.js~eventemitter2&quot;,
+    &quot;external/index.html&quot;,
+    &quot;es2015/externals.js~EventEmitter2&quot;,
+    &quot;external&quot;
   ],
   [
-    "es2015/externals.js~express.application",
-    "external/index.html",
-    "es2015/externals.js~Express.Application",
-    "external"
+    &quot;es2015/externals.js~express.application&quot;,
+    &quot;external/index.html&quot;,
+    &quot;es2015/externals.js~Express.Application&quot;,
+    &quot;external&quot;
   ],
   [
-    "es2015/externals.js~http.server",
-    "external/index.html",
-    "es2015/externals.js~http.Server",
-    "external"
+    &quot;es2015/externals.js~http.server&quot;,
+    &quot;external/index.html&quot;,
+    &quot;es2015/externals.js~http.Server&quot;,
+    &quot;external&quot;
   ],
   [
-    "es2015/externals.js~stream.readable",
-    "external/index.html",
-    "es2015/externals.js~stream.Readable",
-    "external"
+    &quot;es2015/externals.js~stream.readable&quot;,
+    &quot;external/index.html&quot;,
+    &quot;es2015/externals.js~stream.Readable&quot;,
+    &quot;external&quot;
   ],
   [
-    "es2015/interfaces.js",
-    "file/es2015/interfaces.js.html",
-    "es2015/interfaces.js",
-    "file"
+    &quot;es2015/interfaces.js&quot;,
+    &quot;file/es2015/interfaces.js.html&quot;,
+    &quot;es2015/interfaces.js&quot;,
+    &quot;file&quot;
   ],
   [
-    "es2015/interfaces.js~linebotconfig",
-    "typedef/index.html#static-typedef-LineBotConfig",
-    "es2015/interfaces.js~LineBotConfig",
-    "typedef"
+    &quot;es2015/interfaces.js~linebotconfig&quot;,
+    &quot;typedef/index.html#static-typedef-LineBotConfig&quot;,
+    &quot;es2015/interfaces.js~LineBotConfig&quot;,
+    &quot;typedef&quot;
   ],
   [
-    "es2015/interfaces.js~lineprofile",
-    "typedef/index.html#static-typedef-LineProfile",
-    "es2015/interfaces.js~LineProfile",
-    "typedef"
+    &quot;es2015/interfaces.js~lineprofile&quot;,
+    &quot;typedef/index.html#static-typedef-LineProfile&quot;,
+    &quot;es2015/interfaces.js~LineProfile&quot;,
+    &quot;typedef&quot;
   ],
   [
-    "es2015/interfaces.js~rectangle",
-    "typedef/index.html#static-typedef-Rectangle",
-    "es2015/interfaces.js~Rectangle",
-    "typedef"
+    &quot;es2015/interfaces.js~rectangle&quot;,
+    &quot;typedef/index.html#static-typedef-Rectangle&quot;,
+    &quot;es2015/interfaces.js~Rectangle&quot;,
+    &quot;typedef&quot;
   ],
   [
-    "es2015/interfaces.js~size",
-    "typedef/index.html#static-typedef-Size",
-    "es2015/interfaces.js~Size",
-    "typedef"
+    &quot;es2015/interfaces.js~size&quot;,
+    &quot;typedef/index.html#static-typedef-Size&quot;,
+    &quot;es2015/interfaces.js~Size&quot;,
+    &quot;typedef&quot;
   ]
 ]

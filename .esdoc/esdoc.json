@@ -17,5 +17,13 @@
         "to": ""
       }]
     }
+  }, {
+    "name": "./.esdoc/replace-link",
+    "option": {
+      "replaces": [{
+        "from": "^./examples",
+        "to": "./manual/example.html"
+      }]
+    }
   }]
 }
