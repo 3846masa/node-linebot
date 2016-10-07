@@ -94,11 +94,7 @@
  */
 export class LineSource {
     /* eslint-enable no-undef */
-    /**
-     * Constructor
-     * @param {Object} params
-     * @param {string} params.type  Identifier for the type of source.
-     */
+    /** @private */
     constructor({ type }) {
         /**
          * Identifier for the type of source.
@@ -129,12 +125,7 @@ export class LineSource {
  */
 export class UserSource extends LineSource {
     /* eslint-enable no-undef */
-    /**
-     * Constructor
-     * @param {Object} params
-     * @param {string} params.type    Identifier for the type of source.
-     * @param {string} params.userId  ID of the source user.
-     */
+    /** @private */
     constructor({ type, userId }) {
         super({ type });
         /**
@@ -149,12 +140,7 @@ export class UserSource extends LineSource {
  */
 export class GroupSource extends LineSource {
     /* eslint-enable no-undef */
-    /**
-     * Constructor
-     * @param {Object} params
-     * @param {string} params.type     Identifier for the type of source.
-     * @param {string} params.groupId  ID of the source group.
-     */
+    /** @private */
     constructor({ type, groupId }) {
         super({ type });
         /**
@@ -169,12 +155,7 @@ export class GroupSource extends LineSource {
  */
 export class RoomSource extends LineSource {
     /* eslint-enable no-undef */
-    /**
-     * Constructor
-     * @param {Object} params
-     * @param {string} params.type    Identifier for the type of source.
-     * @param {string} params.roomId  ID of the source room.
-     */
+    /** @private */
     constructor({ type, roomId }) {
         super({ type });
         /**

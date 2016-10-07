@@ -552,12 +552,6 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "es2015/lineactions/index.js~imagemapaction#constructor",
-    "class/es2015/LineActions/index.js~ImagemapAction.html#instance-constructor-constructor",
-    "es2015/LineActions/index.js~ImagemapAction#constructor",
-    "method"
-  ],
-  [
     "es2015/lineactions/index.js~imagemapaction#type",
     "class/es2015/LineActions/index.js~ImagemapAction.html#instance-member-type",
     "es2015/LineActions/index.js~ImagemapAction#type",
@@ -594,12 +588,6 @@ window.esdocSearchIndex = [
     "typedef"
   ],
   [
-    "es2015/lineactions/index.js~templateaction#constructor",
-    "class/es2015/LineActions/index.js~TemplateAction.html#instance-constructor-constructor",
-    "es2015/LineActions/index.js~TemplateAction#constructor",
-    "method"
-  ],
-  [
     "es2015/lineactions/index.js~templateaction#label",
     "class/es2015/LineActions/index.js~TemplateAction.html#instance-member-label",
     "es2015/LineActions/index.js~TemplateAction#label",
@@ -633,6 +621,12 @@ window.esdocSearchIndex = [
     "es2015/lineactions/index.js~templatepostbackaction#data",
     "class/es2015/LineActions/index.js~TemplatePostbackAction.html#instance-member-data",
     "es2015/LineActions/index.js~TemplatePostbackAction#data",
+    "member"
+  ],
+  [
+    "es2015/lineactions/index.js~templatepostbackaction#text",
+    "class/es2015/LineActions/index.js~TemplatePostbackAction.html#instance-member-text",
+    "es2015/LineActions/index.js~TemplatePostbackAction#text",
     "member"
   ],
   [
@@ -864,12 +858,6 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "es2015/linemessages/index.js~linemessage#constructor",
-    "class/es2015/LineMessages/index.js~LineMessage.html#instance-constructor-constructor",
-    "es2015/LineMessages/index.js~LineMessage#constructor",
-    "method"
-  ],
-  [
     "es2015/linemessages/index.js~linemessage#id",
     "class/es2015/LineMessages/index.js~LineMessage.html#instance-member-id",
     "es2015/LineMessages/index.js~LineMessage#id",
@@ -990,22 +978,10 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "es2015/linesources/index.js~groupsource#constructor",
-    "class/es2015/LineSources/index.js~GroupSource.html#instance-constructor-constructor",
-    "es2015/LineSources/index.js~GroupSource#constructor",
-    "method"
-  ],
-  [
     "es2015/linesources/index.js~groupsource#groupid",
     "class/es2015/LineSources/index.js~GroupSource.html#instance-member-groupId",
     "es2015/LineSources/index.js~GroupSource#groupId",
     "member"
-  ],
-  [
-    "es2015/linesources/index.js~linesource#constructor",
-    "class/es2015/LineSources/index.js~LineSource.html#instance-constructor-constructor",
-    "es2015/LineSources/index.js~LineSource#constructor",
-    "method"
   ],
   [
     "es2015/linesources/index.js~linesource#type",
@@ -1014,22 +990,10 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "es2015/linesources/index.js~roomsource#constructor",
-    "class/es2015/LineSources/index.js~RoomSource.html#instance-constructor-constructor",
-    "es2015/LineSources/index.js~RoomSource#constructor",
-    "method"
-  ],
-  [
     "es2015/linesources/index.js~roomsource#roomid",
     "class/es2015/LineSources/index.js~RoomSource.html#instance-member-roomId",
     "es2015/LineSources/index.js~RoomSource#roomId",
     "member"
-  ],
-  [
-    "es2015/linesources/index.js~usersource#constructor",
-    "class/es2015/LineSources/index.js~UserSource.html#instance-constructor-constructor",
-    "es2015/LineSources/index.js~UserSource#constructor",
-    "method"
   ],
   [
     "es2015/linesources/index.js~usersource#userid",
@@ -1114,12 +1078,6 @@ window.esdocSearchIndex = [
     "class/es2015/LineTemplates/index.js~TemplateColumn.html#instance-member-title",
     "es2015/LineTemplates/index.js~TemplateColumn#title",
     "member"
-  ],
-  [
-    "es2015/linetemplates/index.js~templatecomponent#constructor",
-    "class/es2015/LineTemplates/index.js~TemplateComponent.html#instance-constructor-constructor",
-    "es2015/LineTemplates/index.js~TemplateComponent#constructor",
-    "method"
   ],
   [
     "es2015/linetemplates/index.js~templatecomponent#type",

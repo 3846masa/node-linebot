@@ -94,9 +94,7 @@ export var LineTemplateType;
  */
 export class TemplateComponent {
     /* eslint-enable no-undef */
-    /**
-     * @param  {string} type  Identifier for the type of template.
-     */
+    /** @private */
     constructor({ type }) {
         /**
          * Identifier for the type of template.
@@ -128,14 +126,13 @@ export class TemplateComponent {
 export class TemplateButtons extends TemplateComponent {
     /* eslint-enable no-undef */
     /**
-     * @param  {string}                   type              Identifier for the type of template.
-     * @param  {string}  [thumbnailImageUrl] Image URL (JPEG or PNG / HTTPS / 1:1.51)
-     * @param  {string}  [title]             Title (Max: 40 chars)
-     * @param  {string}                   text              Message text (Max: 160 chars (no image, no title) / 60 chars)
-     * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 4)
+     * @param  {string}  [thumbnailImageUrl]       Image URL (JPEG or PNG / HTTPS / 1:1.51)
+     * @param  {string}  [title]                   Title (Max: 40 chars)
+     * @param  {string}  text                      Message text (Max: 160 chars (no image, no title) / 60 chars)
+     * @param  {TemplateAction[] | any[]} actions  Action when tapped (Max: 4)
      */
-    constructor({ type, thumbnailImageUrl, title, text, actions }) {
-        super({ type });
+    constructor({ thumbnailImageUrl, title, text, actions }) {
+        super({ type: LineTemplateType.BUTTONS });
         /**
          * Image URL (JPEG or PNG / HTTPS / 1:1.51)
          * @type {string}
@@ -164,12 +161,11 @@ export class TemplateButtons extends TemplateComponent {
 export class TemplateConfirm extends TemplateComponent {
     /* eslint-enable no-undef */
     /**
-     * @param  {string}                   type              Identifier for the type of template.
-     * @param  {string}                   text              Message text (Max: 240 chars)
-     * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 2)
+     * @param  {string}                   text     Message text (Max: 240 chars)
+     * @param  {TemplateAction[] | any[]} actions  Action when tapped (Max: 2)
      */
-    constructor({ type, text, actions }) {
-        super({ type });
+    constructor({ text, actions }) {
+        super({ type: LineTemplateType.CONFIRM });
         /**
          * Message text (Max: 240 chars)
          * @type {string}
@@ -188,11 +184,10 @@ export class TemplateConfirm extends TemplateComponent {
 export class TemplateCarousel extends TemplateComponent {
     /* eslint-enable no-undef */
     /**
-     * @param  {string}                   type              Identifier for the type of template.
-     * @param  {TemplateColumn[] | any[]} columns           Array of columns (Max: 5)
+     * @param  {TemplateColumn[] | any[]} columns  Array of columns (Max: 5)
      */
-    constructor({ type, columns }) {
-        super({ type });
+    constructor({ columns }) {
+        super({ type: LineTemplateType.CAROUSEL });
         /**
          * Array of columns (Max: 5)
          * @type {TemplateColumn[]}
@@ -206,10 +201,10 @@ export class TemplateCarousel extends TemplateComponent {
 export class TemplateColumn {
     /* eslint-enable no-undef */
     /**
-     * @param  {string}  [thumbnailImageUrl] Image URL (JPEG or PNG / HTTPS / 1:1.51)
-     * @param  {string}  [title]             Title (Max: 40 chars)
-     * @param  {string}                   text              Message text (Max: 160 chars (no image, no title) / 60 chars)
-     * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 3)
+     * @param  {string}  [thumbnailImageUrl]       Image URL (JPEG or PNG / HTTPS / 1:1.51)
+     * @param  {string}  [title]                   Title (Max: 40 chars)
+     * @param  {string}  text                      Message text (Max: 160 chars (no image, no title) / 60 chars)
+     * @param  {TemplateAction[] | any[]} actions  Action when tapped (Max: 3)
      */
     constructor({ thumbnailImageUrl, title, text, actions }) {
         /**

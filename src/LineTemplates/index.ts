@@ -19,9 +19,7 @@ export class TemplateComponent {
   public type: LineTemplateType;
   /* eslint-enable no-undef */
 
-  /**
-   * @param  {string} type  Identifier for the type of template.
-   */
+  /** @private */
   constructor({ type }: { type: LineTemplateType }) {
     /**
      * Identifier for the type of template.
@@ -61,20 +59,18 @@ export class TemplateButtons extends TemplateComponent {
   /* eslint-enable no-undef */
 
   /**
-   * @param  {string}                   type              Identifier for the type of template.
-   * @param  {string}  [thumbnailImageUrl] Image URL (JPEG or PNG / HTTPS / 1:1.51)
-   * @param  {string}  [title]             Title (Max: 40 chars)
-   * @param  {string}                   text              Message text (Max: 160 chars (no image, no title) / 60 chars)
-   * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 4)
+   * @param  {string}  [thumbnailImageUrl]       Image URL (JPEG or PNG / HTTPS / 1:1.51)
+   * @param  {string}  [title]                   Title (Max: 40 chars)
+   * @param  {string}  text                      Message text (Max: 160 chars (no image, no title) / 60 chars)
+   * @param  {TemplateAction[] | any[]} actions  Action when tapped (Max: 4)
    */
-  constructor({ type, thumbnailImageUrl, title, text, actions }: {
-    type: LineTemplateType,
+  constructor({ thumbnailImageUrl, title, text, actions }: {
     thumbnailImageUrl?: string,
     title?: string,
     text: string,
     actions: TemplateAction[] | any[],
   }) {
-    super({ type });
+    super({ type: LineTemplateType.BUTTONS });
     /**
      * Image URL (JPEG or PNG / HTTPS / 1:1.51)
      * @type {string}
@@ -108,16 +104,14 @@ export class TemplateConfirm extends TemplateComponent {
   /* eslint-enable no-undef */
 
   /**
-   * @param  {string}                   type              Identifier for the type of template.
-   * @param  {string}                   text              Message text (Max: 240 chars)
-   * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 2)
+   * @param  {string}                   text     Message text (Max: 240 chars)
+   * @param  {TemplateAction[] | any[]} actions  Action when tapped (Max: 2)
    */
-  constructor({ type, text, actions }: {
-    type: LineTemplateType,
+  constructor({ text, actions }: {
     text: string,
     actions: TemplateAction[] | any[],
   }) {
-    super({ type });
+    super({ type: LineTemplateType.CONFIRM });
     /**
      * Message text (Max: 240 chars)
      * @type {string}
@@ -140,14 +134,12 @@ export class TemplateCarousel extends TemplateComponent {
   /* eslint-enable no-undef */
 
   /**
-   * @param  {string}                   type              Identifier for the type of template.
-   * @param  {TemplateColumn[] | any[]} columns           Array of columns (Max: 5)
+   * @param  {TemplateColumn[] | any[]} columns  Array of columns (Max: 5)
    */
-  constructor({ type, columns }: {
-    type: LineTemplateType,
+  constructor({ columns }: {
     columns: TemplateColumn[] | any[],
   }) {
-    super({ type });
+    super({ type: LineTemplateType.CAROUSEL });
     /**
      * Array of columns (Max: 5)
      * @type {TemplateColumn[]}
@@ -168,10 +160,10 @@ export class TemplateColumn {
   /* eslint-enable no-undef */
 
   /**
-   * @param  {string}  [thumbnailImageUrl] Image URL (JPEG or PNG / HTTPS / 1:1.51)
-   * @param  {string}  [title]             Title (Max: 40 chars)
-   * @param  {string}                   text              Message text (Max: 160 chars (no image, no title) / 60 chars)
-   * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 3)
+   * @param  {string}  [thumbnailImageUrl]       Image URL (JPEG or PNG / HTTPS / 1:1.51)
+   * @param  {string}  [title]                   Title (Max: 40 chars)
+   * @param  {string}  text                      Message text (Max: 160 chars (no image, no title) / 60 chars)
+   * @param  {TemplateAction[] | any[]} actions  Action when tapped (Max: 3)
    */
   constructor({ thumbnailImageUrl, title, text, actions }: {
     thumbnailImageUrl?: string,

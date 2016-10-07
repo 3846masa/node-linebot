@@ -102,10 +102,7 @@
  */
 export class ImagemapAction {
     /* eslint-enable no-undef */
-    /**
-     * @param  {string}    type  Identifier for the type of action.
-     * @param  {Rectangle} area  Defined tappable area.
-     */
+    /** @private */
     constructor({ type, area }) {
         /**
          * Identifier for the type of action.
@@ -144,8 +141,8 @@ export class ImagemapURIAction extends ImagemapAction {
      * @param  {Rectangle} area     Defined tappable area.
      * @param  {string}    linkUri  Webpage URL
      */
-    constructor({ type, area, linkUri }) {
-        super({ type, area });
+    constructor({ area, linkUri, }) {
+        super({ type: LineActionType.URI, area });
         /**
          * Webpage URL.
          * @type {string}
@@ -160,12 +157,11 @@ export class ImagemapURIAction extends ImagemapAction {
 export class ImagemapMessageAction extends ImagemapAction {
     /* eslint-enable no-undef */
     /**
-     * @param  {string}    type  Identifier for the type of action.
      * @param  {Rectangle} area  Defined tappable area.
      * @param  {string}    text  Message to send.
      */
-    constructor({ type, area, text }) {
-        super({ type, area });
+    constructor({ area, text, }) {
+        super({ type: LineActionType.MESSAGE, area });
         /**
          * Message to send.
          * @type {string}
@@ -179,10 +175,7 @@ export class ImagemapMessageAction extends ImagemapAction {
  */
 export class TemplateAction {
     /* eslint-enable no-undef */
-    /**
-     * @param  {string} type  Identifier for the type of action.
-     * @param  {string} label Label for the action. (Max: 20 chars)
-     */
+    /** @private */
     constructor({ type, label }) {
         /**
          * Identifier for the type of action.
@@ -220,12 +213,11 @@ export class TemplateAction {
 export class TemplateURIAction extends TemplateAction {
     /* eslint-enable no-undef */
     /**
-     * @param  {string} type   Identifier for the type of action.
      * @param  {string} label  Label for the action. (Max: 20 chars)
      * @param  {string} uri    URI opened when the action is performed
      */
-    constructor({ type, label, uri }) {
-        super({ type, label });
+    constructor({ label, uri }) {
+        super({ type: LineActionType.URI, label });
         /**
          * URI opened when the action is performed
          * @type {string}
@@ -240,12 +232,11 @@ export class TemplateURIAction extends TemplateAction {
 export class TemplateMessageAction extends TemplateAction {
     /* eslint-enable no-undef */
     /**
-     * @param  {string} type   Identifier for the type of action.
      * @param  {string} label  Label for the action. (Max: 20 chars)
      * @param  {string} text   Text sent when the action is performed. (Max: 300 chars)
      */
-    constructor({ type, label, text }) {
-        super({ type, label });
+    constructor({ label, text }) {
+        super({ type: LineActionType.MESSAGE, label });
         /**
          * Text sent when the action is performed. (Max: 300 chars)
          * @type {string}
@@ -257,16 +248,20 @@ export class TemplateMessageAction extends TemplateAction {
  * Postback action
  * @see https://devdocs.line.me/en/#template-action
  */
-export class TemplatePostbackAction extends TemplateMessageAction {
+export class TemplatePostbackAction extends TemplateAction {
     /* eslint-enable no-undef */
     /**
-     * @param  {string}  type   Identifier for the type of action.
-     * @param  {string}  label  Label for the action. (Max: 20 chars)
-     * @param  {string}  [text]   Text sent when the action is performed. (Max: 300 chars)
-     * @param  {string}  data   String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)
+     * @param  {string}  label   Label for the action. (Max: 20 chars)
+     * @param  {string}  [text]  Text sent when the action is performed. (Max: 300 chars)
+     * @param  {string}  data    String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)
      */
-    constructor({ type, label, text = undefined, data }) {
-        super({ type, label, text });
+    constructor({ label, text = undefined, data }) {
+        super({ type: LineActionType.POSTBACK, label });
+        /**
+         * Text sent when the action is performed. (Max: 300 chars)
+         * @type {string}
+         */
+        this.text = text;
         /**
          * String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)
          * @type {string}

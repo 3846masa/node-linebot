@@ -106,13 +106,8 @@ export var LineMessageType;
  */
 export class LineMessage {
     /* eslint-enable no-undef */
-    /**
-     * Constructor
-     * @param {Object} params
-     * @param {string} [params.id]  Message ID.
-     * @param {string} params.type  Identifier for the type of message.
-     */
-    constructor({ id = undefined, type }) {
+    /** @private */
+    constructor({ id = undefined, type, }) {
         /**
         * Message ID.
         * @type {string}
@@ -128,22 +123,28 @@ export class LineMessage {
     static createFromObject(params) {
         switch (params.type) {
             case LineMessageType.TEXT: {
-                return new TextMessage(params);
+                return TextMessage.createFromObject(params);
             }
             case LineMessageType.IMAGE: {
-                return new ImageMessage(params);
+                return ImageMessage.createFromObject(params);
             }
             case LineMessageType.VIDEO: {
-                return new VideoMessage(params);
+                return VideoMessage.createFromObject(params);
             }
             case LineMessageType.AUDIO: {
-                return new AudioMessage(params);
+                return AudioMessage.createFromObject(params);
             }
             case LineMessageType.LOCATION: {
-                return new LocationMessage(params);
+                return LocationMessage.createFromObject(params);
             }
             case LineMessageType.STICKER: {
-                return new StickerMessage(params);
+                return StickerMessage.createFromObject(params);
+            }
+            case LineMessageType.IMAGEMAP: {
+                return ImagemapMessage.createFromObject(params);
+            }
+            case LineMessageType.TEMPLATE: {
+                return TemplateMessage.createFromObject(params);
             }
             default: {
                 return new LineMessage({ id: params.id, type: params.type });
@@ -159,17 +160,21 @@ export class TextMessage extends LineMessage {
     /**
      * Constructor
      * @param {Object} params
-     * @param {string} [params.id]              Message ID.
-     * @param {string} [params.type=&quot;message&quot;]  Identifier for the type of message.
-     * @param {string} params.text              Message text.
+     * @param {string} params.text  Message text.
      */
-    constructor({ id = undefined, type = LineMessageType.TEXT, text }) {
-        super({ id, type });
+    constructor({ text }) {
+        super({ type: LineMessageType.TEXT });
         /**
         * Message text.
         * @type {string}
         */
         this.text = text;
+    }
+    /** @private */
+    static createFromObject(params) {
+        const instance = new TextMessage(params);
+        instance.id = params.id;
+        return instance;
     }
 }
 /**
@@ -180,13 +185,11 @@ export class ImageMessage extends LineMessage {
     /**
      * Constructor
      * @param {Object} params
-     * @param {string} [params.id]                  Message ID.
-     * @param {string} [params.type=&quot;image&quot;]        Identifier for the type of message.
-     * @param {string} [params.originalContentUrl]  Image URL. (JPEG / HTTPS)
-     * @param {string} [params.previewImageUrl]     Preview image URL. (JPEG / HTTPS)
+     * @param {string} params.originalContentUrl  Image URL. (JPEG / HTTPS)
+     * @param {string} params.previewImageUrl     Preview image URL. (JPEG / HTTPS)
      */
-    constructor({ id = undefined, type = LineMessageType.IMAGE, originalContentUrl = undefined, previewImageUrl = undefined, }) {
-        super({ id, type });
+    constructor({ originalContentUrl, previewImageUrl, }) {
+        super({ type: LineMessageType.IMAGE });
         /**
          * Image URL. (JPEG / HTTPS)
          * @type {string}
@@ -198,6 +201,12 @@ export class ImageMessage extends LineMessage {
          */
         this.previewImageUrl = previewImageUrl;
     }
+    /** @private */
+    static createFromObject(params) {
+        const instance = new ImageMessage(params);
+        instance.id = params.id;
+        return instance;
+    }
 }
 /**
  * @see https://devdocs.line.me/en/#video-message
@@ -207,13 +216,11 @@ export class VideoMessage extends LineMessage {
     /**
      * Constructor
      * @param {Object} params
-     * @param {string} [params.id]                  Message ID.
-     * @param {string} [params.type=&quot;video&quot;]        Identifier for the type of message.
-     * @param {string} [params.originalContentUrl]  URL of video file. (MP4 / HTTPS)
-     * @param {string} [params.previewImageUrl]     Preview image URL. (JPEG / HTTPS)
+     * @param {string} params.originalContentUrl  URL of video file. (MP4 / HTTPS)
+     * @param {string} params.previewImageUrl     Preview image URL. (JPEG / HTTPS)
      */
-    constructor({ id = undefined, type = LineMessageType.VIDEO, originalContentUrl = undefined, previewImageUrl = undefined, }) {
-        super({ id, type });
+    constructor({ originalContentUrl, previewImageUrl, }) {
+        super({ type: LineMessageType.VIDEO });
         /**
          * URL of video file. (MP4 / HTTPS)
          * @type {string}
@@ -225,6 +232,12 @@ export class VideoMessage extends LineMessage {
          */
         this.previewImageUrl = previewImageUrl;
     }
+    /** @private */
+    static createFromObject(params) {
+        const instance = new VideoMessage(params);
+        instance.id = params.id;
+        return instance;
+    }
 }
 /**
  * @see https://devdocs.line.me/en/#audio-message
@@ -234,13 +247,11 @@ export class AudioMessage extends LineMessage {
     /**
      * Constructor
      * @param {Object} params
-     * @param {string} [params.id]                  Message ID.
-     * @param {string} [params.type=&quot;audio&quot;]        Identifier for the type of message.
-     * @param {string} [params.originalContentUrl]  URL of audio file. (M4A / HTTPS)
-     * @param {number} [params.duration]            Length of audio file (milliseconds)
+     * @param {string} params.originalContentUrl  URL of audio file. (M4A / HTTPS)
+     * @param {number} params.duration            Length of audio file (milliseconds)
      */
-    constructor({ id = undefined, type = LineMessageType.AUDIO, originalContentUrl = undefined, duration = undefined }) {
-        super({ id, type });
+    constructor({ originalContentUrl, duration, }) {
+        super({ type: LineMessageType.AUDIO });
         /**
          * URL of audio file. (M4A / HTTPS)
          * @type {string}
@@ -252,6 +263,12 @@ export class AudioMessage extends LineMessage {
          */
         this.duration = duration;
     }
+    /** @private */
+    static createFromObject(params) {
+        const instance = new AudioMessage(params);
+        instance.id = params.id;
+        return instance;
+    }
 }
 /**
  * @see https://devdocs.line.me/en/#location-message
@@ -261,15 +278,13 @@ export class LocationMessage extends LineMessage {
     /**
      * Constructor
      * @param {Object} params
-     * @param {string} [params.id]               Message ID.
-     * @param {string} [params.type=&quot;location&quot;]  Identifier for the type of message.
      * @param {string} params.title              Title.
      * @param {string} params.address            Address.
      * @param {number} params.latitude           Latitude.
      * @param {number} params.longitude          Longitude.
      */
-    constructor({ id = undefined, type = LineMessageType.LOCATION, title, address, latitude, longitude }) {
-        super({ id, type });
+    constructor({ title, address, latitude, longitude, }) {
+        super({ type: LineMessageType.LOCATION });
         /**
         * Title.
         * @type {string}
@@ -291,6 +306,12 @@ export class LocationMessage extends LineMessage {
          */
         this.longitude = longitude;
     }
+    /** @private */
+    static createFromObject(params) {
+        const instance = new LocationMessage(params);
+        instance.id = params.id;
+        return instance;
+    }
 }
 /**
  * @see https://devdocs.line.me/en/#sticker-message
@@ -300,13 +321,11 @@ export class StickerMessage extends LineMessage {
     /**
      * Constructor
      * @param {Object} params
-     * @param {string} [params.id]              Message ID.
-     * @param {string} [params.type=&quot;sticker&quot;]  Identifier for the type of message.
      * @param {string} params.packageId         Package ID.
      * @param {string} params.stickerId         Sticker ID.
      */
-    constructor({ id = undefined, type = LineMessageType.STICKER, packageId, stickerId }) {
-        super({ id, type });
+    constructor({ packageId, stickerId, }) {
+        super({ type: LineMessageType.STICKER });
         /**
         * Package ID.
         * @type {string}
@@ -318,6 +337,12 @@ export class StickerMessage extends LineMessage {
          */
         this.stickerId = stickerId;
     }
+    /** @private */
+    static createFromObject(params) {
+        const instance = new StickerMessage(params);
+        instance.id = params.id;
+        return instance;
+    }
 }
 /**
  * @see https://devdocs.line.me/en/#imagemap-message
@@ -327,14 +352,13 @@ export class ImagemapMessage extends LineMessage {
     /**
      * Constructor
      * @param {Object} params
-     * @param {string} [params.type=&quot;imagemap&quot;]           Identifier for the type of message.
      * @param {string} params.baseUrl                     Base URL (HTTPS)
      * @param {string} params.altText                     Alternative text
      * @param {Size} params.baseSize                      Base image size.
-     * @param {ImagemapAction[] | any[]}  params.actions  Action when tapped
+     * @param {ImagemapAction[] | Object[]}  params.actions  Action when tapped
      */
-    constructor({ type = LineMessageType.IMAGEMAP, baseUrl, altText, baseSize, actions }) {
-        super({ id: null, type });
+    constructor({ baseUrl, altText, baseSize, actions, }) {
+        super({ type: LineMessageType.IMAGEMAP });
         /**
          * Base URL (HTTPS)
          * @type {string}
@@ -356,6 +380,11 @@ export class ImagemapMessage extends LineMessage {
          */
         this.actions = actions.map(action =&gt; ImagemapAction.createFromObject(action));
     }
+    /** @private */
+    static createFromObject(params) {
+        const instance = new ImagemapMessage(params);
+        return instance;
+    }
 }
 /**
  * @see https://devdocs.line.me/en/#template-messages
@@ -365,12 +394,11 @@ export class TemplateMessage extends LineMessage {
     /**
      * Constructor
      * @param {Object} params
-     * @param {string} [params.type=&quot;template&quot;]          Identifier for the type of message.
      * @param {string} params.altText                    Alternative text
-     * @param {TemplateComponent | any} params.template  Object with the contents of the template.
+     * @param {TemplateComponent | Object} params.template  Object with the contents of the template.
      */
-    constructor({ type = LineMessageType.TEMPLATE, altText, template }) {
-        super({ id: null, type });
+    constructor({ altText, template, }) {
+        super({ type: LineMessageType.TEMPLATE });
         /**
          * Alternative text
          * @type {string}
@@ -381,6 +409,11 @@ export class TemplateMessage extends LineMessage {
          * @type {TemplateComponent}
          */
         this.template = TemplateComponent.createFromObject(template);
+    }
+    /** @private */
+    static createFromObject(params) {
+        const instance = new TemplateMessage(params);
+        return instance;
     }
 }
 </code></pre>
