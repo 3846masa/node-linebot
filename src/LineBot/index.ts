@@ -25,7 +25,7 @@ import { LineBotConfig, LineProfile } from '../interfaces';
  *
  * bot.listen(3000);
  *
- * @extends {EventEmitter}
+ * @extends {EventEmitter2}
  * @see https://devdocs.line.me/ja/
  */
 export class LineBot extends EventEmitter2 {
