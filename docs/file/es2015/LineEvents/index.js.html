@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl">
-  <title data-ice="title">@3846masa/linebot | ESDoc API Document</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">es2015/LineEvents/index.js | @3846masa/linebot | ESDoc API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -80,37 +80,193 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="node-linebot">node-linebot</h1>
-<p><a href="https://nodei.co/npm/@3846masa%2Flinebot/"><img src="https://nodei.co/npm/@3846masa%2Flinebot.png?mini=true" alt="NPM"></a></p>
-<h2 id="docs">Docs</h2>
-<p><a href="https://3846masa.github.io/node-linebot/">https://3846masa.github.io/node-linebot/</a></p>
-<h2 id="install">Install</h2>
-<pre><code class="lang-sh"><code class="source-code prettyprint">npm install --save @3846masa/linebot</code>
+<div class="content" data-ice="content"><h1 data-ice="title">es2015/LineEvents/index.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { LineSource } from &apos;../LineSources&apos;;
+import { LineMessage } from &apos;../LineMessages&apos;;
+export var LineEventType;
+(function (LineEventType) {
+    LineEventType.MESSAGE = &apos;message&apos;;
+    LineEventType.FOLLOW = &apos;follow&apos;;
+    LineEventType.JOIN = &apos;join&apos;;
+    LineEventType.LEAVE = &apos;leave&apos;;
+    LineEventType.POSTBACK = &apos;postback&apos;;
+    LineEventType.BEACON = &apos;beacon&apos;;
+})(LineEventType || (LineEventType = {}));
+export var BeaconEventType;
+(function (BeaconEventType) {
+    BeaconEventType.ENTER = &apos;enter&apos;;
+})(BeaconEventType || (BeaconEventType = {}));
+/* eslint-enable no-unused-vars, space-infix-ops */
+/**
+ * @see https://devdocs.line.me/en/#webhook-event-object
+ */
+export class LineEvent {
+    /* eslint-enable no-undef */
+    /** @private */
+    constructor({ type, timestamp, source }) {
+        /**
+         * Identifier for the type of event
+         * @type {string}
+         */
+        this.type = type;
+        /**
+         * Time of the event in milliseconds
+         * @type {Date}
+         */
+        this.timestamp = new Date(Number(timestamp));
+        /**
+         * Object which contains the source of the event
+         * @type {LineSource}
+         */
+        this.source = LineSource.createFromObject(source);
+    }
+    /** @private */
+    static createFromObject(params, _linebot) {
+        Object.assign(params, { _linebot });
+        switch (params.type) {
+            case LineEventType.MESSAGE: {
+                return new MessageEvent(params);
+            }
+            case LineEventType.FOLLOW: {
+                return new FollowEvent(params);
+            }
+            case LineEventType.JOIN: {
+                return new JoinEvent(params);
+            }
+            case LineEventType.LEAVE: {
+                return new LeaveEvent(params);
+            }
+            case LineEventType.POSTBACK: {
+                return new PostbackEvent(params);
+            }
+            case LineEventType.BEACON: {
+                return new BeaconEvent(params);
+            }
+            default: {
+                return new LineEvent({
+                    type: params.type,
+                    timestamp: params.timestamp,
+                    source: params.source,
+                });
+            }
+        }
+    }
+}
+/**
+ * Replyable event.
+ */
+export class ReplyableEvent extends LineEvent {
+    /* eslint-enable no-undef */
+    /** @private */
+    constructor({ type, timestamp, source, replyToken, _linebot = undefined }) {
+        super({ type, timestamp, source });
+        /**
+         * Token for replying to this event
+         * @type {string}
+         */
+        this.replyToken = replyToken;
+        /** @private */
+        Object.defineProperty(this, &apos;_linebot&apos;, {
+            writable: true,
+            value: _linebot,
+        });
+    }
+    /**
+     * Respond to events from users, groups, and rooms.
+     * @see https://devdocs.line.me/en/#reply-message
+     * @param  {LineMessage[] | LineMessage | any} msg  Message like LineMessage.
+     * @return {Promise&lt;void,Error&gt;}
+     */
+    reply(msg) {
+        let messages;
+        if (!Array.isArray(msg)) {
+            messages = [msg];
+        }
+        else {
+            messages = msg;
+        }
+        const promise = this._linebot._post(&apos;/message/reply&apos;, {
+            replyToken: this.replyToken,
+            messages,
+        });
+        return promise.then(({ status, data }) =&gt; {
+            if (status !== 200) {
+                return Promise.reject(new Error(`${status}: ${data.message}`));
+            }
+            return Promise.resolve();
+        });
+    }
+}
+/**
+ * @see https://devdocs.line.me/en/#message-event
+ */
+export class MessageEvent extends ReplyableEvent {
+    /* eslint-enable no-undef */
+    /** @private */
+    constructor({ type, timestamp, source, replyToken, message, _linebot = undefined }) {
+        super({ type, timestamp, source, replyToken, _linebot });
+        /**
+         * Contents of the message
+         * @type  {LineMessage | any}
+         */
+        this.message = LineMessage.createFromObject(message);
+    }
+}
+/**
+ * @see https://devdocs.line.me/en/#follow-event
+ */
+export class FollowEvent extends ReplyableEvent {
+}
+/**
+ * @see https://devdocs.line.me/en/#unfollow-event
+ */
+export class UnfollowEvent extends LineEvent {
+}
+/**
+ * @see https://devdocs.line.me/en/#join-event
+ */
+export class JoinEvent extends ReplyableEvent {
+}
+/**
+ * @see https://devdocs.line.me/en/#leave-event
+ */
+export class LeaveEvent extends LineEvent {
+}
+/**
+ * @see https://devdocs.line.me/en/#postback-event
+ */
+export class PostbackEvent extends ReplyableEvent {
+    /* eslint-enable no-undef */
+    /** @private */
+    constructor({ type, timestamp, source, replyToken, postback, _linebot = undefined }) {
+        super({ type, timestamp, source, replyToken, _linebot });
+        /**
+         * Postback data
+         * @type     {Object}
+         * @property {string} postback.data  Postback data
+         */
+        this.postback = postback;
+    }
+}
+/**
+ * @see https://devdocs.line.me/en/#beacon-event
+ */
+export class BeaconEvent extends ReplyableEvent {
+    /* eslint-enable no-undef */
+    /** @private */
+    constructor({ type, timestamp, source, replyToken, beacon, _linebot = undefined }) {
+        super({ type, timestamp, source, replyToken, _linebot });
+        /**
+         * Beacon data
+         * @type     {Object}
+         * @property {string} beacon.hwid  Hardware ID of the beacon that was detected
+         * @property {string} beacon.type  Type of beacon event
+         */
+        this.beacon = beacon;
+    }
+}
 </code></pre>
-<h2 id="usage">Usage</h2>
-<pre><code class="lang-javascript"><code class="source-code prettyprint">const LineBot = require(&apos;@3846masa/linebot/lib/LineBot&apos;).LineBot;
 
-const bot = new LineBot({
-  channelSecret: &apos;XXXXXXXXXX&apos;,
-  channelToken: &apos;XXXXXXXXXX&apos;,
-});
-
-bot.on(&apos;webhook:*&apos;, (ev) =&gt; {
-  console.log(&apos;You got a event!&apos;, ev);
-});
-
-bot.on(&apos;webhook:message&apos;, (ev) =&gt; {
-  const message = ev.message;
-  ev.reply(message);
-});
-
-bot.listen(process.env.PORT || 3000);</code>
-</code></pre>
-<h2 id="license">LICENSE</h2>
-<p>MIT (c) 3846masa</p>
-<h2 id="author">Author</h2>
-<p><img src="https://gravatar.com/avatar/cfeae69aae4f4fc102960f01d35d2d86?s=25" alt="3846masa"> 3846masa</p>
-</div>
 </div>
 
 <footer class="footer">

@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl">
-  <title data-ice="title">@3846masa/linebot | ESDoc API Document</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">es2015/LineBot/index.js | @3846masa/linebot | ESDoc API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -80,37 +80,265 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="node-linebot">node-linebot</h1>
-<p><a href="https://nodei.co/npm/@3846masa%2Flinebot/"><img src="https://nodei.co/npm/@3846masa%2Flinebot.png?mini=true" alt="NPM"></a></p>
-<h2 id="docs">Docs</h2>
-<p><a href="https://3846masa.github.io/node-linebot/">https://3846masa.github.io/node-linebot/</a></p>
-<h2 id="install">Install</h2>
-<pre><code class="lang-sh"><code class="source-code prettyprint">npm install --save @3846masa/linebot</code>
+<div class="content" data-ice="content"><h1 data-ice="title">es2015/LineBot/index.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { createHmac } from &apos;crypto&apos;;
+import { EventEmitter2 } from &apos;eventemitter2&apos;;
+import axios from &apos;axios&apos;;
+import express from &apos;express&apos;;
+import bodyParser from &apos;body-parser&apos;;
+import { LineEvent } from &apos;../LineEvents&apos;;
+import { GroupSource, RoomSource } from &apos;../LineSources&apos;;
+/* eslint-enable no-undef */
+/* global LineBotConfig, LineProfile */
+/**
+ * @typedef   {Object} LineBotConfig
+ * @property  {String} channelSecret  Channel secret
+ * @property  {String} channelToken   Channel token
+ */
+/**
+ * @typedef   {Object} LineProfile
+ * @property  {String} displayName    Display name
+ * @property  {String} userId         User ID
+ * @property  {String} pictureUrl     Image URL
+ * @property  {String} statusMessage  Status message
+ */
+/**
+ * LINE Bot API wrapper.
+ *
+ * @example &lt;caption&gt;EventEmitter&lt;/caption&gt;
+ * import { LineBot } from &apos;@3846masa/linebot&apos;;
+ * const bot = new LineBot(configs);
+ *
+ * bot.on(&apos;message&apos;, (result) =&gt; {
+ *   console.log(&apos;You got a message!&apos;, result);
+ * });
+ *
+ * bot.listen(3000);
+ *
+ * @extends {EventEmitter}
+ * @see https://devdocs.line.me/ja/
+ */
+export class LineBot extends EventEmitter2 {
+    /* eslint-enable no-undef */
+    /**
+     * Constructor
+     * @param  {LineBotConfig} config
+     */
+    constructor({ channelSecret, channelToken }) {
+        super({
+            wildcard: true,
+            delimiter: &apos;:&apos;,
+            maxListeners: 20,
+        });
+        /**
+         * Configuration.
+         * @type {LineBotConfig}
+         */
+        this.config = {
+            channelSecret,
+            channelToken,
+        };
+        Object.freeze(this.config);
+        this._initAxios();
+        this._initExpress();
+    }
+    /** @private */
+    _initAxios() {
+        /** @private */
+        this._axios = axios.create({
+            baseURL: &apos;https://api.line.me/v2/bot&apos;,
+            headers: {
+                Authorization: `Bearer ${this.config.channelToken}`,
+            },
+            validateStatus: () =&gt; true,
+        });
+    }
+    /** @private */
+    _initExpress() {
+        /**
+         * Configuration.
+         * @type {Express.Application}
+         */
+        this.express = express();
+        this.express.use(bodyParser.raw({ type: () =&gt; true }));
+        this.express.use((req, res, next) =&gt; {
+            const isValid = this._checkSignature({
+                signature: req.header(&apos;X-Line-Signature&apos;),
+                body: req.body,
+            });
+            if (!isValid) {
+                return next(new Error(&apos;Invalid request.&apos;));
+            }
+            return next();
+        });
+        this.express.use((req, res, next) =&gt; {
+            Promise.resolve(req.body.toString(&apos;utf8&apos;))
+                .then(JSON.parse)
+                .then(json =&gt; Object.assign(req, { body: json }))
+                .then(() =&gt; next())
+                .catch(next);
+        });
+        this.express.all(&apos;*&apos;, (req, res, next) =&gt; {
+            if (!req.body || !req.body.events) {
+                return next(new Error(&apos;Invalid JSON.&apos;));
+            }
+            for (const event of req.body.events) {
+                const eventObj = LineEvent.createFromObject(event, this);
+                this.emit(`webhook:${event.type}`, eventObj);
+            }
+            res.status(200).send();
+            return next();
+        });
+        this.express.use((err, req, res, next) =&gt; {
+            console.error(err);
+            res.status(400).send({ error: err.message });
+            next();
+        });
+    }
+    /** @private */
+    _checkSignature({ signature, body }) {
+        const hmac = createHmac(&apos;sha256&apos;, this.config.channelSecret);
+        hmac.update(body);
+        const calcResult = hmac.digest(&apos;base64&apos;);
+        return (calcResult === signature);
+    }
+    /**
+     * Send messages to users, groups, and rooms at any time.
+     * @see https://devdocs.line.me/en/#push-message
+     * @param  {string}                            to   ID of the receiver
+     * @param  {LineMessage[] | LineMessage | any} msg  Messages (Max: 5)
+     * @return {Promise&lt;void,Error&gt;}
+     */
+    push(to, msg) {
+        let messages;
+        if (!Array.isArray(msg)) {
+            messages = [msg];
+        }
+        else {
+            messages = msg;
+        }
+        const promise = this._post(&apos;/message/push&apos;, { to, messages });
+        return promise.then(({ status, data }) =&gt; {
+            if (status !== 200) {
+                return Promise.reject(new Error(`${status}: ${data.message}`));
+            }
+            return Promise.resolve();
+        });
+    }
+    /**
+     * Retrieve image, video, and audio data sent by users.
+     * @see https://devdocs.line.me/en/#get-content
+     * @param  {LineMessage} message Message
+     * @return {Promise&lt;stream.Readable,Error&gt;}
+     */
+    getContentFromMessage(message) {
+        return this.getContent(message.id);
+    }
+    /**
+     * Retrieve image, video, and audio data sent by users.
+     * @see https://devdocs.line.me/en/#get-content
+     * @param  {string} messageId Message ID.
+     * @return {Promise&lt;stream.Readable,Error&gt;}
+     */
+    getContent(messageId) {
+        const promise = this._get(`/message/${messageId}/content`, {
+            responseType: &apos;stream&apos;,
+        });
+        return promise.then(({ status, statusText, data }) =&gt; {
+            if (status !== 200) {
+                throw new Error(`${status}: ${statusText}`);
+            }
+            return Promise.resolve(data);
+        });
+    }
+    /**
+     * Send messages to users, groups, and rooms at any time.
+     * @see https://devdocs.line.me/en/#bot-api-get-profile
+     * @param  {UserSource} user  User source
+     * @return {Promise&lt;LineProfile,Error&gt;}
+     */
+    getProfileFromUserSource(user) {
+        return this.getProfile(user.userId);
+    }
+    /**
+     * Send messages to users, groups, and rooms at any time.
+     * @see https://devdocs.line.me/en/#bot-api-get-profile
+     * @param  {string} userId  User ID
+     * @return {Promise&lt;LineProfile,Error&gt;}
+     */
+    getProfile(userId) {
+        const promise = this._get(`/profile/${userId}`);
+        return promise.then(({ status, data }) =&gt; {
+            if (status !== 200) {
+                throw new Error(`${status}: ${data.message}`);
+            }
+            return Promise.resolve(data);
+        });
+    }
+    /**
+     * Leave a group or room.
+     * @see https://devdocs.line.me/en/#leave
+     * @param  {GroupSource | RoomSource}  source
+     * @return {Promise&lt;void,Error&gt;}
+     */
+    leaveFromSource(source) {
+        if (source instanceof GroupSource) {
+            return this.leave(&apos;group&apos;, source.groupId);
+        }
+        else if (source instanceof RoomSource) {
+            return this.leave(&apos;room&apos;, source.roomId);
+        }
+        return Promise.resolve();
+    }
+    /**
+     * Leave a group or room.
+     * @see https://devdocs.line.me/en/#leave
+     * @param  {string} type
+     * @param  {string} id
+     * @return {Promise&lt;void,Error&gt;}
+     */
+    leave(type, id) {
+        const promise = this._post(`/${type}/${id}/leave`);
+        return promise.then(({ status, data }) =&gt; {
+            if (status !== 200) {
+                return Promise.reject(new Error(`${status}: ${data.message}`));
+            }
+            return Promise.resolve();
+        });
+    }
+    /** @private */
+    _get(endpoint, options) {
+        return this._axios.get(endpoint, options || {});
+    }
+    /** @private */
+    _post(endpoint, data, options) {
+        return this._axios.post(endpoint, data, options || {});
+    }
+    /**
+     * Binds and listens for connections on the specified host and port.
+     * @see http://expressjs.com/en/4x/api.html#app.listen
+     * @param  { ...any }    args http://expressjs.com/en/4x/api.html#app.listen
+     * @return {http.Server}
+     */
+    listen(...args) {
+        return this.express.listen.call(this.express, ...args);
+    }
+    /**
+     * Adds a listener to the end of the listeners array for the specified event.
+     * @see https://github.com/asyncly/EventEmitter2#emitteronevent-listener
+     * @param   {string | string[]} event    Event name
+     * @param   {Function}          listener Listener function
+     * @return  {LineBot}
+     * @listens {webhook:{eventType}}  Listen message event. https://developers.line.me/bot-api/api-reference#sending_message
+     */
+    on(event, listener) {
+        super.on(event, listener);
+        return this;
+    }
+}
+export default LineBot;
 </code></pre>
-<h2 id="usage">Usage</h2>
-<pre><code class="lang-javascript"><code class="source-code prettyprint">const LineBot = require(&apos;@3846masa/linebot/lib/LineBot&apos;).LineBot;
 
-const bot = new LineBot({
-  channelSecret: &apos;XXXXXXXXXX&apos;,
-  channelToken: &apos;XXXXXXXXXX&apos;,
-});
-
-bot.on(&apos;webhook:*&apos;, (ev) =&gt; {
-  console.log(&apos;You got a event!&apos;, ev);
-});
-
-bot.on(&apos;webhook:message&apos;, (ev) =&gt; {
-  const message = ev.message;
-  ev.reply(message);
-});
-
-bot.listen(process.env.PORT || 3000);</code>
-</code></pre>
-<h2 id="license">LICENSE</h2>
-<p>MIT (c) 3846masa</p>
-<h2 id="author">Author</h2>
-<p><img src="https://gravatar.com/avatar/cfeae69aae4f4fc102960f01d35d2d86?s=25" alt="3846masa"> 3846masa</p>
-</div>
 </div>
 
 <footer class="footer">

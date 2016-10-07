@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl">
-  <title data-ice="title">@3846masa/linebot | ESDoc API Document</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">es2015/LineTemplates/index.js | @3846masa/linebot | ESDoc API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -80,37 +80,167 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="node-linebot">node-linebot</h1>
-<p><a href="https://nodei.co/npm/@3846masa%2Flinebot/"><img src="https://nodei.co/npm/@3846masa%2Flinebot.png?mini=true" alt="NPM"></a></p>
-<h2 id="docs">Docs</h2>
-<p><a href="https://3846masa.github.io/node-linebot/">https://3846masa.github.io/node-linebot/</a></p>
-<h2 id="install">Install</h2>
-<pre><code class="lang-sh"><code class="source-code prettyprint">npm install --save @3846masa/linebot</code>
+<div class="content" data-ice="content"><h1 data-ice="title">es2015/LineTemplates/index.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { TemplateAction } from &apos;../LineActions&apos;;
+export var LineTemplateType;
+(function (LineTemplateType) {
+    LineTemplateType.BUTTONS = &apos;buttons&apos;;
+    LineTemplateType.CONFIRM = &apos;confirm&apos;;
+    LineTemplateType.CAROUSEL = &apos;carousel&apos;;
+})(LineTemplateType || (LineTemplateType = {}));
+/* eslint-enable no-unused-vars, space-infix-ops */
+/**
+ * @see https://devdocs.line.me/en/#template-messages
+ */
+export class TemplateComponent {
+    /* eslint-enable no-undef */
+    /**
+     * @param  {string} type  Identifier for the type of template.
+     */
+    constructor({ type }) {
+        /**
+         * Identifier for the type of template.
+         * @type {string}
+         */
+        this.type = type;
+    }
+    /** @private */
+    static createFromObject(params) {
+        switch (params.type) {
+            case LineTemplateType.BUTTONS: {
+                return new TemplateButtons(params);
+            }
+            case LineTemplateType.CONFIRM: {
+                return new TemplateConfirm(params);
+            }
+            case LineTemplateType.CAROUSEL: {
+                return new TemplateCarousel(params);
+            }
+            default: {
+                return new TemplateComponent({ type: params.type });
+            }
+        }
+    }
+}
+/**
+ * @see https://devdocs.line.me/en/#buttons
+ */
+export class TemplateButtons extends TemplateComponent {
+    /* eslint-enable no-undef */
+    /**
+     * @param  {string}                   type              Identifier for the type of template.
+     * @param  {string}  [thumbnailImageUrl] Image URL (JPEG or PNG / HTTPS / 1:1.51)
+     * @param  {string}  [title]             Title (Max: 40 chars)
+     * @param  {string}                   text              Message text (Max: 160 chars (no image, no title) / 60 chars)
+     * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 4)
+     */
+    constructor({ type, thumbnailImageUrl, title, text, actions }) {
+        super({ type });
+        /**
+         * Image URL (JPEG or PNG / HTTPS / 1:1.51)
+         * @type {string}
+         */
+        this.thumbnailImageUrl = thumbnailImageUrl;
+        /**
+         * Title (Max: 40 chars)
+         * @type {string}
+         */
+        this.title = title;
+        /**
+         * Message text (Max: 160 chars (no image, no title) / 60 chars)
+         * @type {string}
+         */
+        this.text = text;
+        /**
+         * Action when tapped (Max: 4)
+         * @type {TemplateAction[]}
+         */
+        this.actions = actions.map(action =&gt; TemplateAction.createFromObject(action));
+    }
+}
+/**
+ * @see https://devdocs.line.me/en/#confirm
+ */
+export class TemplateConfirm extends TemplateComponent {
+    /* eslint-enable no-undef */
+    /**
+     * @param  {string}                   type              Identifier for the type of template.
+     * @param  {string}                   text              Message text (Max: 240 chars)
+     * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 2)
+     */
+    constructor({ type, text, actions }) {
+        super({ type });
+        /**
+         * Message text (Max: 240 chars)
+         * @type {string}
+         */
+        this.text = text;
+        /**
+         * Action when tapped (Max: 2)
+         * @type {TemplateAction[]}
+         */
+        this.actions = actions.map(action =&gt; TemplateAction.createFromObject(action));
+    }
+}
+/**
+ * @see https://devdocs.line.me/en/#carousel
+ */
+export class TemplateCarousel extends TemplateComponent {
+    /* eslint-enable no-undef */
+    /**
+     * @param  {string}                   type              Identifier for the type of template.
+     * @param  {string}                   text              Message text (Max: 240 chars)
+     * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 2)
+     */
+    constructor({ type, columns }) {
+        super({ type });
+        /**
+         * Action when tapped (Max: 2)
+         * @type {TemplateAction[]}
+         */
+        this.columns = columns.map(column =&gt; TemplateColumn.createFromObject(column));
+    }
+}
+/**
+ * @see https://devdocs.line.me/en/#column-object
+ */
+export class TemplateColumn {
+    /* eslint-enable no-undef */
+    /**
+     * @param  {string}  [thumbnailImageUrl] Image URL (JPEG or PNG / HTTPS / 1:1.51)
+     * @param  {string}  [title]             Title (Max: 40 chars)
+     * @param  {string}                   text              Message text (Max: 160 chars (no image, no title) / 60 chars)
+     * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 3)
+     */
+    constructor({ thumbnailImageUrl, title, text, actions }) {
+        /**
+         * Image URL (JPEG or PNG / HTTPS / 1:1.51)
+         * @type {string}
+         */
+        this.thumbnailImageUrl = thumbnailImageUrl;
+        /**
+         * Title (Max: 40 chars)
+         * @type {string}
+         */
+        this.title = title;
+        /**
+         * Message text (Max: 160 chars (no image, no title) / 60 chars)
+         * @type {string}
+         */
+        this.text = text;
+        /**
+         * Action when tapped (Max: 3)
+         * @type {TemplateAction[]}
+         */
+        this.actions = actions.map(action =&gt; TemplateAction.createFromObject(action));
+    }
+    /** @private */
+    static createFromObject(params) {
+        return new TemplateColumn(params);
+    }
+}
 </code></pre>
-<h2 id="usage">Usage</h2>
-<pre><code class="lang-javascript"><code class="source-code prettyprint">const LineBot = require(&apos;@3846masa/linebot/lib/LineBot&apos;).LineBot;
 
-const bot = new LineBot({
-  channelSecret: &apos;XXXXXXXXXX&apos;,
-  channelToken: &apos;XXXXXXXXXX&apos;,
-});
-
-bot.on(&apos;webhook:*&apos;, (ev) =&gt; {
-  console.log(&apos;You got a event!&apos;, ev);
-});
-
-bot.on(&apos;webhook:message&apos;, (ev) =&gt; {
-  const message = ev.message;
-  ev.reply(message);
-});
-
-bot.listen(process.env.PORT || 3000);</code>
-</code></pre>
-<h2 id="license">LICENSE</h2>
-<p>MIT (c) 3846masa</p>
-<h2 id="author">Author</h2>
-<p><img src="https://gravatar.com/avatar/cfeae69aae4f4fc102960f01d35d2d86?s=25" alt="3846masa"> 3846masa</p>
-</div>
 </div>
 
 <footer class="footer">

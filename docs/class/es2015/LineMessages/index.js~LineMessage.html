@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl">
-  <title data-ice="title">@3846masa/linebot | ESDoc API Document</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">LineMessage | @3846masa/linebot | ESDoc API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -80,37 +80,305 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="node-linebot">node-linebot</h1>
-<p><a href="https://nodei.co/npm/@3846masa%2Flinebot/"><img src="https://nodei.co/npm/@3846masa%2Flinebot.png?mini=true" alt="NPM"></a></p>
-<h2 id="docs">Docs</h2>
-<p><a href="https://3846masa.github.io/node-linebot/">https://3846masa.github.io/node-linebot/</a></p>
-<h2 id="install">Install</h2>
-<pre><code class="lang-sh"><code class="source-code prettyprint">npm install --save @3846masa/linebot</code>
-</code></pre>
-<h2 id="usage">Usage</h2>
-<pre><code class="lang-javascript"><code class="source-code prettyprint">const LineBot = require(&apos;@3846masa/linebot/lib/LineBot&apos;).LineBot;
-
-const bot = new LineBot({
-  channelSecret: &apos;XXXXXXXXXX&apos;,
-  channelToken: &apos;XXXXXXXXXX&apos;,
-});
-
-bot.on(&apos;webhook:*&apos;, (ev) =&gt; {
-  console.log(&apos;You got a event!&apos;, ev);
-});
-
-bot.on(&apos;webhook:message&apos;, (ev) =&gt; {
-  const message = ev.message;
-  ev.reply(message);
-});
-
-bot.listen(process.env.PORT || 3000);</code>
-</code></pre>
-<h2 id="license">LICENSE</h2>
-<p>MIT (c) 3846masa</p>
-<h2 id="author">Author</h2>
-<p><img src="https://gravatar.com/avatar/cfeae69aae4f4fc102960f01d35d2d86?s=25" alt="3846masa"> 3846masa</p>
+<div class="content" data-ice="content"><div class="header-notice">
+  <div data-ice="importPath" class="import-path"><pre class="prettyprint"><code data-ice="importPathCode">import {LineMessage} from &apos;<span><a href="file/es2015/LineMessages/index.js.html#lineNumber24">@3846masa/linebot/lib/LineMessages/index.js</a></span>&apos;</code></pre></div>
+  <span data-ice="access">public</span>
+  <span data-ice="kind">class</span>
+  
+  
+  
+  <span data-ice="source">| <span><a href="file/es2015/LineMessages/index.js.html#lineNumber24">source</a></span></span>
 </div>
+
+<div class="self-detail detail">
+  <h1 data-ice="name">LineMessage</h1>
+
+  
+
+  
+  
+  
+  <div class="flat-list" data-ice="directSubclass"><h4>Direct Subclass:</h4><div><span><a href="class/es2015/LineMessages/index.js~AudioMessage.html">AudioMessage</a></span>, <span><a href="class/es2015/LineMessages/index.js~ImageMessage.html">ImageMessage</a></span>, <span><a href="class/es2015/LineMessages/index.js~ImagemapMessage.html">ImagemapMessage</a></span>, <span><a href="class/es2015/LineMessages/index.js~LocationMessage.html">LocationMessage</a></span>, <span><a href="class/es2015/LineMessages/index.js~StickerMessage.html">StickerMessage</a></span>, <span><a href="class/es2015/LineMessages/index.js~TemplateMessage.html">TemplateMessage</a></span>, <span><a href="class/es2015/LineMessages/index.js~TextMessage.html">TextMessage</a></span>, <span><a href="class/es2015/LineMessages/index.js~VideoMessage.html">VideoMessage</a></span></div></div>
+  
+  
+  
+  
+  
+
+  
+  
+  <div class="description" data-ice="description"><p>Line Message</p>
+</div>
+
+  <div data-ice="see"><h4>See:</h4><ul><li><span><a href="https://devdocs.line.me/en/#send-message-object">https://devdocs.line.me/en/#send-message-object</a></span></li></ul></div>
+
+  
+
+  
+
+  
+</div>
+
+
+
+<div data-ice="constructorSummary"><h2>Constructor Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Constructor</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/es2015/LineMessages/index.js~LineMessage.html#instance-constructor-constructor">constructor</a></span></span><span data-ice="signature">(params: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Constructor</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+<div data-ice="memberSummary"><h2>Member Summary</h2><table class="summary" data-ice="summary">
+  <thead><tr><td data-ice="title" colspan="3">Public Members</td></tr></thead>
+  <tbody>
+  
+  <tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/es2015/LineMessages/index.js~LineMessage.html#instance-member-id">id</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Message ID.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+<tr data-ice="target">
+    <td>
+      <span class="access" data-ice="access">public</span>
+      
+      
+      
+      <span class="override" data-ice="override"></span>
+    </td>
+    <td>
+      <div>
+        <p>
+           <span data-ice="name"><span><a href="class/es2015/LineMessages/index.js~LineMessage.html#instance-member-type">type</a></span></span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+        </p>
+      </div>
+      <div>
+        
+        
+        <div data-ice="description"><p>Identifier for the type of source.</p>
+</div>
+      </div>
+    </td>
+    <td>
+      
+      
+    </td>
+  </tr>
+</tbody>
+</table>
+</div>
+
+
+
+
+
+
+<div data-ice="constructorDetails"><h2 data-ice="title">Public Constructors</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-constructor-constructor">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">constructor</span><span data-ice="signature">(params: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span>)</span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/es2015/LineMessages/index.js.html#lineNumber32">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Constructor</p>
+</div>
+
+  
+
+  <div data-ice="properties"><div data-ice="properties">
+  <h4 data-ice="title">Params:</h4>
+  <table class="params">
+    <thead>
+    <tr><td>Name</td><td>Type</td><td>Attribute</td><td>Description</td></tr>
+    </thead>
+    <tbody>
+    
+    <tr data-ice="property" data-depth="0">
+      <td data-ice="name" data-depth="0">params</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object">Object</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"></td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.id</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"><ul><li>optional</li></ul></td>
+      <td data-ice="description"><p>Message ID.</p>
+</td>
+    </tr>
+<tr data-ice="property" data-depth="1">
+      <td data-ice="name" data-depth="1">params.type</td>
+      <td data-ice="type"><span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></td>
+      <td data-ice="appendix"></td>
+      <td data-ice="description"><p>Identifier for the type of message.</p>
+</td>
+    </tr>
+</tbody>
+  </table>
+</div>
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+<div data-ice="memberDetails"><h2 data-ice="title">Public Members</h2>
+
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-id">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">id</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/es2015/LineMessages/index.js.html#lineNumber37">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Message ID.</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+<div class="detail" data-ice="detail">
+  <h3 data-ice="anchor" id="instance-member-type">
+    <span class="access" data-ice="access">public</span>
+    
+    
+    
+    
+    <span data-ice="name">type</span><span data-ice="signature">: <span><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String">string</a></span></span>
+    <span class="right-info">
+      
+      
+      <span data-ice="source"><span><a href="file/es2015/LineMessages/index.js.html#lineNumber42">source</a></span></span>
+    </span>
+  </h3>
+
+  
+  
+  
+  <div data-ice="description"><p>Identifier for the type of source.</p>
+</div>
+
+  
+
+  <div data-ice="properties">
+</div>
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+</div>
+</div>
+
 </div>
 
 <footer class="footer">

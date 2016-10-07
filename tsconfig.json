@@ -20,7 +20,8 @@
     "typings/browser",
     "typings/browser.d.ts",
     "lib",
-    "es2015"
+    "es2015",
+    "examples"
   ],
   "compileOnSave": false,
   "buildOnSave": false,

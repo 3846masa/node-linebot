@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl">
-  <title data-ice="title">@3846masa/linebot | ESDoc API Document</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">es2015/LineActions/index.js | @3846masa/linebot | ESDoc API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -80,37 +80,202 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="node-linebot">node-linebot</h1>
-<p><a href="https://nodei.co/npm/@3846masa%2Flinebot/"><img src="https://nodei.co/npm/@3846masa%2Flinebot.png?mini=true" alt="NPM"></a></p>
-<h2 id="docs">Docs</h2>
-<p><a href="https://3846masa.github.io/node-linebot/">https://3846masa.github.io/node-linebot/</a></p>
-<h2 id="install">Install</h2>
-<pre><code class="lang-sh"><code class="source-code prettyprint">npm install --save @3846masa/linebot</code>
+<div class="content" data-ice="content"><h1 data-ice="title">es2015/LineActions/index.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">export var LineActionType;
+(function (LineActionType) {
+    LineActionType.URI = &apos;uri&apos;;
+    LineActionType.MESSAGE = &apos;message&apos;;
+    LineActionType.POSTBACK = &apos;postback&apos;;
+})(LineActionType || (LineActionType = {}));
+/* eslint-enable no-undef */
+/**
+ * @typedef   {Object} Rectangle
+ * @property  {number} x
+ * @property  {number} y
+ * @property  {number} width
+ * @property  {number} height
+ * @see https://devdocs.line.me/en/#imagemap-area-object
+ */
+/**
+ * Imagemap Action
+ * @see https://devdocs.line.me/en/#imagemap-action-object
+ */
+export class ImagemapAction {
+    /* eslint-enable no-undef */
+    /**
+     * @param  {string}    type  Identifier for the type of action.
+     * @param  {Rectangle} area  Defined tappable area.
+     */
+    constructor({ type, area }) {
+        /**
+         * Identifier for the type of action.
+         * @type {string}
+         */
+        this.type = type;
+        /**
+         * Defined tappable area.
+         * @type {Rectangle}
+         */
+        this.area = area;
+    }
+    /** @private */
+    static createFromObject(params) {
+        switch (params.type) {
+            case LineActionType.URI: {
+                return new ImagemapURIAction(params);
+            }
+            case LineActionType.MESSAGE: {
+                return new ImagemapMessageAction(params);
+            }
+            default: {
+                return new ImagemapAction({ type: params.type, area: params.area });
+            }
+        }
+    }
+}
+/**
+ * URI action
+ * @see https://devdocs.line.me/en/#imagemap-action-object
+ */
+export class ImagemapURIAction extends ImagemapAction {
+    /* eslint-enable no-undef */
+    /**
+     * @param  {string}    type     Identifier for the type of action.
+     * @param  {Rectangle} area     Defined tappable area.
+     * @param  {string}    linkUri  Webpage URL
+     */
+    constructor({ type, area, linkUri }) {
+        super({ type, area });
+        /**
+         * Webpage URL.
+         * @type {string}
+         */
+        this.linkUri = linkUri;
+    }
+}
+/**
+ * Message action
+ * @see https://devdocs.line.me/en/#imagemap-action-object
+ */
+export class ImagemapMessageAction extends ImagemapAction {
+    /* eslint-enable no-undef */
+    /**
+     * @param  {string}    type  Identifier for the type of action.
+     * @param  {Rectangle} area  Defined tappable area.
+     * @param  {string}    text  Message to send.
+     */
+    constructor({ type, area, text }) {
+        super({ type, area });
+        /**
+         * Message to send.
+         * @type {string}
+         */
+        this.text = text;
+    }
+}
+/**
+ * Template Action
+ * @see https://devdocs.line.me/en/#template-action
+ */
+export class TemplateAction {
+    /* eslint-enable no-undef */
+    /**
+     * @param  {string} type  Identifier for the type of action.
+     * @param  {string} label Label for the action. (Max: 20 chars)
+     */
+    constructor({ type, label }) {
+        /**
+         * Identifier for the type of action.
+         * @type {string}
+         */
+        this.type = type;
+        /**
+         * Label for the action. (Max: 20 chars)
+         * @type {string}
+         */
+        this.label = label;
+    }
+    /** @private */
+    static createFromObject(params) {
+        switch (params.type) {
+            case LineActionType.URI: {
+                return new TemplateURIAction(params);
+            }
+            case LineActionType.MESSAGE: {
+                return new TemplateMessageAction(params);
+            }
+            case LineActionType.POSTBACK: {
+                return new TemplatePostbackAction(params);
+            }
+            default: {
+                return new TemplateAction({ type: params.type, label: params.label });
+            }
+        }
+    }
+}
+/**
+ * URI action
+ * @see https://devdocs.line.me/en/#template-action
+ */
+export class TemplateURIAction extends TemplateAction {
+    /* eslint-enable no-undef */
+    /**
+     * @param  {string} type   Identifier for the type of action.
+     * @param  {string} label  Label for the action. (Max: 20 chars)
+     * @param  {string} uri    URI opened when the action is performed
+     */
+    constructor({ type, label, uri }) {
+        super({ type, label });
+        /**
+         * URI opened when the action is performed
+         * @type {string}
+         */
+        this.uri = uri;
+    }
+}
+/**
+ * Message action
+ * @see https://devdocs.line.me/en/#template-action
+ */
+export class TemplateMessageAction extends TemplateAction {
+    /* eslint-enable no-undef */
+    /**
+     * @param  {string} type   Identifier for the type of action.
+     * @param  {string} label  Label for the action. (Max: 20 chars)
+     * @param  {string} text   Text sent when the action is performed. (Max: 300 chars)
+     */
+    constructor({ type, label, text }) {
+        super({ type, label });
+        /**
+         * Text sent when the action is performed. (Max: 300 chars)
+         * @type {string}
+         */
+        this.text = text;
+    }
+}
+/**
+ * Postback action
+ * @see https://devdocs.line.me/en/#template-action
+ */
+export class TemplatePostbackAction extends TemplateMessageAction {
+    /* eslint-enable no-undef */
+    /**
+     * @param  {string}  type   Identifier for the type of action.
+     * @param  {string}  label  Label for the action. (Max: 20 chars)
+     * @param  {string}  [text]   Text sent when the action is performed. (Max: 300 chars)
+     * @param  {string}  data   String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)
+     */
+    constructor({ type, label, text = undefined, data }) {
+        super({ type, label, text });
+        /**
+         * String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)
+         * @type {string}
+         */
+        this.data = data;
+    }
+}
 </code></pre>
-<h2 id="usage">Usage</h2>
-<pre><code class="lang-javascript"><code class="source-code prettyprint">const LineBot = require(&apos;@3846masa/linebot/lib/LineBot&apos;).LineBot;
 
-const bot = new LineBot({
-  channelSecret: &apos;XXXXXXXXXX&apos;,
-  channelToken: &apos;XXXXXXXXXX&apos;,
-});
-
-bot.on(&apos;webhook:*&apos;, (ev) =&gt; {
-  console.log(&apos;You got a event!&apos;, ev);
-});
-
-bot.on(&apos;webhook:message&apos;, (ev) =&gt; {
-  const message = ev.message;
-  ev.reply(message);
-});
-
-bot.listen(process.env.PORT || 3000);</code>
-</code></pre>
-<h2 id="license">LICENSE</h2>
-<p>MIT (c) 3846masa</p>
-<h2 id="author">Author</h2>
-<p><img src="https://gravatar.com/avatar/cfeae69aae4f4fc102960f01d35d2d86?s=25" alt="3846masa"> 3846masa</p>
-</div>
 </div>
 
 <footer class="footer">

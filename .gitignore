@@ -38,5 +38,5 @@ jspm_packages
 .node_repl_history
 
 # Generated files
-es2015
-lib
+/es2015
+/lib

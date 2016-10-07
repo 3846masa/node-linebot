@@ -16,31 +16,31 @@ npm install --save @3846masa/linebot
 ## Usage
 
 ```javascript
-import { LineBot } from '@3846masa/linebot';
+const LineBot = require('@3846masa/linebot/lib/LineBot').LineBot;
+
 const bot = new LineBot({
-  channelID: 'xxxxxxx',
-  channelSecret: 'xxxxxx',
-  MID: 'xxxxxx'
+  channelSecret: 'XXXXXXXXXX',
+  channelToken: 'XXXXXXXXXX',
 });
 
-bot.on('message', (res) => {
-  const content = res.content;
-  if ( content.contentType === LineBot.CONST.CONTENT_TYPE.TEXT ) {
-    bot.postMessage({
-      user: content.from,
-      message: content.text
-    });
-  } else {
-    bot.postMessage({
-      user: content.from,
-      message: 'Not text.'
-    });
-  }
+bot.on('webhook:*', (ev) => {
+  console.log('You got a event!', ev);
 });
 
-bot.listen(3000);
+bot.on('webhook:message', (ev) => {
+  const message = ev.message;
+  ev.reply(message);
+});
+
+bot.listen(process.env.PORT || 3000);
 ```
 
 ## LICENSE
 
 MIT (c) 3846masa
+
+## Author
+
+![3846masa][3846masa] 3846masa
+
+[3846masa]: https://gravatar.com/avatar/cfeae69aae4f4fc102960f01d35d2d86?s=25

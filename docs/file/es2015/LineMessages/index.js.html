@@ -2,8 +2,8 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <base data-ice="baseUrl">
-  <title data-ice="title">@3846masa/linebot | ESDoc API Document</title>
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">es2015/LineMessages/index.js | @3846masa/linebot | ESDoc API Document</title>
   <link type="text/css" rel="stylesheet" href="css/style.css">
   <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
   <script src="script/prettify/prettify.js"></script>
@@ -80,37 +80,311 @@
 </div>
 </nav>
 
-<div class="content" data-ice="content"><div data-ice="index" class="github-markdown"><h1 id="node-linebot">node-linebot</h1>
-<p><a href="https://nodei.co/npm/@3846masa%2Flinebot/"><img src="https://nodei.co/npm/@3846masa%2Flinebot.png?mini=true" alt="NPM"></a></p>
-<h2 id="docs">Docs</h2>
-<p><a href="https://3846masa.github.io/node-linebot/">https://3846masa.github.io/node-linebot/</a></p>
-<h2 id="install">Install</h2>
-<pre><code class="lang-sh"><code class="source-code prettyprint">npm install --save @3846masa/linebot</code>
+<div class="content" data-ice="content"><h1 data-ice="title">es2015/LineMessages/index.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { ImagemapAction } from &apos;../LineActions&apos;;
+import { TemplateComponent } from &apos;../LineTemplates&apos;;
+export var LineMessageType;
+(function (LineMessageType) {
+    LineMessageType.TEXT = &apos;text&apos;;
+    LineMessageType.IMAGE = &apos;image&apos;;
+    LineMessageType.VIDEO = &apos;video&apos;;
+    LineMessageType.AUDIO = &apos;audio&apos;;
+    LineMessageType.LOCATION = &apos;location&apos;;
+    LineMessageType.STICKER = &apos;sticker&apos;;
+    LineMessageType.IMAGEMAP = &apos;imagemap&apos;;
+    LineMessageType.TEMPLATE = &apos;template&apos;;
+})(LineMessageType || (LineMessageType = {}));
+/* eslint-enable no-undef */
+/**
+ * @typedef   {Object} Size
+ * @property  {number} width
+ * @property  {number} height
+ */
+/**
+ * Line Message
+ * @see https://devdocs.line.me/en/#send-message-object
+ */
+export class LineMessage {
+    /* eslint-enable no-undef */
+    /**
+     * Constructor
+     * @param {Object} params
+     * @param {string} [params.id]  Message ID.
+     * @param {string} params.type  Identifier for the type of message.
+     */
+    constructor({ id = undefined, type }) {
+        /**
+        * Message ID.
+        * @type {string}
+        */
+        this.id = id;
+        /**
+         * Identifier for the type of source.
+         * @type {string}
+         */
+        this.type = type;
+    }
+    /** @private */
+    static createFromObject(params) {
+        switch (params.type) {
+            case LineMessageType.TEXT: {
+                return new TextMessage(params);
+            }
+            case LineMessageType.IMAGE: {
+                return new ImageMessage(params);
+            }
+            case LineMessageType.VIDEO: {
+                return new VideoMessage(params);
+            }
+            case LineMessageType.AUDIO: {
+                return new AudioMessage(params);
+            }
+            case LineMessageType.LOCATION: {
+                return new LocationMessage(params);
+            }
+            case LineMessageType.STICKER: {
+                return new StickerMessage(params);
+            }
+            default: {
+                return new LineMessage({ id: params.id, type: params.type });
+            }
+        }
+    }
+}
+/**
+ * @see https://devdocs.line.me/en/#text-message
+ */
+export class TextMessage extends LineMessage {
+    /* eslint-enable no-undef */
+    /**
+     * Constructor
+     * @param {Object} params
+     * @param {string} [params.id]              Message ID.
+     * @param {string} [params.type=&quot;message&quot;]  Identifier for the type of message.
+     * @param {string} params.text              Message text.
+     */
+    constructor({ id = undefined, type = LineMessageType.TEXT, text }) {
+        super({ id, type });
+        /**
+        * Message text.
+        * @type {string}
+        */
+        this.text = text;
+    }
+}
+/**
+ * @see https://devdocs.line.me/en/#image-message
+ */
+export class ImageMessage extends LineMessage {
+    /* eslint-enable no-undef */
+    /**
+     * Constructor
+     * @param {Object} params
+     * @param {string} [params.id]                  Message ID.
+     * @param {string} [params.type=&quot;image&quot;]        Identifier for the type of message.
+     * @param {string} [params.originalContentUrl]  Image URL. (JPEG / HTTPS)
+     * @param {string} [params.previewImageUrl]     Preview image URL. (JPEG / HTTPS)
+     */
+    constructor({ id = undefined, type = LineMessageType.IMAGE, originalContentUrl = undefined, previewImageUrl = undefined, }) {
+        super({ id, type });
+        /**
+         * Image URL. (JPEG / HTTPS)
+         * @type {string}
+         */
+        this.originalContentUrl = originalContentUrl;
+        /**
+         * Preview image URL. (JPEG / HTTPS)
+         * @type {string}
+         */
+        this.previewImageUrl = previewImageUrl;
+    }
+}
+/**
+ * @see https://devdocs.line.me/en/#video-message
+ */
+export class VideoMessage extends LineMessage {
+    /* eslint-enable no-undef */
+    /**
+     * Constructor
+     * @param {Object} params
+     * @param {string} [params.id]                  Message ID.
+     * @param {string} [params.type=&quot;video&quot;]        Identifier for the type of message.
+     * @param {string} [params.originalContentUrl]  URL of video file. (MP4 / HTTPS)
+     * @param {string} [params.previewImageUrl]     Preview image URL. (JPEG / HTTPS)
+     */
+    constructor({ id = undefined, type = LineMessageType.VIDEO, originalContentUrl = undefined, previewImageUrl = undefined, }) {
+        super({ id, type });
+        /**
+         * URL of video file. (MP4 / HTTPS)
+         * @type {string}
+         */
+        this.originalContentUrl = originalContentUrl;
+        /**
+         * Preview image URL. (JPEG / HTTPS)
+         * @type {string}
+         */
+        this.previewImageUrl = previewImageUrl;
+    }
+}
+/**
+ * @see https://devdocs.line.me/en/#audio-message
+ */
+export class AudioMessage extends LineMessage {
+    /* eslint-enable no-undef */
+    /**
+     * Constructor
+     * @param {Object} params
+     * @param {string} [params.id]                  Message ID.
+     * @param {string} [params.type=&quot;audio&quot;]        Identifier for the type of message.
+     * @param {string} [params.originalContentUrl]  URL of audio file. (M4A / HTTPS)
+     * @param {number} [params.duration]            Length of audio file (milliseconds)
+     */
+    constructor({ id = undefined, type = LineMessageType.AUDIO, originalContentUrl = undefined, duration = undefined }) {
+        super({ id, type });
+        /**
+         * URL of audio file. (M4A / HTTPS)
+         * @type {string}
+         */
+        this.originalContentUrl = originalContentUrl;
+        /**
+         * Length of audio file (milliseconds)
+         * @type {number}
+         */
+        this.duration = duration;
+    }
+}
+/**
+ * @see https://devdocs.line.me/en/#location-message
+ */
+export class LocationMessage extends LineMessage {
+    /* eslint-enable no-undef */
+    /**
+     * Constructor
+     * @param {Object} params
+     * @param {string} [params.id]               Message ID.
+     * @param {string} [params.type=&quot;location&quot;]  Identifier for the type of message.
+     * @param {string} params.title              Title.
+     * @param {string} params.address            Address.
+     * @param {number} params.latitude           Latitude.
+     * @param {number} params.longitude          Longitude.
+     */
+    constructor({ id = undefined, type = LineMessageType.LOCATION, title, address, latitude, longitude }) {
+        super({ id, type });
+        /**
+        * Title.
+        * @type {string}
+        */
+        this.title = title;
+        /**
+         * Address.
+         * @type {string}
+         */
+        this.address = address;
+        /**
+         * Latitude.
+         * @type {number}
+         */
+        this.latitude = latitude;
+        /**
+         * Longitude.
+         * @type {number}
+         */
+        this.longitude = longitude;
+    }
+}
+/**
+ * @see https://devdocs.line.me/en/#sticker-message
+ */
+export class StickerMessage extends LineMessage {
+    /* eslint-enable no-undef */
+    /**
+     * Constructor
+     * @param {Object} params
+     * @param {string} [params.id]              Message ID.
+     * @param {string} [params.type=&quot;sticker&quot;]  Identifier for the type of message.
+     * @param {string} params.packageId         Package ID.
+     * @param {string} params.stickerId         Sticker ID.
+     */
+    constructor({ id = undefined, type = LineMessageType.STICKER, packageId, stickerId }) {
+        super({ id, type });
+        /**
+        * Package ID.
+        * @type {string}
+        */
+        this.packageId = packageId;
+        /**
+         * Sticker ID.
+         * @type {string}
+         */
+        this.stickerId = stickerId;
+    }
+}
+/**
+ * @see https://devdocs.line.me/en/#imagemap-message
+ */
+export class ImagemapMessage extends LineMessage {
+    /* eslint-enable no-undef */
+    /**
+     * Constructor
+     * @param {Object} params
+     * @param {string} [params.type=&quot;imagemap&quot;]           Identifier for the type of message.
+     * @param {string} params.baseUrl                     Base URL (HTTPS)
+     * @param {string} params.altText                     Alternative text
+     * @param {Size} params.baseSize                      Base image size.
+     * @param {ImagemapAction[] | any[]}  params.actions  Action when tapped
+     */
+    constructor({ type = LineMessageType.IMAGEMAP, baseUrl, altText, baseSize, actions }) {
+        super({ id: null, type });
+        /**
+         * Base URL (HTTPS)
+         * @type {string}
+         */
+        this.baseUrl = baseUrl;
+        /**
+         * Alternative text
+         * @type {string}
+         */
+        this.altText = altText;
+        /**
+         * Base image size.
+         * @type {Size}
+         */
+        this.baseSize = baseSize;
+        /**
+         * Action when tapped
+         * @type {ImagemapAction[]}
+         */
+        this.actions = actions.map(action =&gt; ImagemapAction.createFromObject(action));
+    }
+}
+/**
+ * @see https://devdocs.line.me/en/#template-messages
+ */
+export class TemplateMessage extends LineMessage {
+    /* eslint-enable no-undef */
+    /**
+     * Constructor
+     * @param {Object} params
+     * @param {string} [params.type=&quot;template&quot;]          Identifier for the type of message.
+     * @param {string} params.altText                    Alternative text
+     * @param {TemplateComponent | any} params.template  Object with the contents of the template.
+     */
+    constructor({ type = LineMessageType.TEMPLATE, altText, template }) {
+        super({ id: null, type });
+        /**
+         * Alternative text
+         * @type {string}
+         */
+        this.altText = altText;
+        /**
+         * Object with the contents of the template.
+         * @type {TemplateComponent}
+         */
+        this.template = TemplateComponent.createFromObject(template);
+    }
+}
 </code></pre>
-<h2 id="usage">Usage</h2>
-<pre><code class="lang-javascript"><code class="source-code prettyprint">const LineBot = require(&apos;@3846masa/linebot/lib/LineBot&apos;).LineBot;
 
-const bot = new LineBot({
-  channelSecret: &apos;XXXXXXXXXX&apos;,
-  channelToken: &apos;XXXXXXXXXX&apos;,
-});
-
-bot.on(&apos;webhook:*&apos;, (ev) =&gt; {
-  console.log(&apos;You got a event!&apos;, ev);
-});
-
-bot.on(&apos;webhook:message&apos;, (ev) =&gt; {
-  const message = ev.message;
-  ev.reply(message);
-});
-
-bot.listen(process.env.PORT || 3000);</code>
-</code></pre>
-<h2 id="license">LICENSE</h2>
-<p>MIT (c) 3846masa</p>
-<h2 id="author">Author</h2>
-<p><img src="https://gravatar.com/avatar/cfeae69aae4f4fc102960f01d35d2d86?s=25" alt="3846masa"> 3846masa</p>
-</div>
 </div>
 
 <footer class="footer">
