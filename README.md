@@ -49,6 +49,8 @@ bot.on('webhook:message', (ev) => {
 bot.listen(process.env.PORT || 3000);
 ```
 
+See [examples](./examples).
+
 ## LICENSE
 
 MIT (c) 3846masa

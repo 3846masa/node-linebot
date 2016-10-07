@@ -1,5 +1,5 @@
-const LineBot = require('../../lib/LineBot').LineBot;
-const TextMessage = require('../../lib/LineMessages').TextMessage;
+const LineBot = require('@3846masa/linebot/lib/LineBot').LineBot;
+const TextMessage = require('@3846masa/linebot/lib/LineMessages').TextMessage;
 
 const bot = new LineBot({
   channelSecret: 'XXXXXXXXXX',

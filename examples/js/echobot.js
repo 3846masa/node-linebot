@@ -1,4 +1,4 @@
-const LineBot = require('../../lib/LineBot').LineBot;
+const LineBot = require('@3846masa/linebot/lib/LineBot').LineBot;
 
 const bot = new LineBot({
   channelSecret: 'XXXXXXXXXX',

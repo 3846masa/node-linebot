@@ -1,5 +1,5 @@
-import { LineBot } from '../../lib/LineBot';
-import { LineEvent, MessageEvent } from '../../lib/LineEvents';
+import { LineBot } from '@3846masa/linebot/lib/LineBot';
+import { LineEvent, MessageEvent } from '@3846masa/linebot/lib/LineEvents';
 
 const bot = new LineBot({
   channelSecret: 'XXXXXXXXXX',
