@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { ImagemapAction } from '../LineActions';
 import { TemplateComponent } from '../LineTemplates';
+import { Size } from '../interfaces';
 /* eslint-enable no-unused-vars */
 
 /* eslint-disable no-unused-vars, space-infix-ops */
@@ -17,19 +18,6 @@ export namespace LineMessageType {
   export const TEMPLATE: LineMessageType = 'template';
 }
 /* eslint-enable no-unused-vars, space-infix-ops */
-
-/* eslint-disable no-undef */
-export interface Size {
-  width: number,
-  height: number,
-}
-/* eslint-enable no-undef */
-
-/**
- * @typedef   {Object} Size
- * @property  {number} width
- * @property  {number} height
- */
 
 /**
  * Line Message

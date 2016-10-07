@@ -582,12 +582,6 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "es2015/lineactions/index.js~rectangle",
-    "typedef/index.html#static-typedef-Rectangle",
-    "es2015/LineActions/index.js~Rectangle",
-    "typedef"
-  ],
-  [
     "es2015/lineactions/index.js~templateaction#label",
     "class/es2015/LineActions/index.js~TemplateAction.html#instance-member-label",
     "es2015/LineActions/index.js~TemplateAction#label",
@@ -718,18 +712,6 @@ window.esdocSearchIndex = [
     "class/es2015/LineBot/index.js~LineBot.html#instance-method-push",
     "es2015/LineBot/index.js~LineBot#push",
     "method"
-  ],
-  [
-    "es2015/linebot/index.js~linebotconfig",
-    "typedef/index.html#static-typedef-LineBotConfig",
-    "es2015/LineBot/index.js~LineBotConfig",
-    "typedef"
-  ],
-  [
-    "es2015/linebot/index.js~lineprofile",
-    "typedef/index.html#static-typedef-LineProfile",
-    "es2015/LineBot/index.js~LineProfile",
-    "typedef"
   ],
   [
     "es2015/lineevents/index.js",
@@ -898,12 +880,6 @@ window.esdocSearchIndex = [
     "class/es2015/LineMessages/index.js~LocationMessage.html#instance-member-title",
     "es2015/LineMessages/index.js~LocationMessage#title",
     "member"
-  ],
-  [
-    "es2015/linemessages/index.js~size",
-    "typedef/index.html#static-typedef-Size",
-    "es2015/LineMessages/index.js~Size",
-    "typedef"
   ],
   [
     "es2015/linemessages/index.js~stickermessage#constructor",
@@ -1132,5 +1108,35 @@ window.esdocSearchIndex = [
     "external/index.html",
     "es2015/externals.js~stream.Readable",
     "external"
+  ],
+  [
+    "es2015/interfaces.js",
+    "file/es2015/interfaces.js.html",
+    "es2015/interfaces.js",
+    "file"
+  ],
+  [
+    "es2015/interfaces.js~linebotconfig",
+    "typedef/index.html#static-typedef-LineBotConfig",
+    "es2015/interfaces.js~LineBotConfig",
+    "typedef"
+  ],
+  [
+    "es2015/interfaces.js~lineprofile",
+    "typedef/index.html#static-typedef-LineProfile",
+    "es2015/interfaces.js~LineProfile",
+    "typedef"
+  ],
+  [
+    "es2015/interfaces.js~rectangle",
+    "typedef/index.html#static-typedef-Rectangle",
+    "es2015/interfaces.js~Rectangle",
+    "typedef"
+  ],
+  [
+    "es2015/interfaces.js~size",
+    "typedef/index.html#static-typedef-Size",
+    "es2015/interfaces.js~Size",
+    "typedef"
   ]
 ]

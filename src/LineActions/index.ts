@@ -1,3 +1,7 @@
+/* eslint-disable no-unused-vars */
+import { Rectangle } from '../interfaces';
+/* eslint-enable no-unused-vars */
+
 /* eslint-disable no-unused-vars, space-infix-ops */
 export type LineActionType = 'uri' | 'message' | 'postback';
 export namespace LineActionType {
@@ -6,24 +10,6 @@ export namespace LineActionType {
   export const POSTBACK: LineActionType = 'postback';
 }
 /* eslint-enable no-unused-vars, space-infix-ops */
-
-/* eslint-disable no-undef */
-export interface Rectangle {
-  x: number,
-  y: number,
-  width: number,
-  height: number,
-}
-/* eslint-enable no-undef */
-
-/**
- * @typedef   {Object} Rectangle
- * @property  {number} x
- * @property  {number} y
- * @property  {number} width
- * @property  {number} height
- * @see https://devdocs.line.me/en/#imagemap-area-object
- */
 
 /**
  * Imagemap Action

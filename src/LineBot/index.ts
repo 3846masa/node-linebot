@@ -9,34 +9,8 @@ import bodyParser from 'body-parser';
 import { LineMessage } from '../LineMessages';
 import { LineEvent } from '../LineEvents';
 import { UserSource, GroupSource, RoomSource } from '../LineSources';
+import { LineBotConfig, LineProfile } from '../interfaces';
 /* eslint-enable no-unused-vars */
-
-/* eslint-disable no-undef */
-export interface LineBotConfig {
-  channelSecret: string,
-  channelToken: string,
-}
-export interface LineProfile {
-  displayName: string,
-  userId: string,
-  pictureUrl: string,
-  statusMessage: string,
-}
-/* eslint-enable no-undef */
-
-/* global LineBotConfig, LineProfile */
-/**
- * @typedef   {Object} LineBotConfig
- * @property  {String} channelSecret  Channel secret
- * @property  {String} channelToken   Channel token
- */
-/**
- * @typedef   {Object} LineProfile
- * @property  {String} displayName    Display name
- * @property  {String} userId         User ID
- * @property  {String} pictureUrl     Image URL
- * @property  {String} statusMessage  Status message
- */
 
 /**
  * LINE Bot API wrapper.
