@@ -21,7 +21,7 @@ export class ImagemapAction {
   public area: Rectangle;
   /* eslint-enable no-undef */
 
-  /** @private */
+  /** @ignore */
   constructor({ type, area }: { type: string, area: Rectangle }) {
     /**
      * Identifier for the type of action.
@@ -35,7 +35,7 @@ export class ImagemapAction {
     this.area = area;
   }
 
-  /** @private */
+  /** @ignore */
   static createFromObject(params: any) {
     switch (params.type) {
       case LineActionType.URI: {
@@ -120,7 +120,7 @@ export class TemplateAction {
   public label: string;
   /* eslint-enable no-undef */
 
-  /** @private */
+  /** @ignore */
   constructor({ type, label }: { type: string, label: string }) {
     /**
      * Identifier for the type of action.
@@ -134,7 +134,7 @@ export class TemplateAction {
     this.label = label;
   }
 
-  /** @private */
+  /** @ignore */
   static createFromObject(params: any) {
     switch (params.type) {
       case LineActionType.URI: {

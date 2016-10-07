@@ -19,7 +19,7 @@ export class TemplateComponent {
   public type: LineTemplateType;
   /* eslint-enable no-undef */
 
-  /** @private */
+  /** @ignore */
   constructor({ type }: { type: LineTemplateType }) {
     /**
      * Identifier for the type of template.
@@ -28,7 +28,7 @@ export class TemplateComponent {
     this.type = type;
   }
 
-  /** @private */
+  /** @ignore */
   static createFromObject(params: any) {
     switch (params.type) {
       case LineTemplateType.BUTTONS: {
@@ -193,7 +193,7 @@ export class TemplateColumn {
     this.actions = actions.map(action => TemplateAction.createFromObject(action));
   }
 
-  /** @private */
+  /** @ignore */
   static createFromObject(params: any) {
     return new TemplateColumn(params);
   }

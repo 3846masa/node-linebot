@@ -31,7 +31,7 @@ export class LineEvent {
   public source: LineSource;
   /* eslint-enable no-undef */
 
-  /** @private */
+  /** @ignore */
   constructor(
     { type, timestamp, source }: {
       type: string,
@@ -56,7 +56,7 @@ export class LineEvent {
     this.source = LineSource.createFromObject(source);
   }
 
-  /** @private */
+  /** @ignore */
   static createFromObject(params: any, _linebot?: LineBot) {
     Object.assign(params, { _linebot });
 
@@ -99,7 +99,7 @@ export class ReplyableEvent extends LineEvent {
   private _linebot: LineBot;
   /* eslint-enable no-undef */
 
-  /** @private */
+  /** @ignore */
   constructor(
     { type, timestamp, source, replyToken, _linebot = undefined }: {
       type: string,
@@ -115,7 +115,7 @@ export class ReplyableEvent extends LineEvent {
      * @type {string}
      */
     this.replyToken = replyToken;
-    /** @private */
+    /** @ignore */
     Object.defineProperty(this, '_linebot', {
       writable: true,
       value: _linebot,
@@ -157,7 +157,7 @@ export class MessageEvent extends ReplyableEvent {
   public message: LineMessage;
   /* eslint-enable no-undef */
 
-  /** @private */
+  /** @ignore */
   constructor(
     { type, timestamp, source, replyToken, message, _linebot = undefined }: {
       type: string,
@@ -209,7 +209,7 @@ export class PostbackEvent extends ReplyableEvent {
   public postback: { data: string };
   /* eslint-enable no-undef */
 
-  /** @private */
+  /** @ignore */
   constructor(
     { type, timestamp, source, replyToken, postback, _linebot = undefined }: {
       type: string,
@@ -241,7 +241,7 @@ export class BeaconEvent extends ReplyableEvent {
   };
   /* eslint-enable no-undef */
 
-  /** @private */
+  /** @ignore */
   constructor(
     { type, timestamp, source, replyToken, beacon, _linebot = undefined }: {
       type: string,

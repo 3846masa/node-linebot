@@ -16,7 +16,7 @@ export class LineSource {
   public type: LineSourceType;
   /* eslint-enable no-undef */
 
-  /** @private */
+  /** @ignore */
   constructor({ type }: { type: LineSourceType }) {
     /**
      * Identifier for the type of source.
@@ -25,7 +25,7 @@ export class LineSource {
     this.type = type;
   }
 
-  /** @private */
+  /** @ignore */
   static createFromObject(params: any) {
     switch (params.type) {
       case LineSourceType.USER: {
@@ -52,7 +52,7 @@ export class UserSource extends LineSource {
   public userId: string;
   /* eslint-enable no-undef */
 
-  /** @private */
+  /** @ignore */
   constructor({ type, userId }: { type: LineSourceType, userId: string }) {
     super({ type });
     /**
@@ -71,7 +71,7 @@ export class GroupSource extends LineSource {
   public groupId: string;
   /* eslint-enable no-undef */
 
-  /** @private */
+  /** @ignore */
   constructor({ type, groupId }: { type: LineSourceType, groupId: string }) {
     super({ type });
     /**
@@ -90,7 +90,7 @@ export class RoomSource extends LineSource {
   public roomId: string;
   /* eslint-enable no-undef */
 
-  /** @private */
+  /** @ignore */
   constructor({ type, roomId }: { type: LineSourceType, roomId: string }) {
     super({ type });
     /**

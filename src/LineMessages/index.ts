@@ -29,7 +29,7 @@ export class LineMessage {
   public type: LineMessageType;
   /* eslint-enable no-undef */
 
-  /** @private */
+  /** @ignore */
   constructor({
     id = undefined,
     type,
@@ -49,7 +49,7 @@ export class LineMessage {
     this.type = type;
   }
 
-  /** @private */
+  /** @ignore */
   static createFromObject(params: any) {
     switch (params.type) {
       case LineMessageType.TEXT: {
@@ -105,7 +105,7 @@ export class TextMessage extends LineMessage {
     this.text = text;
   }
 
-  /** @private */
+  /** @ignore */
   static createFromObject(params: any) {
     const instance = new TextMessage(params);
     instance.id = params.id;
@@ -150,7 +150,7 @@ export class ImageMessage extends LineMessage {
     this.previewImageUrl = previewImageUrl;
   }
 
-  /** @private */
+  /** @ignore */
   static createFromObject(params: any) {
     const instance = new ImageMessage(params);
     instance.id = params.id;
@@ -195,7 +195,7 @@ export class VideoMessage extends LineMessage {
     this.previewImageUrl = previewImageUrl;
   }
 
-  /** @private */
+  /** @ignore */
   static createFromObject(params: any) {
     const instance = new VideoMessage(params);
     instance.id = params.id;
@@ -240,7 +240,7 @@ export class AudioMessage extends LineMessage {
     this.duration = duration;
   }
 
-  /** @private */
+  /** @ignore */
   static createFromObject(params: any) {
     const instance = new AudioMessage(params);
     instance.id = params.id;
@@ -303,7 +303,7 @@ export class LocationMessage extends LineMessage {
     this.longitude = longitude;
   }
 
-  /** @private */
+  /** @ignore */
   static createFromObject(params: any) {
     const instance = new LocationMessage(params);
     instance.id = params.id;
@@ -348,7 +348,7 @@ export class StickerMessage extends LineMessage {
     this.stickerId = stickerId;
   }
 
-  /** @private */
+  /** @ignore */
   static createFromObject(params: any) {
     const instance = new StickerMessage(params);
     instance.id = params.id;
@@ -412,7 +412,7 @@ export class ImagemapMessage extends LineMessage {
     this.actions = actions.map(action => ImagemapAction.createFromObject(action));
   }
 
-  /** @private */
+  /** @ignore */
   static createFromObject(params: any) {
     const instance = new ImagemapMessage(params);
     return instance;
@@ -456,7 +456,7 @@ export class TemplateMessage extends LineMessage {
     this.template = TemplateComponent.createFromObject(template);
   }
 
-  /** @private */
+  /** @ignore */
   static createFromObject(params: any) {
     const instance = new TemplateMessage(params);
     return instance;

@@ -94,7 +94,7 @@
  */
 export class ImagemapAction {
     /* eslint-enable no-undef */
-    /** @private */
+    /** @ignore */
     constructor({ type, area }) {
         /**
          * Identifier for the type of action.
@@ -107,7 +107,7 @@ export class ImagemapAction {
          */
         this.area = area;
     }
-    /** @private */
+    /** @ignore */
     static createFromObject(params) {
         switch (params.type) {
             case LineActionType.URI: {
@@ -167,7 +167,7 @@ export class ImagemapMessageAction extends ImagemapAction {
  */
 export class TemplateAction {
     /* eslint-enable no-undef */
-    /** @private */
+    /** @ignore */
     constructor({ type, label }) {
         /**
          * Identifier for the type of action.
@@ -180,7 +180,7 @@ export class TemplateAction {
          */
         this.label = label;
     }
-    /** @private */
+    /** @ignore */
     static createFromObject(params) {
         switch (params.type) {
             case LineActionType.URI: {

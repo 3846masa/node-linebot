@@ -102,7 +102,7 @@ export var BeaconEventType;
  */
 export class LineEvent {
     /* eslint-enable no-undef */
-    /** @private */
+    /** @ignore */
     constructor({ type, timestamp, source }) {
         /**
          * Identifier for the type of event
@@ -120,7 +120,7 @@ export class LineEvent {
          */
         this.source = LineSource.createFromObject(source);
     }
-    /** @private */
+    /** @ignore */
     static createFromObject(params, _linebot) {
         Object.assign(params, { _linebot });
         switch (params.type) {
@@ -157,7 +157,7 @@ export class LineEvent {
  */
 export class ReplyableEvent extends LineEvent {
     /* eslint-enable no-undef */
-    /** @private */
+    /** @ignore */
     constructor({ type, timestamp, source, replyToken, _linebot = undefined }) {
         super({ type, timestamp, source });
         /**
@@ -165,7 +165,7 @@ export class ReplyableEvent extends LineEvent {
          * @type {string}
          */
         this.replyToken = replyToken;
-        /** @private */
+        /** @ignore */
         Object.defineProperty(this, &apos;_linebot&apos;, {
             writable: true,
             value: _linebot,
@@ -202,7 +202,7 @@ export class ReplyableEvent extends LineEvent {
  */
 export class MessageEvent extends ReplyableEvent {
     /* eslint-enable no-undef */
-    /** @private */
+    /** @ignore */
     constructor({ type, timestamp, source, replyToken, message, _linebot = undefined }) {
         super({ type, timestamp, source, replyToken, _linebot });
         /**
@@ -237,7 +237,7 @@ export class LeaveEvent extends LineEvent {
  */
 export class PostbackEvent extends ReplyableEvent {
     /* eslint-enable no-undef */
-    /** @private */
+    /** @ignore */
     constructor({ type, timestamp, source, replyToken, postback, _linebot = undefined }) {
         super({ type, timestamp, source, replyToken, _linebot });
         /**
@@ -253,7 +253,7 @@ export class PostbackEvent extends ReplyableEvent {
  */
 export class BeaconEvent extends ReplyableEvent {
     /* eslint-enable no-undef */
-    /** @private */
+    /** @ignore */
     constructor({ type, timestamp, source, replyToken, beacon, _linebot = undefined }) {
         super({ type, timestamp, source, replyToken, _linebot });
         /**
