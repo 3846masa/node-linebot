@@ -1,0 +1,37 @@
+{
+  "coverage": "100%",
+  "expectCount": 119,
+  "actualCount": 119,
+  "files": {
+    "es2015/LineMessages/index.js": {
+      "expectCount": 38,
+      "actualCount": 38,
+      "undocumentLines": []
+    },
+    "es2015/LineEvents/index.js": {
+      "expectCount": 17,
+      "actualCount": 17,
+      "undocumentLines": []
+    },
+    "es2015/LineSources/index.js": {
+      "expectCount": 8,
+      "actualCount": 8,
+      "undocumentLines": []
+    },
+    "es2015/LineActions/index.js": {
+      "expectCount": 22,
+      "actualCount": 22,
+      "undocumentLines": []
+    },
+    "es2015/LineBot/index.js": {
+      "expectCount": 13,
+      "actualCount": 13,
+      "undocumentLines": []
+    },
+    "es2015/LineTemplates/index.js": {
+      "expectCount": 21,
+      "actualCount": 21,
+      "undocumentLines": []
+    }
+  }
+}

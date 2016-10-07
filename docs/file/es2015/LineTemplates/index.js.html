@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../../">
+  <title data-ice="title">es2015/LineTemplates/index.js | @3846masa/linebot | ESDoc API Document</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  
+  
+  <script src="script/manual.js"></script>
+<link data-ice="userStyle" rel="stylesheet" href="user/css/0-styles.css">
+</head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  <a href="./manual/index.html" data-ice="manualHeaderLink">Manual</a>
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <a data-ice="repoURL" href="https://github.com/3846masa/node-linebot" class="repo-url-github">Repository</a>
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+</header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-LineBotConfig">LineBotConfig</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-LineProfile">LineProfile</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Rectangle">Rectangle</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-typedef">T</span><span data-ice="name"><span><a href="typedef/index.html#static-typedef-Size">Size</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="https://github.com/asyncly/EventEmitter2#api">EventEmitter2</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="http://expressjs.com/en/4x/api.html">Express.Application</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="https://nodejs.org/api/http.html#http_class_http_server">http.Server</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-external">E</span><span data-ice="name"><span><a href="https://nodejs.org/api/stream.html#stream_class_stream_readable">stream.Readable</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">LineActions</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineActions/index.js~ImagemapAction.html">ImagemapAction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineActions/index.js~ImagemapMessageAction.html">ImagemapMessageAction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineActions/index.js~ImagemapURIAction.html">ImagemapURIAction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineActions/index.js~TemplateAction.html">TemplateAction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineActions/index.js~TemplateMessageAction.html">TemplateMessageAction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineActions/index.js~TemplatePostbackAction.html">TemplatePostbackAction</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineActions/index.js~TemplateURIAction.html">TemplateURIAction</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">LineBot</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineBot/index.js~LineBot.html">LineBot</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">LineEvents</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineEvents/index.js~BeaconEvent.html">BeaconEvent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineEvents/index.js~FollowEvent.html">FollowEvent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineEvents/index.js~JoinEvent.html">JoinEvent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineEvents/index.js~LeaveEvent.html">LeaveEvent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineEvents/index.js~LineEvent.html">LineEvent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineEvents/index.js~MessageEvent.html">MessageEvent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineEvents/index.js~PostbackEvent.html">PostbackEvent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineEvents/index.js~ReplyableEvent.html">ReplyableEvent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineEvents/index.js~UnfollowEvent.html">UnfollowEvent</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">LineMessages</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineMessages/index.js~AudioMessage.html">AudioMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineMessages/index.js~ImageMessage.html">ImageMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineMessages/index.js~ImagemapMessage.html">ImagemapMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineMessages/index.js~LineMessage.html">LineMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineMessages/index.js~LocationMessage.html">LocationMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineMessages/index.js~StickerMessage.html">StickerMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineMessages/index.js~TemplateMessage.html">TemplateMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineMessages/index.js~TextMessage.html">TextMessage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineMessages/index.js~VideoMessage.html">VideoMessage</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">LineSources</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineSources/index.js~GroupSource.html">GroupSource</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineSources/index.js~LineSource.html">LineSource</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineSources/index.js~RoomSource.html">RoomSource</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineSources/index.js~UserSource.html">UserSource</a></span></span></li>
+<li data-ice="doc"><div data-ice="dirPath" class="nav-dir-path">LineTemplates</div><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineTemplates/index.js~TemplateButtons.html">TemplateButtons</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineTemplates/index.js~TemplateCarousel.html">TemplateCarousel</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineTemplates/index.js~TemplateColumn.html">TemplateColumn</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineTemplates/index.js~TemplateComponent.html">TemplateComponent</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/es2015/LineTemplates/index.js~TemplateConfirm.html">TemplateConfirm</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">es2015/LineTemplates/index.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { TemplateAction } from &apos;../LineActions&apos;;
+export var LineTemplateType;
+(function (LineTemplateType) {
+    LineTemplateType.BUTTONS = &apos;buttons&apos;;
+    LineTemplateType.CONFIRM = &apos;confirm&apos;;
+    LineTemplateType.CAROUSEL = &apos;carousel&apos;;
+})(LineTemplateType || (LineTemplateType = {}));
+/* eslint-enable no-unused-vars, space-infix-ops */
+/**
+ * @see https://devdocs.line.me/en/#template-messages
+ */
+export class TemplateComponent {
+    /* eslint-enable no-undef */
+    /** @ignore */
+    constructor({ type }) {
+        /**
+         * Identifier for the type of template.
+         * @type {string}
+         */
+        this.type = type;
+    }
+    /** @ignore */
+    static createFromObject(params) {
+        switch (params.type) {
+            case LineTemplateType.BUTTONS: {
+                return new TemplateButtons(params);
+            }
+            case LineTemplateType.CONFIRM: {
+                return new TemplateConfirm(params);
+            }
+            case LineTemplateType.CAROUSEL: {
+                return new TemplateCarousel(params);
+            }
+            default: {
+                return new TemplateComponent({ type: params.type });
+            }
+        }
+    }
+}
+/**
+ * @see https://devdocs.line.me/en/#buttons
+ */
+export class TemplateButtons extends TemplateComponent {
+    /* eslint-enable no-undef */
+    /**
+     * @param  {Object}  params
+     * @param  {string}  [params.thumbnailImageUrl]       Image URL (JPEG or PNG / HTTPS / 1:1.51)
+     * @param  {string}  [params.title]                   Title (Max: 40 chars)
+     * @param  {string}  params.text                      Message text (Max: 160 chars (no image, no title) / 60 chars)
+     * @param  {TemplateAction[] | any[]} params.actions  Action when tapped (Max: 4)
+     */
+    constructor({ thumbnailImageUrl, title, text, actions }) {
+        super({ type: LineTemplateType.BUTTONS });
+        /**
+         * Image URL (JPEG or PNG / HTTPS / 1:1.51)
+         * @type {string}
+         */
+        this.thumbnailImageUrl = thumbnailImageUrl;
+        /**
+         * Title (Max: 40 chars)
+         * @type {string}
+         */
+        this.title = title;
+        /**
+         * Message text (Max: 160 chars (no image, no title) / 60 chars)
+         * @type {string}
+         */
+        this.text = text;
+        /**
+         * Action when tapped (Max: 4)
+         * @type {TemplateAction[]}
+         */
+        this.actions = actions.map(action =&gt; TemplateAction.createFromObject(action));
+    }
+}
+/**
+ * @see https://devdocs.line.me/en/#confirm
+ */
+export class TemplateConfirm extends TemplateComponent {
+    /* eslint-enable no-undef */
+    /**
+     * @param  {Object}  params
+     * @param  {string}  params.text                      Message text (Max: 240 chars)
+     * @param  {TemplateAction[] | any[]} params.actions  Action when tapped (Max: 2)
+     */
+    constructor({ text, actions }) {
+        super({ type: LineTemplateType.CONFIRM });
+        /**
+         * Message text (Max: 240 chars)
+         * @type {string}
+         */
+        this.text = text;
+        /**
+         * Action when tapped (Max: 2)
+         * @type {TemplateAction[]}
+         */
+        this.actions = actions.map(action =&gt; TemplateAction.createFromObject(action));
+    }
+}
+/**
+ * @see https://devdocs.line.me/en/#carousel
+ */
+export class TemplateCarousel extends TemplateComponent {
+    /* eslint-enable no-undef */
+    /**
+     * @param  {Object}  params
+     * @param  {TemplateColumn[] | any[]} params.columns  Array of columns (Max: 5)
+     */
+    constructor({ columns }) {
+        super({ type: LineTemplateType.CAROUSEL });
+        /**
+         * Array of columns (Max: 5)
+         * @type {TemplateColumn[]}
+         */
+        this.columns = columns.map(column =&gt; TemplateColumn.createFromObject(column));
+    }
+}
+/**
+ * @see https://devdocs.line.me/en/#column-object
+ */
+export class TemplateColumn {
+    /* eslint-enable no-undef */
+    /**
+     * @param  {Object}  params
+     * @param  {string}  [params.thumbnailImageUrl]       Image URL (JPEG or PNG / HTTPS / 1:1.51)
+     * @param  {string}  [params.title]                   Title (Max: 40 chars)
+     * @param  {string}  params.text                      Message text (Max: 160 chars (no image, no title) / 60 chars)
+     * @param  {TemplateAction[] | any[]} params.actions  Action when tapped (Max: 3)
+     */
+    constructor({ thumbnailImageUrl, title, text, actions }) {
+        /**
+         * Image URL (JPEG or PNG / HTTPS / 1:1.51)
+         * @type {string}
+         */
+        this.thumbnailImageUrl = thumbnailImageUrl;
+        /**
+         * Title (Max: 40 chars)
+         * @type {string}
+         */
+        this.title = title;
+        /**
+         * Message text (Max: 160 chars (no image, no title) / 60 chars)
+         * @type {string}
+         */
+        this.text = text;
+        /**
+         * Action when tapped (Max: 3)
+         * @type {TemplateAction[]}
+         */
+        this.actions = actions.map(action =&gt; TemplateAction.createFromObject(action));
+    }
+    /** @ignore */
+    static createFromObject(params) {
+        return new TemplateColumn(params);
+    }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(0.4.8)</span></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>

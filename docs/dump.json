@@ -1,0 +1,5178 @@
+[
+  {
+    "__docId__": 0,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "es2015/LineActions/index.js",
+    "memberof": null,
+    "longname": "es2015/LineActions/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "export var LineActionType;\n(function (LineActionType) {\n    LineActionType.URI = 'uri';\n    LineActionType.MESSAGE = 'message';\n    LineActionType.POSTBACK = 'postback';\n})(LineActionType || (LineActionType = {}));\n/* eslint-enable no-unused-vars, space-infix-ops */\n/**\n * Imagemap Action\n * @see https://devdocs.line.me/en/#imagemap-action-object\n */\nexport class ImagemapAction {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ type, area }) {\n        /**\n         * Identifier for the type of action.\n         * @type {string}\n         */\n        this.type = type;\n        /**\n         * Defined tappable area.\n         * @type {Rectangle}\n         */\n        this.area = area;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        switch (params.type) {\n            case LineActionType.URI: {\n                return new ImagemapURIAction(params);\n            }\n            case LineActionType.MESSAGE: {\n                return new ImagemapMessageAction(params);\n            }\n            default: {\n                return new ImagemapAction({ type: params.type, area: params.area });\n            }\n        }\n    }\n}\n/**\n * URI action\n * @see https://devdocs.line.me/en/#imagemap-action-object\n */\nexport class ImagemapURIAction extends ImagemapAction {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {Object} params\n     * @param  {string} params.type     Identifier for the type of action.\n     * @param  {Rectangle} params.area  Defined tappable area.\n     * @param  {string} params.linkUri  Webpage URL\n     */\n    constructor({ area, linkUri, }) {\n        super({ type: LineActionType.URI, area });\n        /**\n         * Webpage URL.\n         * @type {string}\n         */\n        this.linkUri = linkUri;\n    }\n}\n/**\n * Message action\n * @see https://devdocs.line.me/en/#imagemap-action-object\n */\nexport class ImagemapMessageAction extends ImagemapAction {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {Object} params\n     * @param  {Rectangle} params.area  Defined tappable area.\n     * @param  {string} params.text     Message to send.\n     */\n    constructor({ area, text, }) {\n        super({ type: LineActionType.MESSAGE, area });\n        /**\n         * Message to send.\n         * @type {string}\n         */\n        this.text = text;\n    }\n}\n/**\n * Template Action\n * @see https://devdocs.line.me/en/#template-action\n */\nexport class TemplateAction {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ type, label }) {\n        /**\n         * Identifier for the type of action.\n         * @type {string}\n         */\n        this.type = type;\n        /**\n         * Label for the action. (Max: 20 chars)\n         * @type {string}\n         */\n        this.label = label;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        switch (params.type) {\n            case LineActionType.URI: {\n                return new TemplateURIAction(params);\n            }\n            case LineActionType.MESSAGE: {\n                return new TemplateMessageAction(params);\n            }\n            case LineActionType.POSTBACK: {\n                return new TemplatePostbackAction(params);\n            }\n            default: {\n                return new TemplateAction({ type: params.type, label: params.label });\n            }\n        }\n    }\n}\n/**\n * URI action\n * @see https://devdocs.line.me/en/#template-action\n */\nexport class TemplateURIAction extends TemplateAction {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {Object} params\n     * @param  {string} params.label  Label for the action. (Max: 20 chars)\n     * @param  {string} params.uri    URI opened when the action is performed\n     */\n    constructor({ label, uri }) {\n        super({ type: LineActionType.URI, label });\n        /**\n         * URI opened when the action is performed\n         * @type {string}\n         */\n        this.uri = uri;\n    }\n}\n/**\n * Message action\n * @see https://devdocs.line.me/en/#template-action\n */\nexport class TemplateMessageAction extends TemplateAction {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {Object} params\n     * @param  {string} params.label  Label for the action. (Max: 20 chars)\n     * @param  {string} params.text   Text sent when the action is performed. (Max: 300 chars)\n     */\n    constructor({ label, text }) {\n        super({ type: LineActionType.MESSAGE, label });\n        /**\n         * Text sent when the action is performed. (Max: 300 chars)\n         * @type {string}\n         */\n        this.text = text;\n    }\n}\n/**\n * Postback action\n * @see https://devdocs.line.me/en/#template-action\n */\nexport class TemplatePostbackAction extends TemplateAction {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {Object} params\n     * @param  {string} params.label   Label for the action. (Max: 20 chars)\n     * @param  {string} [params.text]  Text sent when the action is performed. (Max: 300 chars)\n     * @param  {string} params.data    String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)\n     */\n    constructor({ label, text = undefined, data }) {\n        super({ type: LineActionType.POSTBACK, label });\n        /**\n         * Text sent when the action is performed. (Max: 300 chars)\n         * @type {string}\n         */\n        this.text = text;\n        /**\n         * String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)\n         * @type {string}\n         */\n        this.data = data;\n    }\n}\n"
+  },
+  {
+    "__docId__": 1,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "ImagemapAction",
+    "memberof": "es2015/LineActions/index.js",
+    "longname": "es2015/LineActions/index.js~ImagemapAction",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineActions",
+    "importStyle": "{ImagemapAction}",
+    "description": "Imagemap Action",
+    "see": [
+      "https://devdocs.line.me/en/#imagemap-action-object"
+    ],
+    "lineNumber": 12,
+    "interface": false
+  },
+  {
+    "__docId__": 2,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineActions/index.js~ImagemapAction",
+    "longname": "es2015/LineActions/index.js~ImagemapAction#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 15,
+    "ignore": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"type\": *, \"area\": *}"
+        ],
+        "defaultRaw": {
+          "type": null,
+          "area": null
+        },
+        "defaultValue": "{\"type\":null,\"area\":null}"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 3,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "type",
+    "memberof": "es2015/LineActions/index.js~ImagemapAction",
+    "longname": "es2015/LineActions/index.js~ImagemapAction#type",
+    "access": null,
+    "description": "Identifier for the type of action.",
+    "lineNumber": 20,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 4,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "area",
+    "memberof": "es2015/LineActions/index.js~ImagemapAction",
+    "longname": "es2015/LineActions/index.js~ImagemapAction#area",
+    "access": null,
+    "description": "Defined tappable area.",
+    "lineNumber": 25,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Rectangle"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 5,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "createFromObject",
+    "memberof": "es2015/LineActions/index.js~ImagemapAction",
+    "longname": "es2015/LineActions/index.js~ImagemapAction.createFromObject",
+    "access": null,
+    "description": null,
+    "lineNumber": 28,
+    "ignore": true,
+    "params": [
+      {
+        "name": "params",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 6,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "ImagemapURIAction",
+    "memberof": "es2015/LineActions/index.js",
+    "longname": "es2015/LineActions/index.js~ImagemapURIAction",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineActions",
+    "importStyle": "{ImagemapURIAction}",
+    "description": "URI action",
+    "see": [
+      "https://devdocs.line.me/en/#imagemap-action-object"
+    ],
+    "lineNumber": 46,
+    "interface": false,
+    "extends": [
+      "ImagemapAction"
+    ]
+  },
+  {
+    "__docId__": 7,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineActions/index.js~ImagemapURIAction",
+    "longname": "es2015/LineActions/index.js~ImagemapURIAction#constructor",
+    "access": null,
+    "description": "",
+    "lineNumber": 54,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.type",
+        "description": "Identifier for the type of action."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Rectangle"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.area",
+        "description": "Defined tappable area."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.linkUri",
+        "description": "Webpage URL"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 8,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "linkUri",
+    "memberof": "es2015/LineActions/index.js~ImagemapURIAction",
+    "longname": "es2015/LineActions/index.js~ImagemapURIAction#linkUri",
+    "access": null,
+    "description": "Webpage URL.",
+    "lineNumber": 60,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 9,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "ImagemapMessageAction",
+    "memberof": "es2015/LineActions/index.js",
+    "longname": "es2015/LineActions/index.js~ImagemapMessageAction",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineActions",
+    "importStyle": "{ImagemapMessageAction}",
+    "description": "Message action",
+    "see": [
+      "https://devdocs.line.me/en/#imagemap-action-object"
+    ],
+    "lineNumber": 67,
+    "interface": false,
+    "extends": [
+      "ImagemapAction"
+    ]
+  },
+  {
+    "__docId__": 10,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineActions/index.js~ImagemapMessageAction",
+    "longname": "es2015/LineActions/index.js~ImagemapMessageAction#constructor",
+    "access": null,
+    "description": "",
+    "lineNumber": 74,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Rectangle"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.area",
+        "description": "Defined tappable area."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.text",
+        "description": "Message to send."
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 11,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "text",
+    "memberof": "es2015/LineActions/index.js~ImagemapMessageAction",
+    "longname": "es2015/LineActions/index.js~ImagemapMessageAction#text",
+    "access": null,
+    "description": "Message to send.",
+    "lineNumber": 80,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 12,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "TemplateAction",
+    "memberof": "es2015/LineActions/index.js",
+    "longname": "es2015/LineActions/index.js~TemplateAction",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineActions",
+    "importStyle": "{TemplateAction}",
+    "description": "Template Action",
+    "see": [
+      "https://devdocs.line.me/en/#template-action"
+    ],
+    "lineNumber": 87,
+    "interface": false
+  },
+  {
+    "__docId__": 13,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineActions/index.js~TemplateAction",
+    "longname": "es2015/LineActions/index.js~TemplateAction#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 90,
+    "ignore": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"type\": *, \"label\": *}"
+        ],
+        "defaultRaw": {
+          "type": null,
+          "label": null
+        },
+        "defaultValue": "{\"type\":null,\"label\":null}"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 14,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "type",
+    "memberof": "es2015/LineActions/index.js~TemplateAction",
+    "longname": "es2015/LineActions/index.js~TemplateAction#type",
+    "access": null,
+    "description": "Identifier for the type of action.",
+    "lineNumber": 95,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 15,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "label",
+    "memberof": "es2015/LineActions/index.js~TemplateAction",
+    "longname": "es2015/LineActions/index.js~TemplateAction#label",
+    "access": null,
+    "description": "Label for the action. (Max: 20 chars)",
+    "lineNumber": 100,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 16,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "createFromObject",
+    "memberof": "es2015/LineActions/index.js~TemplateAction",
+    "longname": "es2015/LineActions/index.js~TemplateAction.createFromObject",
+    "access": null,
+    "description": null,
+    "lineNumber": 103,
+    "ignore": true,
+    "params": [
+      {
+        "name": "params",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 17,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "TemplateURIAction",
+    "memberof": "es2015/LineActions/index.js",
+    "longname": "es2015/LineActions/index.js~TemplateURIAction",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineActions",
+    "importStyle": "{TemplateURIAction}",
+    "description": "URI action",
+    "see": [
+      "https://devdocs.line.me/en/#template-action"
+    ],
+    "lineNumber": 124,
+    "interface": false,
+    "extends": [
+      "TemplateAction"
+    ]
+  },
+  {
+    "__docId__": 18,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineActions/index.js~TemplateURIAction",
+    "longname": "es2015/LineActions/index.js~TemplateURIAction#constructor",
+    "access": null,
+    "description": "",
+    "lineNumber": 131,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.label",
+        "description": "Label for the action. (Max: 20 chars)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.uri",
+        "description": "URI opened when the action is performed"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 19,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "uri",
+    "memberof": "es2015/LineActions/index.js~TemplateURIAction",
+    "longname": "es2015/LineActions/index.js~TemplateURIAction#uri",
+    "access": null,
+    "description": "URI opened when the action is performed",
+    "lineNumber": 137,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 20,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "TemplateMessageAction",
+    "memberof": "es2015/LineActions/index.js",
+    "longname": "es2015/LineActions/index.js~TemplateMessageAction",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineActions",
+    "importStyle": "{TemplateMessageAction}",
+    "description": "Message action",
+    "see": [
+      "https://devdocs.line.me/en/#template-action"
+    ],
+    "lineNumber": 144,
+    "interface": false,
+    "extends": [
+      "TemplateAction"
+    ]
+  },
+  {
+    "__docId__": 21,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineActions/index.js~TemplateMessageAction",
+    "longname": "es2015/LineActions/index.js~TemplateMessageAction#constructor",
+    "access": null,
+    "description": "",
+    "lineNumber": 151,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.label",
+        "description": "Label for the action. (Max: 20 chars)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.text",
+        "description": "Text sent when the action is performed. (Max: 300 chars)"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 22,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "text",
+    "memberof": "es2015/LineActions/index.js~TemplateMessageAction",
+    "longname": "es2015/LineActions/index.js~TemplateMessageAction#text",
+    "access": null,
+    "description": "Text sent when the action is performed. (Max: 300 chars)",
+    "lineNumber": 157,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 23,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "TemplatePostbackAction",
+    "memberof": "es2015/LineActions/index.js",
+    "longname": "es2015/LineActions/index.js~TemplatePostbackAction",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineActions",
+    "importStyle": "{TemplatePostbackAction}",
+    "description": "Postback action",
+    "see": [
+      "https://devdocs.line.me/en/#template-action"
+    ],
+    "lineNumber": 164,
+    "interface": false,
+    "extends": [
+      "TemplateAction"
+    ]
+  },
+  {
+    "__docId__": 24,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineActions/index.js~TemplatePostbackAction",
+    "longname": "es2015/LineActions/index.js~TemplatePostbackAction#constructor",
+    "access": null,
+    "description": "",
+    "lineNumber": 172,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.label",
+        "description": "Label for the action. (Max: 20 chars)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "params.text",
+        "description": "Text sent when the action is performed. (Max: 300 chars)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.data",
+        "description": "String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 25,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "text",
+    "memberof": "es2015/LineActions/index.js~TemplatePostbackAction",
+    "longname": "es2015/LineActions/index.js~TemplatePostbackAction#text",
+    "access": null,
+    "description": "Text sent when the action is performed. (Max: 300 chars)",
+    "lineNumber": 178,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 26,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "data",
+    "memberof": "es2015/LineActions/index.js~TemplatePostbackAction",
+    "longname": "es2015/LineActions/index.js~TemplatePostbackAction#data",
+    "access": null,
+    "description": "String returned via webhook in the postback.data property of the postback event. (Max: 300 chars)",
+    "lineNumber": 183,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 27,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "es2015/LineBot/index.js",
+    "memberof": null,
+    "longname": "es2015/LineBot/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "import { createHmac } from 'crypto';\nimport { EventEmitter2 } from 'eventemitter2';\nimport axios from 'axios';\nimport express from 'express';\nimport bodyParser from 'body-parser';\nimport { LineEvent } from '../LineEvents';\nimport { GroupSource, RoomSource } from '../LineSources';\n/* eslint-enable no-unused-vars */\n/**\n * LINE Bot API wrapper.\n *\n * @example <caption>EventEmitter</caption>\n * import { LineBot } from '@3846masa/linebot';\n * const bot = new LineBot(configs);\n *\n * bot.on('message', (result) => {\n *   console.log('You got a message!', result);\n * });\n *\n * bot.listen(3000);\n *\n * @extends {EventEmitter2}\n * @see https://devdocs.line.me/ja/\n */\nexport class LineBot extends EventEmitter2 {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param  {LineBotConfig} config\n     */\n    constructor({ channelSecret, channelToken }) {\n        super({\n            wildcard: true,\n            delimiter: ':',\n            maxListeners: 20,\n        });\n        /**\n         * Configuration.\n         * @type {LineBotConfig}\n         */\n        this.config = {\n            channelSecret,\n            channelToken,\n        };\n        Object.freeze(this.config);\n        this._initAxios();\n        this._initExpress();\n    }\n    /** @private */\n    _initAxios() {\n        /** @private */\n        this._axios = axios.create({\n            baseURL: 'https://api.line.me/v2/bot',\n            headers: {\n                Authorization: `Bearer ${this.config.channelToken}`,\n            },\n            validateStatus: () => true,\n        });\n    }\n    /** @private */\n    _initExpress() {\n        /**\n         * Configuration.\n         * @type {Express.Application}\n         */\n        this.express = express();\n        this.express.use(bodyParser.raw({ type: () => true }));\n        this.express.use((req, res, next) => {\n            const isValid = this._checkSignature({\n                signature: req.header('X-Line-Signature'),\n                body: req.body,\n            });\n            if (!isValid) {\n                return next(new Error('Invalid request.'));\n            }\n            return next();\n        });\n        this.express.use((req, res, next) => {\n            Promise.resolve(req.body.toString('utf8'))\n                .then(JSON.parse)\n                .then(json => Object.assign(req, { body: json }))\n                .then(() => next())\n                .catch(next);\n        });\n        this.express.all('*', (req, res, next) => {\n            if (!req.body || !req.body.events) {\n                return next(new Error('Invalid JSON.'));\n            }\n            for (const event of req.body.events) {\n                const eventObj = LineEvent.createFromObject(event, this);\n                this.emit(`webhook:${event.type}`, eventObj);\n            }\n            res.status(200).send();\n            return next();\n        });\n        this.express.use((err, req, res, next) => {\n            console.error(err);\n            res.status(400).send({ error: err.message });\n            next();\n        });\n    }\n    /** @private */\n    _checkSignature({ signature, body }) {\n        const hmac = createHmac('sha256', this.config.channelSecret);\n        hmac.update(body);\n        const calcResult = hmac.digest('base64');\n        return (calcResult === signature);\n    }\n    /**\n     * Send messages to users, groups, and rooms at any time.\n     * @see https://devdocs.line.me/en/#push-message\n     * @param  {string}                            to   ID of the receiver\n     * @param  {LineMessage[] | LineMessage | any} msg  Messages (Max: 5)\n     * @return {Promise<void,Error>}\n     */\n    push(to, msg) {\n        let messages;\n        if (!Array.isArray(msg)) {\n            messages = [msg];\n        }\n        else {\n            messages = msg;\n        }\n        const promise = this._post('/message/push', { to, messages });\n        return promise.then(({ status, data }) => {\n            if (status !== 200) {\n                return Promise.reject(new Error(`${status}: ${data.message}`));\n            }\n            return Promise.resolve();\n        });\n    }\n    /**\n     * Retrieve image, video, and audio data sent by users.\n     * @see https://devdocs.line.me/en/#get-content\n     * @param  {LineMessage} message Message\n     * @return {Promise<stream.Readable,Error>}\n     */\n    getContentFromMessage(message) {\n        return this.getContent(message.id);\n    }\n    /**\n     * Retrieve image, video, and audio data sent by users.\n     * @see https://devdocs.line.me/en/#get-content\n     * @param  {string} messageId Message ID.\n     * @return {Promise<stream.Readable,Error>}\n     */\n    getContent(messageId) {\n        const promise = this._get(`/message/${messageId}/content`, {\n            responseType: 'stream',\n        });\n        return promise.then(({ status, statusText, data }) => {\n            if (status !== 200) {\n                throw new Error(`${status}: ${statusText}`);\n            }\n            return Promise.resolve(data);\n        });\n    }\n    /**\n     * Send messages to users, groups, and rooms at any time.\n     * @see https://devdocs.line.me/en/#bot-api-get-profile\n     * @param  {UserSource} user  User source\n     * @return {Promise<LineProfile,Error>}\n     */\n    getProfileFromUserSource(user) {\n        return this.getProfile(user.userId);\n    }\n    /**\n     * Send messages to users, groups, and rooms at any time.\n     * @see https://devdocs.line.me/en/#bot-api-get-profile\n     * @param  {string} userId  User ID\n     * @return {Promise<LineProfile,Error>}\n     */\n    getProfile(userId) {\n        const promise = this._get(`/profile/${userId}`);\n        return promise.then(({ status, data }) => {\n            if (status !== 200) {\n                throw new Error(`${status}: ${data.message}`);\n            }\n            return Promise.resolve(data);\n        });\n    }\n    /**\n     * Leave a group or room.\n     * @see https://devdocs.line.me/en/#leave\n     * @param  {GroupSource | RoomSource}  source\n     * @return {Promise<void,Error>}\n     */\n    leaveFromSource(source) {\n        if (source instanceof GroupSource) {\n            return this.leave('group', source.groupId);\n        }\n        else if (source instanceof RoomSource) {\n            return this.leave('room', source.roomId);\n        }\n        return Promise.resolve();\n    }\n    /**\n     * Leave a group or room.\n     * @see https://devdocs.line.me/en/#leave\n     * @param  {string} type\n     * @param  {string} id\n     * @return {Promise<void,Error>}\n     */\n    leave(type, id) {\n        const promise = this._post(`/${type}/${id}/leave`);\n        return promise.then(({ status, data }) => {\n            if (status !== 200) {\n                return Promise.reject(new Error(`${status}: ${data.message}`));\n            }\n            return Promise.resolve();\n        });\n    }\n    /** @private */\n    _get(endpoint, options) {\n        return this._axios.get(endpoint, options || {});\n    }\n    /** @private */\n    _post(endpoint, data, options) {\n        return this._axios.post(endpoint, data, options || {});\n    }\n    /**\n     * Binds and listens for connections on the specified host and port.\n     * @see http://expressjs.com/en/4x/api.html#app.listen\n     * @param  { ...any }    args http://expressjs.com/en/4x/api.html#app.listen\n     * @return {http.Server}\n     */\n    listen(...args) {\n        return this.express.listen.call(this.express, ...args);\n    }\n    /**\n     * Adds a listener to the end of the listeners array for the specified event.\n     * @see https://github.com/asyncly/EventEmitter2#emitteronevent-listener\n     * @param   {string | string[]} event    Event name\n     * @param   {Function}          listener Listener function\n     * @return  {LineBot}\n     * @listens {webhook:{eventType}}  Listen message event. https://developers.line.me/bot-api/api-reference#sending_message\n     */\n    on(event, listener) {\n        super.on(event, listener);\n        return this;\n    }\n}\nexport default LineBot;\n"
+  },
+  {
+    "__docId__": 28,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "LineBot",
+    "memberof": "es2015/LineBot/index.js",
+    "longname": "es2015/LineBot/index.js~LineBot",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineBot",
+    "importStyle": "{LineBot}",
+    "description": "LINE Bot API wrapper.",
+    "examples": [
+      "<caption>EventEmitter</caption>\nimport { LineBot } from '@3846masa/linebot';\nconst bot = new LineBot(configs);\n\nbot.on('message', (result) => {\n  console.log('You got a message!', result);\n});\n\nbot.listen(3000);"
+    ],
+    "see": [
+      "https://devdocs.line.me/ja/"
+    ],
+    "lineNumber": 25,
+    "interface": false,
+    "extends": [
+      "EventEmitter2"
+    ]
+  },
+  {
+    "__docId__": 29,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineBot/index.js~LineBot",
+    "longname": "es2015/LineBot/index.js~LineBot#constructor",
+    "access": null,
+    "description": "Constructor",
+    "lineNumber": 31,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "LineBotConfig"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "config",
+        "description": ""
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 30,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "config",
+    "memberof": "es2015/LineBot/index.js~LineBot",
+    "longname": "es2015/LineBot/index.js~LineBot#config",
+    "access": null,
+    "description": "Configuration.",
+    "lineNumber": 41,
+    "type": {
+      "nullable": null,
+      "types": [
+        "LineBotConfig"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 31,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "_initAxios",
+    "memberof": "es2015/LineBot/index.js~LineBot",
+    "longname": "es2015/LineBot/index.js~LineBot#_initAxios",
+    "access": "private",
+    "description": null,
+    "lineNumber": 50,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 32,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "_axios",
+    "memberof": "es2015/LineBot/index.js~LineBot",
+    "longname": "es2015/LineBot/index.js~LineBot#_axios",
+    "access": "private",
+    "description": null,
+    "lineNumber": 52,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 33,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "_initExpress",
+    "memberof": "es2015/LineBot/index.js~LineBot",
+    "longname": "es2015/LineBot/index.js~LineBot#_initExpress",
+    "access": "private",
+    "description": null,
+    "lineNumber": 61,
+    "params": [],
+    "generator": false
+  },
+  {
+    "__docId__": 34,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "express",
+    "memberof": "es2015/LineBot/index.js~LineBot",
+    "longname": "es2015/LineBot/index.js~LineBot#express",
+    "access": null,
+    "description": "Configuration.",
+    "lineNumber": 66,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Express.Application"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 35,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "_checkSignature",
+    "memberof": "es2015/LineBot/index.js~LineBot",
+    "longname": "es2015/LineBot/index.js~LineBot#_checkSignature",
+    "access": "private",
+    "description": null,
+    "lineNumber": 103,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"signature\": *, \"body\": *}"
+        ],
+        "defaultRaw": {
+          "signature": null,
+          "body": null
+        },
+        "defaultValue": "{\"signature\":null,\"body\":null}"
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 36,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "push",
+    "memberof": "es2015/LineBot/index.js~LineBot",
+    "longname": "es2015/LineBot/index.js~LineBot#push",
+    "access": null,
+    "description": "Send messages to users, groups, and rooms at any time.",
+    "see": [
+      "https://devdocs.line.me/en/#push-message"
+    ],
+    "lineNumber": 116,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "to",
+        "description": "ID of the receiver"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "LineMessage[] ",
+          " LineMessage ",
+          " any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "msg",
+        "description": "Messages (Max: 5)"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Promise<void,Error>"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 37,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "getContentFromMessage",
+    "memberof": "es2015/LineBot/index.js~LineBot",
+    "longname": "es2015/LineBot/index.js~LineBot#getContentFromMessage",
+    "access": null,
+    "description": "Retrieve image, video, and audio data sent by users.",
+    "see": [
+      "https://devdocs.line.me/en/#get-content"
+    ],
+    "lineNumber": 138,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "LineMessage"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "message",
+        "description": "Message"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Promise<stream.Readable,Error>"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 38,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "getContent",
+    "memberof": "es2015/LineBot/index.js~LineBot",
+    "longname": "es2015/LineBot/index.js~LineBot#getContent",
+    "access": null,
+    "description": "Retrieve image, video, and audio data sent by users.",
+    "see": [
+      "https://devdocs.line.me/en/#get-content"
+    ],
+    "lineNumber": 147,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "messageId",
+        "description": "Message ID."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Promise<stream.Readable,Error>"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 39,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "getProfileFromUserSource",
+    "memberof": "es2015/LineBot/index.js~LineBot",
+    "longname": "es2015/LineBot/index.js~LineBot#getProfileFromUserSource",
+    "access": null,
+    "description": "Send messages to users, groups, and rooms at any time.",
+    "see": [
+      "https://devdocs.line.me/en/#bot-api-get-profile"
+    ],
+    "lineNumber": 164,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "UserSource"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "user",
+        "description": "User source"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Promise<LineProfile,Error>"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 40,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "getProfile",
+    "memberof": "es2015/LineBot/index.js~LineBot",
+    "longname": "es2015/LineBot/index.js~LineBot#getProfile",
+    "access": null,
+    "description": "Send messages to users, groups, and rooms at any time.",
+    "see": [
+      "https://devdocs.line.me/en/#bot-api-get-profile"
+    ],
+    "lineNumber": 173,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "userId",
+        "description": "User ID"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Promise<LineProfile,Error>"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 41,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "leaveFromSource",
+    "memberof": "es2015/LineBot/index.js~LineBot",
+    "longname": "es2015/LineBot/index.js~LineBot#leaveFromSource",
+    "access": null,
+    "description": "Leave a group or room.",
+    "see": [
+      "https://devdocs.line.me/en/#leave"
+    ],
+    "lineNumber": 188,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "GroupSource ",
+          " RoomSource"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "source",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Promise<void,Error>"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 42,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "leave",
+    "memberof": "es2015/LineBot/index.js~LineBot",
+    "longname": "es2015/LineBot/index.js~LineBot#leave",
+    "access": null,
+    "description": "Leave a group or room.",
+    "see": [
+      "https://devdocs.line.me/en/#leave"
+    ],
+    "lineNumber": 204,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "type",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "id",
+        "description": ""
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Promise<void,Error>"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 43,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "_get",
+    "memberof": "es2015/LineBot/index.js~LineBot",
+    "longname": "es2015/LineBot/index.js~LineBot#_get",
+    "access": "private",
+    "description": null,
+    "lineNumber": 214,
+    "params": [
+      {
+        "name": "endpoint",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "options",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 44,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "_post",
+    "memberof": "es2015/LineBot/index.js~LineBot",
+    "longname": "es2015/LineBot/index.js~LineBot#_post",
+    "access": "private",
+    "description": null,
+    "lineNumber": 218,
+    "params": [
+      {
+        "name": "endpoint",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "data",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "options",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 45,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "listen",
+    "memberof": "es2015/LineBot/index.js~LineBot",
+    "longname": "es2015/LineBot/index.js~LineBot#listen",
+    "access": null,
+    "description": "Binds and listens for connections on the specified host and port.",
+    "see": [
+      "http://expressjs.com/en/4x/api.html#app.listen"
+    ],
+    "lineNumber": 227,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          " ...any "
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "args",
+        "description": "http://expressjs.com/en/4x/api.html#app.listen"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "http.Server"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 46,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "on",
+    "memberof": "es2015/LineBot/index.js~LineBot",
+    "longname": "es2015/LineBot/index.js~LineBot#on",
+    "access": null,
+    "description": "Adds a listener to the end of the listeners array for the specified event.",
+    "see": [
+      "https://github.com/asyncly/EventEmitter2#emitteronevent-listener"
+    ],
+    "lineNumber": 238,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string ",
+          " string[]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "event",
+        "description": "Event name"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Function"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "listener",
+        "description": "Listener function"
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "LineBot"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "listens": [
+      {
+        "types": [
+          "webhook:{eventType}"
+        ],
+        "description": "Listen message event. https://developers.line.me/bot-api/api-reference#sending_message"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 47,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "es2015/LineEvents/index.js",
+    "memberof": null,
+    "longname": "es2015/LineEvents/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "import { LineSource } from '../LineSources';\nimport { LineMessage } from '../LineMessages';\nexport var LineEventType;\n(function (LineEventType) {\n    LineEventType.MESSAGE = 'message';\n    LineEventType.FOLLOW = 'follow';\n    LineEventType.JOIN = 'join';\n    LineEventType.LEAVE = 'leave';\n    LineEventType.POSTBACK = 'postback';\n    LineEventType.BEACON = 'beacon';\n})(LineEventType || (LineEventType = {}));\nexport var BeaconEventType;\n(function (BeaconEventType) {\n    BeaconEventType.ENTER = 'enter';\n})(BeaconEventType || (BeaconEventType = {}));\n/* eslint-enable no-unused-vars, space-infix-ops */\n/**\n * @see https://devdocs.line.me/en/#webhook-event-object\n */\nexport class LineEvent {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ type, timestamp, source }) {\n        /**\n         * Identifier for the type of event\n         * @type {string}\n         */\n        this.type = type;\n        /**\n         * Time of the event in milliseconds\n         * @type {Date}\n         */\n        this.timestamp = new Date(Number(timestamp));\n        /**\n         * Object which contains the source of the event\n         * @type {LineSource}\n         */\n        this.source = LineSource.createFromObject(source);\n    }\n    /** @ignore */\n    static createFromObject(params, _linebot) {\n        Object.assign(params, { _linebot });\n        switch (params.type) {\n            case LineEventType.MESSAGE: {\n                return new MessageEvent(params);\n            }\n            case LineEventType.FOLLOW: {\n                return new FollowEvent(params);\n            }\n            case LineEventType.JOIN: {\n                return new JoinEvent(params);\n            }\n            case LineEventType.LEAVE: {\n                return new LeaveEvent(params);\n            }\n            case LineEventType.POSTBACK: {\n                return new PostbackEvent(params);\n            }\n            case LineEventType.BEACON: {\n                return new BeaconEvent(params);\n            }\n            default: {\n                return new LineEvent({\n                    type: params.type,\n                    timestamp: params.timestamp,\n                    source: params.source,\n                });\n            }\n        }\n    }\n}\n/**\n * Replyable event.\n */\nexport class ReplyableEvent extends LineEvent {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ type, timestamp, source, replyToken, _linebot = undefined }) {\n        super({ type, timestamp, source });\n        /**\n         * Token for replying to this event\n         * @type {string}\n         */\n        this.replyToken = replyToken;\n        /** @ignore */\n        Object.defineProperty(this, '_linebot', {\n            writable: true,\n            value: _linebot,\n        });\n    }\n    /**\n     * Respond to events from users, groups, and rooms.\n     * @see https://devdocs.line.me/en/#reply-message\n     * @param  {LineMessage[] | LineMessage | any} msg  Message like LineMessage.\n     * @return {Promise<void,Error>}\n     */\n    reply(msg) {\n        let messages;\n        if (!Array.isArray(msg)) {\n            messages = [msg];\n        }\n        else {\n            messages = msg;\n        }\n        const promise = this._linebot._post('/message/reply', {\n            replyToken: this.replyToken,\n            messages,\n        });\n        return promise.then(({ status, data }) => {\n            if (status !== 200) {\n                return Promise.reject(new Error(`${status}: ${data.message}`));\n            }\n            return Promise.resolve();\n        });\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#message-event\n */\nexport class MessageEvent extends ReplyableEvent {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ type, timestamp, source, replyToken, message, _linebot = undefined }) {\n        super({ type, timestamp, source, replyToken, _linebot });\n        /**\n         * Contents of the message\n         * @type  {LineMessage | any}\n         */\n        this.message = LineMessage.createFromObject(message);\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#follow-event\n */\nexport class FollowEvent extends ReplyableEvent {\n}\n/**\n * @see https://devdocs.line.me/en/#unfollow-event\n */\nexport class UnfollowEvent extends LineEvent {\n}\n/**\n * @see https://devdocs.line.me/en/#join-event\n */\nexport class JoinEvent extends ReplyableEvent {\n}\n/**\n * @see https://devdocs.line.me/en/#leave-event\n */\nexport class LeaveEvent extends LineEvent {\n}\n/**\n * @see https://devdocs.line.me/en/#postback-event\n */\nexport class PostbackEvent extends ReplyableEvent {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ type, timestamp, source, replyToken, postback, _linebot = undefined }) {\n        super({ type, timestamp, source, replyToken, _linebot });\n        /**\n         * Postback data\n         * @type     {Object}\n         * @property {string} postback.data  Postback data\n         */\n        this.postback = postback;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#beacon-event\n */\nexport class BeaconEvent extends ReplyableEvent {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ type, timestamp, source, replyToken, beacon, _linebot = undefined }) {\n        super({ type, timestamp, source, replyToken, _linebot });\n        /**\n         * Beacon data\n         * @type     {Object}\n         * @property {string} beacon.hwid  Hardware ID of the beacon that was detected\n         * @property {string} beacon.type  Type of beacon event\n         */\n        this.beacon = beacon;\n    }\n}\n"
+  },
+  {
+    "__docId__": 48,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "LineEvent",
+    "memberof": "es2015/LineEvents/index.js",
+    "longname": "es2015/LineEvents/index.js~LineEvent",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineEvents",
+    "importStyle": "{LineEvent}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#webhook-event-object"
+    ],
+    "lineNumber": 20,
+    "interface": false
+  },
+  {
+    "__docId__": 49,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineEvents/index.js~LineEvent",
+    "longname": "es2015/LineEvents/index.js~LineEvent#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 23,
+    "ignore": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"type\": *, \"timestamp\": *, \"source\": *}"
+        ],
+        "defaultRaw": {
+          "type": null,
+          "timestamp": null,
+          "source": null
+        },
+        "defaultValue": "{\"type\":null,\"timestamp\":null,\"source\":null}"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 50,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "type",
+    "memberof": "es2015/LineEvents/index.js~LineEvent",
+    "longname": "es2015/LineEvents/index.js~LineEvent#type",
+    "access": null,
+    "description": "Identifier for the type of event",
+    "lineNumber": 28,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 51,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "timestamp",
+    "memberof": "es2015/LineEvents/index.js~LineEvent",
+    "longname": "es2015/LineEvents/index.js~LineEvent#timestamp",
+    "access": null,
+    "description": "Time of the event in milliseconds",
+    "lineNumber": 33,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Date"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 52,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "source",
+    "memberof": "es2015/LineEvents/index.js~LineEvent",
+    "longname": "es2015/LineEvents/index.js~LineEvent#source",
+    "access": null,
+    "description": "Object which contains the source of the event",
+    "lineNumber": 38,
+    "type": {
+      "nullable": null,
+      "types": [
+        "LineSource"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "createFromObject",
+    "memberof": "es2015/LineEvents/index.js~LineEvent",
+    "longname": "es2015/LineEvents/index.js~LineEvent.createFromObject",
+    "access": null,
+    "description": null,
+    "lineNumber": 41,
+    "ignore": true,
+    "params": [
+      {
+        "name": "params",
+        "types": [
+          "*"
+        ]
+      },
+      {
+        "name": "_linebot",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 54,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "ReplyableEvent",
+    "memberof": "es2015/LineEvents/index.js",
+    "longname": "es2015/LineEvents/index.js~ReplyableEvent",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineEvents",
+    "importStyle": "{ReplyableEvent}",
+    "description": "Replyable event.",
+    "lineNumber": 75,
+    "interface": false,
+    "extends": [
+      "LineEvent"
+    ]
+  },
+  {
+    "__docId__": 55,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineEvents/index.js~ReplyableEvent",
+    "longname": "es2015/LineEvents/index.js~ReplyableEvent#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 78,
+    "ignore": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"type\": *, \"timestamp\": *, \"source\": *, \"replyToken\": *, \"_linebot\": *}"
+        ],
+        "defaultRaw": {
+          "type": null,
+          "timestamp": null,
+          "source": null,
+          "replyToken": null,
+          "_linebot": null
+        },
+        "defaultValue": "{\"type\":null,\"timestamp\":null,\"source\":null,\"replyToken\":null,\"_linebot\":null}"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 56,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "replyToken",
+    "memberof": "es2015/LineEvents/index.js~ReplyableEvent",
+    "longname": "es2015/LineEvents/index.js~ReplyableEvent#replyToken",
+    "access": null,
+    "description": "Token for replying to this event",
+    "lineNumber": 84,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 57,
+    "kind": "method",
+    "static": false,
+    "variation": null,
+    "name": "reply",
+    "memberof": "es2015/LineEvents/index.js~ReplyableEvent",
+    "longname": "es2015/LineEvents/index.js~ReplyableEvent#reply",
+    "access": null,
+    "description": "Respond to events from users, groups, and rooms.",
+    "see": [
+      "https://devdocs.line.me/en/#reply-message"
+    ],
+    "lineNumber": 97,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "LineMessage[] ",
+          " LineMessage ",
+          " any"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "msg",
+        "description": "Message like LineMessage."
+      }
+    ],
+    "return": {
+      "nullable": null,
+      "types": [
+        "Promise<void,Error>"
+      ],
+      "spread": false,
+      "description": ""
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 58,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "MessageEvent",
+    "memberof": "es2015/LineEvents/index.js",
+    "longname": "es2015/LineEvents/index.js~MessageEvent",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineEvents",
+    "importStyle": "{MessageEvent}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#message-event"
+    ],
+    "lineNumber": 120,
+    "interface": false,
+    "extends": [
+      "ReplyableEvent"
+    ]
+  },
+  {
+    "__docId__": 59,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineEvents/index.js~MessageEvent",
+    "longname": "es2015/LineEvents/index.js~MessageEvent#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 123,
+    "ignore": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"type\": *, \"timestamp\": *, \"source\": *, \"replyToken\": *, \"message\": *, \"_linebot\": *}"
+        ],
+        "defaultRaw": {
+          "type": null,
+          "timestamp": null,
+          "source": null,
+          "replyToken": null,
+          "message": null,
+          "_linebot": null
+        },
+        "defaultValue": "{\"type\":null,\"timestamp\":null,\"source\":null,\"replyToken\":null,\"message\":null,\"_linebot\":null}"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 60,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "message",
+    "memberof": "es2015/LineEvents/index.js~MessageEvent",
+    "longname": "es2015/LineEvents/index.js~MessageEvent#message",
+    "access": null,
+    "description": "Contents of the message",
+    "lineNumber": 129,
+    "type": {
+      "nullable": null,
+      "types": [
+        "LineMessage ",
+        " any"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 61,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "FollowEvent",
+    "memberof": "es2015/LineEvents/index.js",
+    "longname": "es2015/LineEvents/index.js~FollowEvent",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineEvents",
+    "importStyle": "{FollowEvent}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#follow-event"
+    ],
+    "lineNumber": 135,
+    "interface": false,
+    "extends": [
+      "ReplyableEvent"
+    ]
+  },
+  {
+    "__docId__": 62,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "UnfollowEvent",
+    "memberof": "es2015/LineEvents/index.js",
+    "longname": "es2015/LineEvents/index.js~UnfollowEvent",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineEvents",
+    "importStyle": "{UnfollowEvent}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#unfollow-event"
+    ],
+    "lineNumber": 140,
+    "interface": false,
+    "extends": [
+      "LineEvent"
+    ]
+  },
+  {
+    "__docId__": 63,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "JoinEvent",
+    "memberof": "es2015/LineEvents/index.js",
+    "longname": "es2015/LineEvents/index.js~JoinEvent",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineEvents",
+    "importStyle": "{JoinEvent}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#join-event"
+    ],
+    "lineNumber": 145,
+    "interface": false,
+    "extends": [
+      "ReplyableEvent"
+    ]
+  },
+  {
+    "__docId__": 64,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "LeaveEvent",
+    "memberof": "es2015/LineEvents/index.js",
+    "longname": "es2015/LineEvents/index.js~LeaveEvent",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineEvents",
+    "importStyle": "{LeaveEvent}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#leave-event"
+    ],
+    "lineNumber": 150,
+    "interface": false,
+    "extends": [
+      "LineEvent"
+    ]
+  },
+  {
+    "__docId__": 65,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "PostbackEvent",
+    "memberof": "es2015/LineEvents/index.js",
+    "longname": "es2015/LineEvents/index.js~PostbackEvent",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineEvents",
+    "importStyle": "{PostbackEvent}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#postback-event"
+    ],
+    "lineNumber": 155,
+    "interface": false,
+    "extends": [
+      "ReplyableEvent"
+    ]
+  },
+  {
+    "__docId__": 66,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineEvents/index.js~PostbackEvent",
+    "longname": "es2015/LineEvents/index.js~PostbackEvent#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 158,
+    "ignore": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"type\": *, \"timestamp\": *, \"source\": *, \"replyToken\": *, \"postback\": *, \"_linebot\": *}"
+        ],
+        "defaultRaw": {
+          "type": null,
+          "timestamp": null,
+          "source": null,
+          "replyToken": null,
+          "postback": null,
+          "_linebot": null
+        },
+        "defaultValue": "{\"type\":null,\"timestamp\":null,\"source\":null,\"replyToken\":null,\"postback\":null,\"_linebot\":null}"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 67,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "postback",
+    "memberof": "es2015/LineEvents/index.js~PostbackEvent",
+    "longname": "es2015/LineEvents/index.js~PostbackEvent#postback",
+    "access": null,
+    "description": "Postback data",
+    "lineNumber": 165,
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "postback.data",
+        "description": "Postback data"
+      }
+    ],
+    "type": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 68,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "BeaconEvent",
+    "memberof": "es2015/LineEvents/index.js",
+    "longname": "es2015/LineEvents/index.js~BeaconEvent",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineEvents",
+    "importStyle": "{BeaconEvent}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#beacon-event"
+    ],
+    "lineNumber": 171,
+    "interface": false,
+    "extends": [
+      "ReplyableEvent"
+    ]
+  },
+  {
+    "__docId__": 69,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineEvents/index.js~BeaconEvent",
+    "longname": "es2015/LineEvents/index.js~BeaconEvent#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 174,
+    "ignore": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"type\": *, \"timestamp\": *, \"source\": *, \"replyToken\": *, \"beacon\": *, \"_linebot\": *}"
+        ],
+        "defaultRaw": {
+          "type": null,
+          "timestamp": null,
+          "source": null,
+          "replyToken": null,
+          "beacon": null,
+          "_linebot": null
+        },
+        "defaultValue": "{\"type\":null,\"timestamp\":null,\"source\":null,\"replyToken\":null,\"beacon\":null,\"_linebot\":null}"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 70,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "beacon",
+    "memberof": "es2015/LineEvents/index.js~BeaconEvent",
+    "longname": "es2015/LineEvents/index.js~BeaconEvent#beacon",
+    "access": null,
+    "description": "Beacon data",
+    "lineNumber": 182,
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "beacon.hwid",
+        "description": "Hardware ID of the beacon that was detected"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "beacon.type",
+        "description": "Type of beacon event"
+      }
+    ],
+    "type": {
+      "nullable": null,
+      "types": [
+        "Object"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 71,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "es2015/LineMessages/index.js",
+    "memberof": null,
+    "longname": "es2015/LineMessages/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "import { ImagemapAction } from '../LineActions';\nimport { TemplateComponent } from '../LineTemplates';\nexport var LineMessageType;\n(function (LineMessageType) {\n    LineMessageType.TEXT = 'text';\n    LineMessageType.IMAGE = 'image';\n    LineMessageType.VIDEO = 'video';\n    LineMessageType.AUDIO = 'audio';\n    LineMessageType.LOCATION = 'location';\n    LineMessageType.STICKER = 'sticker';\n    LineMessageType.IMAGEMAP = 'imagemap';\n    LineMessageType.TEMPLATE = 'template';\n})(LineMessageType || (LineMessageType = {}));\n/* eslint-enable no-unused-vars, space-infix-ops */\n/**\n * Line Message\n * @see https://devdocs.line.me/en/#send-message-object\n */\nexport class LineMessage {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ id = undefined, type, }) {\n        /**\n        * Message ID.\n        * @type {string}\n        */\n        this.id = id;\n        /**\n         * Identifier for the type of source.\n         * @type {string}\n         */\n        this.type = type;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        switch (params.type) {\n            case LineMessageType.TEXT: {\n                return TextMessage.createFromObject(params);\n            }\n            case LineMessageType.IMAGE: {\n                return ImageMessage.createFromObject(params);\n            }\n            case LineMessageType.VIDEO: {\n                return VideoMessage.createFromObject(params);\n            }\n            case LineMessageType.AUDIO: {\n                return AudioMessage.createFromObject(params);\n            }\n            case LineMessageType.LOCATION: {\n                return LocationMessage.createFromObject(params);\n            }\n            case LineMessageType.STICKER: {\n                return StickerMessage.createFromObject(params);\n            }\n            case LineMessageType.IMAGEMAP: {\n                return ImagemapMessage.createFromObject(params);\n            }\n            case LineMessageType.TEMPLATE: {\n                return TemplateMessage.createFromObject(params);\n            }\n            default: {\n                return new LineMessage({ id: params.id, type: params.type });\n            }\n        }\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#text-message\n */\nexport class TextMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.text  Message text.\n     */\n    constructor({ text }) {\n        super({ type: LineMessageType.TEXT });\n        /**\n        * Message text.\n        * @type {string}\n        */\n        this.text = text;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new TextMessage(params);\n        instance.id = params.id;\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#image-message\n */\nexport class ImageMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.originalContentUrl  Image URL. (JPEG / HTTPS)\n     * @param {string} params.previewImageUrl     Preview image URL. (JPEG / HTTPS)\n     */\n    constructor({ originalContentUrl, previewImageUrl, }) {\n        super({ type: LineMessageType.IMAGE });\n        /**\n         * Image URL. (JPEG / HTTPS)\n         * @type {string}\n         */\n        this.originalContentUrl = originalContentUrl;\n        /**\n         * Preview image URL. (JPEG / HTTPS)\n         * @type {string}\n         */\n        this.previewImageUrl = previewImageUrl;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new ImageMessage(params);\n        instance.id = params.id;\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#video-message\n */\nexport class VideoMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.originalContentUrl  URL of video file. (MP4 / HTTPS)\n     * @param {string} params.previewImageUrl     Preview image URL. (JPEG / HTTPS)\n     */\n    constructor({ originalContentUrl, previewImageUrl, }) {\n        super({ type: LineMessageType.VIDEO });\n        /**\n         * URL of video file. (MP4 / HTTPS)\n         * @type {string}\n         */\n        this.originalContentUrl = originalContentUrl;\n        /**\n         * Preview image URL. (JPEG / HTTPS)\n         * @type {string}\n         */\n        this.previewImageUrl = previewImageUrl;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new VideoMessage(params);\n        instance.id = params.id;\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#audio-message\n */\nexport class AudioMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.originalContentUrl  URL of audio file. (M4A / HTTPS)\n     * @param {number} params.duration            Length of audio file (milliseconds)\n     */\n    constructor({ originalContentUrl, duration, }) {\n        super({ type: LineMessageType.AUDIO });\n        /**\n         * URL of audio file. (M4A / HTTPS)\n         * @type {string}\n         */\n        this.originalContentUrl = originalContentUrl;\n        /**\n         * Length of audio file (milliseconds)\n         * @type {number}\n         */\n        this.duration = duration;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new AudioMessage(params);\n        instance.id = params.id;\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#location-message\n */\nexport class LocationMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.title              Title.\n     * @param {string} params.address            Address.\n     * @param {number} params.latitude           Latitude.\n     * @param {number} params.longitude          Longitude.\n     */\n    constructor({ title, address, latitude, longitude, }) {\n        super({ type: LineMessageType.LOCATION });\n        /**\n        * Title.\n        * @type {string}\n        */\n        this.title = title;\n        /**\n         * Address.\n         * @type {string}\n         */\n        this.address = address;\n        /**\n         * Latitude.\n         * @type {number}\n         */\n        this.latitude = latitude;\n        /**\n         * Longitude.\n         * @type {number}\n         */\n        this.longitude = longitude;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new LocationMessage(params);\n        instance.id = params.id;\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#sticker-message\n */\nexport class StickerMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.packageId         Package ID.\n     * @param {string} params.stickerId         Sticker ID.\n     */\n    constructor({ packageId, stickerId, }) {\n        super({ type: LineMessageType.STICKER });\n        /**\n        * Package ID.\n        * @type {string}\n        */\n        this.packageId = packageId;\n        /**\n         * Sticker ID.\n         * @type {string}\n         */\n        this.stickerId = stickerId;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new StickerMessage(params);\n        instance.id = params.id;\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#imagemap-message\n */\nexport class ImagemapMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.baseUrl                        Base URL (HTTPS)\n     * @param {string} params.altText                        Alternative text\n     * @param {Size} params.baseSize                         Base image size.\n     * @param {ImagemapAction[] | Object[]}  params.actions  Action when tapped\n     */\n    constructor({ baseUrl, altText, baseSize, actions, }) {\n        super({ type: LineMessageType.IMAGEMAP });\n        /**\n         * Base URL (HTTPS)\n         * @type {string}\n         */\n        this.baseUrl = baseUrl;\n        /**\n         * Alternative text\n         * @type {string}\n         */\n        this.altText = altText;\n        /**\n         * Base image size.\n         * @type {Size}\n         */\n        this.baseSize = baseSize;\n        /**\n         * Action when tapped\n         * @type {ImagemapAction[]}\n         */\n        this.actions = actions.map(action => ImagemapAction.createFromObject(action));\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new ImagemapMessage(params);\n        return instance;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#template-messages\n */\nexport class TemplateMessage extends LineMessage {\n    /* eslint-enable no-undef */\n    /**\n     * Constructor\n     * @param {Object} params\n     * @param {string} params.altText                       Alternative text\n     * @param {TemplateComponent | Object} params.template  Object with the contents of the template.\n     */\n    constructor({ altText, template, }) {\n        super({ type: LineMessageType.TEMPLATE });\n        /**\n         * Alternative text\n         * @type {string}\n         */\n        this.altText = altText;\n        /**\n         * Object with the contents of the template.\n         * @type {TemplateComponent}\n         */\n        this.template = TemplateComponent.createFromObject(template);\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        const instance = new TemplateMessage(params);\n        return instance;\n    }\n}\n"
+  },
+  {
+    "__docId__": 72,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "LineMessage",
+    "memberof": "es2015/LineMessages/index.js",
+    "longname": "es2015/LineMessages/index.js~LineMessage",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineMessages",
+    "importStyle": "{LineMessage}",
+    "description": "Line Message",
+    "see": [
+      "https://devdocs.line.me/en/#send-message-object"
+    ],
+    "lineNumber": 19,
+    "interface": false
+  },
+  {
+    "__docId__": 73,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineMessages/index.js~LineMessage",
+    "longname": "es2015/LineMessages/index.js~LineMessage#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 22,
+    "ignore": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"id\": *, \"type\": *}"
+        ],
+        "defaultRaw": {
+          "id": null,
+          "type": null
+        },
+        "defaultValue": "{\"id\":null,\"type\":null}"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 74,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "id",
+    "memberof": "es2015/LineMessages/index.js~LineMessage",
+    "longname": "es2015/LineMessages/index.js~LineMessage#id",
+    "access": null,
+    "description": "Message ID.",
+    "lineNumber": 27,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 75,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "type",
+    "memberof": "es2015/LineMessages/index.js~LineMessage",
+    "longname": "es2015/LineMessages/index.js~LineMessage#type",
+    "access": null,
+    "description": "Identifier for the type of source.",
+    "lineNumber": 32,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 76,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "createFromObject",
+    "memberof": "es2015/LineMessages/index.js~LineMessage",
+    "longname": "es2015/LineMessages/index.js~LineMessage.createFromObject",
+    "access": null,
+    "description": null,
+    "lineNumber": 35,
+    "ignore": true,
+    "params": [
+      {
+        "name": "params",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 77,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "TextMessage",
+    "memberof": "es2015/LineMessages/index.js",
+    "longname": "es2015/LineMessages/index.js~TextMessage",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineMessages",
+    "importStyle": "{TextMessage}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#text-message"
+    ],
+    "lineNumber": 70,
+    "interface": false,
+    "extends": [
+      "LineMessage"
+    ]
+  },
+  {
+    "__docId__": 78,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineMessages/index.js~TextMessage",
+    "longname": "es2015/LineMessages/index.js~TextMessage#constructor",
+    "access": null,
+    "description": "Constructor",
+    "lineNumber": 77,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.text",
+        "description": "Message text."
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 79,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "text",
+    "memberof": "es2015/LineMessages/index.js~TextMessage",
+    "longname": "es2015/LineMessages/index.js~TextMessage#text",
+    "access": null,
+    "description": "Message text.",
+    "lineNumber": 83,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 80,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "createFromObject",
+    "memberof": "es2015/LineMessages/index.js~TextMessage",
+    "longname": "es2015/LineMessages/index.js~TextMessage.createFromObject",
+    "access": null,
+    "description": null,
+    "lineNumber": 86,
+    "ignore": true,
+    "params": [
+      {
+        "name": "params",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 81,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "ImageMessage",
+    "memberof": "es2015/LineMessages/index.js",
+    "longname": "es2015/LineMessages/index.js~ImageMessage",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineMessages",
+    "importStyle": "{ImageMessage}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#image-message"
+    ],
+    "lineNumber": 95,
+    "interface": false,
+    "extends": [
+      "LineMessage"
+    ]
+  },
+  {
+    "__docId__": 82,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineMessages/index.js~ImageMessage",
+    "longname": "es2015/LineMessages/index.js~ImageMessage#constructor",
+    "access": null,
+    "description": "Constructor",
+    "lineNumber": 103,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.originalContentUrl",
+        "description": "Image URL. (JPEG / HTTPS)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.previewImageUrl",
+        "description": "Preview image URL. (JPEG / HTTPS)"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 83,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "originalContentUrl",
+    "memberof": "es2015/LineMessages/index.js~ImageMessage",
+    "longname": "es2015/LineMessages/index.js~ImageMessage#originalContentUrl",
+    "access": null,
+    "description": "Image URL. (JPEG / HTTPS)",
+    "lineNumber": 109,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 84,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "previewImageUrl",
+    "memberof": "es2015/LineMessages/index.js~ImageMessage",
+    "longname": "es2015/LineMessages/index.js~ImageMessage#previewImageUrl",
+    "access": null,
+    "description": "Preview image URL. (JPEG / HTTPS)",
+    "lineNumber": 114,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 85,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "createFromObject",
+    "memberof": "es2015/LineMessages/index.js~ImageMessage",
+    "longname": "es2015/LineMessages/index.js~ImageMessage.createFromObject",
+    "access": null,
+    "description": null,
+    "lineNumber": 117,
+    "ignore": true,
+    "params": [
+      {
+        "name": "params",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 86,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "VideoMessage",
+    "memberof": "es2015/LineMessages/index.js",
+    "longname": "es2015/LineMessages/index.js~VideoMessage",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineMessages",
+    "importStyle": "{VideoMessage}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#video-message"
+    ],
+    "lineNumber": 126,
+    "interface": false,
+    "extends": [
+      "LineMessage"
+    ]
+  },
+  {
+    "__docId__": 87,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineMessages/index.js~VideoMessage",
+    "longname": "es2015/LineMessages/index.js~VideoMessage#constructor",
+    "access": null,
+    "description": "Constructor",
+    "lineNumber": 134,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.originalContentUrl",
+        "description": "URL of video file. (MP4 / HTTPS)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.previewImageUrl",
+        "description": "Preview image URL. (JPEG / HTTPS)"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 88,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "originalContentUrl",
+    "memberof": "es2015/LineMessages/index.js~VideoMessage",
+    "longname": "es2015/LineMessages/index.js~VideoMessage#originalContentUrl",
+    "access": null,
+    "description": "URL of video file. (MP4 / HTTPS)",
+    "lineNumber": 140,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 89,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "previewImageUrl",
+    "memberof": "es2015/LineMessages/index.js~VideoMessage",
+    "longname": "es2015/LineMessages/index.js~VideoMessage#previewImageUrl",
+    "access": null,
+    "description": "Preview image URL. (JPEG / HTTPS)",
+    "lineNumber": 145,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 90,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "createFromObject",
+    "memberof": "es2015/LineMessages/index.js~VideoMessage",
+    "longname": "es2015/LineMessages/index.js~VideoMessage.createFromObject",
+    "access": null,
+    "description": null,
+    "lineNumber": 148,
+    "ignore": true,
+    "params": [
+      {
+        "name": "params",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 91,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "AudioMessage",
+    "memberof": "es2015/LineMessages/index.js",
+    "longname": "es2015/LineMessages/index.js~AudioMessage",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineMessages",
+    "importStyle": "{AudioMessage}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#audio-message"
+    ],
+    "lineNumber": 157,
+    "interface": false,
+    "extends": [
+      "LineMessage"
+    ]
+  },
+  {
+    "__docId__": 92,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineMessages/index.js~AudioMessage",
+    "longname": "es2015/LineMessages/index.js~AudioMessage#constructor",
+    "access": null,
+    "description": "Constructor",
+    "lineNumber": 165,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.originalContentUrl",
+        "description": "URL of audio file. (M4A / HTTPS)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.duration",
+        "description": "Length of audio file (milliseconds)"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 93,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "originalContentUrl",
+    "memberof": "es2015/LineMessages/index.js~AudioMessage",
+    "longname": "es2015/LineMessages/index.js~AudioMessage#originalContentUrl",
+    "access": null,
+    "description": "URL of audio file. (M4A / HTTPS)",
+    "lineNumber": 171,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 94,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "duration",
+    "memberof": "es2015/LineMessages/index.js~AudioMessage",
+    "longname": "es2015/LineMessages/index.js~AudioMessage#duration",
+    "access": null,
+    "description": "Length of audio file (milliseconds)",
+    "lineNumber": 176,
+    "type": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 95,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "createFromObject",
+    "memberof": "es2015/LineMessages/index.js~AudioMessage",
+    "longname": "es2015/LineMessages/index.js~AudioMessage.createFromObject",
+    "access": null,
+    "description": null,
+    "lineNumber": 179,
+    "ignore": true,
+    "params": [
+      {
+        "name": "params",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 96,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "LocationMessage",
+    "memberof": "es2015/LineMessages/index.js",
+    "longname": "es2015/LineMessages/index.js~LocationMessage",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineMessages",
+    "importStyle": "{LocationMessage}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#location-message"
+    ],
+    "lineNumber": 188,
+    "interface": false,
+    "extends": [
+      "LineMessage"
+    ]
+  },
+  {
+    "__docId__": 97,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineMessages/index.js~LocationMessage",
+    "longname": "es2015/LineMessages/index.js~LocationMessage#constructor",
+    "access": null,
+    "description": "Constructor",
+    "lineNumber": 198,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.title",
+        "description": "Title."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.address",
+        "description": "Address."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.latitude",
+        "description": "Latitude."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.longitude",
+        "description": "Longitude."
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 98,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "title",
+    "memberof": "es2015/LineMessages/index.js~LocationMessage",
+    "longname": "es2015/LineMessages/index.js~LocationMessage#title",
+    "access": null,
+    "description": "Title.",
+    "lineNumber": 204,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 99,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "address",
+    "memberof": "es2015/LineMessages/index.js~LocationMessage",
+    "longname": "es2015/LineMessages/index.js~LocationMessage#address",
+    "access": null,
+    "description": "Address.",
+    "lineNumber": 209,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 100,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "latitude",
+    "memberof": "es2015/LineMessages/index.js~LocationMessage",
+    "longname": "es2015/LineMessages/index.js~LocationMessage#latitude",
+    "access": null,
+    "description": "Latitude.",
+    "lineNumber": 214,
+    "type": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 101,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "longitude",
+    "memberof": "es2015/LineMessages/index.js~LocationMessage",
+    "longname": "es2015/LineMessages/index.js~LocationMessage#longitude",
+    "access": null,
+    "description": "Longitude.",
+    "lineNumber": 219,
+    "type": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 102,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "createFromObject",
+    "memberof": "es2015/LineMessages/index.js~LocationMessage",
+    "longname": "es2015/LineMessages/index.js~LocationMessage.createFromObject",
+    "access": null,
+    "description": null,
+    "lineNumber": 222,
+    "ignore": true,
+    "params": [
+      {
+        "name": "params",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 103,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "StickerMessage",
+    "memberof": "es2015/LineMessages/index.js",
+    "longname": "es2015/LineMessages/index.js~StickerMessage",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineMessages",
+    "importStyle": "{StickerMessage}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#sticker-message"
+    ],
+    "lineNumber": 231,
+    "interface": false,
+    "extends": [
+      "LineMessage"
+    ]
+  },
+  {
+    "__docId__": 104,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineMessages/index.js~StickerMessage",
+    "longname": "es2015/LineMessages/index.js~StickerMessage#constructor",
+    "access": null,
+    "description": "Constructor",
+    "lineNumber": 239,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.packageId",
+        "description": "Package ID."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.stickerId",
+        "description": "Sticker ID."
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 105,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "packageId",
+    "memberof": "es2015/LineMessages/index.js~StickerMessage",
+    "longname": "es2015/LineMessages/index.js~StickerMessage#packageId",
+    "access": null,
+    "description": "Package ID.",
+    "lineNumber": 245,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 106,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "stickerId",
+    "memberof": "es2015/LineMessages/index.js~StickerMessage",
+    "longname": "es2015/LineMessages/index.js~StickerMessage#stickerId",
+    "access": null,
+    "description": "Sticker ID.",
+    "lineNumber": 250,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 107,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "createFromObject",
+    "memberof": "es2015/LineMessages/index.js~StickerMessage",
+    "longname": "es2015/LineMessages/index.js~StickerMessage.createFromObject",
+    "access": null,
+    "description": null,
+    "lineNumber": 253,
+    "ignore": true,
+    "params": [
+      {
+        "name": "params",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 108,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "ImagemapMessage",
+    "memberof": "es2015/LineMessages/index.js",
+    "longname": "es2015/LineMessages/index.js~ImagemapMessage",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineMessages",
+    "importStyle": "{ImagemapMessage}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#imagemap-message"
+    ],
+    "lineNumber": 262,
+    "interface": false,
+    "extends": [
+      "LineMessage"
+    ]
+  },
+  {
+    "__docId__": 109,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineMessages/index.js~ImagemapMessage",
+    "longname": "es2015/LineMessages/index.js~ImagemapMessage#constructor",
+    "access": null,
+    "description": "Constructor",
+    "lineNumber": 272,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.baseUrl",
+        "description": "Base URL (HTTPS)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.altText",
+        "description": "Alternative text"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "Size"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.baseSize",
+        "description": "Base image size."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "ImagemapAction[] ",
+          " Object[]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.actions",
+        "description": "Action when tapped"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 110,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "baseUrl",
+    "memberof": "es2015/LineMessages/index.js~ImagemapMessage",
+    "longname": "es2015/LineMessages/index.js~ImagemapMessage#baseUrl",
+    "access": null,
+    "description": "Base URL (HTTPS)",
+    "lineNumber": 278,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 111,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "altText",
+    "memberof": "es2015/LineMessages/index.js~ImagemapMessage",
+    "longname": "es2015/LineMessages/index.js~ImagemapMessage#altText",
+    "access": null,
+    "description": "Alternative text",
+    "lineNumber": 283,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 112,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "baseSize",
+    "memberof": "es2015/LineMessages/index.js~ImagemapMessage",
+    "longname": "es2015/LineMessages/index.js~ImagemapMessage#baseSize",
+    "access": null,
+    "description": "Base image size.",
+    "lineNumber": 288,
+    "type": {
+      "nullable": null,
+      "types": [
+        "Size"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 113,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "actions",
+    "memberof": "es2015/LineMessages/index.js~ImagemapMessage",
+    "longname": "es2015/LineMessages/index.js~ImagemapMessage#actions",
+    "access": null,
+    "description": "Action when tapped",
+    "lineNumber": 293,
+    "type": {
+      "nullable": null,
+      "types": [
+        "ImagemapAction[]"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 114,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "createFromObject",
+    "memberof": "es2015/LineMessages/index.js~ImagemapMessage",
+    "longname": "es2015/LineMessages/index.js~ImagemapMessage.createFromObject",
+    "access": null,
+    "description": null,
+    "lineNumber": 296,
+    "ignore": true,
+    "params": [
+      {
+        "name": "params",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 115,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "TemplateMessage",
+    "memberof": "es2015/LineMessages/index.js",
+    "longname": "es2015/LineMessages/index.js~TemplateMessage",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineMessages",
+    "importStyle": "{TemplateMessage}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#template-messages"
+    ],
+    "lineNumber": 304,
+    "interface": false,
+    "extends": [
+      "LineMessage"
+    ]
+  },
+  {
+    "__docId__": 116,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineMessages/index.js~TemplateMessage",
+    "longname": "es2015/LineMessages/index.js~TemplateMessage#constructor",
+    "access": null,
+    "description": "Constructor",
+    "lineNumber": 312,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.altText",
+        "description": "Alternative text"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "TemplateComponent ",
+          " Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.template",
+        "description": "Object with the contents of the template."
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 117,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "altText",
+    "memberof": "es2015/LineMessages/index.js~TemplateMessage",
+    "longname": "es2015/LineMessages/index.js~TemplateMessage#altText",
+    "access": null,
+    "description": "Alternative text",
+    "lineNumber": 318,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 118,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "template",
+    "memberof": "es2015/LineMessages/index.js~TemplateMessage",
+    "longname": "es2015/LineMessages/index.js~TemplateMessage#template",
+    "access": null,
+    "description": "Object with the contents of the template.",
+    "lineNumber": 323,
+    "type": {
+      "nullable": null,
+      "types": [
+        "TemplateComponent"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 119,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "createFromObject",
+    "memberof": "es2015/LineMessages/index.js~TemplateMessage",
+    "longname": "es2015/LineMessages/index.js~TemplateMessage.createFromObject",
+    "access": null,
+    "description": null,
+    "lineNumber": 326,
+    "ignore": true,
+    "params": [
+      {
+        "name": "params",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 120,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "es2015/LineSources/index.js",
+    "memberof": null,
+    "longname": "es2015/LineSources/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "export var LineSourceType;\n(function (LineSourceType) {\n    LineSourceType.USER = 'user';\n    LineSourceType.GROUP = 'group';\n    LineSourceType.ROOM = 'room';\n})(LineSourceType || (LineSourceType = {}));\n/* eslint-enable no-unused-vars, space-infix-ops */\n/**\n * Line Source\n * @see https://devdocs.line.me/en/#common-fields\n */\nexport class LineSource {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ type }) {\n        /**\n         * Identifier for the type of source.\n         * @type {string}\n         */\n        this.type = type;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        switch (params.type) {\n            case LineSourceType.USER: {\n                return new UserSource(params);\n            }\n            case LineSourceType.GROUP: {\n                return new GroupSource(params);\n            }\n            case LineSourceType.ROOM: {\n                return new RoomSource(params);\n            }\n            default: {\n                return new LineSource({ type: params.type });\n            }\n        }\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#source-user\n */\nexport class UserSource extends LineSource {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ type, userId }) {\n        super({ type });\n        /**\n         * ID of the source user.\n         * @type {string}\n         */\n        this.userId = userId;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#source-group\n */\nexport class GroupSource extends LineSource {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ type, groupId }) {\n        super({ type });\n        /**\n         * ID of the source group.\n         * @type {string}\n         */\n        this.groupId = groupId;\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#source-room\n */\nexport class RoomSource extends LineSource {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ type, roomId }) {\n        super({ type });\n        /**\n         * ID of the source room.\n         * @type {string}\n         */\n        this.roomId = roomId;\n    }\n}\n"
+  },
+  {
+    "__docId__": 121,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "LineSource",
+    "memberof": "es2015/LineSources/index.js",
+    "longname": "es2015/LineSources/index.js~LineSource",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineSources",
+    "importStyle": "{LineSource}",
+    "description": "Line Source",
+    "see": [
+      "https://devdocs.line.me/en/#common-fields"
+    ],
+    "lineNumber": 12,
+    "interface": false
+  },
+  {
+    "__docId__": 122,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineSources/index.js~LineSource",
+    "longname": "es2015/LineSources/index.js~LineSource#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 15,
+    "ignore": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"type\": *}"
+        ],
+        "defaultRaw": {
+          "type": null
+        },
+        "defaultValue": "{\"type\":null}"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 123,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "type",
+    "memberof": "es2015/LineSources/index.js~LineSource",
+    "longname": "es2015/LineSources/index.js~LineSource#type",
+    "access": null,
+    "description": "Identifier for the type of source.",
+    "lineNumber": 20,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 124,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "createFromObject",
+    "memberof": "es2015/LineSources/index.js~LineSource",
+    "longname": "es2015/LineSources/index.js~LineSource.createFromObject",
+    "access": null,
+    "description": null,
+    "lineNumber": 23,
+    "ignore": true,
+    "params": [
+      {
+        "name": "params",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 125,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "UserSource",
+    "memberof": "es2015/LineSources/index.js",
+    "longname": "es2015/LineSources/index.js~UserSource",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineSources",
+    "importStyle": "{UserSource}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#source-user"
+    ],
+    "lineNumber": 43,
+    "interface": false,
+    "extends": [
+      "LineSource"
+    ]
+  },
+  {
+    "__docId__": 126,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineSources/index.js~UserSource",
+    "longname": "es2015/LineSources/index.js~UserSource#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 46,
+    "ignore": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"type\": *, \"userId\": *}"
+        ],
+        "defaultRaw": {
+          "type": null,
+          "userId": null
+        },
+        "defaultValue": "{\"type\":null,\"userId\":null}"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 127,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "userId",
+    "memberof": "es2015/LineSources/index.js~UserSource",
+    "longname": "es2015/LineSources/index.js~UserSource#userId",
+    "access": null,
+    "description": "ID of the source user.",
+    "lineNumber": 52,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 128,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "GroupSource",
+    "memberof": "es2015/LineSources/index.js",
+    "longname": "es2015/LineSources/index.js~GroupSource",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineSources",
+    "importStyle": "{GroupSource}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#source-group"
+    ],
+    "lineNumber": 58,
+    "interface": false,
+    "extends": [
+      "LineSource"
+    ]
+  },
+  {
+    "__docId__": 129,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineSources/index.js~GroupSource",
+    "longname": "es2015/LineSources/index.js~GroupSource#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 61,
+    "ignore": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"type\": *, \"groupId\": *}"
+        ],
+        "defaultRaw": {
+          "type": null,
+          "groupId": null
+        },
+        "defaultValue": "{\"type\":null,\"groupId\":null}"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 130,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "groupId",
+    "memberof": "es2015/LineSources/index.js~GroupSource",
+    "longname": "es2015/LineSources/index.js~GroupSource#groupId",
+    "access": null,
+    "description": "ID of the source group.",
+    "lineNumber": 67,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 131,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "RoomSource",
+    "memberof": "es2015/LineSources/index.js",
+    "longname": "es2015/LineSources/index.js~RoomSource",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineSources",
+    "importStyle": "{RoomSource}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#source-room"
+    ],
+    "lineNumber": 73,
+    "interface": false,
+    "extends": [
+      "LineSource"
+    ]
+  },
+  {
+    "__docId__": 132,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineSources/index.js~RoomSource",
+    "longname": "es2015/LineSources/index.js~RoomSource#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 76,
+    "ignore": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"type\": *, \"roomId\": *}"
+        ],
+        "defaultRaw": {
+          "type": null,
+          "roomId": null
+        },
+        "defaultValue": "{\"type\":null,\"roomId\":null}"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 133,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "roomId",
+    "memberof": "es2015/LineSources/index.js~RoomSource",
+    "longname": "es2015/LineSources/index.js~RoomSource#roomId",
+    "access": null,
+    "description": "ID of the source room.",
+    "lineNumber": 82,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 134,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "es2015/LineTemplates/index.js",
+    "memberof": null,
+    "longname": "es2015/LineTemplates/index.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 1,
+    "content": "import { TemplateAction } from '../LineActions';\nexport var LineTemplateType;\n(function (LineTemplateType) {\n    LineTemplateType.BUTTONS = 'buttons';\n    LineTemplateType.CONFIRM = 'confirm';\n    LineTemplateType.CAROUSEL = 'carousel';\n})(LineTemplateType || (LineTemplateType = {}));\n/* eslint-enable no-unused-vars, space-infix-ops */\n/**\n * @see https://devdocs.line.me/en/#template-messages\n */\nexport class TemplateComponent {\n    /* eslint-enable no-undef */\n    /** @ignore */\n    constructor({ type }) {\n        /**\n         * Identifier for the type of template.\n         * @type {string}\n         */\n        this.type = type;\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        switch (params.type) {\n            case LineTemplateType.BUTTONS: {\n                return new TemplateButtons(params);\n            }\n            case LineTemplateType.CONFIRM: {\n                return new TemplateConfirm(params);\n            }\n            case LineTemplateType.CAROUSEL: {\n                return new TemplateCarousel(params);\n            }\n            default: {\n                return new TemplateComponent({ type: params.type });\n            }\n        }\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#buttons\n */\nexport class TemplateButtons extends TemplateComponent {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {Object}  params\n     * @param  {string}  [params.thumbnailImageUrl]       Image URL (JPEG or PNG / HTTPS / 1:1.51)\n     * @param  {string}  [params.title]                   Title (Max: 40 chars)\n     * @param  {string}  params.text                      Message text (Max: 160 chars (no image, no title) / 60 chars)\n     * @param  {TemplateAction[] | any[]} params.actions  Action when tapped (Max: 4)\n     */\n    constructor({ thumbnailImageUrl, title, text, actions }) {\n        super({ type: LineTemplateType.BUTTONS });\n        /**\n         * Image URL (JPEG or PNG / HTTPS / 1:1.51)\n         * @type {string}\n         */\n        this.thumbnailImageUrl = thumbnailImageUrl;\n        /**\n         * Title (Max: 40 chars)\n         * @type {string}\n         */\n        this.title = title;\n        /**\n         * Message text (Max: 160 chars (no image, no title) / 60 chars)\n         * @type {string}\n         */\n        this.text = text;\n        /**\n         * Action when tapped (Max: 4)\n         * @type {TemplateAction[]}\n         */\n        this.actions = actions.map(action => TemplateAction.createFromObject(action));\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#confirm\n */\nexport class TemplateConfirm extends TemplateComponent {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {Object}  params\n     * @param  {string}  params.text                      Message text (Max: 240 chars)\n     * @param  {TemplateAction[] | any[]} params.actions  Action when tapped (Max: 2)\n     */\n    constructor({ text, actions }) {\n        super({ type: LineTemplateType.CONFIRM });\n        /**\n         * Message text (Max: 240 chars)\n         * @type {string}\n         */\n        this.text = text;\n        /**\n         * Action when tapped (Max: 2)\n         * @type {TemplateAction[]}\n         */\n        this.actions = actions.map(action => TemplateAction.createFromObject(action));\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#carousel\n */\nexport class TemplateCarousel extends TemplateComponent {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {Object}  params\n     * @param  {TemplateColumn[] | any[]} params.columns  Array of columns (Max: 5)\n     */\n    constructor({ columns }) {\n        super({ type: LineTemplateType.CAROUSEL });\n        /**\n         * Array of columns (Max: 5)\n         * @type {TemplateColumn[]}\n         */\n        this.columns = columns.map(column => TemplateColumn.createFromObject(column));\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#column-object\n */\nexport class TemplateColumn {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {Object}  params\n     * @param  {string}  [params.thumbnailImageUrl]       Image URL (JPEG or PNG / HTTPS / 1:1.51)\n     * @param  {string}  [params.title]                   Title (Max: 40 chars)\n     * @param  {string}  params.text                      Message text (Max: 160 chars (no image, no title) / 60 chars)\n     * @param  {TemplateAction[] | any[]} params.actions  Action when tapped (Max: 3)\n     */\n    constructor({ thumbnailImageUrl, title, text, actions }) {\n        /**\n         * Image URL (JPEG or PNG / HTTPS / 1:1.51)\n         * @type {string}\n         */\n        this.thumbnailImageUrl = thumbnailImageUrl;\n        /**\n         * Title (Max: 40 chars)\n         * @type {string}\n         */\n        this.title = title;\n        /**\n         * Message text (Max: 160 chars (no image, no title) / 60 chars)\n         * @type {string}\n         */\n        this.text = text;\n        /**\n         * Action when tapped (Max: 3)\n         * @type {TemplateAction[]}\n         */\n        this.actions = actions.map(action => TemplateAction.createFromObject(action));\n    }\n    /** @ignore */\n    static createFromObject(params) {\n        return new TemplateColumn(params);\n    }\n}\n"
+  },
+  {
+    "__docId__": 135,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "TemplateComponent",
+    "memberof": "es2015/LineTemplates/index.js",
+    "longname": "es2015/LineTemplates/index.js~TemplateComponent",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineTemplates",
+    "importStyle": "{TemplateComponent}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#template-messages"
+    ],
+    "lineNumber": 12,
+    "interface": false
+  },
+  {
+    "__docId__": 136,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineTemplates/index.js~TemplateComponent",
+    "longname": "es2015/LineTemplates/index.js~TemplateComponent#constructor",
+    "access": null,
+    "description": null,
+    "lineNumber": 15,
+    "ignore": true,
+    "params": [
+      {
+        "name": "objectPattern",
+        "types": [
+          "{\"type\": *}"
+        ],
+        "defaultRaw": {
+          "type": null
+        },
+        "defaultValue": "{\"type\":null}"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 137,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "type",
+    "memberof": "es2015/LineTemplates/index.js~TemplateComponent",
+    "longname": "es2015/LineTemplates/index.js~TemplateComponent#type",
+    "access": null,
+    "description": "Identifier for the type of template.",
+    "lineNumber": 20,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 138,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "createFromObject",
+    "memberof": "es2015/LineTemplates/index.js~TemplateComponent",
+    "longname": "es2015/LineTemplates/index.js~TemplateComponent.createFromObject",
+    "access": null,
+    "description": null,
+    "lineNumber": 23,
+    "ignore": true,
+    "params": [
+      {
+        "name": "params",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 139,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "TemplateButtons",
+    "memberof": "es2015/LineTemplates/index.js",
+    "longname": "es2015/LineTemplates/index.js~TemplateButtons",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineTemplates",
+    "importStyle": "{TemplateButtons}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#buttons"
+    ],
+    "lineNumber": 43,
+    "interface": false,
+    "extends": [
+      "TemplateComponent"
+    ]
+  },
+  {
+    "__docId__": 140,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineTemplates/index.js~TemplateButtons",
+    "longname": "es2015/LineTemplates/index.js~TemplateButtons#constructor",
+    "access": null,
+    "description": "",
+    "lineNumber": 52,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "params.thumbnailImageUrl",
+        "description": "Image URL (JPEG or PNG / HTTPS / 1:1.51)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "params.title",
+        "description": "Title (Max: 40 chars)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.text",
+        "description": "Message text (Max: 160 chars (no image, no title) / 60 chars)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "TemplateAction[] ",
+          " any[]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.actions",
+        "description": "Action when tapped (Max: 4)"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 141,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "thumbnailImageUrl",
+    "memberof": "es2015/LineTemplates/index.js~TemplateButtons",
+    "longname": "es2015/LineTemplates/index.js~TemplateButtons#thumbnailImageUrl",
+    "access": null,
+    "description": "Image URL (JPEG or PNG / HTTPS / 1:1.51)",
+    "lineNumber": 58,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 142,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "title",
+    "memberof": "es2015/LineTemplates/index.js~TemplateButtons",
+    "longname": "es2015/LineTemplates/index.js~TemplateButtons#title",
+    "access": null,
+    "description": "Title (Max: 40 chars)",
+    "lineNumber": 63,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 143,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "text",
+    "memberof": "es2015/LineTemplates/index.js~TemplateButtons",
+    "longname": "es2015/LineTemplates/index.js~TemplateButtons#text",
+    "access": null,
+    "description": "Message text (Max: 160 chars (no image, no title) / 60 chars)",
+    "lineNumber": 68,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 144,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "actions",
+    "memberof": "es2015/LineTemplates/index.js~TemplateButtons",
+    "longname": "es2015/LineTemplates/index.js~TemplateButtons#actions",
+    "access": null,
+    "description": "Action when tapped (Max: 4)",
+    "lineNumber": 73,
+    "type": {
+      "nullable": null,
+      "types": [
+        "TemplateAction[]"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 145,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "TemplateConfirm",
+    "memberof": "es2015/LineTemplates/index.js",
+    "longname": "es2015/LineTemplates/index.js~TemplateConfirm",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineTemplates",
+    "importStyle": "{TemplateConfirm}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#confirm"
+    ],
+    "lineNumber": 79,
+    "interface": false,
+    "extends": [
+      "TemplateComponent"
+    ]
+  },
+  {
+    "__docId__": 146,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineTemplates/index.js~TemplateConfirm",
+    "longname": "es2015/LineTemplates/index.js~TemplateConfirm#constructor",
+    "access": null,
+    "description": "",
+    "lineNumber": 86,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.text",
+        "description": "Message text (Max: 240 chars)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "TemplateAction[] ",
+          " any[]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.actions",
+        "description": "Action when tapped (Max: 2)"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 147,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "text",
+    "memberof": "es2015/LineTemplates/index.js~TemplateConfirm",
+    "longname": "es2015/LineTemplates/index.js~TemplateConfirm#text",
+    "access": null,
+    "description": "Message text (Max: 240 chars)",
+    "lineNumber": 92,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 148,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "actions",
+    "memberof": "es2015/LineTemplates/index.js~TemplateConfirm",
+    "longname": "es2015/LineTemplates/index.js~TemplateConfirm#actions",
+    "access": null,
+    "description": "Action when tapped (Max: 2)",
+    "lineNumber": 97,
+    "type": {
+      "nullable": null,
+      "types": [
+        "TemplateAction[]"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 149,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "TemplateCarousel",
+    "memberof": "es2015/LineTemplates/index.js",
+    "longname": "es2015/LineTemplates/index.js~TemplateCarousel",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineTemplates",
+    "importStyle": "{TemplateCarousel}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#carousel"
+    ],
+    "lineNumber": 103,
+    "interface": false,
+    "extends": [
+      "TemplateComponent"
+    ]
+  },
+  {
+    "__docId__": 150,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineTemplates/index.js~TemplateCarousel",
+    "longname": "es2015/LineTemplates/index.js~TemplateCarousel#constructor",
+    "access": null,
+    "description": "",
+    "lineNumber": 109,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "TemplateColumn[] ",
+          " any[]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.columns",
+        "description": "Array of columns (Max: 5)"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 151,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "columns",
+    "memberof": "es2015/LineTemplates/index.js~TemplateCarousel",
+    "longname": "es2015/LineTemplates/index.js~TemplateCarousel#columns",
+    "access": null,
+    "description": "Array of columns (Max: 5)",
+    "lineNumber": 115,
+    "type": {
+      "nullable": null,
+      "types": [
+        "TemplateColumn[]"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 152,
+    "kind": "class",
+    "static": true,
+    "variation": null,
+    "name": "TemplateColumn",
+    "memberof": "es2015/LineTemplates/index.js",
+    "longname": "es2015/LineTemplates/index.js~TemplateColumn",
+    "access": null,
+    "export": true,
+    "importPath": "@3846masa/linebot/lib/LineTemplates",
+    "importStyle": "{TemplateColumn}",
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#column-object"
+    ],
+    "lineNumber": 121,
+    "interface": false
+  },
+  {
+    "__docId__": 153,
+    "kind": "constructor",
+    "static": false,
+    "variation": null,
+    "name": "constructor",
+    "memberof": "es2015/LineTemplates/index.js~TemplateColumn",
+    "longname": "es2015/LineTemplates/index.js~TemplateColumn#constructor",
+    "access": null,
+    "description": "",
+    "lineNumber": 130,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "Object"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "params.thumbnailImageUrl",
+        "description": "Image URL (JPEG or PNG / HTTPS / 1:1.51)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": true,
+        "name": "params.title",
+        "description": "Title (Max: 40 chars)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.text",
+        "description": "Message text (Max: 160 chars (no image, no title) / 60 chars)"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "TemplateAction[] ",
+          " any[]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "params.actions",
+        "description": "Action when tapped (Max: 3)"
+      }
+    ],
+    "generator": false
+  },
+  {
+    "__docId__": 154,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "thumbnailImageUrl",
+    "memberof": "es2015/LineTemplates/index.js~TemplateColumn",
+    "longname": "es2015/LineTemplates/index.js~TemplateColumn#thumbnailImageUrl",
+    "access": null,
+    "description": "Image URL (JPEG or PNG / HTTPS / 1:1.51)",
+    "lineNumber": 135,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 155,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "title",
+    "memberof": "es2015/LineTemplates/index.js~TemplateColumn",
+    "longname": "es2015/LineTemplates/index.js~TemplateColumn#title",
+    "access": null,
+    "description": "Title (Max: 40 chars)",
+    "lineNumber": 140,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 156,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "text",
+    "memberof": "es2015/LineTemplates/index.js~TemplateColumn",
+    "longname": "es2015/LineTemplates/index.js~TemplateColumn#text",
+    "access": null,
+    "description": "Message text (Max: 160 chars (no image, no title) / 60 chars)",
+    "lineNumber": 145,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 157,
+    "kind": "member",
+    "static": false,
+    "variation": null,
+    "name": "actions",
+    "memberof": "es2015/LineTemplates/index.js~TemplateColumn",
+    "longname": "es2015/LineTemplates/index.js~TemplateColumn#actions",
+    "access": null,
+    "description": "Action when tapped (Max: 3)",
+    "lineNumber": 150,
+    "type": {
+      "nullable": null,
+      "types": [
+        "TemplateAction[]"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 158,
+    "kind": "method",
+    "static": true,
+    "variation": null,
+    "name": "createFromObject",
+    "memberof": "es2015/LineTemplates/index.js~TemplateColumn",
+    "longname": "es2015/LineTemplates/index.js~TemplateColumn.createFromObject",
+    "access": null,
+    "description": null,
+    "lineNumber": 153,
+    "ignore": true,
+    "params": [
+      {
+        "name": "params",
+        "types": [
+          "*"
+        ]
+      }
+    ],
+    "return": {
+      "types": [
+        "*"
+      ]
+    },
+    "generator": false
+  },
+  {
+    "__docId__": 159,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "es2015/externals.js",
+    "memberof": null,
+    "longname": "es2015/externals.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 13,
+    "content": "/**\n * @external {EventEmitter2}       https://github.com/asyncly/EventEmitter2#api\n */\n/**\n * @external {Express.Application} http://expressjs.com/en/4x/api.html\n */\n/**\n * @external {http.Server} https://nodejs.org/api/http.html#http_class_http_server\n */\n/**\n * @external {stream.Readable} https://nodejs.org/api/stream.html#stream_class_stream_readable\n */\n"
+  },
+  {
+    "__docId__": 160,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "EventEmitter2",
+    "externalLink": "https://github.com/asyncly/EventEmitter2#api",
+    "memberof": "es2015/externals.js",
+    "longname": "es2015/externals.js~EventEmitter2",
+    "access": null,
+    "description": ""
+  },
+  {
+    "__docId__": 161,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Express.Application",
+    "externalLink": "http://expressjs.com/en/4x/api.html",
+    "memberof": "es2015/externals.js",
+    "longname": "es2015/externals.js~Express.Application",
+    "access": null,
+    "description": ""
+  },
+  {
+    "__docId__": 162,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "http.Server",
+    "externalLink": "https://nodejs.org/api/http.html#http_class_http_server",
+    "memberof": "es2015/externals.js",
+    "longname": "es2015/externals.js~http.Server",
+    "access": null,
+    "description": ""
+  },
+  {
+    "__docId__": 163,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "stream.Readable",
+    "externalLink": "https://nodejs.org/api/stream.html#stream_class_stream_readable",
+    "memberof": "es2015/externals.js",
+    "longname": "es2015/externals.js~stream.Readable",
+    "access": null,
+    "description": ""
+  },
+  {
+    "__docId__": 164,
+    "kind": "file",
+    "static": true,
+    "variation": null,
+    "name": "es2015/interfaces.js",
+    "memberof": null,
+    "longname": "es2015/interfaces.js",
+    "access": null,
+    "description": null,
+    "lineNumber": 27,
+    "content": "/* eslint-enable no-undef */\n/**\n * @typedef   {Object} LineBotConfig\n * @property  {String} channelSecret  Channel secret\n * @property  {String} channelToken   Channel token\n */\n/**\n * @typedef   {Object} LineProfile\n * @property  {String} displayName    Display name\n * @property  {String} userId         User ID\n * @property  {String} pictureUrl     Image URL\n * @property  {String} statusMessage  Status message\n */\n/**\n * @typedef   {Object} Rectangle\n * @property  {number} x\n * @property  {number} y\n * @property  {number} width\n * @property  {number} height\n * @see https://devdocs.line.me/en/#imagemap-area-object\n */\n/**\n * @typedef   {Object} Size\n * @property  {number} width\n * @property  {number} height\n */\n"
+  },
+  {
+    "__docId__": 165,
+    "kind": "typedef",
+    "static": true,
+    "variation": null,
+    "name": "LineBotConfig",
+    "memberof": "es2015/interfaces.js",
+    "longname": "es2015/interfaces.js~LineBotConfig",
+    "access": null,
+    "description": "",
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "channelSecret",
+        "description": "Channel secret"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "channelToken",
+        "description": "Channel token"
+      }
+    ],
+    "type": {
+      "types": [
+        "Object"
+      ],
+      "optional": false,
+      "name": "LineBotConfig"
+    }
+  },
+  {
+    "__docId__": 166,
+    "kind": "typedef",
+    "static": true,
+    "variation": null,
+    "name": "LineProfile",
+    "memberof": "es2015/interfaces.js",
+    "longname": "es2015/interfaces.js~LineProfile",
+    "access": null,
+    "description": "",
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "displayName",
+        "description": "Display name"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "userId",
+        "description": "User ID"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "pictureUrl",
+        "description": "Image URL"
+      },
+      {
+        "nullable": null,
+        "types": [
+          "String"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "statusMessage",
+        "description": "Status message"
+      }
+    ],
+    "type": {
+      "types": [
+        "Object"
+      ],
+      "optional": false,
+      "name": "LineProfile"
+    }
+  },
+  {
+    "__docId__": 167,
+    "kind": "typedef",
+    "static": true,
+    "variation": null,
+    "name": "Rectangle",
+    "memberof": "es2015/interfaces.js",
+    "longname": "es2015/interfaces.js~Rectangle",
+    "access": null,
+    "description": "",
+    "see": [
+      "https://devdocs.line.me/en/#imagemap-area-object"
+    ],
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "x",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "y",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "width",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "height",
+        "description": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "Object"
+      ],
+      "optional": false,
+      "name": "Rectangle"
+    }
+  },
+  {
+    "__docId__": 168,
+    "kind": "typedef",
+    "static": true,
+    "variation": null,
+    "name": "Size",
+    "memberof": "es2015/interfaces.js",
+    "longname": "es2015/interfaces.js~Size",
+    "access": null,
+    "description": "",
+    "properties": [
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "width",
+        "description": ""
+      },
+      {
+        "nullable": null,
+        "types": [
+          "number"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "height",
+        "description": ""
+      }
+    ],
+    "type": {
+      "types": [
+        "Object"
+      ],
+      "optional": false,
+      "name": "Size"
+    }
+  },
+  {
+    "__docId__": 170,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Infinity",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Infinity",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Infinity",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 171,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "NaN",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NaN",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~NaN",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 172,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "undefined",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/undefined",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~undefined",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 173,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "null",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/null",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~null",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 174,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 175,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "object",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~object",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 176,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 177,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "function",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~function",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 178,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 179,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "boolean",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~boolean",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 180,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Symbol",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Symbol",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 181,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Error",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Error",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Error",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 182,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "EvalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/EvalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~EvalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 183,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "InternalError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/InternalError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~InternalError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 184,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "RangeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RangeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 185,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "ReferenceError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ReferenceError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ReferenceError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 186,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "SyntaxError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~SyntaxError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 187,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "TypeError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~TypeError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 188,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "URIError",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/URIError",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~URIError",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 189,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 190,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "number",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~number",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 191,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Date",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Date",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 192,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "String",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~String",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 193,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "string",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~string",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 194,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "RegExp",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~RegExp",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 195,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 196,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 197,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint8Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 198,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint8ClampedArray",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8ClampedArray",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint8ClampedArray",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 199,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 200,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint16Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint16Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint16Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 201,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Int32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Int32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Int32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 202,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Uint32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Uint32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 203,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Float32Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float32Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float32Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 204,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Float64Array",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Float64Array",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Float64Array",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 205,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Map",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Map",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Map",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 206,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Set",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Set",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Set",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 207,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "WeakMap",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakMap",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakMap",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 208,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "WeakSet",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/WeakSet",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~WeakSet",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 209,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "ArrayBuffer",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/ArrayBuffer",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~ArrayBuffer",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 210,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "DataView",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DataView",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~DataView",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 211,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "JSON",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/JSON",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~JSON",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 212,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Promise",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Promise",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 213,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Generator",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Generator",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Generator",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 214,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "GeneratorFunction",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/GeneratorFunction",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~GeneratorFunction",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 215,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Reflect",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Reflect",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Reflect",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 216,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Proxy",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy",
+    "memberof": "BuiltinExternal/ECMAScriptExternal.js",
+    "longname": "BuiltinExternal/ECMAScriptExternal.js~Proxy",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 218,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "CanvasRenderingContext2D",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~CanvasRenderingContext2D",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 219,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "DocumentFragment",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~DocumentFragment",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 220,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Element",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Element",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Element",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 221,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Event",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Event",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Event",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 222,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "Node",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/Node",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~Node",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 223,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "NodeList",
+    "externalLink": "https://developer.mozilla.org/en-US/docs/Web/API/NodeList",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~NodeList",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 224,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "XMLHttpRequest",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/XMLHttpRequest",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~XMLHttpRequest",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  },
+  {
+    "__docId__": 225,
+    "kind": "external",
+    "static": true,
+    "variation": null,
+    "name": "AudioContext",
+    "externalLink": "https://developer.mozilla.org/en/docs/Web/API/AudioContext",
+    "memberof": "BuiltinExternal/WebAPIExternal.js",
+    "longname": "BuiltinExternal/WebAPIExternal.js~AudioContext",
+    "access": null,
+    "description": "",
+    "builtinExternal": true
+  }
+]

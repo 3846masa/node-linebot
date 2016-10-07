@@ -1,0 +1,29 @@
+{
+  "source": "./es2015",
+  "destination": "./docs",
+  "title": "@3846masa/linebot | ESDoc",
+  "styles": ["./.esdoc/styles.css"],
+  "manual": {
+    "example": ["./examples/README.md"]
+  },
+  "plugins": [{
+    "name": "esdoc-importpath-plugin",
+    "option": {
+      "replaces": [{
+        "from": "^es2015/",
+        "to": "lib/"
+      }, {
+        "from": "/index.js$",
+        "to": ""
+      }]
+    }
+  }, {
+    "name": "./.esdoc/replace-link",
+    "option": {
+      "replaces": [{
+        "from": "^./examples",
+        "to": "./manual/example.html"
+      }]
+    }
+  }]
+}

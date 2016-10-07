@@ -1,0 +1,44 @@
+/* Listeners */
+[data-ice=listenWrap] table {
+  width: 100%;
+  margin: 10px 0;
+  border-spacing: 0;
+  border: 0;
+  border-collapse: collapse;
+}
+
+[data-ice=listenWrap] tr:first-child td {
+  border: solid 1px #ddd;
+}
+
+[data-ice=listenWrap] tr:first-child td p {
+  padding: 4px;
+  margin: 0;
+}
+
+[data-ice=listenWrap] tr:first-child td:before {
+  display: block;
+  background: #eee;
+  padding: 4px;
+  margin: 0;
+  color: #aaa;
+  box-sizing: border-box;
+  border-bottom: solid 1px #ddd;
+}
+
+[data-ice=listenWrap] tr:first-child td:first-child:before {
+  content: "Name";
+}
+
+[data-ice=listenWrap] tr:first-child td:last-child:before {
+  content: "Description";
+}
+
+/* Code */
+code.source-code.prettyprint {
+  font-family: Consolas, 'Courier New', Courier, Monaco, monospace;
+}
+
+code[class^="lang-"] {
+  padding: 1em;
+}
