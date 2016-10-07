@@ -141,8 +141,7 @@ export class TemplateCarousel extends TemplateComponent {
 
   /**
    * @param  {string}                   type              Identifier for the type of template.
-   * @param  {string}                   text              Message text (Max: 240 chars)
-   * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 2)
+   * @param  {TemplateColumn[] | any[]} columns           Array of columns (Max: 5)
    */
   constructor({ type, columns }: {
     type: LineTemplateType,
@@ -150,8 +149,8 @@ export class TemplateCarousel extends TemplateComponent {
   }) {
     super({ type });
     /**
-     * Action when tapped (Max: 2)
-     * @type {TemplateAction[]}
+     * Array of columns (Max: 5)
+     * @type {TemplateColumn[]}
      */
     this.columns = columns.map(column => TemplateColumn.createFromObject(column));
   }

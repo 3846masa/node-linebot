@@ -3743,7 +3743,7 @@
     "access": null,
     "description": null,
     "lineNumber": 1,
-    "content": "import { TemplateAction } from '../LineActions';\nexport var LineTemplateType;\n(function (LineTemplateType) {\n    LineTemplateType.BUTTONS = 'buttons';\n    LineTemplateType.CONFIRM = 'confirm';\n    LineTemplateType.CAROUSEL = 'carousel';\n})(LineTemplateType || (LineTemplateType = {}));\n/* eslint-enable no-unused-vars, space-infix-ops */\n/**\n * @see https://devdocs.line.me/en/#template-messages\n */\nexport class TemplateComponent {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {string} type  Identifier for the type of template.\n     */\n    constructor({ type }) {\n        /**\n         * Identifier for the type of template.\n         * @type {string}\n         */\n        this.type = type;\n    }\n    /** @private */\n    static createFromObject(params) {\n        switch (params.type) {\n            case LineTemplateType.BUTTONS: {\n                return new TemplateButtons(params);\n            }\n            case LineTemplateType.CONFIRM: {\n                return new TemplateConfirm(params);\n            }\n            case LineTemplateType.CAROUSEL: {\n                return new TemplateCarousel(params);\n            }\n            default: {\n                return new TemplateComponent({ type: params.type });\n            }\n        }\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#buttons\n */\nexport class TemplateButtons extends TemplateComponent {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {string}                   type              Identifier for the type of template.\n     * @param  {string}  [thumbnailImageUrl] Image URL (JPEG or PNG / HTTPS / 1:1.51)\n     * @param  {string}  [title]             Title (Max: 40 chars)\n     * @param  {string}                   text              Message text (Max: 160 chars (no image, no title) / 60 chars)\n     * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 4)\n     */\n    constructor({ type, thumbnailImageUrl, title, text, actions }) {\n        super({ type });\n        /**\n         * Image URL (JPEG or PNG / HTTPS / 1:1.51)\n         * @type {string}\n         */\n        this.thumbnailImageUrl = thumbnailImageUrl;\n        /**\n         * Title (Max: 40 chars)\n         * @type {string}\n         */\n        this.title = title;\n        /**\n         * Message text (Max: 160 chars (no image, no title) / 60 chars)\n         * @type {string}\n         */\n        this.text = text;\n        /**\n         * Action when tapped (Max: 4)\n         * @type {TemplateAction[]}\n         */\n        this.actions = actions.map(action => TemplateAction.createFromObject(action));\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#confirm\n */\nexport class TemplateConfirm extends TemplateComponent {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {string}                   type              Identifier for the type of template.\n     * @param  {string}                   text              Message text (Max: 240 chars)\n     * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 2)\n     */\n    constructor({ type, text, actions }) {\n        super({ type });\n        /**\n         * Message text (Max: 240 chars)\n         * @type {string}\n         */\n        this.text = text;\n        /**\n         * Action when tapped (Max: 2)\n         * @type {TemplateAction[]}\n         */\n        this.actions = actions.map(action => TemplateAction.createFromObject(action));\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#carousel\n */\nexport class TemplateCarousel extends TemplateComponent {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {string}                   type              Identifier for the type of template.\n     * @param  {string}                   text              Message text (Max: 240 chars)\n     * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 2)\n     */\n    constructor({ type, columns }) {\n        super({ type });\n        /**\n         * Action when tapped (Max: 2)\n         * @type {TemplateAction[]}\n         */\n        this.columns = columns.map(column => TemplateColumn.createFromObject(column));\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#column-object\n */\nexport class TemplateColumn {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {string}  [thumbnailImageUrl] Image URL (JPEG or PNG / HTTPS / 1:1.51)\n     * @param  {string}  [title]             Title (Max: 40 chars)\n     * @param  {string}                   text              Message text (Max: 160 chars (no image, no title) / 60 chars)\n     * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 3)\n     */\n    constructor({ thumbnailImageUrl, title, text, actions }) {\n        /**\n         * Image URL (JPEG or PNG / HTTPS / 1:1.51)\n         * @type {string}\n         */\n        this.thumbnailImageUrl = thumbnailImageUrl;\n        /**\n         * Title (Max: 40 chars)\n         * @type {string}\n         */\n        this.title = title;\n        /**\n         * Message text (Max: 160 chars (no image, no title) / 60 chars)\n         * @type {string}\n         */\n        this.text = text;\n        /**\n         * Action when tapped (Max: 3)\n         * @type {TemplateAction[]}\n         */\n        this.actions = actions.map(action => TemplateAction.createFromObject(action));\n    }\n    /** @private */\n    static createFromObject(params) {\n        return new TemplateColumn(params);\n    }\n}\n"
+    "content": "import { TemplateAction } from '../LineActions';\nexport var LineTemplateType;\n(function (LineTemplateType) {\n    LineTemplateType.BUTTONS = 'buttons';\n    LineTemplateType.CONFIRM = 'confirm';\n    LineTemplateType.CAROUSEL = 'carousel';\n})(LineTemplateType || (LineTemplateType = {}));\n/* eslint-enable no-unused-vars, space-infix-ops */\n/**\n * @see https://devdocs.line.me/en/#template-messages\n */\nexport class TemplateComponent {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {string} type  Identifier for the type of template.\n     */\n    constructor({ type }) {\n        /**\n         * Identifier for the type of template.\n         * @type {string}\n         */\n        this.type = type;\n    }\n    /** @private */\n    static createFromObject(params) {\n        switch (params.type) {\n            case LineTemplateType.BUTTONS: {\n                return new TemplateButtons(params);\n            }\n            case LineTemplateType.CONFIRM: {\n                return new TemplateConfirm(params);\n            }\n            case LineTemplateType.CAROUSEL: {\n                return new TemplateCarousel(params);\n            }\n            default: {\n                return new TemplateComponent({ type: params.type });\n            }\n        }\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#buttons\n */\nexport class TemplateButtons extends TemplateComponent {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {string}                   type              Identifier for the type of template.\n     * @param  {string}  [thumbnailImageUrl] Image URL (JPEG or PNG / HTTPS / 1:1.51)\n     * @param  {string}  [title]             Title (Max: 40 chars)\n     * @param  {string}                   text              Message text (Max: 160 chars (no image, no title) / 60 chars)\n     * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 4)\n     */\n    constructor({ type, thumbnailImageUrl, title, text, actions }) {\n        super({ type });\n        /**\n         * Image URL (JPEG or PNG / HTTPS / 1:1.51)\n         * @type {string}\n         */\n        this.thumbnailImageUrl = thumbnailImageUrl;\n        /**\n         * Title (Max: 40 chars)\n         * @type {string}\n         */\n        this.title = title;\n        /**\n         * Message text (Max: 160 chars (no image, no title) / 60 chars)\n         * @type {string}\n         */\n        this.text = text;\n        /**\n         * Action when tapped (Max: 4)\n         * @type {TemplateAction[]}\n         */\n        this.actions = actions.map(action => TemplateAction.createFromObject(action));\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#confirm\n */\nexport class TemplateConfirm extends TemplateComponent {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {string}                   type              Identifier for the type of template.\n     * @param  {string}                   text              Message text (Max: 240 chars)\n     * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 2)\n     */\n    constructor({ type, text, actions }) {\n        super({ type });\n        /**\n         * Message text (Max: 240 chars)\n         * @type {string}\n         */\n        this.text = text;\n        /**\n         * Action when tapped (Max: 2)\n         * @type {TemplateAction[]}\n         */\n        this.actions = actions.map(action => TemplateAction.createFromObject(action));\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#carousel\n */\nexport class TemplateCarousel extends TemplateComponent {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {string}                   type              Identifier for the type of template.\n     * @param  {TemplateColumn[] | any[]} columns           Array of columns (Max: 5)\n     */\n    constructor({ type, columns }) {\n        super({ type });\n        /**\n         * Array of columns (Max: 5)\n         * @type {TemplateColumn[]}\n         */\n        this.columns = columns.map(column => TemplateColumn.createFromObject(column));\n    }\n}\n/**\n * @see https://devdocs.line.me/en/#column-object\n */\nexport class TemplateColumn {\n    /* eslint-enable no-undef */\n    /**\n     * @param  {string}  [thumbnailImageUrl] Image URL (JPEG or PNG / HTTPS / 1:1.51)\n     * @param  {string}  [title]             Title (Max: 40 chars)\n     * @param  {string}                   text              Message text (Max: 160 chars (no image, no title) / 60 chars)\n     * @param  {TemplateAction[] | any[]} actions           Action when tapped (Max: 3)\n     */\n    constructor({ thumbnailImageUrl, title, text, actions }) {\n        /**\n         * Image URL (JPEG or PNG / HTTPS / 1:1.51)\n         * @type {string}\n         */\n        this.thumbnailImageUrl = thumbnailImageUrl;\n        /**\n         * Title (Max: 40 chars)\n         * @type {string}\n         */\n        this.title = title;\n        /**\n         * Message text (Max: 160 chars (no image, no title) / 60 chars)\n         * @type {string}\n         */\n        this.text = text;\n        /**\n         * Action when tapped (Max: 3)\n         * @type {TemplateAction[]}\n         */\n        this.actions = actions.map(action => TemplateAction.createFromObject(action));\n    }\n    /** @private */\n    static createFromObject(params) {\n        return new TemplateColumn(params);\n    }\n}\n"
   },
   {
     "__docId__": 130,
@@ -4143,7 +4143,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateCarousel#constructor",
     "access": null,
     "description": "",
-    "lineNumber": 112,
+    "lineNumber": 111,
     "params": [
       {
         "nullable": null,
@@ -4158,23 +4158,13 @@
       {
         "nullable": null,
         "types": [
-          "string"
-        ],
-        "spread": false,
-        "optional": false,
-        "name": "text",
-        "description": "Message text (Max: 240 chars)"
-      },
-      {
-        "nullable": null,
-        "types": [
-          "TemplateAction[] ",
+          "TemplateColumn[] ",
           " any[]"
         ],
         "spread": false,
         "optional": false,
-        "name": "actions",
-        "description": "Action when tapped (Max: 2)"
+        "name": "columns",
+        "description": "Array of columns (Max: 5)"
       }
     ],
     "generator": false
@@ -4188,12 +4178,12 @@
     "memberof": "es2015/LineTemplates/index.js~TemplateCarousel",
     "longname": "es2015/LineTemplates/index.js~TemplateCarousel#columns",
     "access": null,
-    "description": "Action when tapped (Max: 2)",
-    "lineNumber": 118,
+    "description": "Array of columns (Max: 5)",
+    "lineNumber": 117,
     "type": {
       "nullable": null,
       "types": [
-        "TemplateAction[]"
+        "TemplateColumn[]"
       ],
       "spread": false,
       "description": null
@@ -4215,7 +4205,7 @@
     "see": [
       "https://devdocs.line.me/en/#column-object"
     ],
-    "lineNumber": 124,
+    "lineNumber": 123,
     "interface": false
   },
   {
@@ -4228,7 +4218,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateColumn#constructor",
     "access": null,
     "description": "",
-    "lineNumber": 132,
+    "lineNumber": 131,
     "params": [
       {
         "nullable": null,
@@ -4284,7 +4274,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateColumn#thumbnailImageUrl",
     "access": null,
     "description": "Image URL (JPEG or PNG / HTTPS / 1:1.51)",
-    "lineNumber": 137,
+    "lineNumber": 136,
     "type": {
       "nullable": null,
       "types": [
@@ -4304,7 +4294,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateColumn#title",
     "access": null,
     "description": "Title (Max: 40 chars)",
-    "lineNumber": 142,
+    "lineNumber": 141,
     "type": {
       "nullable": null,
       "types": [
@@ -4324,7 +4314,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateColumn#text",
     "access": null,
     "description": "Message text (Max: 160 chars (no image, no title) / 60 chars)",
-    "lineNumber": 147,
+    "lineNumber": 146,
     "type": {
       "nullable": null,
       "types": [
@@ -4344,7 +4334,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateColumn#actions",
     "access": null,
     "description": "Action when tapped (Max: 3)",
-    "lineNumber": 152,
+    "lineNumber": 151,
     "type": {
       "nullable": null,
       "types": [
@@ -4364,7 +4354,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateColumn.createFromObject",
     "access": "private",
     "description": null,
-    "lineNumber": 155,
+    "lineNumber": 154,
     "params": [
       {
         "name": "params",
