@@ -1,212 +1,212 @@
 window.esdocSearchIndex = [
   [
-    "@3846masa/linebot/lib/linemessages/index.js~audiomessage",
+    "@3846masa/linebot/lib/linemessages~audiomessage",
     "class/es2015/LineMessages/index.js~AudioMessage.html",
-    "<span>AudioMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages/index.js</span>",
+    "<span>AudioMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/lineevents/index.js~beaconevent",
+    "@3846masa/linebot/lib/lineevents~beaconevent",
     "class/es2015/LineEvents/index.js~BeaconEvent.html",
-    "<span>BeaconEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents/index.js</span>",
+    "<span>BeaconEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/lineevents/index.js~followevent",
+    "@3846masa/linebot/lib/lineevents~followevent",
     "class/es2015/LineEvents/index.js~FollowEvent.html",
-    "<span>FollowEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents/index.js</span>",
+    "<span>FollowEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/linesources/index.js~groupsource",
+    "@3846masa/linebot/lib/linesources~groupsource",
     "class/es2015/LineSources/index.js~GroupSource.html",
-    "<span>GroupSource</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineSources/index.js</span>",
+    "<span>GroupSource</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineSources</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/linemessages/index.js~imagemessage",
+    "@3846masa/linebot/lib/linemessages~imagemessage",
     "class/es2015/LineMessages/index.js~ImageMessage.html",
-    "<span>ImageMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages/index.js</span>",
+    "<span>ImageMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/lineactions/index.js~imagemapaction",
+    "@3846masa/linebot/lib/lineactions~imagemapaction",
     "class/es2015/LineActions/index.js~ImagemapAction.html",
-    "<span>ImagemapAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions/index.js</span>",
+    "<span>ImagemapAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/linemessages/index.js~imagemapmessage",
+    "@3846masa/linebot/lib/linemessages~imagemapmessage",
     "class/es2015/LineMessages/index.js~ImagemapMessage.html",
-    "<span>ImagemapMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages/index.js</span>",
+    "<span>ImagemapMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/lineactions/index.js~imagemapmessageaction",
+    "@3846masa/linebot/lib/lineactions~imagemapmessageaction",
     "class/es2015/LineActions/index.js~ImagemapMessageAction.html",
-    "<span>ImagemapMessageAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions/index.js</span>",
+    "<span>ImagemapMessageAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/lineactions/index.js~imagemapuriaction",
+    "@3846masa/linebot/lib/lineactions~imagemapuriaction",
     "class/es2015/LineActions/index.js~ImagemapURIAction.html",
-    "<span>ImagemapURIAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions/index.js</span>",
+    "<span>ImagemapURIAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/lineevents/index.js~joinevent",
+    "@3846masa/linebot/lib/lineevents~joinevent",
     "class/es2015/LineEvents/index.js~JoinEvent.html",
-    "<span>JoinEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents/index.js</span>",
+    "<span>JoinEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/lineevents/index.js~leaveevent",
+    "@3846masa/linebot/lib/lineevents~leaveevent",
     "class/es2015/LineEvents/index.js~LeaveEvent.html",
-    "<span>LeaveEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents/index.js</span>",
+    "<span>LeaveEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/linebot/index.js~linebot",
+    "@3846masa/linebot/lib/linebot~linebot",
     "class/es2015/LineBot/index.js~LineBot.html",
-    "<span>LineBot</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineBot/index.js</span>",
+    "<span>LineBot</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineBot</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/lineevents/index.js~lineevent",
+    "@3846masa/linebot/lib/lineevents~lineevent",
     "class/es2015/LineEvents/index.js~LineEvent.html",
-    "<span>LineEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents/index.js</span>",
+    "<span>LineEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/linemessages/index.js~linemessage",
+    "@3846masa/linebot/lib/linemessages~linemessage",
     "class/es2015/LineMessages/index.js~LineMessage.html",
-    "<span>LineMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages/index.js</span>",
+    "<span>LineMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/linesources/index.js~linesource",
+    "@3846masa/linebot/lib/linesources~linesource",
     "class/es2015/LineSources/index.js~LineSource.html",
-    "<span>LineSource</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineSources/index.js</span>",
+    "<span>LineSource</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineSources</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/linemessages/index.js~locationmessage",
+    "@3846masa/linebot/lib/linemessages~locationmessage",
     "class/es2015/LineMessages/index.js~LocationMessage.html",
-    "<span>LocationMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages/index.js</span>",
+    "<span>LocationMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/lineevents/index.js~messageevent",
+    "@3846masa/linebot/lib/lineevents~messageevent",
     "class/es2015/LineEvents/index.js~MessageEvent.html",
-    "<span>MessageEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents/index.js</span>",
+    "<span>MessageEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/lineevents/index.js~postbackevent",
+    "@3846masa/linebot/lib/lineevents~postbackevent",
     "class/es2015/LineEvents/index.js~PostbackEvent.html",
-    "<span>PostbackEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents/index.js</span>",
+    "<span>PostbackEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/lineevents/index.js~replyableevent",
+    "@3846masa/linebot/lib/lineevents~replyableevent",
     "class/es2015/LineEvents/index.js~ReplyableEvent.html",
-    "<span>ReplyableEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents/index.js</span>",
+    "<span>ReplyableEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/linesources/index.js~roomsource",
+    "@3846masa/linebot/lib/linesources~roomsource",
     "class/es2015/LineSources/index.js~RoomSource.html",
-    "<span>RoomSource</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineSources/index.js</span>",
+    "<span>RoomSource</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineSources</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/linemessages/index.js~stickermessage",
+    "@3846masa/linebot/lib/linemessages~stickermessage",
     "class/es2015/LineMessages/index.js~StickerMessage.html",
-    "<span>StickerMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages/index.js</span>",
+    "<span>StickerMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/lineactions/index.js~templateaction",
+    "@3846masa/linebot/lib/lineactions~templateaction",
     "class/es2015/LineActions/index.js~TemplateAction.html",
-    "<span>TemplateAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions/index.js</span>",
+    "<span>TemplateAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/linetemplates/index.js~templatebuttons",
+    "@3846masa/linebot/lib/linetemplates~templatebuttons",
     "class/es2015/LineTemplates/index.js~TemplateButtons.html",
-    "<span>TemplateButtons</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineTemplates/index.js</span>",
+    "<span>TemplateButtons</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineTemplates</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/linetemplates/index.js~templatecarousel",
+    "@3846masa/linebot/lib/linetemplates~templatecarousel",
     "class/es2015/LineTemplates/index.js~TemplateCarousel.html",
-    "<span>TemplateCarousel</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineTemplates/index.js</span>",
+    "<span>TemplateCarousel</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineTemplates</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/linetemplates/index.js~templatecolumn",
+    "@3846masa/linebot/lib/linetemplates~templatecolumn",
     "class/es2015/LineTemplates/index.js~TemplateColumn.html",
-    "<span>TemplateColumn</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineTemplates/index.js</span>",
+    "<span>TemplateColumn</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineTemplates</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/linetemplates/index.js~templatecomponent",
+    "@3846masa/linebot/lib/linetemplates~templatecomponent",
     "class/es2015/LineTemplates/index.js~TemplateComponent.html",
-    "<span>TemplateComponent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineTemplates/index.js</span>",
+    "<span>TemplateComponent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineTemplates</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/linetemplates/index.js~templateconfirm",
+    "@3846masa/linebot/lib/linetemplates~templateconfirm",
     "class/es2015/LineTemplates/index.js~TemplateConfirm.html",
-    "<span>TemplateConfirm</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineTemplates/index.js</span>",
+    "<span>TemplateConfirm</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineTemplates</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/linemessages/index.js~templatemessage",
+    "@3846masa/linebot/lib/linemessages~templatemessage",
     "class/es2015/LineMessages/index.js~TemplateMessage.html",
-    "<span>TemplateMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages/index.js</span>",
+    "<span>TemplateMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/lineactions/index.js~templatemessageaction",
+    "@3846masa/linebot/lib/lineactions~templatemessageaction",
     "class/es2015/LineActions/index.js~TemplateMessageAction.html",
-    "<span>TemplateMessageAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions/index.js</span>",
+    "<span>TemplateMessageAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/lineactions/index.js~templatepostbackaction",
+    "@3846masa/linebot/lib/lineactions~templatepostbackaction",
     "class/es2015/LineActions/index.js~TemplatePostbackAction.html",
-    "<span>TemplatePostbackAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions/index.js</span>",
+    "<span>TemplatePostbackAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/lineactions/index.js~templateuriaction",
+    "@3846masa/linebot/lib/lineactions~templateuriaction",
     "class/es2015/LineActions/index.js~TemplateURIAction.html",
-    "<span>TemplateURIAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions/index.js</span>",
+    "<span>TemplateURIAction</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineActions</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/linemessages/index.js~textmessage",
+    "@3846masa/linebot/lib/linemessages~textmessage",
     "class/es2015/LineMessages/index.js~TextMessage.html",
-    "<span>TextMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages/index.js</span>",
+    "<span>TextMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/lineevents/index.js~unfollowevent",
+    "@3846masa/linebot/lib/lineevents~unfollowevent",
     "class/es2015/LineEvents/index.js~UnfollowEvent.html",
-    "<span>UnfollowEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents/index.js</span>",
+    "<span>UnfollowEvent</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineEvents</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/linesources/index.js~usersource",
+    "@3846masa/linebot/lib/linesources~usersource",
     "class/es2015/LineSources/index.js~UserSource.html",
-    "<span>UserSource</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineSources/index.js</span>",
+    "<span>UserSource</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineSources</span>",
     "class"
   ],
   [
-    "@3846masa/linebot/lib/linemessages/index.js~videomessage",
+    "@3846masa/linebot/lib/linemessages~videomessage",
     "class/es2015/LineMessages/index.js~VideoMessage.html",
-    "<span>VideoMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages/index.js</span>",
+    "<span>VideoMessage</span> <span class=\"search-result-import-path\">@3846masa/linebot/lib/LineMessages</span>",
     "class"
   ],
   [

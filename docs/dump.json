@@ -85,7 +85,7 @@
     "longname": "es2015/LineActions/index.js~ImagemapAction",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineActions/index.js",
+    "importPath": "@3846masa/linebot/lib/LineActions",
     "importStyle": "{ImagemapAction}",
     "description": "Imagemap Action",
     "see": [
@@ -196,7 +196,7 @@
     "longname": "es2015/LineActions/index.js~ImagemapURIAction",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineActions/index.js",
+    "importPath": "@3846masa/linebot/lib/LineActions",
     "importStyle": "{ImagemapURIAction}",
     "description": "URI action",
     "see": [
@@ -283,7 +283,7 @@
     "longname": "es2015/LineActions/index.js~ImagemapMessageAction",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineActions/index.js",
+    "importPath": "@3846masa/linebot/lib/LineActions",
     "importStyle": "{ImagemapMessageAction}",
     "description": "Message action",
     "see": [
@@ -360,7 +360,7 @@
     "longname": "es2015/LineActions/index.js~TemplateAction",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineActions/index.js",
+    "importPath": "@3846masa/linebot/lib/LineActions",
     "importStyle": "{TemplateAction}",
     "description": "Template Action",
     "see": [
@@ -471,7 +471,7 @@
     "longname": "es2015/LineActions/index.js~TemplateURIAction",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineActions/index.js",
+    "importPath": "@3846masa/linebot/lib/LineActions",
     "importStyle": "{TemplateURIAction}",
     "description": "URI action",
     "see": [
@@ -548,7 +548,7 @@
     "longname": "es2015/LineActions/index.js~TemplateMessageAction",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineActions/index.js",
+    "importPath": "@3846masa/linebot/lib/LineActions",
     "importStyle": "{TemplateMessageAction}",
     "description": "Message action",
     "see": [
@@ -625,7 +625,7 @@
     "longname": "es2015/LineActions/index.js~TemplatePostbackAction",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineActions/index.js",
+    "importPath": "@3846masa/linebot/lib/LineActions",
     "importStyle": "{TemplatePostbackAction}",
     "description": "Postback action",
     "see": [
@@ -845,7 +845,7 @@
     "longname": "es2015/LineBot/index.js~LineBot",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineBot/index.js",
+    "importPath": "@3846masa/linebot/lib/LineBot",
     "importStyle": "{LineBot}",
     "description": "LINE Bot API wrapper.",
     "examples": [
@@ -1460,7 +1460,7 @@
     "longname": "es2015/LineEvents/index.js~LineEvent",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineEvents/index.js",
+    "importPath": "@3846masa/linebot/lib/LineEvents",
     "importStyle": "{LineEvent}",
     "description": "",
     "see": [
@@ -1598,7 +1598,7 @@
     "longname": "es2015/LineEvents/index.js~ReplyableEvent",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineEvents/index.js",
+    "importPath": "@3846masa/linebot/lib/LineEvents",
     "importStyle": "{ReplyableEvent}",
     "description": "Replyable event.",
     "lineNumber": 75,
@@ -1704,7 +1704,7 @@
     "longname": "es2015/LineEvents/index.js~MessageEvent",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineEvents/index.js",
+    "importPath": "@3846masa/linebot/lib/LineEvents",
     "importStyle": "{MessageEvent}",
     "description": "",
     "see": [
@@ -1777,7 +1777,7 @@
     "longname": "es2015/LineEvents/index.js~FollowEvent",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineEvents/index.js",
+    "importPath": "@3846masa/linebot/lib/LineEvents",
     "importStyle": "{FollowEvent}",
     "description": "",
     "see": [
@@ -1799,7 +1799,7 @@
     "longname": "es2015/LineEvents/index.js~UnfollowEvent",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineEvents/index.js",
+    "importPath": "@3846masa/linebot/lib/LineEvents",
     "importStyle": "{UnfollowEvent}",
     "description": "",
     "see": [
@@ -1821,7 +1821,7 @@
     "longname": "es2015/LineEvents/index.js~JoinEvent",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineEvents/index.js",
+    "importPath": "@3846masa/linebot/lib/LineEvents",
     "importStyle": "{JoinEvent}",
     "description": "",
     "see": [
@@ -1843,7 +1843,7 @@
     "longname": "es2015/LineEvents/index.js~LeaveEvent",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineEvents/index.js",
+    "importPath": "@3846masa/linebot/lib/LineEvents",
     "importStyle": "{LeaveEvent}",
     "description": "",
     "see": [
@@ -1865,7 +1865,7 @@
     "longname": "es2015/LineEvents/index.js~PostbackEvent",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineEvents/index.js",
+    "importPath": "@3846masa/linebot/lib/LineEvents",
     "importStyle": "{PostbackEvent}",
     "description": "",
     "see": [
@@ -1949,7 +1949,7 @@
     "longname": "es2015/LineEvents/index.js~BeaconEvent",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineEvents/index.js",
+    "importPath": "@3846masa/linebot/lib/LineEvents",
     "importStyle": "{BeaconEvent}",
     "description": "",
     "see": [
@@ -2096,7 +2096,7 @@
     "longname": "es2015/LineMessages/index.js~LineMessage",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineMessages/index.js",
+    "importPath": "@3846masa/linebot/lib/LineMessages",
     "importStyle": "{LineMessage}",
     "description": "Line Message",
     "see": [
@@ -2207,7 +2207,7 @@
     "longname": "es2015/LineMessages/index.js~TextMessage",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineMessages/index.js",
+    "importPath": "@3846masa/linebot/lib/LineMessages",
     "importStyle": "{TextMessage}",
     "description": "",
     "see": [
@@ -2310,7 +2310,7 @@
     "longname": "es2015/LineMessages/index.js~ImageMessage",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineMessages/index.js",
+    "importPath": "@3846masa/linebot/lib/LineMessages",
     "importStyle": "{ImageMessage}",
     "description": "",
     "see": [
@@ -2443,7 +2443,7 @@
     "longname": "es2015/LineMessages/index.js~VideoMessage",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineMessages/index.js",
+    "importPath": "@3846masa/linebot/lib/LineMessages",
     "importStyle": "{VideoMessage}",
     "description": "",
     "see": [
@@ -2576,7 +2576,7 @@
     "longname": "es2015/LineMessages/index.js~AudioMessage",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineMessages/index.js",
+    "importPath": "@3846masa/linebot/lib/LineMessages",
     "importStyle": "{AudioMessage}",
     "description": "",
     "see": [
@@ -2709,7 +2709,7 @@
     "longname": "es2015/LineMessages/index.js~LocationMessage",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineMessages/index.js",
+    "importPath": "@3846masa/linebot/lib/LineMessages",
     "importStyle": "{LocationMessage}",
     "description": "",
     "see": [
@@ -2902,7 +2902,7 @@
     "longname": "es2015/LineMessages/index.js~StickerMessage",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineMessages/index.js",
+    "importPath": "@3846masa/linebot/lib/LineMessages",
     "importStyle": "{StickerMessage}",
     "description": "",
     "see": [
@@ -3035,7 +3035,7 @@
     "longname": "es2015/LineMessages/index.js~ImagemapMessage",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineMessages/index.js",
+    "importPath": "@3846masa/linebot/lib/LineMessages",
     "importStyle": "{ImagemapMessage}",
     "description": "",
     "see": [
@@ -3229,7 +3229,7 @@
     "longname": "es2015/LineMessages/index.js~TemplateMessage",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineMessages/index.js",
+    "importPath": "@3846masa/linebot/lib/LineMessages",
     "importStyle": "{TemplateMessage}",
     "description": "",
     "see": [
@@ -3376,7 +3376,7 @@
     "longname": "es2015/LineSources/index.js~LineSource",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineSources/index.js",
+    "importPath": "@3846masa/linebot/lib/LineSources",
     "importStyle": "{LineSource}",
     "description": "Line Source",
     "see": [
@@ -3466,7 +3466,7 @@
     "longname": "es2015/LineSources/index.js~UserSource",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineSources/index.js",
+    "importPath": "@3846masa/linebot/lib/LineSources",
     "importStyle": "{UserSource}",
     "description": "",
     "see": [
@@ -3534,7 +3534,7 @@
     "longname": "es2015/LineSources/index.js~GroupSource",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineSources/index.js",
+    "importPath": "@3846masa/linebot/lib/LineSources",
     "importStyle": "{GroupSource}",
     "description": "",
     "see": [
@@ -3602,7 +3602,7 @@
     "longname": "es2015/LineSources/index.js~RoomSource",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineSources/index.js",
+    "importPath": "@3846masa/linebot/lib/LineSources",
     "importStyle": "{RoomSource}",
     "description": "",
     "see": [
@@ -3683,7 +3683,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateComponent",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineTemplates/index.js",
+    "importPath": "@3846masa/linebot/lib/LineTemplates",
     "importStyle": "{TemplateComponent}",
     "description": "",
     "see": [
@@ -3773,7 +3773,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateButtons",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineTemplates/index.js",
+    "importPath": "@3846masa/linebot/lib/LineTemplates",
     "importStyle": "{TemplateButtons}",
     "description": "",
     "see": [
@@ -3931,7 +3931,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateConfirm",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineTemplates/index.js",
+    "importPath": "@3846masa/linebot/lib/LineTemplates",
     "importStyle": "{TemplateConfirm}",
     "description": "",
     "see": [
@@ -4029,7 +4029,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateCarousel",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineTemplates/index.js",
+    "importPath": "@3846masa/linebot/lib/LineTemplates",
     "importStyle": "{TemplateCarousel}",
     "description": "",
     "see": [
@@ -4097,7 +4097,7 @@
     "longname": "es2015/LineTemplates/index.js~TemplateColumn",
     "access": null,
     "export": true,
-    "importPath": "@3846masa/linebot/lib/LineTemplates/index.js",
+    "importPath": "@3846masa/linebot/lib/LineTemplates",
     "importStyle": "{TemplateColumn}",
     "description": "",
     "see": [

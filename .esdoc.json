@@ -9,6 +9,9 @@
       "replaces": [{
         "from": "^es2015/",
         "to": "lib/"
+      }, {
+        "from": "/index.js$",
+        "to": ""
       }]
     }
   }]
