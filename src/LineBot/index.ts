@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import { createHmac, timingSafeEqual } from 'crypto';
+import { createHmac, createHash } from 'crypto';
 import { EventEmitter2 } from 'eventemitter2';
 import { Readable as ReadableStream } from 'stream';
 import axios, { AxiosInstance } from 'axios';
@@ -121,8 +121,13 @@ export class LineBot extends EventEmitter2 {
 
   /** @private */
   private _checkSignature({ signature, body }: { signature: string, body: any }) {
-    const hmac = createHmac('sha256', this.config.channelSecret).update(body);
-    return timingSafeEqual(hmac.digest(), Buffer.from(signature, 'base64'));
+    const hmac = createHmac('sha256', this.config.channelSecret)
+      .update(body).digest('base64');
+    const hmacHashed = createHash('sha1')
+      .update(hmac).digest();
+    const signatureHashed = createHash('sha1')
+      .update(signature).digest();
+    return hmacHashed.equals(signatureHashed);
   }
 
   /**
