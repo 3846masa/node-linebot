@@ -81,7 +81,7 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">es2015/LineBot/index.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { createHmac } from &apos;crypto&apos;;
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">import { createHmac, createHash } from &apos;crypto&apos;;
 import { EventEmitter2 } from &apos;eventemitter2&apos;;
 import axios from &apos;axios&apos;;
 import express from &apos;express&apos;;
@@ -184,10 +184,13 @@ export class LineBot extends EventEmitter2 {
     }
     /** @private */
     _checkSignature({ signature, body }) {
-        const hmac = createHmac(&apos;sha256&apos;, this.config.channelSecret);
-        hmac.update(body);
-        const calcResult = hmac.digest(&apos;base64&apos;);
-        return (calcResult === signature);
+        const hmac = createHmac(&apos;sha256&apos;, this.config.channelSecret)
+            .update(body).digest(&apos;base64&apos;);
+        const hmacHashed = createHash(&apos;sha1&apos;)
+            .update(hmac).digest();
+        const signatureHashed = createHash(&apos;sha1&apos;)
+            .update(signature).digest();
+        return hmacHashed.equals(signatureHashed);
     }
     /**
      * Send messages to users, groups, and rooms at any time.
