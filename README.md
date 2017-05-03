@@ -1,6 +1,8 @@
 @3846masa/linebot
 =================
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/3846masa/node-linebot.svg)](https://greenkeeper.io/)
+
 LINE BOT API wrapper for Node.js
 
 ------
